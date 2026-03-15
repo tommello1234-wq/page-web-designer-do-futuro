@@ -446,8 +446,8 @@ body {
   gap: var(--space-6);
   padding: var(--space-10) 0;
   margin-top: 220px;
-  will-change: transform, opacity;
-  position: static; /* Desabilitado para os bullets se ancorarem no hero-inner (full width) */
+  will-change: auto;
+  position: static;
 }
 
 .hero-badge {
@@ -528,43 +528,29 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-end !important;
-  gap: var(--space-6) !important;
-  max-width: 300px !important;
-  z-index: 100 !important;
-  margin-left: auto !important;
-  align-self: center !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
 }
 
 .hero-feature-item {
-  display: flex !important;
-  flex-direction: row-reverse !important;
-  align-items: center !important;
-  gap: var(--space-4) !important;
-  font-size: 13px !important;
-  color: var(--color-text-secondary) !important;
-  padding: 10px 16px !important;
-  background: rgba(255, 255, 255, 0.02) !important;
-  border-right: 2px solid var(--color-accent) !important;
-  backdrop-filter: blur(10px) !important;
-  transition: all 0.3s ease !important;
-}
-
-.hero-feature-item:hover {
-  background: rgba(255, 102, 0, 0.08) !important;
-  transform: translateX(5px) !important;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  transition: all 0.3s ease;
 }
 
 .hero-feature-item strong {
-  color: #fff !important;
-  font-weight: 600 !important;
+  color: #fff;
+  font-weight: 600;
 }
 
 .feature-icon {
-  font-size: 20px !important;
-  color: var(--color-accent) !important;
+  font-size: 20px;
+  color: var(--color-accent);
 }
 
 /* ════ COMPONENTES ════ */
@@ -3212,9 +3198,9 @@ body.elite-mode .power-section .border-beam {
     bottom: 0 !important; /* Colado na borda inferior como solicitado */
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 130% !important;
+    width: 150% !important;
     height: auto !important;
-    max-width: 130% !important;
+    max-width: 150% !important;
     max-height: none !important;
     object-fit: contain !important;
     object-position: bottom center !important;

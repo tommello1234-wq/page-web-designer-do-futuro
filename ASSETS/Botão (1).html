@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Financial - Button Secondary</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</head>
+
+<body class="bg-slate-950 flex items-center justify-center min-h-screen">
+
+    <!-- AURA SECONDARY BUTTON (Watch Demo) -->
+    <!-- Note: The animation for this button uses standard arbitrary values built into Tailwind JIT (animate-[spin...]) and doesn't require extra config config. -->
+    <button
+        class="relative inline-flex h-11 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+        <span
+            class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0f172a_0%,#34d399_50%,#0f172a_100%)]"></span>
+        <span
+            class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-8 py-1 text-sm font-medium text-slate-300 backdrop-blur-3xl transition-colors hover:text-white gap-2">
+            <iconify-icon icon="solar:play-circle-linear" width="18"></iconify-icon>
+            Ver Demo
+        </span>
+    </button>
+
+</body>
+
+</html>

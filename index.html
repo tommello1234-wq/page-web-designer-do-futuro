@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Se torne um Web Designer do Futuro</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+  <!-- Google Fonts for "Darker Grotesque" -->
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
+  <script src="scroll-animation.js" defer></script>
+  <script src="particles-config.js" defer></script>
+</head>
+
+<body>
+
+  <div class="nav-menu-wrapper" id="mobile-menu-overlay">
+    <ul class="nav-menu">
+      <li><a href="#inicio" class="nav-link">Ínicio</a></li>
+      <li><a href="#conteudo" class="nav-link">Conteúdo</a></li>
+      <li><a href="#preco" class="nav-link">Preço</a></li>
+      <li><a href="#bonus" class="nav-link">Bônus</a></li>
+    </ul>
+  </div>
+
+  <!-- Global Visual Effects -->
+  <div class="elite-beams" id="elite-beams">
+    <div class="beam beam-1"></div>
+    <div class="beam beam-2"></div>
+    <div class="beam beam-3"></div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="LOGO.svg" alt="Designer do Futuro" class="nav-logo-img">
+      </a>
+
+      <div class="nav-menu-wrapper desktop-nav">
+        <ul class="nav-menu">
+          <li><a href="#inicio" class="nav-link">Ínicio</a></li>
+          <li><a href="#conteudo" class="nav-link">Conteúdo</a></li>
+          <li><a href="#preco" class="nav-link">Preço</a></li>
+          <li><a href="#bonus" class="nav-link">Bônus</a></li>
+        </ul>
+      </div>
+
+      <button class="nav-toggle" aria-label="Abrir menu">
+        <iconify-icon icon="solar:hamburger-menu-linear" class="icon-open"></iconify-icon>
+        <iconify-icon icon="solar:close-circle-linear" class="icon-close"></iconify-icon>
+      </button>
+
+      <a href="#preco" class="nav-cta-aura">
+        <span class="aura-spin-bg"></span>
+        <span class="aura-inner">
+          Quero garantir minha vaga
+          <iconify-icon icon="solar:play-circle-linear" width="18"></iconify-icon>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- 1. HERO SECTION -->
+  <section class="hero" id="inicio">
+    <div class="background-glow"></div>
+    <div class="grid-overlay"></div>
+    <div id="tsparticles"></div>
+    <div class="hero-sticky-container">
+      <div class="hero-grid"></div>
+      <div class="hero-bg-glow"></div>
+
+      <!-- Vertical Beams for premium visual effect -->
+      <div class="beam-container beam-left">
+        <div class="beam animate-beam"></div>
+      </div>
+      <div class="beam-container beam-right">
+        <div class="beam animate-beam" style="animation-delay: 2.5s"></div>
+      </div>
+
+      <!-- Background Massive Title -->
+      <div class="hero-title-container animate-in parallax-header">
+        <span class="hero-title-small">Se torne um web designer do</span>
+        <h1 class="hero-title-big">FUTURO</h1>
+      </div>
+
+      <!-- Video Animation Overlay (mix-blend-mode screen drops black background) -->
+      <div class="hero-photo-wrapper animate-in animate-in-delay-1">
+        <canvas id="scroll-canvas" class="hero-photo" style="mix-blend-mode: screen;"></canvas>
+      </div>
+
+      <div class="container">
+        <div class="hero-inner">
+
+
+          <!-- Centered Content -->
+          <div class="hero-content animate-in animate-in-delay-2 parallax-body">
+
+            <div class="hero-badge">
+              <span class="pulse-dot"></span>
+              <span>PIONEIROS DA NOVA ERA</span>
+            </div>
+
+            <p class="hero-subtitle">
+              Pare de vender páginas estáticas genéricas e comece a vender Páginas High Ticket nível Apple.
+            </p>
+
+            <p class="hero-description">
+              Fuja da guerra de preços do mercado estático e domine a nova era: crie verdadeiras <em>experiências
+                imersivas</em> com Agentes de IA.
+            </p>
+
+            <div class="hero-actions">
+              <!-- Neon Matrix Button V3 -->
+              <a href="#checkout" style="text-decoration: none;" class="btn-main-v3-link">
+                <div class="btn-wrapper-v3">
+                  <!-- Spinning Gradient Border -->
+                  <div class="mask-layer-1">
+                    <div class="blur-layer"></div>
+                  </div>
+                  <div class="mask-layer-2">
+                    <div class="animated-border-v3"></div>
+                  </div>
+
+                  <!-- Glitch effect on hover -->
+                  <div class="glitch-overlay"></div>
+
+                  <!-- Button Inner Content -->
+                  <div class="btn-inner">
+                    <div class="btn-text">
+                      Sim, eu quero fazer parte
+                    </div>
+
+                    <svg class="btn-icon-v3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+
+
+          </div>
+
+          <ul class="hero-features">
+            <li class="hero-feature-item">
+              <iconify-icon icon="solar:star-fall-minimalistic-bold-duotone" class="feature-icon"></iconify-icon>
+              <span><strong>Design High Ticket</strong></span>
+            </li>
+            <li class="hero-feature-item">
+              <iconify-icon icon="solar:cpu-bolt-bold-duotone" class="feature-icon"></iconify-icon>
+              <span><strong>Agentes de IA</strong></span>
+            </li>
+            <li class="hero-feature-item">
+              <iconify-icon icon="solar:crown-minimalistic-bold-duotone" class="feature-icon"></iconify-icon>
+              <span><strong>Arsenal Pioneiro</strong></span>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PROBLEM-AGITATE SECTION -->
+  <section class="problem">
+    <div class="section-divider-beam"></div>
+    <div class="grid-container">
+      <!-- Sidebar Column -->
+      <div class="problem-sidebar">
+        <span class="grid-marker marker-top-left">+</span>
+        <span class="grid-marker marker-top-right">+</span>
+        <span class="grid-marker marker-bottom-left">+</span>
+        <span class="grid-marker marker-bottom-right">+</span>
+
+        <span class="label">/// 01 PROBLEMA</span>
+        <h2 class="headline animate-in">O problema brutal de ignorar os agentes de IA.</h2>
+        <p class="side-text animate-in animate-in-delay-1">
+          Se você continuar entregando o básico, suas habilidades e serviços vão evaporar ou se tornar tão baratos que
+          será quase de graça.
+        </p>
+        <div class="scroll-arrow animate-in animate-in-delay-3">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Main Content Column -->
+      <div class="problem-content">
+        <!-- Card 1 -->
+        <div class="problem-row border-beam-container animate-in animate-in-delay-1" style="position: relative;">
+          <div class="border-beam"></div>
+          <span class="grid-marker marker-top-right">+</span>
+          <span class="grid-marker marker-bottom-right">+</span>
+
+          <div class="row-meta">
+            <div class="row-icon">
+              <div class="icon-mask icon-dollar"></div>
+            </div>
+            <span class="row-idx">01</span>
+          </div>
+          <div class="row-body">
+            <h3 class="row-title">1. A Guerra de Migalhas</h3>
+            <p class="row-text">Você passa horas montando uma proposta de site só para o cliente responder que "com a IA
+              ele faz mais rápido e mais barato". O seu suor e criatividade não são valorizados porque o cliente
+              simplesmente não enxerga diferença no seu trabalho.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="problem-row border-beam-container animate-in animate-in-delay-2" style="position: relative;">
+          <div class="border-beam"></div>
+          <span class="grid-marker marker-bottom-right">+</span>
+          <div class="row-meta">
+            <div class="row-icon">
+              <div class="icon-mask icon-lock"></div>
+            </div>
+            <span class="row-idx">02</span>
+          </div>
+          <div class="row-body">
+            <h3 class="row-title">2. Reféns do Formato Comum</h3>
+            <p class="row-text">Todo mundo ao seu redor aperta os mesmos botões dos velhos construtores. Aquela página
+              WordPress fria e parecida com todas as outras já não impressiona o consumidor atual, que é cada vez mais
+              exigente — e as agências americanas já perceberam isso.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="problem-row border-beam-container animate-in animate-in-delay-3" style="position: relative;">
+          <div class="border-beam"></div>
+          <span class="grid-marker marker-bottom-right">+</span>
+          <div class="row-meta">
+            <div class="row-icon">
+              <div class="icon-mask icon-shield"></div>
+            </div>
+            <span class="row-idx">03</span>
+          </div>
+          <div class="row-body">
+            <h3 class="row-title">3. A Armadilha Silenciosa</h3>
+            <p class="row-text">Você continua tentando vender exatamente o que todos os outros profissionais entregam.
+              Ao oferecer o "mesmo de sempre", você se torna uma commodity facilmente substituível. Entra em um leilão
+              de preços onde a única forma de ganhar é cobrando menos e trabalhando muito mais.</p>
+          </div>
+        </div>
+
+        <!-- Integrated Footer -->
+        <div class="problem-footer-integrated border-t animate-in animate-in-delay-4">
+          <p class="problem-footer-highlight">Enquanto você briga pelo básico, o mercado de elite já mudou de jogo.</p>
+          <div class="problem-footer-warning">
+            <p><span class="text-danger">E sabe qual é a pior parte?</span> A Inteligência Artificial já faz sites
+              estáticos em 10 segundos. Se você continuar entregando o básico, suas habilidades, seu portfólio e seus
+              serviços vão evaporar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. A SOLUÇÃO & OPORTUNIDADE -->
+  <section class="solution" id="solution-section">
+    <div class="section-divider-beam"></div>
+    <div class="container overflow-hidden">
+      <div class="solution-split-layout">
+        <!-- Left Column: Headlines -->
+        <div class="solution-header-col">
+          <span class="solution-label">/// 02 SOLUÇÃO</span>
+          <h2 class="solution-headline-large animate-in">VOCÊ SERÁ UM DOS PIONEIROS!</h2>
+          <p class="solution-subheadline animate-in animate-in-delay-1">
+            Enquanto o mercado tradicional se afoga na mesmice e briga por centavos, uma nova elite está sendo formada
+            agora. O segredo? Deixar de ser um "apertador de botões" e se tornar um arquiteto de experiências imersivas.
+          </p>
+        </div>
+
+        <!-- Right Column: Bullets -->
+        <div class="solution-bullets-col">
+          <div class="bullet-list">
+            <div class="bullet-item animate-in animate-in-delay-1">
+              <iconify-icon icon="solar:check-circle-bold-duotone" class="bullet-icon"></iconify-icon>
+              <span>Dominar a tecnologia mais desejada do ano em tempo recorde.</span>
+            </div>
+            <div class="bullet-item animate-in animate-in-delay-2">
+              <iconify-icon icon="solar:check-circle-bold-duotone" class="bullet-icon"></iconify-icon>
+              <span>Criar sem limites criativos e sem precisar digitar código.</span>
+            </div>
+            <div class="bullet-item animate-in animate-in-delay-3">
+              <iconify-icon icon="solar:check-circle-bold-duotone" class="bullet-icon"></iconify-icon>
+              <span>Sair do leilão de preços e fechar projetos de R$ 3k a R$ 5k.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reasoning Box -->
+      <div class="reasoning-box border-beam-container animate-in animate-in-delay-4">
+        <div class="border-beam"></div>
+        <p>Sabe por que você vai vencer? <strong>Porque você será o único na sala</strong> capaz de entregar esse tipo
+          de projeto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.1 SEÇÃO INTERATIVA: GANHE UM SUPERPODER -->
+  <section class="power-section" id="power-section">
+    <div class="section-divider-beam"></div>
+    <div class="section-divider-beam vertical"></div>
+    <div class="container">
+      <div class="power-grid">
+        <!-- Text Column -->
+        <div class="power-text-col">
+          <h2 class="power-headline-refined animate-in">Ganhe um Superpoder</h2>
+          <p class="power-subheadline-refined animate-in animate-in-delay-1">
+            Aperte para sentir a diferença entre entregar <br>um site comum e uma experiência de elite absoluta.
+          </p>
+
+          <div class="luxury-switch-wrapper animate-in animate-in-delay-2">
+            <div class="power-status-group">
+              <div class="luxury-switch" id="elite-toggle">
+                <div class="luxury-switch-thumb"></div>
+              </div>
+              <span id="power-status-label" class="power-status-text">Status: Site Estático</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Media Column -->
+        <div class="power-media-col animate-in animate-in-delay-3">
+          <div class="media-container border-beam-container" id="power-media-container">
+            <div class="border-beam"></div>
+            <!-- Initial State: Image -->
+            <img src="ASSETS/antes-depois/antes.webp" alt="Antes" class="media-preview active" id="media-img">
+
+            <!-- Elite State: Vimeo Video (Hidden Initially) -->
+            <div class="video-wrapper" id="media-video">
+              <iframe
+                src="https://player.vimeo.com/video/1171393872?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                title="DEPOIS">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-divider-beam bottom-beam"></div>
+  </section>
+
+  <section class="showcase" id="showcase-section">
+    <div class="container">
+      <div class="showcase-header">
+        <span class="showcase-label">/// 03 SHOWCASE</span>
+        <h2 class="showcase-headline animate-in">Veja o nível dos projetos que você vai aprender a criar:</h2>
+        <p class="showcase-subheadline animate-in animate-in-delay-1">Estas são as experiências imersivas que você vai
+          aprender a criar. Páginas que não apenas informam, mas convertem através do deslumbramento.</p>
+      </div>
+    </div>
+
+    <div class="showcase-accordion" id="showcase-accordion">
+      <article class="showcase-item active border-beam-container reveal-hidden" onclick="setActiveShowcase(this)">
+        <div class="border-beam"></div>
+        <div class="video-container-vimeo">
+          <iframe
+            src="https://player.vimeo.com/video/1171824755?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="PÁGINA 01"></iframe>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-idx">01 // DESIGN</span>
+          <h3 class="showcase-item-title">Landing Page Apple Style</h3>
+          <p class="showcase-item-desc">Experiência imersiva com animações baseadas em scroll e performance extrema.</p>
+        </div>
+      </article>
+
+      <article class="showcase-item border-beam-container reveal-hidden" onclick="setActiveShowcase(this)">
+        <div class="border-beam"></div>
+        <div class="video-container-vimeo">
+          <iframe
+            src="https://player.vimeo.com/video/1173115961?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="PÁGINA 02"></iframe>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-idx">02 // MOTION</span>
+          <h3 class="showcase-item-title">Interface Futurista</h3>
+          <p class="showcase-item-desc">Uso de micro-interações e efeitos visuais avançados para garantir o WOW factor.
+          </p>
+        </div>
+      </article>
+
+      <article class="showcase-item border-beam-container reveal-hidden" onclick="setActiveShowcase(this)">
+        <div class="border-beam"></div>
+        <div class="video-container-vimeo">
+          <iframe
+            src="https://player.vimeo.com/video/1173115980?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="PÁGINA 03"></iframe>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-idx">03 // LUXURY</span>
+          <h3 class="showcase-item-title">Elegância e Autoridade</h3>
+          <p class="showcase-item-desc">Design limpo e tipografia impactante focada em conversão high-ticket.</p>
+        </div>
+      </article>
+
+      <article class="showcase-item border-beam-container reveal-hidden" onclick="setActiveShowcase(this)">
+        <div class="border-beam"></div>
+        <div class="video-container-vimeo">
+          <iframe
+            src="https://player.vimeo.com/video/1173115995?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1&amp;background=1"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="PÁGINA 04"></iframe>
+        </div>
+        <div class="showcase-info">
+          <span class="showcase-idx">04 // INNOVATION</span>
+          <h3 class="showcase-item-title">Arquitetura de Conversão</h3>
+          <p class="showcase-item-desc">Fusão entre arte e estratégia comercial para vender o invisível.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="modules" id="conteudo">
+    <div class="section-divider-beam"></div>
+    <div class="container">
+      <div class="modules-header">
+        <h2 class="modules-headline animate-in">DOMINE CADA ETAPA</h2>
+      </div>
+
+      <div class="banner-3d">
+        <div class="slider" style="--quantity: 6">
+          <div class="item" style="--position: 1"><img src="ASSETS/CAPAS/MODULOS/01_3_1x.webp" alt="Módulo 01"></div>
+          <div class="item" style="--position: 2"><img src="ASSETS/CAPAS/MODULOS/02_3_1x.webp" alt="Módulo 02"></div>
+          <div class="item" style="--position: 3"><img src="ASSETS/CAPAS/MODULOS/03_3_1x.webp" alt="Módulo 03"></div>
+          <div class="item" style="--position: 4"><img src="ASSETS/CAPAS/MODULOS/04_3_1x.webp" alt="Módulo 04"></div>
+          <div class="item" style="--position: 5"><img src="ASSETS/CAPAS/MODULOS/05_3_1x.webp" alt="Módulo 05"></div>
+          <div class="item" style="--position: 6"><img src="ASSETS/CAPAS/MODULOS/01_5.webp" alt="Módulo 06"></div>
+        </div>
+
+        <div class="center-photo">
+          <div class="photo-wrapper">
+            <img src="ASSETS/FOTO CENTRO.webp" alt="Sua Foto" id="userPhoto">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bonus" id="bonus">
+    <div class="container">
+      <div class="bonus-header">
+        <span class="bonus-label">/// 05 O PACOTE DE ACELERAÇÃO INJUSTA</span>
+        <h2 class="bonus-headline">Ferramentas secretas para você começar no topo.</h2>
+        <p class="bonus-subheadline">Ganhe acesso imediato ao meu arsenal pessoal de ferramentas e assets.</p>
+      </div>
+
+      <div class="bonus-grid">
+        <!-- Bônus 1 -->
+        <article class="bonus-card border-beam-container animate-in">
+          <div class="border-beam"></div>
+          <div class="bonus-video-wrapper">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe
+                src="https://player.vimeo.com/video/1171871778?title=0&byline=0&portrait=0&badge=0&autopause=0&background=1&loop=1&autoplay=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;" title="BIBLIOTECA DE ITENS"></iframe>
+            </div>
+          </div>
+          <span class="bonus-number">01</span>
+          <h3 class="bonus-title">BIBLIOTECA PREMIUM DE ASSETS</h3>
+          <p class="bonus-description">Componentes validados e de altíssima conversão prontos para plugar. Esqueça o
+            bloqueio criativo, puxe o template, adapte para a IA e o resultado sai em minutos.</p>
+          <div class="bonus-spacer"></div>
+          <span class="bonus-value">VALOR: <strong class="price-highlight"><del>R$ 997</del></strong></span>
+        </article>
+
+        <!-- Bônus 2 -->
+        <article class="bonus-card border-beam-container animate-in animate-in-delay-1">
+          <div class="border-beam"></div>
+          <div class="bonus-video-wrapper">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe
+                src="https://player.vimeo.com/video/1171864315?title=0&byline=0&portrait=0&badge=0&autopause=0&background=1&loop=1&autoplay=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;" title="UM MÊS GRÁTIS GRAVYX"></iframe>
+            </div>
+          </div>
+          <span class="bonus-number">02</span>
+          <h3 class="bonus-title">UM MÊS GRÁTIS DA FERRAMENTA GRAVYX</h3>
+          <p class="bonus-description">Tenha acesso à ferramenta exclusiva para criar backgrounds imersivos e de
+            altíssimo nível para seus projetos em segundos.</p>
+          <div class="bonus-spacer"></div>
+          <span class="bonus-value">VALOR: <strong class="price-highlight"><del>R$ 79</del></strong></span>
+        </article>
+
+        <!-- Bônus 3 -->
+        <article class="bonus-card border-beam-container animate-in animate-in-delay-2">
+          <div class="border-beam"></div>
+          <div class="bonus-video-wrapper">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe
+                src="https://player.vimeo.com/video/1171852228?title=0&byline=0&portrait=0&badge=0&autopause=0&background=1&loop=1&autoplay=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;" title="TEMPLATE DESIGN SYSTEM"></iframe>
+            </div>
+          </div>
+          <span class="bonus-number">03</span>
+          <h3 class="bonus-title">DESIGN SYSTEM: O MODELO MESTRE</h3>
+          <p class="bonus-description">Estruture qualquer projeto web com o rigor técnico dos grandes estúdios do
+            mercado. Padronize cores, tipografia e espaçamento em 4 minutos.</p>
+          <div class="bonus-spacer"></div>
+          <span class="bonus-value">VALOR: <strong class="price-highlight"><del>R$ 297</del></strong></span>
+        </article>
+
+        <!-- Bônus 4 -->
+        <article class="bonus-card border-beam-container animate-in animate-in-delay-3">
+          <div class="border-beam"></div>
+          <div class="bonus-video-wrapper">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe
+                src="https://player.vimeo.com/video/1171868882?title=0&byline=0&portrait=0&badge=0&autopause=0&background=1&loop=1&autoplay=1"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;" title="PRINCIPAIS SKILLS"></iframe>
+            </div>
+          </div>
+          <span class="bonus-number">04</span>
+          <h3 class="bonus-title">ACESSO ÀS MINHAS PRINCIPAIS SKILLS</h3>
+          <p class="bonus-description">Meus "comandos mágicos" treinados. É literalmente copiar minha inteligência
+            artificial particular para replicar meus melhores fluxos.</p>
+          <div class="bonus-spacer"></div>
+          <span class="bonus-value">VALOR: <strong class="price-highlight"><del>R$ 997</del></strong></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ SECTION 06: INVESTIMENTO (LUMINAL RIGOROUS) ════ -->
+  <section class="investment-luminal" id="preco">
+    <div class="investment-luminal-grid">
+      <!-- Left Info Column -->
+      <div class="investment-luminal-left">
+        <div class="investment-luminal-header">
+          <div class="promo-badge animate-in">
+            <span class="promo-dot"></span>
+            LOTE DE LANÇAMENTO // ATÉ 27/03
+          </div>
+          <span class="investment-luminal-label animate-in">/// 06 INVESTIMENTO</span>
+          <h2 class="investment-luminal-title animate-in">
+            O seu<br />
+            <span class="italic-text">investimento</span><br />
+            único.
+          </h2>
+
+          <div class="investment-luminal-desc animate-in animate-in-delay-1">
+            <p>O método completo e todos os bônus exclusivos. Esqueça a briga por centavos e comece a faturar alto com a
+              nova era do Web Design.</p>
+          </div>
+        </div>
+
+        <div class="investment-luminal-meta animate-in animate-in-delay-2">
+          <div class="meta-item">
+            <span class="meta-label">Moeda</span>
+            <span class="meta-value">BRL / USD</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Disponibilidade</span>
+            <span class="meta-value text-emerald">● Vagas Abertas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Pricing Details -->
+      <div class="investment-luminal-right">
+        <!-- Pricing Item 1 -->
+        <div class="investment-luminal-item animate-in">
+          <div class="section-divider-beam"></div>
+          <div class="item-content">
+            <div class="item-text">
+              <span class="item-label">Archive-01 // Core</span>
+              <h3 class="item-title">O Método Completo</h3>
+              <p class="item-desc">Acesso vitalício a todas as aulas, atualizações e comunidade exclusiva de alunos do
+                Web Designer do Futuro.</p>
+            </div>
+            <div class="item-price"><del>R$ 997</del></div>
+          </div>
+        </div>
+
+        <!-- Pricing Item 2: Bonus 1 -->
+        <div class="investment-luminal-item animate-in animate-in-delay-1">
+          <div class="section-divider-beam"></div>
+          <div class="item-content items-center">
+            <div class="item-text">
+              <span class="item-label">Archive-02 // Bônus Exclusivo</span>
+              <h3 class="item-title">Biblioteca Premium Assets</h3>
+            </div>
+            <div class="item-price"><del>R$ 297</del></div>
+          </div>
+        </div>
+
+        <!-- Pricing Item 3: Bonus 2 -->
+        <div class="investment-luminal-item animate-in animate-in-delay-1">
+          <div class="section-divider-beam"></div>
+          <div class="item-content items-center">
+            <div class="item-text">
+              <span class="item-label">Archive-03 // Ferramenta</span>
+              <h3 class="item-title">1 Mês Grátis Gravyx</h3>
+            </div>
+            <div class="item-price"><del>R$ 97</del></div>
+          </div>
+        </div>
+
+        <!-- Pricing Item 4: Bonus 3 -->
+        <div class="investment-luminal-item animate-in animate-in-delay-1">
+          <div class="section-divider-beam"></div>
+          <div class="item-content items-center">
+            <div class="item-text">
+              <span class="item-label">Archive-04 // Bônus Exclusivo</span>
+              <h3 class="item-title">Templates Design System</h3>
+            </div>
+            <div class="item-price"><del>R$ 497</del></div>
+          </div>
+        </div>
+
+        <!-- Pricing Item 5: Bonus 4 -->
+        <div class="investment-luminal-item animate-in animate-in-delay-1">
+          <div class="section-divider-beam"></div>
+          <div class="item-content items-center">
+            <div class="item-text">
+              <span class="item-label">Archive-05 // Aula Bônus</span>
+              <h3 class="item-title">Minhas Principais Skills</h3>
+            </div>
+            <div class="item-price"><del>R$ 297</del></div>
+          </div>
+        </div>
+
+        <!-- Final Offer Card -->
+        <div class="investment-luminal-offer animate-in animate-in-delay-2">
+          <div class="offer-bg"></div>
+          <div class="offer-content">
+            <div class="offer-text">
+              <h3 class="offer-title">Acesso <br />Imediato</h3>
+              <p class="offer-desc">De <del class="text-red">R$ 2.285</del> por apenas:</p>
+            </div>
+
+            <div class="offer-cta-area">
+              <div class="offer-price-display">
+                <span class="price-installments">12x de</span>
+                <div class="price-amount">
+                  <span class="currency">R$</span>
+                  <span class="value">49,90</span>
+                </div>
+                <p class="price-full">OU R$ 497,00 À VISTA</p>
+                <p class="price-notice">*Após 27/03 o valor retorna para R$ 997</p>
+              </div>
+
+              <div class="offer-btn-wrapper">
+                <a href="https://pay.hotmart.com/L93237191R?off=2x4aoh43&bid=1741131105994"
+                  style="text-decoration: none;" class="btn-main-v3-link">
+                  <div class="btn-wrapper-v3" style="width: 100%;">
+                    <div class="mask-layer-1">
+                      <div class="blur-layer"></div>
+                    </div>
+                    <div class="mask-layer-2">
+                      <div class="animated-border-v3"></div>
+                    </div>
+                    <div class="glitch-overlay"></div>
+                    <div class="btn-inner">
+                      <div class="btn-text">GARANTIR MEU ACESSO</div>
+                      <svg class="btn-icon-v3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2.5"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. QUEM VAI TE ENSINAR -->
+  <section class="author" id="author-section">
+    <div class="section-divider-beam"></div>
+    <div class="container">
+      <div class="author-grid">
+        <!-- Photo Column -->
+        <div class="author-photo-col animate-in">
+          <div class="author-photo-wrap">
+            <img src="ASSETS/FOTO PERFIL.webp" alt="Author Profile Photo" class="author-photo">
+          </div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="author-content-col">
+          <span class="author-label">/// 6.1 QUEM VAI TE ENSINAR</span>
+          <h2 class="author-headline animate-in">Quem vai te ensinar</h2>
+
+          <div class="author-quote animate-in animate-in-delay-1">
+            <p>"Eu percebi que o dinheiro segue tendências, e quem permanece vivo no jogo não é o mais talentoso, mas
+              sim o mais capaz de se adaptar."</p>
+          </div>
+
+          <div class="author-bio animate-in animate-in-delay-2">
+            <p>Há quase 6 anos dominando o mercado e com mais de R$ 500 mil faturados como Designer, eu aprendi que a
+              maior armadilha é se tornar um "apertador de botões" genérico. Minha missão é transformar você em um
+              arquiteto de experiências imersivas, capaz de cobrar o que o seu trabalho realmente vale.</p>
+          </div>
+
+          <div class="authority-pills animate-in animate-in-delay-3">
+            <div class="pill">
+              <iconify-icon icon="solar:check-circle-bold-duotone" class="pill-icon"></iconify-icon>
+              <span>+6 Anos no Mercado</span>
+            </div>
+            <div class="pill">
+              <iconify-icon icon="solar:check-circle-bold-duotone" class="pill-icon"></iconify-icon>
+              <span>+R$ 500k em Faturamento</span>
+            </div>
+            <div class="pill">
+              <iconify-icon icon="solar:check-circle-bold-duotone" class="pill-icon"></iconify-icon>
+              <span>Projetos Top-Tier Atendidos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SECONDARY CTA -->
+  <section class="secondary-cta" id="cta-final">
+    <div class="section-divider-beam"></div>
+    <div class="container container-narrow">
+      <div class="cta-content animate-in text-center">
+        <h2 class="cta-headline">A janela de oportunidade se abriu, mas não ficará aberta para sempre.</h2>
+        <p class="cta-subheadline">Você precisa agir agora, enquanto a <br>maior parte do mercado ainda está dormindo
+          para
+          essa nova onda.</p>
+
+        <div class="cta-action-wrap">
+          <a href="#checkout" style="text-decoration: none;" class="btn-main-v3-link">
+            <div class="btn-wrapper-v3">
+              <!-- Spinning Gradient Border -->
+              <div class="mask-layer-1">
+                <div class="blur-layer"></div>
+              </div>
+              <div class="mask-layer-2">
+                <div class="animated-border-v3"></div>
+              </div>
+
+              <!-- Glitch effect on hover -->
+              <div class="glitch-overlay"></div>
+
+              <!-- Button Inner Content -->
+              <div class="btn-inner">
+                <div class="btn-text">
+                  Sim, quero acessar o Método completo agora!
+                </div>
+
+                <svg class="btn-icon-v3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FOOTER -->
+  <footer class="footer">
+    <div class="section-divider-beam"></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="LOGO.svg" alt="Designer do Futuro" class="footer-logo">
+          <p class="footer-tagline">A nova era do design imersivo.</p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <h4 class="footer-title">Legal</h4>
+            <ul class="footer-links">
+              <li><a href="#">Termos de Uso</a></li>
+              <li><a href="#">Políticas de Privacidade</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h4 class="footer-title">Suporte</h4>
+            <ul class="footer-links">
+              <li><a href="#">Contato / Suporte VIP</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="disclaimer">
+          Aviso de Responsabilidade: Este produto não certifica ganho rápido sem esforço. A venda de serviços de alto
+          valor exigirá aplicação das técnicas de prospecção ensinadas. Diferentes pessoas obtêm diferentes resultados.
+          Os resultados dependem da dedicação e aplicação prática dos métodos apresentados.
+        </p>
+        <p class="copyright">© 2032 Web Designer do Futuro. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="ui-interactions.js"></script>
+  <script src="scroll-animation.js"></script>
+</body>
+
+</html>

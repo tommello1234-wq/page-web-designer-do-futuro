@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravyx - Botão Principal V3</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts for "Darker Grotesque" -->
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #030712;
+            /* Very dark gray/blue */
+            font-family: 'Darker Grotesque', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* === NEON MATRIX V3 ANIMATIONS === */
+        @keyframes borderTurn {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes borderTurnWithTranslate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes glitchHover {
+            0% {
+                clip-path: inset(0 0 0 0);
+            }
+
+            20% {
+                clip-path: inset(10% 0 80% 0);
+            }
+
+            40% {
+                clip-path: inset(40% 0 10% 0);
+            }
+
+            60% {
+                clip-path: inset(80% 0 5% 0);
+            }
+
+            80% {
+                clip-path: inset(15% 0 60% 0);
+            }
+
+            100% {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+
+        .btn-wrapper-v3 {
+            isolation: isolate;
+            overflow: hidden;
+            border-radius: 4px;
+            /* Sharp, high-tech corners */
+            position: relative;
+            width: fit-content;
+            margin: auto;
+            --animation-speed: 1.5s;
+            /* Faster spin for V3 */
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+            /* subtle emerald glow */
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: perspective(600px) rotateX(0deg);
+        }
+
+        .btn-wrapper-v3:hover {
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.6), 0 0 10px rgba(6, 182, 212, 0.4);
+            /* Intense emerald & cyan on hover */
+            transform: perspective(600px) scale(1.03);
+            border-radius: 6px;
+        }
+
+        .mask-layer-1,
+        .mask-layer-2 {
+            opacity: 1;
+        }
+
+        .mask-layer-1,
+        .animated-border-v3 {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            z-index: 1;
+        }
+
+        .mask-layer-1:before,
+        .animated-border-v3:before {
+            content: "";
+            float: left;
+            padding-top: 100%;
+        }
+
+        .mask-layer-1:after,
+        .animated-border-v3:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        .mask-layer-1 {
+            opacity: 0.8;
+            /* Higher opacity for sharper look */
+            pointer-events: none;
+            transition: 1s ease opacity;
+        }
+
+        .mask-layer-1 * {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        /* The Spinning Gradient Border - Emerald/Cyan colors */
+        .animated-border-v3,
+        .blur-layer,
+        .svg-container {
+            animation: borderTurn var(--animation-speed) infinite linear;
+            background-image: conic-gradient(from 0 at 50% 50%, #10b981 0deg, rgba(16, 185, 129, 0) 90deg, rgba(6, 182, 212, 0) 270deg, #06b6d4 360deg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .blur-layer {
+            filter: blur(12px);
+            opacity: 0.4;
+            /* Stronger blur glow */
+        }
+
+        .animated-border-v3 {
+            animation-name: borderTurnWithTranslate;
+        }
+
+        /* Masking out the center to leave only the border */
+        .mask-layer-2 {
+            border-radius: 4px;
+            /* Matches wrapper */
+            content: "";
+            height: 100%;
+            inset: 0;
+            left: 0;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            padding: 2px;
+            /* Thicker solid border for V3 */
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transition: border-radius 0.3s ease;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .btn-wrapper-v3:hover .mask-layer-2 {
+            border-radius: 6px;
+        }
+
+        /* Inner Button Container */
+        .btn-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 4px 28px 4px 4px;
+            background-color: #030712;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, #030712 50%, rgba(6, 182, 212, 0.1) 100%);
+            border-radius: 4px;
+            transition: border-radius 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-wrapper-v3:hover .btn-inner {
+            border-radius: 6px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, #030712 50%, rgba(6, 182, 212, 0.2) 100%);
+        }
+
+        /* The actual text/button area */
+        .btn-text {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 3px;
+            padding: 14px 26px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.0);
+        }
+
+        /* Scanline / Grid effect overlay */
+        .btn-text::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image:
+                linear-gradient(rgba(16, 185, 129, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.2) 1px, transparent 1px);
+            background-size: 4px 4px;
+            opacity: 0.3;
+            z-index: -1;
+            transform: rotate(15deg);
+            transition: opacity 0.3s ease, transform 1s ease;
+        }
+
+        .btn-wrapper-v3:hover .btn-text {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(6, 182, 212, 0.6);
+            box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.3);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(16, 185, 129, 0.8);
+            border-radius: 5px;
+        }
+
+        .btn-wrapper-v3:hover .btn-text::before {
+            opacity: 0.6;
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        /* Glitch Layer for Hover */
+        .glitch-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(16, 185, 129, 0.4);
+            z-index: 4;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .btn-wrapper-v3:hover .glitch-overlay {
+            animation: glitchHover 0.4s ease-in-out forwards;
+            opacity: 1;
+        }
+
+        /* Icon Styling */
+        .btn-icon {
+            display: inline-flex;
+            width: 20px;
+            height: 20px;
+            color: #10b981;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 3;
+        }
+
+        .btn-wrapper-v3:hover .btn-icon {
+            color: #06b6d4;
+            transform: rotate(45deg);
+            filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.8));
+        }
+
+        /* Grid background for the body just to showcase V3 better */
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at center, rgba(16, 185, 129, 0.05) 0%, transparent 70%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* === Responsive === */
+        @media(max-width:480px) {
+            .btn-inner {
+                padding: 4px 20px 4px 4px;
+                gap: 12px;
+            }
+
+            .btn-text {
+                font-size: 14px;
+                padding: 12px 20px;
+            }
+
+            .btn-icon {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Neon Matrix Button V3 -->
+    <a href="#" style="text-decoration: none;" class="block group">
+        <div class="btn-wrapper-v3">
+
+            <!-- Spinning Gradient Border -->
+            <div class="mask-layer-1">
+                <div class="blur-layer"></div>
+            </div>
+            <div class="mask-layer-2">
+                <div class="animated-border-v3"></div>
+            </div>
+
+            <!-- Glitch effect on hover -->
+            <div class="glitch-overlay"></div>
+
+            <!-- Button Inner Content -->
+            <div class="btn-inner">
+                <div class="btn-text">
+                    Acessar Sistema
+                </div>
+
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+    </a>
+
+</body>
+
+</html>

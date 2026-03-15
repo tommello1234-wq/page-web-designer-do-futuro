@@ -3231,7 +3231,7 @@ body.elite-mode .power-section .border-beam {
     max-width: 100% !important;
     width: 100% !important;
     padding: 0 20px !important;
-    gap: 16px !important; /* Mágica: todos os entremeios agora são matematicamente 16px */
+    gap: 10px !important;
   }
 
   .hero-badge {

@@ -3098,7 +3098,7 @@ body.elite-mode .power-section .border-beam {
 
   .hero {
     min-height: 120vh !important;
-    min-height: 130dvh !important;
+    min-height: 110dvh !important;
     overflow: visible !important;
     /* Permite que a imagem flutue sem cortes */
   }
@@ -3211,7 +3211,7 @@ body.elite-mode .power-section .border-beam {
     width: auto !important;
     height: auto !important;
     max-width: 180% !important; /* Permite que o personagem seja imponente */
-    max-height: 65dvh !important; /* Garante que não suba demais no texto */
+    max-height: 75dvh !important; /* Garante que não suba demais no texto */
     object-fit: contain !important;
     object-position: bottom center !important;
   }
@@ -3227,7 +3227,7 @@ body.elite-mode .power-section .border-beam {
     position: relative !important;
     z-index: 10 !important;
     height: auto !important;
-    min-height: 100vh !important;
+    min-height: auto !important;
   }
 
   .hero-content {
@@ -3281,16 +3281,19 @@ body.elite-mode .power-section .border-beam {
     transform: none !important;
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    flex-wrap: wrap !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 8px 12px !important;
     width: 100% !important;
     margin: 15px 0 25px 0 !important;
-    padding: 0 !important;
+    padding: 0 20px !important;
     opacity: 1 !important;
     visibility: visible !important;
     z-index: 100 !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    align-self: auto !important;
   }
 
   .hero-feature-item {
@@ -3303,6 +3306,7 @@ body.elite-mode .power-section .border-beam {
     background: transparent !important;
     border: none !important;
     gap: 5px !important;
+    font-size: 11px !important;
   }
 
 

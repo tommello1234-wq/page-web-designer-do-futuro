@@ -3157,6 +3157,10 @@ body.elite-mode .power-section .border-beam {
   }
 
   /* ─── Hero Section ─── */
+  .hero-sticky-container {
+    padding-top: 8px !important;
+  }
+
   .hero-title-container {
     position: absolute !important;
     top: 10% !important;
@@ -3231,7 +3235,7 @@ body.elite-mode .power-section .border-beam {
   }
 
   .hero-content {
-    margin-top: 120px !important; /* Reduzi a área laranja para o conteúdo ficar mais compacto */
+    margin-top: 0px !important; /* Reduzido para ~32px de gap entre FUTURO e a tag */
     position: relative !important;
     z-index: 10 !important;
     display: flex !important;

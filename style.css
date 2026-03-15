@@ -3199,9 +3199,9 @@ body.elite-mode .power-section .border-beam {
     bottom: 0 !important; /* Colado na borda inferior como solicitado */
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 150% !important;
+    width: 190% !important;
     height: auto !important;
-    max-width: 150% !important;
+    max-width: 190% !important;
     max-height: none !important;
     object-fit: contain !important;
     object-position: bottom center !important;

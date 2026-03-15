@@ -2,25 +2,10 @@
 
 @font-face {
   font-family: 'Neue Power Trial';
-  src: url('./ASSETS/fonts/NeuePower-Ultra.ttf') format('truetype');
-  font-weight: 900;
+  src: url('./ASSETS/NeuePowerTrial/NeuePowerTrial-Medium.ttf') format('truetype');
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
-}
-
-/* Afinar a Neue Power Ultra globalmente — ela é naturalmente ultra-bold */
-[class*="headline"],
-[class*="title"],
-.hero-title-big,
-.hero-title-small,
-.item-price,
-.price-amount .currency,
-.price-amount .value,
-.offer-title,
-.bonus-title,
-.nav-link {
-  -webkit-text-stroke: 0.3px rgba(0, 0, 0, 0.4);
-  font-weight: 400 !important;
 }
 
 /* Lenis smooth scroll recommended CSS */

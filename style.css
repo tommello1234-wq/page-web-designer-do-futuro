@@ -3149,7 +3149,7 @@ body.elite-mode .power-section .border-beam {
 
   .hero-title-container {
     position: absolute !important;
-    top: 10% !important;
+    top: 9% !important;
     width: 100% !important;
     left: 0 !important;
     padding: 0 24px !important;
@@ -3159,6 +3159,7 @@ body.elite-mode .power-section .border-beam {
     align-items: center !important;
     z-index: 5 !important;
     height: auto !important;
+    gap: 0 !important;
   }
 
   .hero-title-big {
@@ -3167,17 +3168,17 @@ body.elite-mode .power-section .border-beam {
     text-align: center !important;
     white-space: nowrap !important;
     letter-spacing: -0.02em !important;
-    line-height: 1.0 !important; /* Aumentado de 0.8 para evitar 'vácuo' negativo */
+    line-height: 0.85 !important;
     margin-bottom: 0 !important;
   }
 
   .hero-title-small {
-    font-size: clamp(14px, 4.2vw, 16px) !important;
-    letter-spacing: 0.1em !important;
-    margin-bottom: 4px !important;
+    font-size: clamp(12px, 3.8vw, 14px) !important;
+    letter-spacing: 0.15em !important;
+    margin-bottom: 0 !important;
     width: 100% !important;
     text-align: center !important;
-    opacity: 0.9;
+    opacity: 0.7;
   }
 
   .hero-photo-wrapper {
@@ -3221,7 +3222,7 @@ body.elite-mode .power-section .border-beam {
   }
 
   .hero-content {
-    margin-top: 0px !important; /* Reduzido para ~32px de gap entre FUTURO e a tag */
+    margin-top: -20px !important;
     position: relative !important;
     z-index: 10 !important;
     display: flex !important;
@@ -3230,27 +3231,32 @@ body.elite-mode .power-section .border-beam {
     text-align: center !important;
     max-width: 100% !important;
     width: 100% !important;
-    padding: 0 20px !important;
-    gap: 10px !important;
+    padding: 0 24px !important;
+    gap: 12px !important;
   }
 
   .hero-badge {
-    margin-bottom: 0 !important; /* Zerado para prevalecer o gap: 16px */
+    margin-bottom: 0 !important;
     display: inline-flex !important;
+    font-size: 10px !important;
+    padding: 5px 12px !important;
   }
 
   .hero-subtitle {
-    font-size: 16px !important;
-    line-height: 1.2 !important;
-    margin-bottom: 0 !important; /* Zerado */
-    max-width: 280px !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0 !important;
+    max-width: 300px !important;
+    color: #fff !important;
   }
 
   .hero-description {
     font-size: 13px !important;
-    max-width: 280px !important;
-    margin-bottom: 0 !important; /* Zerado */
-    line-height: 1.4 !important;
+    max-width: 300px !important;
+    margin-bottom: 0 !important;
+    line-height: 1.5 !important;
+    opacity: 0.7 !important;
   }
 
 
@@ -3260,13 +3266,21 @@ body.elite-mode .power-section .border-beam {
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
-    gap: 16px !important;
+    gap: 12px !important;
+  }
+
+  .hero-actions .btn-main-v3-link {
+    width: 100% !important;
+  }
+
+  .hero-actions .btn-wrapper-v3 {
+    width: 100% !important;
   }
 
   .hero-actions .btn-wrapper-v3 .btn-text {
     white-space: nowrap !important;
     font-size: 13px !important;
-    padding: 12px 18px !important;
+    padding: 14px 24px !important;
   }
 
   /* Hero Features Mobile Fix */
@@ -3277,13 +3291,13 @@ body.elite-mode .power-section .border-beam {
     transform: none !important;
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 8px 12px !important;
+    gap: 16px !important;
     width: 100% !important;
-    margin: 15px 0 25px 0 !important;
-    padding: 0 20px !important;
+    margin: 4px 0 !important;
+    padding: 0 !important;
     opacity: 1 !important;
     visibility: visible !important;
     z-index: 100 !important;
@@ -3296,13 +3310,17 @@ body.elite-mode .power-section .border-beam {
     flex: 0 0 auto !important;
     width: auto !important;
     display: flex !important;
-    flex-direction: row !important; /* Ícone na esquerda no mobile */
+    flex-direction: row !important;
     align-items: center !important;
     padding: 0 !important;
     background: transparent !important;
     border: none !important;
-    gap: 5px !important;
-    font-size: 11px !important;
+    gap: 4px !important;
+    font-size: 10px !important;
+  }
+
+  .hero-feature-item .feature-icon {
+    font-size: 14px !important;
   }
 
 

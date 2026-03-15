@@ -3245,17 +3245,17 @@ body.elite-mode .power-section .border-beam {
   .hero-subtitle {
     font-size: 17px !important;
     font-weight: 500 !important;
-    line-height: 1.25 !important;
+    line-height: 1.4 !important;
     margin-bottom: 0 !important;
-    max-width: 300px !important;
+    max-width: 100% !important;
     color: #fff !important;
   }
 
   .hero-description {
     font-size: 13px !important;
-    max-width: 300px !important;
+    max-width: 100% !important;
     margin-bottom: 0 !important;
-    line-height: 1.5 !important;
+    line-height: 1.6 !important;
     opacity: 0.7 !important;
   }
 

@@ -3174,7 +3174,7 @@ body.elite-mode .power-section .border-beam {
   .hero-title-small {
     font-size: clamp(14px, 4.2vw, 16px) !important;
     letter-spacing: 0.1em !important;
-    margin-bottom: 16px !important; /* Exatos 16px */
+    margin-bottom: 4px !important;
     width: 100% !important;
     text-align: center !important;
     opacity: 0.9;
@@ -3263,6 +3263,12 @@ body.elite-mode .power-section .border-beam {
     gap: 16px !important;
   }
 
+  .hero-actions .btn-wrapper-v3 .btn-text {
+    white-space: nowrap !important;
+    font-size: 13px !important;
+    padding: 12px 18px !important;
+  }
+
   /* Hero Features Mobile Fix */
   .hero-features {
     position: relative !important;
@@ -3305,6 +3311,10 @@ body.elite-mode .power-section .border-beam {
   .navbar {
     padding: 15px 0 !important;
     background: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .nav-logo-img {
+    height: 24px !important;
   }
 
   .nav-toggle {

@@ -3175,7 +3175,7 @@ body.elite-mode .power-section .border-beam {
   .hero-title-small {
     font-size: clamp(12px, 3.8vw, 14px) !important;
     letter-spacing: 0.15em !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 8px !important;
     width: 100% !important;
     text-align: center !important;
     opacity: 0.7;
@@ -3222,7 +3222,7 @@ body.elite-mode .power-section .border-beam {
   }
 
   .hero-content {
-    margin-top: -150px !important;
+    margin-top: -142px !important;
     position: relative !important;
     z-index: 10 !important;
     display: flex !important;

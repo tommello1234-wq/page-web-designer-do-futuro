@@ -3212,10 +3212,10 @@ body.elite-mode .power-section .border-beam {
     bottom: 0 !important; /* Colado na borda inferior como solicitado */
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: auto !important;
+    width: 130% !important;
     height: auto !important;
-    max-width: 180% !important; /* Permite que o personagem seja imponente */
-    max-height: 75dvh !important; /* Garante que não suba demais no texto */
+    max-width: 130% !important;
+    max-height: none !important;
     object-fit: contain !important;
     object-position: bottom center !important;
   }

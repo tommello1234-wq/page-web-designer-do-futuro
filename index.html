@@ -47,24 +47,17 @@
   </style>
 
   <link rel="stylesheet" href="style.min.css?v=1.7">
-  <!-- Only scroll-animation is critical for hero -->
+  <!-- Lenis + scroll-animation: critical for hero animation (must load in order) -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js" defer></script>
   <script src="scroll-animation.min.js?v=1.4" defer></script>
-  <!-- All other scripts: lazy load after first paint -->
+  <script src="ui-interactions.min.js?v=1.4" defer></script>
+  <!-- Non-critical: lazy load after first paint -->
   <script>
     (function(){
       function loadAfterPaint(){
-        // Lenis smooth scroll
-        var l = document.createElement('script');
-        l.src = 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js';
-        document.body.appendChild(l);
-        // Iconify icons
         var ic = document.createElement('script');
         ic.src = 'https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js';
         document.body.appendChild(ic);
-        // UI interactions
-        var ui = document.createElement('script');
-        ui.src = 'ui-interactions.min.js?v=1.4';
-        document.body.appendChild(ui);
       }
       function loadParticles(){
         var s = document.createElement('script');
@@ -76,7 +69,6 @@
         };
         document.body.appendChild(s);
       }
-      // Load non-critical scripts after first paint
       if(window.requestIdleCallback){
         requestIdleCallback(loadAfterPaint);
         requestIdleCallback(function(){ setTimeout(loadParticles, 2000); });

@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/wdf", "destination": "/index.html" },
+    { "source": "/wdf/(.*)", "destination": "/$1" }
+  ]
+}

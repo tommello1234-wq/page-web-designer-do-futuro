@@ -121,6 +121,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const startAnimation = () => {
         if (!isAnimating) {
             isAnimating = true;
+
+            // Transition: Hide placeholder once we start rendering
+            const placeholder = document.getElementById('hero-placeholder');
+            if (placeholder) {
+                placeholder.style.opacity = '0';
+                setTimeout(() => placeholder.remove(), 500);
+            }
+            canvas.classList.remove('loading-canvas');
+
             requestAnimationFrame(renderHero);
         }
     };

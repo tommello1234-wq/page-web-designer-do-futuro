@@ -58,9 +58,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2.5 Add playsinline to Vimeo iframes for iOS
-    document.querySelectorAll('.showcase-accordion iframe, .bonus-card iframe').forEach(iframe => {
-        iframe.setAttribute('playsinline', '');
+    // 2.5 LAZY LOAD VIMEO IFRAMES (facade pattern)
+    const iframeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target;
+                const src = iframe.dataset.src;
+                if (src && (!iframe.src || iframe.src === 'about:blank')) {
+                    iframe.src = src;
+                }
+                iframe.setAttribute('playsinline', '');
+                iframeObserver.unobserve(iframe);
+            }
+        });
+    }, { rootMargin: '300px' });
+
+    document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+        iframeObserver.observe(iframe);
     });
 
     // 3. REVEAL ON SCROLL

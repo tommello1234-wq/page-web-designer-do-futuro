@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
   <script src="scroll-animation.js" defer></script>
   <script src="particles-config.js" defer></script>
+  <script src="ui-interactions.js" defer></script>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
   <nav class="navbar">
     <div class="container nav-inner">
       <a href="#" class="nav-logo">
-        <img src="LOGO.svg" alt="Designer do Futuro" class="nav-logo-img">
+        <img src="LOGO.svg" alt="Designer do Futuro" class="nav-logo-img" fetchpriority="high">
       </a>
 
       <div class="nav-menu-wrapper desktop-nav">
@@ -335,7 +336,7 @@
           <div class="media-container border-beam-container" id="power-media-container">
             <div class="border-beam"></div>
             <!-- Initial State: Image -->
-            <img src="ASSETS/antes-depois/antes.webp" alt="Antes" class="media-preview active" id="media-img">
+            <img src="ASSETS/antes-depois/antes.webp" alt="Antes" class="media-preview active" id="media-img" loading="lazy">
 
             <!-- Elite State: Vimeo Video (Hidden Initially) -->
             <div class="video-wrapper" id="media-video">
@@ -423,17 +424,17 @@
 
       <div class="banner-3d">
         <div class="slider" style="--quantity: 6">
-          <div class="item" style="--position: 1"><img src="ASSETS/CAPAS/MODULOS/01_3_1x.webp" alt="Módulo 01"></div>
-          <div class="item" style="--position: 2"><img src="ASSETS/CAPAS/MODULOS/02_3_1x.webp" alt="Módulo 02"></div>
-          <div class="item" style="--position: 3"><img src="ASSETS/CAPAS/MODULOS/03_3_1x.webp" alt="Módulo 03"></div>
-          <div class="item" style="--position: 4"><img src="ASSETS/CAPAS/MODULOS/04_3_1x.webp" alt="Módulo 04"></div>
-          <div class="item" style="--position: 5"><img src="ASSETS/CAPAS/MODULOS/05_3_1x.webp" alt="Módulo 05"></div>
-          <div class="item" style="--position: 6"><img src="ASSETS/CAPAS/MODULOS/01_5.webp" alt="Módulo 06"></div>
+          <div class="item" style="--position: 1"><img src="ASSETS/CAPAS/MODULOS/01_3_1x.webp" alt="Módulo 01" loading="lazy"></div>
+          <div class="item" style="--position: 2"><img src="ASSETS/CAPAS/MODULOS/02_3_1x.webp" alt="Módulo 02" loading="lazy"></div>
+          <div class="item" style="--position: 3"><img src="ASSETS/CAPAS/MODULOS/03_3_1x.webp" alt="Módulo 03" loading="lazy"></div>
+          <div class="item" style="--position: 4"><img src="ASSETS/CAPAS/MODULOS/04_3_1x.webp" alt="Módulo 04" loading="lazy"></div>
+          <div class="item" style="--position: 5"><img src="ASSETS/CAPAS/MODULOS/05_3_1x.webp" alt="Módulo 05" loading="lazy"></div>
+          <div class="item" style="--position: 6"><img src="ASSETS/CAPAS/MODULOS/01_5.webp" alt="Módulo 06" loading="lazy"></div>
         </div>
 
         <div class="center-photo">
           <div class="photo-wrapper">
-            <img src="ASSETS/FOTO CENTRO.webp" alt="Sua Foto" id="userPhoto">
+            <img src="ASSETS/FOTO CENTRO.webp" alt="Sua Foto" id="userPhoto" loading="lazy">
           </div>
         </div>
       </div>
@@ -640,6 +641,7 @@
           <div class="offer-bg"></div>
           <div class="offer-content">
             <div class="offer-text">
+              <img src="LOGO.svg" alt="Designer do Futuro" class="offer-logo" loading="lazy" />
               <h3 class="offer-title">Acesso <br />Imediato</h3>
               <p class="offer-desc">De <del class="text-red">R$ 2.285</del> por apenas:</p>
             </div>
@@ -692,7 +694,7 @@
         <!-- Photo Column -->
         <div class="author-photo-col animate-in">
           <div class="author-photo-wrap">
-            <img src="ASSETS/FOTO PERFIL.webp" alt="Author Profile Photo" class="author-photo">
+            <img src="ASSETS/FOTO PERFIL.webp" alt="Author Profile Photo" class="author-photo" loading="lazy">
           </div>
         </div>
 
@@ -779,7 +781,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="LOGO.svg" alt="Designer do Futuro" class="footer-logo">
+          <img src="LOGO.svg" alt="Designer do Futuro" class="footer-logo" loading="lazy">
           <p class="footer-tagline">A nova era do design imersivo.</p>
         </div>
 
@@ -810,8 +812,6 @@
       </div>
     </div>
   </footer>
-  <script src="ui-interactions.js"></script>
-  <script src="scroll-animation.js"></script>
 </body>
 
 </html>

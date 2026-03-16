@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 loadedCount++;
                 if (loadedCount === frameCount) {
                     console.log("All frames loaded successfully.");
-                    renderHero(); // Start loop after loading
+                    startAnimation(); // Start loop after loading
                 }
             };
             img.onerror = () => {
@@ -51,16 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     // 4. MOTOR DE RENDERIZAÇÃO
     // ==========================================
+    let isAnimating = false;
+
     const renderHero = () => {
         // Linear Interpolation (Lerp)
-        currentDisplayFrame += (targetFrame - currentDisplayFrame) * lerpFactor;
+        const frameDiff = targetFrame - currentDisplayFrame;
+        currentDisplayFrame += frameDiff * lerpFactor;
         
         const index = Math.round(currentDisplayFrame);
         const imgIndex = Math.max(0, Math.min(index, frameCount - 1));
         const img = images[imgIndex];
 
         if (img && img.complete && img.naturalWidth !== 0) {
-            
             // Adjust canvas internal resolution to match layout size
             const rect = canvas.getBoundingClientRect();
             if (canvas.width !== rect.width || canvas.height !== rect.height) {
@@ -87,7 +89,19 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.drawImage(img, dx, dy, dw, dh);
         }
         
-        requestAnimationFrame(renderHero);
+        // Stop animation if we're close enough to target
+        if (Math.abs(frameDiff) > 0.01) {
+            requestAnimationFrame(renderHero);
+        } else {
+            isAnimating = false;
+        }
+    };
+
+    const startAnimation = () => {
+        if (!isAnimating) {
+            isAnimating = true;
+            requestAnimationFrame(renderHero);
+        }
     };
 
     // ==========================================
@@ -110,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const scrollFraction = Math.max(0, Math.min((scrollOffset / sectionHeight) * accelerationFactor, 1.0));
         
         targetFrame = (frameCount - 1) * scrollFraction;
+        startAnimation();
     };
 
     window.addEventListener('resize', () => {
@@ -164,4 +179,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initialize
     preloadImages();
     updateScrollProgress();
+    startAnimation(); 
 });

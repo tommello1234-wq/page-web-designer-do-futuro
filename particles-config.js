@@ -1,5 +1,7 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    await tsParticles.load("tsparticles", {
+document.addEventListener("DOMContentLoaded", () => {
+    const initParticles = async () => {
+        if (!window.tsParticles) return;
+        await tsParticles.load("tsparticles", {
         fullScreen: { enable: false },
         background: { color: { value: "transparent" } },
         fpsLimit: 120,
@@ -52,4 +54,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         },
         detectRetina: true
     });
+};
+
+    // Delay initialization to improve Total Blocking Time (TBT)
+    if (window.requestIdleCallback) {
+        requestIdleCallback(() => {
+            setTimeout(initParticles, 1500);
+        });
+    } else {
+        setTimeout(initParticles, 2000);
+    }
 });

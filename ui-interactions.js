@@ -82,16 +82,28 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
 
     // 4. 3D MODULE SLIDER ROTATION
+    const banner3d = document.querySelector('.banner-3d');
     const slider3d = document.querySelector('.banner-3d .slider');
-    const centerPhoto3d = document.querySelector('.banner-3d .center-photo');
 
-    if (slider3d) {
+    if (slider3d && banner3d) {
         let rotationY = 0;
         let velocity = 0.2;
         let targetVelocity = 0.2;
         const acceleration = 0.02;
+        let isSliderVisible = false;
+
+        const sliderObserver = new IntersectionObserver((entries) => {
+            isSliderVisible = entries[0].isIntersecting;
+        }, { threshold: 0.1 });
+
+        sliderObserver.observe(banner3d);
 
         function animate3dSlider() {
+            if (!isSliderVisible) {
+                requestAnimationFrame(animate3dSlider);
+                return;
+            }
+
             if (velocity < targetVelocity) {
                 velocity = Math.min(velocity + acceleration, targetVelocity);
             } else if (velocity > targetVelocity) {

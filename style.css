@@ -2168,7 +2168,7 @@ body.elite-mode .power-section .border-beam {
 
 .banner-3d {
   width: 100%;
-  height: 700px;
+  height: 900px;
   text-align: center;
   overflow: visible;
   position: relative;
@@ -2213,14 +2213,14 @@ body.elite-mode .power-section .border-beam {
 
 .center-photo {
   position: absolute;
-  top: 20%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
   width: 100%;
   height: auto;
-  max-width: 850px;
-  max-height: 850px;
+  max-width: 1100px;
+  max-height: 1100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2907,6 +2907,12 @@ body.elite-mode .power-section .border-beam {
   margin-bottom: 12px;
 }
 
+.offer-logo {
+  height: 32px;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
 .offer-title {
   font-family: var(--font-display);
   font-size: clamp(48px, 6vw, 72px);
@@ -3516,6 +3522,8 @@ body.elite-mode .power-section .border-beam {
 
   .investment-luminal-left {
     border-right: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     position: sticky !important;
     top: 70px !important; /* Logo abaixo da navbar fixa */
     z-index: 10 !important;
@@ -3534,6 +3542,7 @@ body.elite-mode .power-section .border-beam {
   .investment-luminal-meta {
     margin-top: 16px !important;
     padding-top: 16px !important;
+    margin-bottom: 24px !important;
   }
 
   /* ─── Sticky Stacking Cards (Mobile) ─── */
@@ -3550,7 +3559,7 @@ body.elite-mode .power-section .border-beam {
 
   .investment-luminal-item {
     position: sticky !important;
-    top: 560px !important; /* Abaixo do painel + margem para Moeda/Disponibilidade */
+    top: 500px !important; /* Abaixo do painel esquerdo (70 + 418 + 12) */
     background: var(--color-background) !important;
     box-shadow: 0 -10px 20px -5px rgba(0, 0, 0, 0.8) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
@@ -3576,6 +3585,8 @@ body.elite-mode .power-section .border-beam {
   /* ─── Restored Mobile Fixes ─── */
   .investment-luminal-offer {
     padding: 40px 20px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 
   .author-grid {

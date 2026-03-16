@@ -21,23 +21,44 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     const images = [];
     let loadedCount = 0;
+    let hasStartedFullPreload = false;
+
+    // Load only the very first frame immediately to show the hero
+    const loadFirstFrame = () => {
+        const img = new Image();
+        img.onload = () => {
+            images[0] = img;
+            startAnimation();
+            console.log("First frame loaded.");
+        };
+        img.src = framePath(0);
+        // Pre-fill array with nulls
+        for (let i = 0; i < frameCount; i++) images.push(null);
+    };
 
     const preloadImages = () => {
+        if (hasStartedFullPreload) return;
+        hasStartedFullPreload = true;
+        console.log("Starting full background preload...");
+
         for (let i = 0; i < frameCount; i++) {
+            if (images[i] !== null) {
+                loadedCount++;
+                continue;
+            }
             const img = new Image();
             img.onload = () => {
                 loadedCount++;
+                images[i] = img;
                 if (loadedCount === frameCount) {
                     console.log("All frames loaded successfully.");
-                    startAnimation(); // Start loop after loading
                 }
             };
             img.onerror = () => {
                 console.warn(`Failed to load frame: ${framePath(i)}`);
-                loadedCount++; // Still increment to avoid blocking if one fails
+                loadedCount++;
             };
             img.src = framePath(i);
-            images.push(img);
         }
     };
 
@@ -124,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const scrollFraction = Math.max(0, Math.min((scrollOffset / sectionHeight) * accelerationFactor, 1.0));
         
         targetFrame = (frameCount - 1) * scrollFraction;
+        preloadImages(); // Start full preload if scrolling starts before timeout
         startAnimation();
     };
 
@@ -177,7 +199,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Initialize
-    preloadImages();
+    loadFirstFrame();
     updateScrollProgress();
-    startAnimation(); 
+
+    // Delay the heavy preload to fix FCP
+    window.addEventListener('load', () => {
+        if (window.requestIdleCallback) {
+            requestIdleCallback(() => {
+                setTimeout(preloadImages, 1500);
+            });
+        } else {
+            setTimeout(preloadImages, 3000);
+        }
+    });
 });

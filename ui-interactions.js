@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 const iframe = entry.target;
                 const src = iframe.dataset.src;
-                if (src && (!iframe.src || iframe.src === 'about:blank')) {
+                if (src && !iframe.src.includes('vimeo')) {
                     iframe.src = src;
                 }
                 iframe.setAttribute('playsinline', '');

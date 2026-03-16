@@ -58,28 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2.5 LAZY LOAD VIMEO IFRAMES (performance mobile)
-    const lazyVideoObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const iframe = entry.target;
-                if (!iframe.src || iframe.src === 'about:blank') {
-                    iframe.src = iframe.dataset.src;
-                }
-                lazyVideoObserver.unobserve(iframe);
-            }
-        });
-    }, { rootMargin: '200px' });
-
-    // Convert showcase + bonus iframes to lazy load
+    // 2.5 Add playsinline to Vimeo iframes for iOS
     document.querySelectorAll('.showcase-accordion iframe, .bonus-card iframe').forEach(iframe => {
-        const src = iframe.getAttribute('src');
-        if (src && src.includes('vimeo')) {
-            iframe.dataset.src = src;
-            iframe.removeAttribute('src');
-            iframe.setAttribute('playsinline', '');
-            lazyVideoObserver.observe(iframe);
-        }
+        iframe.setAttribute('playsinline', '');
     });
 
     // 3. REVEAL ON SCROLL

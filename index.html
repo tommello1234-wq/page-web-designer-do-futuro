@@ -2,28 +2,23 @@
 <html lang="pt-BR">
 
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://code.iconify.design">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://player.vimeo.com">
-
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link rel="dns-prefetch" href="https://code.iconify.design">
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-
-  <!-- Preload Critical Assets -->
-  <link rel="preload" href="LOGO.svg" as="image">
-  <link rel="preload" href="./ASSETS/FRAMES/frame_0042.webp" as="image">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Se torne um Web Designer do Futuro</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Preconnect only to domains we actually need on first load -->
+  <link rel="preconnect" href="https://code.iconify.design">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://player.vimeo.com">
+
+  <!-- Preload critical fonts (self-hosted, no Google Fonts blocking request) -->
   <link rel="preload" href="ASSETS/NeuePowerTrial/NeuePowerTrial-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="LOGO.svg" as="image">
+  <link rel="preload" href="./ASSETS/FRAMES/frame_0042.webp" as="image">
+
+  <!-- Self-hosted Google Fonts (non-blocking) -->
+  <link rel="preload" href="ASSETS/fonts/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="ASSETS/fonts/fonts.css"></noscript>
   
   <style>
     :root {
@@ -51,18 +46,27 @@
     .loading-canvas { opacity: 0; }
   </style>
 
-  <link rel="stylesheet" href="style.min.css?v=1.6">
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js" defer></script>
+  <link rel="stylesheet" href="style.min.css?v=1.7">
+  <!-- Only scroll-animation is critical for hero -->
   <script src="scroll-animation.min.js?v=1.4" defer></script>
-  <script src="ui-interactions.min.js?v=1.4" defer></script>
-  <!-- tsparticles: lazy load após scroll ou 3s -->
+  <!-- All other scripts: lazy load after first paint -->
   <script>
     (function(){
-      var loaded = false;
+      function loadAfterPaint(){
+        // Lenis smooth scroll
+        var l = document.createElement('script');
+        l.src = 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js';
+        document.body.appendChild(l);
+        // Iconify icons
+        var ic = document.createElement('script');
+        ic.src = 'https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js';
+        document.body.appendChild(ic);
+        // UI interactions
+        var ui = document.createElement('script');
+        ui.src = 'ui-interactions.min.js?v=1.4';
+        document.body.appendChild(ui);
+      }
       function loadParticles(){
-        if(loaded) return;
-        loaded = true;
         var s = document.createElement('script');
         s.src = 'https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js';
         s.onload = function(){
@@ -72,8 +76,14 @@
         };
         document.body.appendChild(s);
       }
-      window.addEventListener('scroll', loadParticles, {once: true});
-      setTimeout(loadParticles, 3000);
+      // Load non-critical scripts after first paint
+      if(window.requestIdleCallback){
+        requestIdleCallback(loadAfterPaint);
+        requestIdleCallback(function(){ setTimeout(loadParticles, 2000); });
+      } else {
+        setTimeout(loadAfterPaint, 100);
+        setTimeout(loadParticles, 3000);
+      }
     })();
   </script>
 </head>

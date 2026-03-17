@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Switch to Video — lazy create iframe on first activation
                 if (mediaVideo && !mediaVideo.querySelector('iframe')) {
                     const iframe = document.createElement('iframe');
-                    iframe.src = 'https://www.youtube.com/embed/3y9NK0ZF9io?start=203&autoplay=1&mute=1&loop=1&playlist=3y9NK0ZF9io&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1';
+                    iframe.src = 'https://player.mediadelivery.net/embed/619092/457c918a-796d-4cfc-9e4a-fc607a1f8469?autoplay=true&loop=true&muted=true&preload=true&responsive=true';
                     iframe.frameBorder = '0';
-                    iframe.allow = 'autoplay; fullscreen; encrypted-media';
+                    iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;';
                     iframe.setAttribute('playsinline', '');
                     mediaVideo.appendChild(iframe);
                 }

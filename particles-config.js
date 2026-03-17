@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
     const initParticles = async () => {
         if (!window.tsParticles) return;
         await tsParticles.load("tsparticles", {
@@ -56,12 +55,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 };
 
-    // Delay initialization to improve Total Blocking Time (TBT)
-    if (window.requestIdleCallback) {
-        requestIdleCallback(() => {
-            setTimeout(initParticles, 1500);
-        });
-    } else {
-        setTimeout(initParticles, 2000);
-    }
-});
+    // Run immediately since this script is already lazy-loaded
+    initParticles();

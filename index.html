@@ -21,8 +21,10 @@
 
   <!-- Self-hosted Google Fonts (non-blocking) -->
   <link rel="preload" href="ASSETS/fonts/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="ASSETS/fonts/fonts.css"></noscript>
-  
+  <noscript>
+    <link rel="stylesheet" href="ASSETS/fonts/fonts.css">
+  </noscript>
+
   <style>
     :root {
       --color-background: #0A0A0A;
@@ -30,26 +32,164 @@
       --font-primary: 'Inter', -apple-system, sans-serif;
       --font-display: 'Neue Power Trial', sans-serif;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font-primary); background: var(--color-background); color: #E5E5E5; overflow-x: hidden; line-height: 1.6; }
-    .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 24px 0; background: transparent; }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1340px; margin: 0 auto; padding: 0 24px; }
-    .nav-logo-img { height: 34px; width: auto; display: block; }
-    .desktop-nav { position: absolute; left: 50%; transform: translateX(-50%); }
-    .nav-menu { display: flex; gap: 32px; list-style: none; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px 32px; border-radius: 9999px; backdrop-filter: blur(10px); }
-    .nav-link { font-size: 14px; font-weight: 500; color: #E5E5E5; text-decoration: none; }
-    .hero { position: relative; height: 100vh; background: #0A0A0A; overflow: hidden; }
-    .hero-sticky-container { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-start; padding-top: 120px; }
-    .hero-title-container { position: absolute; top: 14%; left: 0; width: 100%; text-align: center; z-index: 2; display: flex; flex-direction: column; align-items: center; }
-    .hero-title-small { font-family: var(--font-display); font-size: 18px; text-transform: uppercase; letter-spacing: 0.4em; color: #FFF; line-height: 1; }
-    .hero-title-big { font-family: var(--font-display); font-size: clamp(80px, 20vw, 275px); font-weight: 500; line-height: 0.99; background: radial-gradient(circle, #FF6F00 0%, #6100B7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero-photo-wrapper { width: 100%; height: 100%; position: relative; display: flex; justify-content: center; align-items: flex-end; }
-    .hero-photo, .hero-placeholder { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: screen; }
-    .hero-placeholder { position: absolute; top: 0; left: 0; z-index: 4; transition: opacity 0.5s ease; pointer-events: none; }
-    .loading-canvas { opacity: 0; }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--color-background);
+      color: #E5E5E5;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 24px 0;
+      background: transparent;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-logo-img {
+      height: 34px;
+      width: auto;
+      display: block;
+    }
+
+    .desktop-nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 32px;
+      border-radius: 9999px;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: #E5E5E5;
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: #0A0A0A;
+      overflow: hidden;
+    }
+
+    .hero-sticky-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 120px;
+    }
+
+    .hero-title-container {
+      position: absolute;
+      top: 14%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-title-small {
+      font-family: var(--font-display);
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: #FFF;
+      line-height: 1;
+    }
+
+    .hero-title-big {
+      font-family: var(--font-display);
+      font-size: clamp(80px, 20vw, 275px);
+      font-weight: 500;
+      line-height: 0.99;
+      background: radial-gradient(circle, #FF6F00 0%, #6100B7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .loading-canvas {
+      opacity: 0;
+    }
+
+    /* Mobile-specific internal overrides to prevent FOUC glitch */
+    @media (max-width: 768px) {
+      .hero {
+        height: 100dvh !important;
+        min-height: 100dvh !important;
+      }
+      .hero-sticky-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding-top: 80px !important;
+      }
+      .hero-title-container {
+        position: relative !important;
+        top: 0 !important;
+        margin-bottom: 20px !important;
+      }
+      .hero-photo-wrapper {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .hero-photo,
+      .hero-placeholder {
+        width: 160% !important;
+        height: auto !important;
+        position: absolute !important;
+        top: auto !important;
+        bottom: -2px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        object-position: bottom center !important;
+      }
+    }
   </style>
 
-  <link rel="stylesheet" href="style.min.css?v=1.7">
+  <link rel="stylesheet" href="style.css">
   <!-- Lenis + scroll-animation: critical for hero animation (must load in order) -->
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js" defer></script>
   <script src="scroll-animation.min.js?v=1.4" defer></script>
@@ -57,25 +197,25 @@
   <!-- Panda Video Player API loaded lazily by facade observer -->
   <!-- Non-critical: lazy load after first paint -->
   <script>
-    (function(){
-      function loadAfterPaint(){
+    (function () {
+      function loadAfterPaint() {
         var ic = document.createElement('script');
         ic.src = 'https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js';
         document.body.appendChild(ic);
       }
-      function loadParticles(){
+      function loadParticles() {
         var s = document.createElement('script');
         s.src = 'https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js';
-        s.onload = function(){
+        s.onload = function () {
           var p = document.createElement('script');
           p.src = 'particles-config.min.js?v=1.4';
           document.body.appendChild(p);
         };
         document.body.appendChild(s);
       }
-      if(window.requestIdleCallback){
+      if (window.requestIdleCallback) {
         requestIdleCallback(loadAfterPaint);
-        requestIdleCallback(function(){ setTimeout(loadParticles, 2000); });
+        requestIdleCallback(function () { setTimeout(loadParticles, 2000); });
       } else {
         setTimeout(loadAfterPaint, 100);
         setTimeout(loadParticles, 3000);
@@ -158,7 +298,8 @@
 
       <!-- Video Animation Overlay (mix-blend-mode screen drops black background) -->
       <div class="hero-photo-wrapper animate-in animate-in-delay-1">
-        <img src="./ASSETS/FRAMES/frame_0042.webp" id="hero-placeholder" class="hero-placeholder" alt="Hero Placeholder">
+        <img src="./ASSETS/FRAMES/frame_0042.webp" id="hero-placeholder" class="hero-placeholder"
+          alt="Hero Placeholder">
         <canvas id="scroll-canvas" class="hero-photo loading-canvas"></canvas>
       </div>
 
@@ -430,20 +571,20 @@
       <article class="showcase-item active border-beam-container reveal-hidden" onclick="setActiveShowcase(this)">
         <div class="border-beam"></div>
         <div class="video-container-vimeo">
-          <div class="panda-facade" data-panda-id="bcf14d72-3151-43be-a08f-89b910df6ff2"></div>
+          <div class="panda-facade" data-panda-id="6bab2a3f-df0b-4439-b37d-7a85733728f4"></div>
         </div>
         <div class="showcase-info">
-          <span class="showcase-idx">01 // DESIGN</span>
+          <span class="showcase-idx">01 // MOTION</span>
         </div>
       </article>
 
       <article class="showcase-item border-beam-container reveal-hidden" onclick="setActiveShowcase(this)">
         <div class="border-beam"></div>
         <div class="video-container-vimeo">
-          <div class="panda-facade" data-panda-id="6bab2a3f-df0b-4439-b37d-7a85733728f4"></div>
+          <div class="panda-facade" data-panda-id="bcf14d72-3151-43be-a08f-89b910df6ff2"></div>
         </div>
         <div class="showcase-info">
-          <span class="showcase-idx">02 // MOTION</span>
+          <span class="showcase-idx">02 // DESIGN</span>
         </div>
       </article>
 
@@ -548,7 +689,6 @@
             <span class="promo-dot"></span>
             LOTE DE LANÇAMENTO // ATÉ 27/03
           </div>
-          <span class="investment-luminal-label animate-in">/// 06 INVESTIMENTO</span>
           <h2 class="investment-luminal-title animate-in">
             Tenha acesso<br />
             <span class="italic-text">agora</span> ao método<br />
@@ -652,7 +792,7 @@
                 <span class="price-installments">12x de</span>
                 <div class="price-amount">
                   <span class="currency">R$</span>
-                  <span class="value">49,90</span>
+                  <span class="value">51,40</span>
                 </div>
                 <p class="price-full">OU R$ 497,00 À VISTA</p>
                 <p class="price-notice">*Após 27/03 o valor retorna para R$ 997</p>
@@ -694,7 +834,8 @@
         <!-- Photo Column -->
         <div class="author-photo-col animate-in">
           <div class="author-photo-wrap">
-            <img src="ASSETS/FOTO PERFIL.webp" alt="Author Profile Photo" class="author-photo" width="345" height="428" loading="lazy">
+            <img src="ASSETS/FOTO PERFIL.webp" alt="Author Profile Photo" class="author-photo" width="345" height="428"
+              loading="lazy">
           </div>
         </div>
 

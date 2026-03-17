@@ -71,11 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const facade = entry.target;
-                const id = facade.dataset.ytId;
+                const id = facade.dataset.bunnyId || '457c918a-796d-4cfc-9e4a-fc607a1f8469';
                 const iframe = document.createElement('iframe');
-                iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id + '&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1';
+                iframe.src = 'https://player.mediadelivery.net/embed/619092/' + id + '?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false&playButton=false&captions=false&showSpeed=false';
                 iframe.frameBorder = '0';
-                iframe.allow = 'autoplay; fullscreen; encrypted-media';
+                iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;';
                 iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
                 iframe.setAttribute('playsinline', '');
                 facade.innerHTML = '';

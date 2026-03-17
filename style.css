@@ -1914,6 +1914,19 @@ body.elite-mode .power-section .border-beam {
   height: 100%;
 }
 
+/* Panda Video Facade — placeholder until scroll triggers iframe */
+.panda-facade {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.panda-facade iframe {
+  pointer-events: none;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 991px) {
 

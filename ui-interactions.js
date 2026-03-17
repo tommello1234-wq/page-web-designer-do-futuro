@@ -81,28 +81,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2.5 VIDEO FACADE — auto-load Panda Video iframe on scroll into view
+    // 2.5 PANDA VIDEO FACADE — lazy-load iframe only when scrolled into view
+    let pandaScriptLoaded = false;
+    function loadPandaScript() {
+        if (pandaScriptLoaded) return;
+        pandaScriptLoaded = true;
+        const s = document.createElement('script');
+        s.src = 'https://player.pandavideo.com.br/api.v2.js';
+        s.async = true;
+        document.head.appendChild(s);
+    }
+
+    let pandaCounter = 0;
     const facadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const facade = entry.target;
                 const pandaId = facade.dataset.pandaId;
                 if (!pandaId) return;
+
+                // Load Panda script on first facade trigger
+                loadPandaScript();
+
+                // Create responsive wrapper + iframe
+                pandaCounter++;
+                const playerId = 'panda-' + pandaId + '-' + pandaCounter;
+                const wrapper = document.createElement('div');
+                wrapper.style.cssText = 'position:relative;padding-top:56.25%;';
                 const iframe = document.createElement('iframe');
+                iframe.id = playerId;
                 iframe.src = 'https://player-vz-94f8d548-9de.tv.pandavideo.com.br/embed/?v=' + pandaId + '&iosFakeFullscreen=true';
-                iframe.frameBorder = '0';
-                iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;';
-                iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
-                iframe.setAttribute('playsinline', '');
+                iframe.style.cssText = 'border:none;position:absolute;top:0;left:0;width:100%;height:100%;';
+                iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture';
+                iframe.setAttribute('allowfullscreen', 'true');
+                wrapper.appendChild(iframe);
                 facade.innerHTML = '';
-                facade.appendChild(iframe);
-                facade.style.cursor = 'default';
+                facade.appendChild(wrapper);
+
+                // Initialize PandaPlayer
+                window.pandascripttag = window.pandascripttag || [];
+                window.pandascripttag.push(function() {
+                    const p = new PandaPlayer(playerId, {
+                        onReady() { p.loadWindowScreen({ panda_id_player: playerId }); }
+                    });
+                });
+
                 facadeObserver.unobserve(facade);
             }
         });
     }, { rootMargin: '200px' });
 
-    document.querySelectorAll('.yt-facade').forEach(facade => {
+    document.querySelectorAll('.panda-facade').forEach(facade => {
         facadeObserver.observe(facade);
     });
 

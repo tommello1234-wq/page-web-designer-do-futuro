@@ -103,20 +103,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Load Panda script on first facade trigger
                 loadPandaScript();
 
-                // Create responsive wrapper + iframe
+                // Create iframe directly inside facade (facade already has padding-top: 56.25% + position: relative)
                 pandaCounter++;
                 const playerId = 'panda-' + pandaId + '-' + pandaCounter;
-                const wrapper = document.createElement('div');
-                wrapper.style.cssText = 'position:relative;padding-top:56.25%;';
                 const iframe = document.createElement('iframe');
                 iframe.id = playerId;
                 iframe.src = 'https://player-vz-94f8d548-9de.tv.pandavideo.com.br/embed/?v=' + pandaId + '&iosFakeFullscreen=true';
                 iframe.style.cssText = 'border:none;position:absolute;top:0;left:0;width:100%;height:100%;';
                 iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture';
                 iframe.setAttribute('allowfullscreen', 'true');
-                wrapper.appendChild(iframe);
-                facade.innerHTML = '';
-                facade.appendChild(wrapper);
+                facade.appendChild(iframe);
 
                 // Initialize PandaPlayer
                 window.pandascripttag = window.pandascripttag || [];

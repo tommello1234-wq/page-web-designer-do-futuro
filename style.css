@@ -3641,8 +3641,12 @@ body.elite-mode .power-section .border-beam {
   }
 
   .investment-luminal-title {
-    font-size: 19px !important;
+    font-size: 28px !important;
     margin-bottom: 16px !important;
+  }
+
+  .investment-luminal-title br {
+    display: none;
   }
 
   .investment-luminal-desc {

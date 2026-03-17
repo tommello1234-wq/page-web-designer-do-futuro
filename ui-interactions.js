@@ -58,17 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2.5 VIMEO FACADE — auto-load iframe on scroll into view
+    // 2.5 YOUTUBE FACADE — auto-load iframe on scroll into view
     const facadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const facade = entry.target;
-                const id = facade.dataset.vimeoId;
-                const params = facade.dataset.vimeoParams;
+                const id = facade.dataset.ytId;
                 const iframe = document.createElement('iframe');
-                iframe.src = 'https://player.vimeo.com/video/' + id + '?' + params;
+                iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id + '&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1';
                 iframe.frameBorder = '0';
-                iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media';
+                iframe.allow = 'autoplay; fullscreen; encrypted-media';
                 iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
                 iframe.setAttribute('playsinline', '');
                 facade.innerHTML = '';
@@ -80,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { rootMargin: '200px' });
 
-    document.querySelectorAll('.vimeo-facade').forEach(facade => {
+    document.querySelectorAll('.yt-facade').forEach(facade => {
         facadeObserver.observe(facade);
     });
 

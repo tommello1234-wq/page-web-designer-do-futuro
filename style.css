@@ -1846,7 +1846,7 @@ body.elite-mode .power-section .border-beam {
 }
 
 /* ════ VIMEO FACADE ════ */
-.vimeo-facade {
+.yt-facade {
   position: relative;
   width: 100%;
   height: 100%;
@@ -1855,7 +1855,7 @@ body.elite-mode .power-section .border-beam {
   background: #000;
 }
 
-.vimeo-facade img {
+.yt-facade img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1863,7 +1863,7 @@ body.elite-mode .power-section .border-beam {
   transition: opacity 0.3s ease;
 }
 
-.vimeo-facade:hover img {
+.yt-facade:hover img {
   opacity: 0.5;
 }
 
@@ -1882,25 +1882,25 @@ body.elite-mode .power-section .border-beam {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.vimeo-facade:hover .facade-play {
+.yt-facade:hover .facade-play {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.1);
 }
 
 /* Bonus video facade needs aspect ratio */
-.bonus-video-wrapper .vimeo-facade {
+.bonus-video-wrapper .yt-facade {
   padding-top: 56.25%;
   position: relative;
 }
 
-.bonus-video-wrapper .vimeo-facade img,
-.bonus-video-wrapper .vimeo-facade .facade-play {
+.bonus-video-wrapper .yt-facade img,
+.bonus-video-wrapper .yt-facade .facade-play {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.bonus-video-wrapper .vimeo-facade img {
+.bonus-video-wrapper .yt-facade img {
   width: 100%;
   height: 100%;
 }

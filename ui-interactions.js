@@ -58,6 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 2.5 VIMEO FACADE — click to load iframe
+    document.querySelectorAll('.vimeo-facade').forEach(facade => {
+        facade.addEventListener('click', function() {
+            const id = this.dataset.vimeoId;
+            const params = this.dataset.vimeoParams;
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://player.vimeo.com/video/' + id + '?' + params;
+            iframe.frameBorder = '0';
+            iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media';
+            iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
+            iframe.setAttribute('playsinline', '');
+            this.innerHTML = '';
+            this.style.padding = '0';
+            this.appendChild(iframe);
+            this.style.cursor = 'default';
+        }, { once: true });
+    });
+
     // 3. REVEAL ON SCROLL
     const observerOptions = {
         threshold: 0.1,

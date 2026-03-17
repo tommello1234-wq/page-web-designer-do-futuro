@@ -1845,6 +1845,66 @@ body.elite-mode .power-section .border-beam {
   pointer-events: none;
 }
 
+/* ════ VIMEO FACADE ════ */
+.vimeo-facade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  background: #000;
+}
+
+.vimeo-facade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.vimeo-facade:hover img {
+  opacity: 0.5;
+}
+
+.facade-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 68px;
+  height: 48px;
+  padding: 0;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.vimeo-facade:hover .facade-play {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Bonus video facade needs aspect ratio */
+.bonus-video-wrapper .vimeo-facade {
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.bonus-video-wrapper .vimeo-facade img,
+.bonus-video-wrapper .vimeo-facade .facade-play {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bonus-video-wrapper .vimeo-facade img {
+  width: 100%;
+  height: 100%;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 991px) {
 
@@ -2153,9 +2213,9 @@ body.elite-mode .power-section .border-beam {
 
 .modules-headline {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 10vw, 7.5rem); /* Reduzi o mínimo para mobile */
+  font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
-  letter-spacing: 0em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   background: radial-gradient(37.61% 100.79% at 50.23% -0.79%, #FF6F00 0%, #6100B7 100%);
   -webkit-background-clip: text;
@@ -2220,8 +2280,8 @@ body.elite-mode .power-section .border-beam {
   pointer-events: none;
   width: 100%;
   height: auto;
-  max-width: 1100px;
-  max-height: 1100px;
+  max-width: 1430px;
+  max-height: 1430px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2235,11 +2295,10 @@ body.elite-mode .power-section .border-beam {
   align-items: center;
 }
 
-.photo-wrapper img {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 85vh;
+.photo-wrapper img#userPhoto {
+  width: 434px !important; /* Aumentado em 30% de 334px */
+  height: auto !important;
+  max-width: none !important;
   object-fit: contain;
   filter: drop-shadow(0 0 50px rgba(97, 0, 183, 0.4));
 }
@@ -2260,8 +2319,8 @@ body.elite-mode .power-section .border-beam {
   }
 
   .center-photo {
-    width: 500px;
-    height: 500px;
+    width: 650px;
+    height: 650px;
   }
 }
 
@@ -2275,6 +2334,7 @@ body.elite-mode .power-section .border-beam {
     width: 140px;
     height: 221px; /* Ajustado para 1.58 ratio */
     left: calc(50% - 70px);
+    top: 30% !important;
   }
 
   .banner-3d .slider .item {
@@ -2282,8 +2342,12 @@ body.elite-mode .power-section .border-beam {
   }
 
   .center-photo {
-    width: 350px;
-    height: 350px;
+    width: 455px;
+    height: 455px;
+  }
+
+  #userPhoto {
+    width: 320px !important; /* Ajuste proporcional para mobile */
   }
 }
 
@@ -3399,6 +3463,14 @@ body.elite-mode .power-section .border-beam {
 
   .desktop-nav {
     display: none !important;
+  }
+
+  .modules-headline {
+    font-size: 24px !important;
+  }
+
+  .center-photo {
+    top: 40% !important;
   }
 
   /* ─── Business Sections Mobile Fix ─── */

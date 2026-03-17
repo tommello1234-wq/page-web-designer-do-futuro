@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Switch to Video — lazy create iframe on first activation
                 if (mediaVideo && !mediaVideo.querySelector('iframe')) {
                     const iframe = document.createElement('iframe');
-                    iframe.src = 'https://player.mediadelivery.net/embed/619092/457c918a-796d-4cfc-9e4a-fc607a1f8469?autoplay=true&loop=true&muted=true&preload=true&responsive=true';
+                    iframe.src = 'https://player.mediadelivery.net/embed/619092/457c918a-796d-4cfc-9e4a-fc607a1f8469?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false&playButton=false&captions=false&showSpeed=false';
                     iframe.frameBorder = '0';
                     iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;';
                     iframe.setAttribute('playsinline', '');

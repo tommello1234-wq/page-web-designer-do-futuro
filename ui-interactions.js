@@ -45,7 +45,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             if (isActive) {
-                // Switch to Video
+                // Switch to Video — lazy create iframe on first activation
+                if (mediaVideo && !mediaVideo.querySelector('iframe')) {
+                    const iframe = document.createElement('iframe');
+                    iframe.src = 'https://www.youtube.com/embed/3y9NK0ZF9io?start=203&autoplay=1&mute=1&loop=1&playlist=3y9NK0ZF9io&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1';
+                    iframe.frameBorder = '0';
+                    iframe.allow = 'autoplay; fullscreen; encrypted-media';
+                    iframe.style.cssText = 'width:100%;height:100%;position:absolute;top:0;left:0;';
+                    iframe.setAttribute('playsinline', '');
+                    mediaVideo.style.position = 'relative';
+                    mediaVideo.appendChild(iframe);
+                }
                 mediaImg.classList.remove('active');
                 mediaVideo.classList.add('active');
             } else {

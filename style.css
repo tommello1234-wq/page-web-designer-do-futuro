@@ -3641,7 +3641,7 @@ body.elite-mode .power-section .border-beam {
   }
 
   .investment-luminal-title {
-    font-size: 24px !important;
+    font-size: 28px !important;
     line-height: 1 !important;
     margin-bottom: 16px !important;
   }
@@ -3674,7 +3674,7 @@ body.elite-mode .power-section .border-beam {
 
   .investment-luminal-item {
     position: sticky !important;
-    top: 500px !important; /* Abaixo do painel esquerdo (70 + 418 + 12) */
+    top: 390px !important;
     background: var(--color-background) !important;
     box-shadow: 0 -10px 20px -5px rgba(0, 0, 0, 0.8) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.15) !important;

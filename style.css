@@ -2199,9 +2199,9 @@ body.elite-mode .power-section .border-beam {
 /* ════ 3D MODULE SLIDER ════ */
 .modules {
   padding: 80px 0 120px 0;
-  overflow: visible;
-  /* Alterado de hidden para não cortar o texto largo */
+  overflow: hidden;
   background: var(--color-background);
+  position: relative;
 }
 
 .modules-header {
@@ -2326,15 +2326,15 @@ body.elite-mode .power-section .border-beam {
 
 @media (max-width: 640px) {
   .banner-3d {
-    height: 550px;
+    height: 600px;
     perspective: 1500px;
   }
 
   .banner-3d .slider {
     width: 140px;
-    height: 221px; /* Ajustado para 1.58 ratio */
+    height: 221px;
     left: calc(50% - 70px);
-    top: 30% !important;
+    top: 25% !important;
   }
 
   .banner-3d .slider .item {
@@ -2342,21 +2342,23 @@ body.elite-mode .power-section .border-beam {
   }
 
   .center-photo {
-    width: 455px;
-    height: 455px;
+    width: 300px;
+    height: 300px;
+    top: 55% !important;
   }
 
   #userPhoto {
-    width: 320px !important; /* Ajuste proporcional para mobile */
+    width: 180px !important;
   }
 }
 
 /* ════ BÔNUS SECTION ════ */
 .bonus {
-  padding: 120px 0 80px 0;
+  padding: 80px 0 80px 0;
   background: var(--color-background);
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 
 .bonus .container {
@@ -3469,8 +3471,20 @@ body.elite-mode .power-section .border-beam {
     font-size: 24px !important;
   }
 
-  .center-photo {
-    top: 40% !important;
+  .modules {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .modules-header {
+    position: relative !important;
+    z-index: 5 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .banner-3d {
+    height: 500px !important;
+    margin-top: 0 !important;
   }
 
   /* ─── Business Sections Mobile Fix ─── */

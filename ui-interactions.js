@@ -71,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
                 iframe.setAttribute('playsinline', '');
                 facade.innerHTML = '';
-                facade.style.padding = '0';
                 facade.appendChild(iframe);
                 facade.style.cursor = 'default';
                 facadeObserver.unobserve(facade);

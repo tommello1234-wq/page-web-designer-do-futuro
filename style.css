@@ -3644,6 +3644,7 @@ body.elite-mode .power-section .border-beam {
     font-size: 28px !important;
     line-height: 1 !important;
     margin-bottom: 16px !important;
+    max-width: 80% !important;
   }
 
   .investment-luminal-title br {

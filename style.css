@@ -2249,6 +2249,7 @@ body.elite-mode .power-section .border-beam {
   .showcase-item.active .showcase-item-desc {
     display: -webkit-box !important;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     margin-top: 12px !important;
   }
@@ -4216,7 +4217,7 @@ body.elite-mode .power-section .border-beam {
 
 /* ════ GUARANTEE SECTION ════ */
 .guarantee {
-  padding: var(--section-padding-v) 0;
+  padding: 100px 0; /* Increased margin/padding */
   background: var(--color-background);
   position: relative;
   overflow: hidden;
@@ -4226,14 +4227,30 @@ body.elite-mode .power-section .border-beam {
 .guarantee-wrapper {
   display: flex;
   align-items: center;
-  gap: 60px;
-  max-width: 1000px;
+  gap: 80px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 60px;
-  background: rgba(255, 255, 255, 0.02);
+  padding: 80px;
+  background: rgba(255, 255, 255, 0.015);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 40px;
-  backdrop-filter: blur(10px);
+  border-radius: 48px;
+  backdrop-filter: blur(20px);
+  position: relative;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+}
+
+.guarantee-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 48px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), transparent 50%, rgba(97, 0, 183, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .guarantee-badge {
@@ -4253,15 +4270,32 @@ body.elite-mode .power-section .border-beam {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 2;
-  filter: drop-shadow(0 0 20px rgba(255, 102, 0, 0.4));
+  filter: drop-shadow(0 0 30px rgba(255, 102, 0, 0.4));
 }
 
 .badge-ring {
   position: absolute;
-  inset: -10px;
-  border: 1px dashed rgba(255, 102, 0, 0.3);
+  inset: -15px;
+  border: 1px dashed rgba(255, 102, 0, 0.2);
   border-radius: 50%;
-  animation: rotate-slow 20s linear infinite;
+  animation: rotate-slow 30s linear infinite;
+}
+
+/* Pricing Guarantee Badge */
+.price-guarantee-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 6px 12px;
+  background: rgba(255, 102, 0, 0.05);
+  border: 1px solid rgba(255, 102, 0, 0.1);
+  border-radius: 8px;
+  font-size: 11px;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 @keyframes rotate-slow {
@@ -4278,18 +4312,17 @@ body.elite-mode .power-section .border-beam {
   font-family: monospace;
   font-size: 11px;
   color: var(--color-text-subtle);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .guarantee-title {
   font-family: var(--font-display);
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: 56px;
   color: #fff;
-  line-height: 1.1;
+  line-height: 1.05;
   margin-bottom: 24px;
-  text-transform: uppercase;
 }
 
 .guarantee-text {

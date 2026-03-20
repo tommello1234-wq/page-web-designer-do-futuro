@@ -143,6 +143,7 @@
       line-height: 0.99;
       background: radial-gradient(circle, #FF6F00 0%, #6100B7 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -156,6 +157,7 @@
         height: 100dvh !important;
         min-height: 100dvh !important;
       }
+
       .hero-sticky-container {
         display: flex !important;
         flex-direction: column !important;
@@ -163,11 +165,13 @@
         justify-content: flex-start !important;
         padding-top: 80px !important;
       }
+
       .hero-title-container {
         position: relative !important;
         top: 0 !important;
         margin-bottom: 20px !important;
       }
+
       .hero-photo-wrapper {
         position: absolute !important;
         bottom: 0 !important;
@@ -175,6 +179,7 @@
         width: 100% !important;
         height: 100% !important;
       }
+
       .hero-photo,
       .hero-placeholder {
         width: 160% !important;
@@ -186,6 +191,39 @@
         transform: translateX(-50%) !important;
         object-position: bottom center !important;
       }
+    }
+
+    /* Vibe Particles (3) Integration */
+    .background-glow {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: radial-gradient(ellipse at top, rgba(255, 102, 0, 0.15) 0%, rgba(97, 0, 183, 0.05) 50%, rgba(10, 10, 10, 1) 100%);
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.2;
+      background-image: radial-gradient(#ffffff 1px, transparent 1px);
+      background-size: 40px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #tsparticles {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
     }
   </style>
 
@@ -208,7 +246,7 @@
         s.src = 'https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js';
         s.onload = function () {
           var p = document.createElement('script');
-          p.src = 'particles-config.min.js?v=1.4';
+          p.src = 'particles-config.js?v=2.0';
           document.body.appendChild(p);
         };
         document.body.appendChild(s);
@@ -279,8 +317,9 @@
     <div class="grid-overlay"></div>
     <div id="tsparticles"></div>
     <div class="hero-sticky-container">
-      <div class="hero-grid"></div>
-      <div class="hero-bg-glow"></div>
+      <!-- Redundant elements commented out to prioritize Vibe Particles effect -->
+      <!-- <div class="hero-grid"></div> -->
+      <!-- <div class="hero-bg-glow"></div> -->
 
       <!-- Vertical Beams for premium visual effect -->
       <div class="beam-container beam-left">
@@ -679,6 +718,8 @@
     </div>
   </section>
 
+
+
   <!-- ════ SECTION 06: INVESTIMENTO (LUMINAL RIGOROUS) ════ -->
   <section class="investment-luminal" id="preco">
     <div class="investment-luminal-grid">
@@ -792,14 +833,15 @@
                 <span class="price-installments">12x de</span>
                 <div class="price-amount">
                   <span class="currency">R$</span>
-                  <span class="value">51,40</span>
+                  <span class="value">41,42</span>
                 </div>
                 <p class="price-full">OU R$ 497,00 À VISTA</p>
                 <p class="price-notice">*Após 27/03 o valor retorna para R$ 997</p>
               </div>
 
               <div class="offer-btn-wrapper">
-                <a href="https://payment.ticto.app/O5F4574E0" style="text-decoration: none;" class="btn-main-v3-link">
+                <a href="https://app.upwardacademy.com.br/checkout/3069031d-d8a8-4252-84ae-e7dbb7c358a5"
+                  style="text-decoration: none;" class="btn-main-v3-link">
                   <div class="btn-wrapper-v3" style="width: 100%;">
                     <div class="mask-layer-1">
                       <div class="blur-layer"></div>
@@ -872,6 +914,33 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- 4.1 GARANTIA -->
+  <section class="guarantee" id="guarantee-section">
+    <div class="section-divider-beam"></div>
+    <div class="container">
+      <div class="guarantee-wrapper animate-in">
+        <div class="guarantee-badge">
+          <div class="badge-icon">
+            <iconify-icon icon="solar:shield-check-bold-duotone" width="80"></iconify-icon>
+          </div>
+          <div class="badge-ring"></div>
+        </div>
+
+        <div class="guarantee-content">
+          <span class="guarantee-label">/// RISCO ZERO</span>
+          <h2 class="guarantee-title">7 Dias de Garantia <br><span class="text-accent">Incondicional</span></h2>
+          <p class="guarantee-text">
+            Eu tiro todo o risco das suas costas. Você tem 7 dias para testar o método, acessar a comunidade e baixar os
+            assets. Se por qualquer motivo você achar que não é para você, basta um único e-mail e eu devolvo 100% do
+            seu
+            investimento. Sem perguntas, sem letras miúdas.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="section-divider-beam bottom-beam"></div>
   </section>
 
   <!-- 5. SECONDARY CTA -->

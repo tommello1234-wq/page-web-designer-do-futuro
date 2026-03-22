@@ -31,40 +31,86 @@ Hoje eu vou te entregar as chaves para criar experiências imersivas de nível A
 
 É oficial. O link do **Web Designer do Futuro** está liberado.
 
-➡️ [LINK DO CHECKOUT]
+➡️ https://lp.upwardacademy.com.br/wdf
 
 Acabou a era das páginas estáticas e genéricas. A partir de hoje, você deixa de ser um "apertador de botões" para se tornar um arquiteto de experiências imersivas.
 
 **O que você garante entrando agora:**
-✅ O Método Completo (Do zero ao High Ticket)
-✅ Bônus 1: Biblioteca Premium de Assets (R$ 997 de valor)
-✅ Bônus 2: 1 Mês Grátis da Ferramenta Gravyx
+✅ O Método Completo (Do zero à página High Ticket)
+✅ Bônus 1: Biblioteca Premium de Assets
+✅ Bônus 2: Gravyx: 1 Mês Grátis da Melhor Ferramenta pra gerar imagem e vídeos animados
 ✅ Bônus 3: Modelo Mestre de Design System
 ✅ Bônus 4: Meus "Comandos Mágicos" (Skills de IA treinadas)
 
 **Tudo isso por apenas:**
-🔥 **12x de R$ 51,00** ou **R$ 497,00 à vista.**
+🔥 **12x de R$ 51,40** ou **R$ 497,00 à vista.**
 
 A janela de oportunidade abriu, mas o preço de lançamento só vai até o dia 27/03.
 
 Te vejo lá dentro.
-➡️ [LINK DO CHECKOUT]
+➡️ https://lp.upwardacademy.com.br/wdf
 
 ---
 
-## 3. Escassez (Encerramento do Lote em 27/03)
+## 3. Pós-Lançamento (Enviar HOJE - 1.5h a 2h após abrir)
 
-**Faltam poucas horas para o preço subir... ⏳**
+**Uau! O suporte está fervendo. 🔥**
 
-Galera, papo reto.
+Passando para avisar que as vagas estão sendo preenchidas muito mais rápido do que imaginei. Uma nova elite de designers já está garantindo o seu lugar.
 
-O lote de lançamento do **Web Designer do Futuro** está chegando ao fim. No dia 27/03, o valor volta para o preço oficial.
+Se você ainda não entrou, o link é este:
+➡️ https://lp.upwardacademy.com.br/wdf
 
-Se você ainda está em cima do muro, pergunte-se: 
-*"Eu prefiro continuar no leilão de preços do WordPress genérico ou dominar a tecnologia que as grandes marcas estão sedentas para contratar agora?"*
+**Por que a pressa?**
+Os bônus de aceleração (Biblioteca de Assets e Gravyx) têm um limite técnico de suporte. Se você quer começar com o pé direito e as ferramentas certas, agora é a hora.
 
-A IA não vai te substituir, mas o designer que usa IA e cria experiências imersivas VAI.
+Não deixe para depois. O mercado não perdoa quem fica para trás.
+➡️ https://lp.upwardacademy.com.br/wdf
 
-Garanta sua vaga no valor promocional e leve todos os bônus de aceleração enquanto ainda dá tempo.
+---
 
-➡️ [LINK DO CHECKOUT]
+## 4. Matador de Objeções (Enviar em 2 ou 3 dias)
+
+**"Tom, eu realmente consigo cobrar R$ 5k sem saber programar?" 🤔**
+
+Essa é a dúvida que mais recebo. E a resposta é: **Sim, e é exatamente por isso que o Web Designer do Futuro existe.**
+
+O mercado saturado de "sites de R$ 500" briga por preço. A elite briga por **experiência e exclusividade**. 
+
+Eu vou te ensinar a usar a IA para fazer o trabalho pesado e o design estratégico para gerar desejo. O cliente não paga pelo seu "código", ele paga pelo **resultado e pelo impacto visual** que só uma página de alto nível entrega.
+
+Garanta sua vaga enquanto o valor promocional ainda está ativo:
+➡️ https://lp.upwardacademy.com.br/wdf
+
+---
+
+## 5. Faltam 48 Horas (Enviar em 25/03)
+
+**Contagem regressiva: 48 horas. ⏳**
+
+A janela de oportunidade para entrar no **Web Designer do Futuro** pelo valor de **R$ 497** está se fechando.
+
+Depois de amanhã, o valor sobe para R$ 997 e os bônus exclusivos de lançamento serão retirados.
+
+Se você quer dominar as ferramentas que estão definindo o futuro do design web, o momento é esse.
+
+➡️ https://lp.upwardacademy.com.br/wdf
+
+---
+
+## 6. Escassez Final (Enviar em 27/03 - Último Dia)
+
+**ÚLTIMA CHAMADA. 🚨**
+
+Hoje, às 23:59, as portas se fecham (ou o preço sobe para R$ 997). 
+
+Esta é a sua última chance de garantir:
+✅ O Método High Ticket
+✅ Biblioteca Premium de Assets
+✅ 1 Mês de Gravyx Grátis
+✅ Tudo por **12x de R$ 51,40** ou **R$ 497 à vista.**
+
+Amanhã, quem entrou já estará um passo à frente. Quem ficou de fora, continuará vendo a IA como uma ameaça em vez de um superpoder.
+
+Escolha o seu lado.
+➡️ https://lp.upwardacademy.com.br/wdf

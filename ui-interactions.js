@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Switch to Video — lazy create Panda Video iframe on first activation
                 if (mediaVideo && !mediaVideo.querySelector('iframe')) {
                     const iframe = document.createElement('iframe');
-                    iframe.src = 'https://player-vz-94f8d548-9de.tv.pandavideo.com.br/embed/?v=6bab2a3f-df0b-4439-b37d-7a85733728f4&iosFakeFullscreen=true';
-                    iframe.id = 'panda-6bab2a3f-df0b-4439-b37d-7a85733728f4';
+                    iframe.src = 'https://player-vz-94f8d548-9de.tv.pandavideo.com.br/embed/?v=ec063a92-dceb-45b3-80db-b84fdd53d821&iosFakeFullscreen=true';
+                    iframe.id = 'panda-ec063a92-dceb-45b3-80db-b84fdd53d821';
                     iframe.style.cssText = 'border:none;width:100%;height:100%;';
                     iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture';
                     iframe.setAttribute('allowfullscreen', 'true');
@@ -62,10 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         s.async = true;
                         document.head.appendChild(s);
                     }
-                    window.pandascripttag = window.pandascripttag || [];
                     window.pandascripttag.push(function() {
-                        const p = new PandaPlayer('panda-6bab2a3f-df0b-4439-b37d-7a85733728f4', {
-                            onReady() { p.loadWindowScreen({ panda_id_player: 'panda-6bab2a3f-df0b-4439-b37d-7a85733728f4' }); }
+                        const p = new PandaPlayer('panda-ec063a92-dceb-45b3-80db-b84fdd53d821', {
+                            onReady() { p.loadWindowScreen({ panda_id_player: 'panda-ec063a92-dceb-45b3-80db-b84fdd53d821' }); }
                         });
                     });
                 }

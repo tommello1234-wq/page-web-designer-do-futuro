@@ -262,9 +262,130 @@
       height: 100%;
       z-index: 1;
     }
+
+    /* ════ FAQ SECTION (INLINED TO PREVENT CACHE ERRORS) ════ */
+    #faq .faq-item {
+      position: relative;
+      background: rgba(255, 255, 255, 0.02) !important;
+      border: 1px solid transparent !important;
+      border-radius: 12px;
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      isolation: isolate;
+      margin-bottom: 12px;
+    }
+
+    #faq .faq-item:hover {
+      background: rgba(255, 255, 255, 0.04) !important;
+      transform: translateY(-2px);
+    }
+
+    #faq .faq-item.active {
+      background: rgba(255, 255, 255, 0.03) !important;
+      box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.6);
+      transform: scale(1.02);
+    }
+
+    #faq .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 40px;
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer;
+      text-align: left;
+      outline: none !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      color: #ffffff !important;
+      position: relative;
+      z-index: 5;
+    }
+
+    #faq .question-text {
+      font-size: 20px;
+      font-weight: 500;
+      color: #ffffff !important;
+      padding-right: 24px;
+      transition: color 0.3s ease;
+    }
+
+    #faq .faq-item.active .question-text {
+      color: #FF6600 !important;
+    }
+
+    #faq .faq-icon {
+      font-size: 24px;
+      color: #A3A3A3;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #faq .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+      color: #FF6600 !important;
+    }
+
+    #faq .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      position: relative;
+      z-index: 5;
+    }
+
+    #faq .answer-inner {
+      padding: 0 40px 32px 40px;
+    }
+
+    #faq .answer-inner p {
+      font-size: 16px;
+      color: #A3A3A3;
+      line-height: 1.6;
+    }
+
+    #faq .faq-marker-plus {
+      position: absolute;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.2);
+      user-select: none;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    #faq .faq-marker-plus.top-left { top: 20px; left: 20px; }
+    #faq .faq-marker-plus.top-right { top: 20px; right: 20px; }
+    #faq .faq-marker-plus.bottom-left { bottom: 20px; left: 20px; }
+    #faq .faq-marker-plus.bottom-right { bottom: 20px; right: 20px; }
+
+    /* Border Beam Animation */
+    #faq .faq-border-beam {
+      position: absolute;
+      inset: -1px;
+      background: conic-gradient(from 0deg at 50% 50%, #FF6600 0deg, #6100B7 45deg, transparent 180deg, transparent 315deg, #FF6600 360deg);
+      animation: borderTurn 4s linear infinite;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 1;
+    }
+
+    #faq .faq-item.active .faq-border-beam {
+      opacity: 1;
+    }
+
+    #faq .faq-mask {
+      position: absolute;
+      inset: 1px;
+      background: #0A0A0A;
+      border-radius: 11px;
+      z-index: 2;
+    }
   </style>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.0">
   <!-- Lenis + scroll-animation: critical for hero animation (must load in order) -->
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js" defer></script>
   <script src="scroll-animation.min.js?v=1.4" defer></script>

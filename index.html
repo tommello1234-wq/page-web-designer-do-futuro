@@ -268,7 +268,7 @@
   <!-- Lenis + scroll-animation: critical for hero animation (must load in order) -->
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js" defer></script>
   <script src="scroll-animation.min.js?v=1.4" defer></script>
-  <script src="ui-interactions.min.js?v=1.6" defer></script>
+  <script src="ui-interactions.js?v=1.6" defer></script>
   <!-- Panda Video Player API loaded lazily by facade observer -->
   <!-- Non-critical: lazy load after first paint -->
   <script>
@@ -974,6 +974,105 @@
     <div class="section-divider-beam bottom-beam"></div>
   </section>
 
+  <!-- 4.2 FAQ SECTION -->
+  <section class="faq-section" id="faq">
+    <div class="faq-marker-plus top-left">+</div>
+    <div class="faq-marker-plus top-right">+</div>
+    <div class="faq-marker-plus bottom-left">+</div>
+    <div class="faq-marker-plus bottom-right">+</div>
+    <div class="section-divider-beam"></div>
+    <div class="container container-medium">
+      <div class="faq-header animate-in">
+        <span class="faq-label">/// 07 PERGUNTAS FREQUENTES</span>
+        <h2 class="faq-title">Dúvidas Frequentes</h2>
+        <p class="faq-subtitle">Tire suas principais dúvidas sobre o método e comece sua jornada na nova era do design.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <!-- Item 1 -->
+        <div class="faq-item animate-in">
+          <div class="faq-border-beam"></div>
+          <div class="faq-mask"></div>
+          <button class="faq-question" aria-expanded="false">
+            <span class="question-text">Quais ferramentas são utilizadas no curso?</span>
+            <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-icon"></iconify-icon>
+          </button>
+          <div class="faq-answer">
+            <div class="answer-inner">
+              <p>95% do curso é feito com ferramentas gratuitas de última geração, como o Google Antigravity e o Gemini.
+                Você aprenderá a extrair o máximo poder dessas IAs sem custos adicionais.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-item animate-in animate-in-delay-1">
+          <div class="faq-border-beam"></div>
+          <div class="faq-mask"></div>
+          <button class="faq-question" aria-expanded="false">
+            <span class="question-text">O curso ensina a prospectar clientes?</span>
+            <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-icon"></iconify-icon>
+          </button>
+          <div class="faq-answer">
+            <div class="answer-inner">
+              <p>Sim! O método não foca apenas na criação. Ensinamos você a montar um portfólio de elite e as
+                estratégias exatas para prospectar e fechar clientes High Ticket (R$ 3k a R$ 5k por projeto).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item animate-in animate-in-delay-2">
+          <div class="faq-border-beam"></div>
+          <div class="faq-mask"></div>
+          <button class="faq-question" aria-expanded="false">
+            <span class="question-text">Preciso saber programar para fazer o curso?</span>
+            <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-icon"></iconify-icon>
+          </button>
+          <div class="faq-answer">
+            <div class="answer-inner">
+              <p>Absolutamente não. O foco é design imersivo e uso de Agentes de IA. Você aprenderá a criar experiências
+                incríveis sem precisar digitar uma única linha de código.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item animate-in animate-in-delay-3">
+          <div class="faq-border-beam"></div>
+          <div class="faq-mask"></div>
+          <button class="faq-question" aria-expanded="false">
+            <span class="question-text">Quanto tempo tenho de acesso ao conteúdo?</span>
+            <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-icon"></iconify-icon>
+          </button>
+          <div class="faq-answer">
+            <div class="answer-inner">
+              <p>Você terá acesso completo ao curso e a todas as atualizações por um ano a partir da data de inscrição.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="faq-item animate-in animate-in-delay-4">
+          <div class="faq-border-beam"></div>
+          <div class="faq-mask"></div>
+          <button class="faq-question" aria-expanded="false">
+            <span class="question-text">Existe suporte para tirar dúvidas?</span>
+            <iconify-icon icon="solar:alt-arrow-down-linear" class="faq-icon"></iconify-icon>
+          </button>
+          <div class="faq-answer">
+            <div class="answer-inner">
+              <p>Sim, você terá acesso ao nosso suporte VIP e à nossa comunidade exclusiva de alunos para trocar
+                experiências e tirar dúvidas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 5. SECONDARY CTA -->
   <section class="secondary-cta" id="cta-final">
     <div class="section-divider-beam"></div>
@@ -1053,6 +1152,15 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://api.whatsapp.com/send?phone=5588992089323&text=Olá,%20gostaria%20de%20tirar%20dúvidas%20sobre%20o%20Web%20Designer%20do%20futuro" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Fale conosco pelo WhatsApp">
+    <iconify-icon icon="ic:baseline-whatsapp"></iconify-icon>
+  </a>
 </body>
 
 </html>

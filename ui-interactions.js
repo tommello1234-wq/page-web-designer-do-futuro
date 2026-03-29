@@ -219,6 +219,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 6. FAQ ACCORDION
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items for a cleaner "Elite" feel
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    const otherBtn = otherItem.querySelector('.faq-question');
+                    const otherAnswer = otherItem.querySelector('.faq-answer');
+                    if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    if (otherAnswer) otherAnswer.style.maxHeight = '0px';
+                }
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+                question.setAttribute('aria-expanded', 'true');
+                // Set precise height for smooth, linear transition
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                item.classList.remove('active');
+                question.setAttribute('aria-expanded', 'false');
+                answer.style.maxHeight = '0px';
+            }
+        });
+    });
+
 });
 
 /**

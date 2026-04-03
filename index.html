@@ -320,10 +320,25 @@
       z-index: 5;
     }
 
-    #faq .faq-marker-plus.top-left { top: 20px; left: 20px; }
-    #faq .faq-marker-plus.top-right { top: 20px; right: 20px; }
-    #faq .faq-marker-plus.bottom-left { bottom: 20px; left: 20px; }
-    #faq .faq-marker-plus.bottom-right { bottom: 20px; right: 20px; }
+    #faq .faq-marker-plus.top-left {
+      top: 20px;
+      left: 20px;
+    }
+
+    #faq .faq-marker-plus.top-right {
+      top: 20px;
+      right: 20px;
+    }
+
+    #faq .faq-marker-plus.bottom-left {
+      bottom: 20px;
+      left: 20px;
+    }
+
+    #faq .faq-marker-plus.bottom-right {
+      bottom: 20px;
+      right: 20px;
+    }
 
     /* Border Beam Animation */
     #faq .faq-border-beam {
@@ -346,6 +361,17 @@
       background: #0A0A0A;
       border-radius: 11px;
       z-index: 2;
+    }
+
+    .price-promo-date {
+      font-size: 11px;
+      color: #FF3131;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-top: 8px;
+      text-align: center;
+      opacity: 0.9;
     }
   </style>
 
@@ -459,8 +485,8 @@
 
       <!-- Video Animation Overlay (mix-blend-mode screen drops black background) -->
       <div class="hero-photo-wrapper animate-in animate-in-delay-1">
-        <img src="./ASSETS/FRAMES/frame_0042.webp" id="hero-placeholder" class="hero-placeholder"
-          alt="Hero Placeholder" width="900" height="864">
+        <img src="./ASSETS/FRAMES/frame_0042.webp" id="hero-placeholder" class="hero-placeholder" alt="Hero Placeholder"
+          width="900" height="864">
         <canvas id="scroll-canvas" class="hero-photo loading-canvas"></canvas>
       </div>
 
@@ -671,7 +697,7 @@
       <!-- Reasoning Box -->
       <div class="reasoning-box border-beam-container animate-in animate-in-delay-4">
         <div class="border-beam"></div>
-        <p>Sabe por que você vai vencer? <strong>Porque você será o único na sala</strong> capaz de entregar esse tipo
+        <p>Sabe por que você vai vender? <strong>Porque você será o único na sala</strong> capaz de entregar esse tipo
           de projeto.</p>
       </div>
     </div>
@@ -716,6 +742,51 @@
       </div>
     </div>
     <div class="section-divider-beam bottom-beam"></div>
+  </section>
+
+  <!-- SEÇÃO DE DEPOIMENTOS -->
+  <section class="testimonials" id="depoimentos">
+    <div class="section-divider-beam"></div>
+    <div class="testimonials-grid">
+      <div class="testimonials-sidebar">
+        <div>
+          <span class="testimonials-label">/// DEPOIMENTOS</span>
+          <h2 class="testimonials-headline animate-in">O Que Nossos Alunos Dizem</h2>
+          <p class="testimonials-description animate-in animate-in-delay-1">
+            Feedback real de alunos que passaram pelo treinamento e transformaram sua forma de criar sites.
+          </p>
+        </div>
+        <div class="testimonials-stat">
+          <span class="testimonials-stat-number">100%</span>
+          <span class="testimonials-stat-label">Satisfação<br>dos Alunos</span>
+        </div>
+      </div>
+      <div class="testimonials-content">
+        <div class="testimonials-fade-left"></div>
+        <div class="testimonials-fade-right"></div>
+        <div class="testimonials-track">
+          <div class="testimonials-card">
+            <img src="ASSETS/Depoimentos/Depoimento 01.webp" alt="Depoimento de aluno 01" width="424" height="451" loading="lazy">
+          </div>
+          <div class="testimonials-card">
+            <img src="ASSETS/Depoimentos/Depoimento 02.webp" alt="Depoimento de aluno 02" width="528" height="451" loading="lazy">
+          </div>
+          <div class="testimonials-card">
+            <img src="ASSETS/Depoimentos/Depoimento 03.webp" alt="Depoimento de aluno 03" width="643" height="451" loading="lazy">
+          </div>
+          <!-- Duplicado para marquee infinito -->
+          <div class="testimonials-card">
+            <img src="ASSETS/Depoimentos/Depoimento 01.webp" alt="Depoimento de aluno 01" width="424" height="451" loading="lazy">
+          </div>
+          <div class="testimonials-card">
+            <img src="ASSETS/Depoimentos/Depoimento 02.webp" alt="Depoimento de aluno 02" width="528" height="451" loading="lazy">
+          </div>
+          <div class="testimonials-card">
+            <img src="ASSETS/Depoimentos/Depoimento 03.webp" alt="Depoimento de aluno 03" width="643" height="451" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="showcase" id="conteudo">
@@ -953,6 +1024,7 @@
                   <span class="value">58,08</span>
                 </div>
                 <p class="price-full">OU R$ 697,00 À VISTA</p>
+                <p class="price-promo-date">PREÇO PROMOCIONAL ATÉ O DIA 27/04</p>
               </div>
 
               <div class="offer-btn-wrapper">
@@ -1239,11 +1311,8 @@
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://api.whatsapp.com/send?phone=5588992089323&text=Olá,%20gostaria%20de%20tirar%20dúvidas%20sobre%20o%20Web%20Designer%20do%20futuro" 
-     class="whatsapp-float" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     aria-label="Fale conosco pelo WhatsApp">
+  <a href="https://api.whatsapp.com/send?phone=5588992089323&text=Olá,%20gostaria%20de%20tirar%20dúvidas%20sobre%20o%20Web%20Designer%20do%20futuro"
+    class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
     <iconify-icon icon="ic:baseline-whatsapp"></iconify-icon>
   </a>
 
@@ -1251,14 +1320,17 @@
   <script>
     function loadTracking() {
       // Meta Pixel
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+          n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+      }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '1417592776302560');
       fbq('track', 'PageView');
 
@@ -1266,9 +1338,9 @@
       var ga = document.createElement('script');
       ga.async = true;
       ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-3CDT1SMFN3';
-      ga.onload = function() {
+      ga.onload = function () {
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         window.gtag = gtag;
         gtag('js', new Date());
         gtag('config', 'G-3CDT1SMFN3');
@@ -1276,10 +1348,10 @@
       document.head.appendChild(ga);
 
       // Microsoft Clarity
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script", "w0s4z28bte");
     }
     // Defer all tracking until after page is interactive
@@ -1290,8 +1362,7 @@
     }
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1417592776302560&ev=PageView&noscript=1"
-  /></noscript>
+      src="https://www.facebook.com/tr?id=1417592776302560&ev=PageView&noscript=1" /></noscript>
 </body>
 
 </html>

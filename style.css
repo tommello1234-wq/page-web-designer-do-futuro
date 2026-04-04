@@ -2077,6 +2077,8 @@ body.elite-mode .power-section .border-beam {
 
 .testimonials-track {
   display: flex;
+  width: max-content;
+  flex-shrink: 0;
   gap: 24px;
   padding: 40px 32px;
   animation: testimonials-scroll 30s linear infinite;
@@ -2117,10 +2119,22 @@ body.elite-mode .power-section .border-beam {
     padding: 40px 24px 32px;
     border-right: none;
     border-bottom: 1px solid var(--color-border);
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .testimonials-description {
+    max-width: 100%;
+  }
+
+  .testimonials-stat {
+    margin-top: 16px;
+    padding-top: 20px;
   }
 
   .testimonials-content {
-    min-height: 360px;
+    min-height: auto;
+    height: 400px;
   }
 
   .testimonials-card img {

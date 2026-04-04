@@ -2134,16 +2134,37 @@ body.elite-mode .power-section .border-beam {
 
   .testimonials-content {
     min-height: auto;
-    height: 400px;
+    height: auto;
+    padding: 20px 0 60px;
+  }
+
+  .testimonials-track {
+    flex-direction: column;
+    width: 100%;
+    animation: none;
+    padding: 0 24px;
+    gap: 32px;
+  }
+
+  .testimonials-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .testimonials-card:nth-child(n+4) {
+    display: none;
   }
 
   .testimonials-card img {
-    height: 320px;
+    height: auto;
+    width: 100%;
+    max-width: 450px;
   }
 
   .testimonials-fade-left,
   .testimonials-fade-right {
-    width: 48px;
+    display: none;
   }
 }
 

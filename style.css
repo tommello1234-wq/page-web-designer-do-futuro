@@ -3996,6 +3996,7 @@ body.elite-mode .power-section .border-beam {
 
   /* Incremento de Z-index para sobreposição perfeita (Deck de cartas) */
   .investment-luminal-item:nth-child(1) {
+    display: none !important;
     z-index: 21 !important;
   }
 

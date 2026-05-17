@@ -1,7 +1,8 @@
 {
   "rewrites": [
     { "source": "/wdf", "destination": "/index.html" },
-    { "source": "/wdf/(.*)", "destination": "/$1" }
+    { "source": "/wdf/(.*)", "destination": "/$1" },
+    { "source": "/wdf2", "destination": "/wdf2.html" }
   ],
   "headers": [
     {

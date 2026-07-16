@@ -5,6 +5,13 @@
 *.avi
 *.mkv
 
+# Exceção: vídeos usados na landing (precisam ir pro deploy)
+!ASSETS/videos-bonus/
+!ASSETS/videos-bonus/*.mp4
+!ASSETS/videos-paginas/
+!ASSETS/videos-paginas/*.mp4
+!ASSETS/antes-depois/depois.mp4
+
 # Sistema
 .DS_Store
 Thumbs.db

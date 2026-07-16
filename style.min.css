@@ -2331,13 +2331,15 @@ body.elite-mode .power-section .border-beam {
   opacity: 1;
 }
 
-.showcase-item .video-container-vimeo iframe {
+.showcase-item .video-container-vimeo iframe,
+.showcase-item .video-container-vimeo video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border: 0;
+  object-fit: cover;
   pointer-events: none;
 }
 
@@ -2469,6 +2471,13 @@ body.elite-mode .power-section .border-beam {
     /* Força preenchimento total */
     scale: 2.2;
     /* Zoom para garantir cobertura total em formatos variados (inactive cards) */
+  }
+
+  .showcase-item .video-container-vimeo video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    /* object-fit já preenche, sem precisar do zoom do iframe */
   }
 
   .showcase-item.active {

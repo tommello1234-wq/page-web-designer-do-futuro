@@ -2722,7 +2722,7 @@ body.elite-mode .power-section .border-beam {
 
 .bonus-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   margin-top: 60px;
   border-radius: 16px;

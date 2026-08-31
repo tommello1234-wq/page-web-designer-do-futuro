@@ -262,9 +262,21 @@ img {
   border: 3px solid var(--color-background);
 }
 
-.bio-logo {
-  height: 30px;
-  width: auto;
+/* @ do perfil — substitui a logo do produto no topo */
+.bio-handle {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 6.5vw, 28px);
+  font-weight: var(--font-medium);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+}
+
+.bio-handle-at {
+  background: var(--color-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .bio-badge {

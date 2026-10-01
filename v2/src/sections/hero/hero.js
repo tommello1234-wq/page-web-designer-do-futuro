@@ -63,6 +63,15 @@ WDF.register('hero', {
     function measure() {
       layout();
       W = stage.clientWidth; H = stage.clientHeight;
+      if (flags.mobile) {
+        // mobile (disposição da v1): a cabeça (≈11% do frame) começa logo abaixo do botão
+        const textBottom = left.offsetTop + left.offsetHeight;
+        const short = matchMedia('(orientation:landscape) and (max-height:560px)').matches;
+        if (!short) {
+          const fh = Math.max(H * .34, Math.min(H * .62, (H - textBottom - 6) / .89));
+          root.style.setProperty('--fig-h', Math.round(fh) + 'px');
+        } else root.style.removeProperty('--fig-h');
+      }
       const fw = fig.offsetWidth, fh = fig.offsetHeight;
       const fx0 = fig.offsetLeft - fw / 2, fy0 = fig.offsetTop;
       const s = fw / 900;
@@ -191,6 +200,7 @@ WDF.register('hero', {
     return () => {
       [fig, typeB, arcs, hud, hint, still, ...left.children, ...(right ? right.children : []), ...eyes].forEach((el) => { el.style.transform = ''; el.style.opacity = ''; el.style.visibility = ''; });
       stage.style.removeProperty('--r');
+      root.style.removeProperty('--fig-h');
     };
   },
 });

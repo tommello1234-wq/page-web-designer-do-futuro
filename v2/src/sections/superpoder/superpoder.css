@@ -197,3 +197,15 @@
   .s-superpoder .sp-x-count{display:none}
   .s-superpoder .sp-x-legend{grid-column:1 / -1;grid-row:auto;margin-top:var(--s-3);padding-top:var(--s-3);border-top:1px solid var(--line)}
 }
+
+/* celular: vista explodida animada também (pedido do dono) — página girando no centro, camadas em 2 colunas embaixo */
+@media (max-width:899px){
+  .s-superpoder.is-3d .sp-x-title{top:calc(var(--nav-h) + 12px)}
+  .s-superpoder.is-3d .sp-x-legend, .s-superpoder.is-3d .sp-x-count, .s-superpoder.is-3d .sp-lines{display:none}
+  .s-superpoder.is-3d .sp-page-box{width:min(78vw,420px);top:38%}
+  .s-superpoder.is-3d .sp-callouts{inset:auto var(--pad-x) calc(92px + env(safe-area-inset-bottom)) var(--pad-x);display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:12px}
+  .s-superpoder.is-3d .sp-callouts li[data-side]{position:static;width:auto;text-align:left;padding-top:8px}
+  .s-superpoder.is-3d .sp-callouts b{margin-bottom:4px;font-size:10px}
+  .s-superpoder.is-3d .sp-callouts span{font-size:10px;letter-spacing:.08em}
+  .s-superpoder.is-3d .sp-x-meter{left:var(--pad-x);right:var(--pad-x);width:auto;top:calc(var(--nav-h) + 40px);bottom:auto}   /* acima: embaixo fica a barra de compra */
+}

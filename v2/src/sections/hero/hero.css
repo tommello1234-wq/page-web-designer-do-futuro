@@ -102,19 +102,22 @@ html.no-js .s-hero .hero-clip, html.no-js .s-hero .hero-iris{display:none}
 .s-hero[data-layout="stack"] .hud-pill{bottom:auto;top:calc(104px + 1em + var(--fs-mega) * .78 + 28px)}
 
 @media (max-width:899px){
-  .s-hero{--fig-h:60svh}
+  /* mobile = mesma disposição da v1: headline, selo, subheadline e botão ACIMA da cabeça; a figura vem embaixo.
+     O JS ajusta --fig-h para a cabeça começar logo abaixo do botão. */
+  .s-hero{--fig-h:52svh}
   .s-hero .hero-stage{height:100vh;height:100svh;min-height:0}
-  .s-hero .hero-stage::after{content:"";position:absolute;inset:auto 0 0 0;height:46%;z-index:5;pointer-events:none;background:linear-gradient(to top, rgb(var(--ink-rgb) / .72), transparent)}
-  .s-hero .hero-type{left:20px;right:20px;top:80px}
-  .s-hero .hero-line{font-size:13px;letter-spacing:.18em}
+  .s-hero .hero-stage::after{content:"";position:absolute;inset:auto 0 0 0;height:18%;z-index:5;pointer-events:none;background:linear-gradient(to top, rgb(var(--ink-rgb) / .5), transparent)}
+  .s-hero .hero-type{left:20px;right:20px;top:76px;text-align:center}
+  .s-hero .hero-line{font-size:12px;letter-spacing:.18em}
   .s-hero .hero-futuro{margin-top:calc(5px - .04em)}
-  .s-hero .hero-fig{height:60svh}
-  .s-hero .hero-left{left:20px;right:20px;top:auto;bottom:calc(20px + env(safe-area-inset-bottom));width:auto;max-width:none}
-  .s-hero .hero-badge{color:var(--white);margin-bottom:12px}
-  .s-hero .hero-sub{font-size:20px;font-weight:700;max-width:none}
-  .s-hero .hero-left .cta{display:flex;width:100%;min-height:56px;margin-top:18px}
+  .s-hero .hero-fig{height:var(--fig-h)}
+  .s-hero .hero-left{left:20px;right:20px;top:calc(76px + 16px + var(--fs-mega) * .86 + 14px);bottom:auto;width:auto;max-width:none;
+    display:flex;flex-direction:column;align-items:center;text-align:center}
+  .s-hero .hero-badge{color:var(--ink);margin-bottom:10px}
+  .s-hero .hero-sub{font-size:19px;font-weight:700;max-width:30ch;color:var(--ink)}
+  .s-hero .hero-left .cta{width:100%;min-height:56px;margin-top:16px}
   .s-hero .hud-state, .s-hero .hud-hint{display:none}
-  .s-hero .hud-pill{bottom:auto;top:calc(98px + var(--fs-mega) * .78 + 12px);right:20px;gap:8px;padding:4px 12px 4px 12px;border-width:1px}
+  .s-hero .hud-pill{top:auto;bottom:calc(14px + env(safe-area-inset-bottom));right:14px;gap:8px;padding:4px 12px;border-width:1px}
   .s-hero .hud-n{font-size:28px}
 }
 @media (max-width:899px){
@@ -145,8 +148,9 @@ html.no-js .s-hero .hero-clip, html.no-js .s-hero .hero-iris{display:none}
 /* celular deitado (tela baixa): sem a pílula; coluna estreita para não encostar no FUTURO */
 @media (orientation:landscape) and (max-height:560px){
   .s-hero .hud-pill{display:none}
-  .s-hero .hero-left{right:auto;width:min(520px,62vw);bottom:calc(14px + env(safe-area-inset-bottom))}
-  .s-hero .hero-badge{margin-bottom:6px}
-  .s-hero .hero-sub{font-size:17px}
+  .s-hero .hero-stage::after{height:46%;background:linear-gradient(to top, rgb(var(--ink-rgb) / .72), transparent)}
+  .s-hero .hero-left{top:auto;right:auto;width:min(520px,62vw);bottom:calc(14px + env(safe-area-inset-bottom));align-items:flex-start;text-align:left}
+  .s-hero .hero-badge{margin-bottom:6px;color:var(--white)}
+  .s-hero .hero-sub{font-size:17px;color:var(--white)}
   .s-hero .hero-left .cta{min-height:48px;margin-top:12px}
 }

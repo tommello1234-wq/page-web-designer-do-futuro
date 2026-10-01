@@ -21,6 +21,32 @@ WDF.register('modulos', {
       grid.classList.remove('is-dim');
     });
 
+    /* ---- mobile com movimento: a seção trava e a rolagem vertical anda com as capas na horizontal (pedido do dono) ---- */
+    const wrap = root.querySelector('.md-wrap');
+    if (ctx.flags.mobile && ctx.flags.motion && ctx.flags.pin && wrap) {
+      root.classList.add('is-hm');
+      ctx.cleanup(() => { root.classList.remove('is-hm'); grid.style.transform = ''; });
+      let D = 0, p = 0, lastP = -1, shown = '';
+      const measure = () => { D = Math.max(0, grid.scrollWidth - wrap.clientWidth); lastP = -1; };
+      measure();
+      ctx.st({
+        trigger: wrap, start: 'top top', end: () => { measure(); return '+=' + Math.max(1, Math.round(D * 1.1)); },
+        pin: wrap, scrub: true, anticipatePin: 1, invalidateOnRefresh: true,
+        onUpdate: (st) => { p = st.progress; },
+      });
+      ctx.onRefresh(measure);
+      ctx.tick(wrap, () => {
+        if (p === lastP) return;
+        lastP = p;
+        grid.style.transform = 'translate3d(' + (-p * D).toFixed(1) + 'px,0,0)';
+        if (dots) {
+          const t = String(Math.min(cards.length, Math.round(p * (cards.length - 1)) + 1)).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+          if (t !== shown) { shown = t; dots.textContent = t; }
+        }
+      });
+      return;
+    }
+
     /* ---- mobile: contador do trilho (informação de posição, vale também no modo estático) ---- */
     if (ctx.flags.mobile && dots && 'IntersectionObserver' in window) {
       const ratio = new Map();

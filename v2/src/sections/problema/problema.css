@@ -13,9 +13,9 @@
 .s-problema .pb-sidetext{max-width:40ch;margin-top:36px;color:var(--muted)}
 
 .s-problema .pb-cards{grid-column:7 / 13;display:grid;gap:12vh;padding-top:44px}
-.s-problema .pb-card{position:relative;padding-top:32px}
-.s-problema .pb-card .hairline{background:var(--line-2)}
-.s-problema .pb-idx{position:absolute;top:30px;right:-.04em;font-family:var(--font);font-weight:200;font-size:clamp(96px,10vw,180px);
+.s-problema .pb-card{position:relative;padding-top:0}
+.s-problema .pb-card .hairline{background:var(--line-2);margin-bottom:32px}   /* respiro entre a linha e o título */
+.s-problema .pb-idx{position:absolute;top:40px;right:-.04em;font-family:var(--font);font-weight:200;font-size:clamp(96px,10vw,180px);
   line-height:.8;letter-spacing:-.07em;font-variant-numeric:tabular-nums;color:var(--line-2);pointer-events:none;user-select:none}
 .s-problema .pb-card .t-h3{position:relative;max-width:18ch;padding-right:1ch}
 .s-problema .pb-card .t-body{position:relative;max-width:46ch;margin-top:28px;color:var(--text)}
@@ -116,8 +116,9 @@
   .s-problema .pb-title{margin-top:26px}
   .s-problema .pb-sidetext{margin-top:24px}
   .s-problema .pb-cards{grid-column:auto;gap:48px;padding-top:56px}
-  .s-problema .pb-card{padding-top:24px}
-  .s-problema .pb-idx{top:22px;font-size:72px}
+  .s-problema .pb-card{padding-top:0}
+  .s-problema .pb-card .hairline{margin-bottom:24px}
+  .s-problema .pb-idx{top:30px;font-size:72px}
   .s-problema .pb-card .t-body{margin-top:18px}
 
   .s-problema .p10-stage{display:block;padding-bottom:var(--section-py)}

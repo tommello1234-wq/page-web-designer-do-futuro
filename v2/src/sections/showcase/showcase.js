@@ -26,7 +26,7 @@ WDF.register('showcase', {
     }));
     const total = String(cards.length).padStart(2, '0');
 
-    const mode = F.mobile ? 'snap' : F.motion && F.pin ? 'h' : 'grid';
+    const mode = F.motion && F.pin ? 'h' : F.mobile ? 'snap' : 'grid';   // celular também trava e anda na horizontal (pedido do dono)
     const armed = F.motion;                       // assinatura visual (cinza → cor, rótulos)
     const auto = F.motion && F.autoplay;          // tocar sozinho ao chegar
 

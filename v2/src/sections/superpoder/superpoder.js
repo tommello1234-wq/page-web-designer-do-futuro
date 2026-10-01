@@ -102,7 +102,7 @@ WDF.register('superpoder', {
     /* ───────── (C) vista explodida ───────── */
     const xs = $('.sp-x'), xStage = $('.sp-x-stage'), page = $('.sp-page'), layers = $$('.sp-page .L');
     const lis = $$('.sp-callouts li'), svg = $('.sp-lines'), meterN = $('.sp-x-meter b'), meterBar = $('.sp-x-meter i');
-    if (!(flags.pin && flags.desk)) return;                 // mobile / estático: layout 2D do CSS
+    if (!flags.pin) return;                                  // estático: layout 2D do CSS (celular também anima)
     root.classList.add('is-3d');
     ctx.cleanup(() => root.classList.remove('is-3d'));
 
@@ -131,7 +131,8 @@ WDF.register('superpoder', {
       const e = p < .12 ? 0 : p < .42 ? eio((p - .12) / .30) : p < .78 ? 1 : 1 - eio((p - .78) / .22);
       const rot = e;
       page.style.transform = `rotateX(${(58 * rot).toFixed(2)}deg) rotateZ(${(-38 * rot).toFixed(2)}deg)`;
-      layers.forEach((L, i) => { L.style.transform = `translateZ(${(i * 70 * e).toFixed(1)}px)`; });
+      const zStep = flags.mobile ? 38 : 70;
+      layers.forEach((L, i) => { L.style.transform = `translateZ(${(i * zStep * e).toFixed(1)}px)`; });
       meterN.textContent = String(Math.round(e * 100)).padStart(3, '0');
       meterBar.style.transform = `scaleX(${e.toFixed(3)})`;
 
@@ -140,7 +141,7 @@ WDF.register('superpoder', {
         li.classList.toggle('is-in', on);
         const ln = lines[i];
         [ln.path, ln.dot, ln.ring].forEach((n) => n.classList.toggle('is-in', on));
-        if (!on) return;
+        if (!on || flags.mobile) return;              // celular: sem linhas (não cabem)
         const b = boxes[i], a = anchors[i];
         const left = li.dataset.side === 'left';
         const sx = (left ? b.right + 12 : b.left - 12) - sr.left, sy = b.top + 12 - sr.top;

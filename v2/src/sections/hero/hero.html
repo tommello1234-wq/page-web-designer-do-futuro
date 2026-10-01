@@ -33,6 +33,10 @@
     </div>
   </div>
   </div>
+  <script>/* celular: mesma conta do measure() do hero.js, antes da 1ª pintura — a figura não "pula" quando o JS chega (CLS) */
+  (function(){var r=document.getElementById('inicio');if(!r||!matchMedia('(max-width:899px)').matches||matchMedia('(orientation:landscape) and (max-height:560px)').matches)return;
+  var st=r.querySelector('.hero-stage'),l=r.querySelector('.hero-left'),H=st.clientHeight,b=l.offsetTop+l.offsetHeight;
+  r.style.setProperty('--fig-h',Math.round(Math.max(H*.34,Math.min(H*.62,(H-b-6)/.89)))+'px')})();</script>
   <div class="hero-more-slot">
     <div class="hero-right" data-hero-more>
       <p class="hero-desc">Fuja da guerra de preços do mercado estático e domine a nova era: crie verdadeiras <em>experiências imersivas</em> com Agentes de IA.</p>

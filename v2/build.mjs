@@ -383,7 +383,8 @@ function buildFull() {
   // HTML
   const mainSecs = present.filter((p) => order.main.includes(p.name)).map((p) => rewriteHTML(p.html).trim()).join('\n');
   const after = present.filter((p) => order.afterMain.includes(p.name)).map((p) => rewriteHTML(p.html).trim()).join('\n');
-  const html = headFor('full', `/v2/dist/${cssName}`, `/v2/dist/${jsName}`)
+  // CSS embutido no <head> (24 KB gzip): elimina o único pedido que bloqueia a renderização (Lighthouse: render-blocking)
+  const html = headFor('full', `/v2/dist/${cssName}`, `/v2/dist/${jsName}`).replace(`<link rel="stylesheet" href="/v2/dist/${cssName}">`, () => `<style>${css}</style>`)
     + rewriteHTML(coreTop) + rewriteHTML(chromeTop)
     + `<main id="main">\n${mainSecs}\n</main>\n` + (after ? after + '\n' : '')
     + rewriteHTML(chromeBottom) + read(path.join(SRC, order.tail));

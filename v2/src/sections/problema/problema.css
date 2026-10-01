@@ -118,7 +118,12 @@
   .s-problema .pb-cards{grid-column:auto;gap:48px;padding-top:56px}
   .s-problema .pb-card{padding-top:0}
   .s-problema .pb-card .hairline{margin-bottom:24px}
-  .s-problema .pb-idx{top:30px;font-size:72px}
+  /* celular: número fora do texto — linha / [título | número] / parágrafo (antes ficava por cima do parágrafo) */
+  .s-problema .pb-card{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;align-items:start}
+  .s-problema .pb-card .hairline{grid-column:1 / -1}
+  .s-problema .pb-idx{position:static;grid-column:2;grid-row:2;font-size:64px;margin-top:-4px}
+  .s-problema .pb-card .t-h3{grid-column:1;grid-row:2;padding-right:0}
+  .s-problema .pb-card .t-body{grid-column:1 / -1;grid-row:3}
   .s-problema .pb-card .t-body{margin-top:18px}
 
   .s-problema .p10-stage{display:block;padding-bottom:var(--section-py)}

@@ -1,10 +1,10 @@
 {
   "version": "2.0.0",
-  "css": "wdf.791f33e6b7.css",
-  "js": "wdf.a8c1df4d8f.js",
+  "css": "wdf.d84344bde9.css",
+  "js": "wdf.b1ac8d2396.js",
   "gzip": {
-    "css": 25564,
-    "js": 33900
+    "css": 25601,
+    "js": 34036
   },
   "sections": [
     "hero",
@@ -23,5 +23,5 @@
     "footer"
   ],
   "minified": true,
-  "builtAt": "2026-10-01T20:53:06.393Z"
+  "builtAt": "2026-10-01T21:21:56.384Z"
 }

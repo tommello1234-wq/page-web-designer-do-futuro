@@ -8,7 +8,7 @@
 .s-final .fn-h2 em{font-style:normal;color:var(--ink)}
 .s-final .fn-sub{margin:28px auto 0;max-width:52ch;font-size:18px;color:var(--ink)}
 .s-final .fn-cta{margin-top:40px}
-.s-final .fn-cta .cta-label{white-space:normal;text-align:left}
+.s-final .fn-cta .cta-label{white-space:normal}
 .s-final .fn-hud{position:absolute;top:20px;color:var(--ink)}
 .s-final .fn-hud--tl{left:var(--pad-x)}
 .s-final .fn-hud--tr{right:var(--pad-x)}
@@ -17,5 +17,6 @@
   .s-final .fn-h2{font-size:clamp(32px,8.4vw,44px)}
   .s-final .fn-sub{font-size:16px}
   .s-final .fn-sub br{display:none}
-  .s-final .fn-cta{display:flex;width:100%;min-height:56px}
+  .s-final .fn-cta{display:flex;width:100%}
+  .s-final .fn-cta .cta-label{flex:1}
 }

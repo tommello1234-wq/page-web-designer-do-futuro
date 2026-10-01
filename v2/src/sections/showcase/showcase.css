@@ -86,7 +86,7 @@ html.is-motion .s-showcase .sc-card.is-live .sc-thread{animation:sc-thread .64s 
   transform:translate3d(calc(var(--px,0) * 1%),0,0)}
 .s-showcase.is-h .sc-outro{flex:none;display:block;width:clamp(320px,32vw,520px);margin:0 0 0 clamp(24px,3vw,56px);padding:0;border:0}
 .s-showcase.is-h .sc-outro .t-d3{max-width:none}
-.s-showcase.is-h .sc-outro .cta{display:inline-grid;width:auto;margin-top:clamp(28px,4.4vh,48px)}
+.s-showcase.is-h .sc-outro .cta{display:inline-flex;width:auto;margin-top:clamp(28px,4.4vh,48px)}
 .s-showcase.is-h .sc-line{display:flex;position:absolute;z-index:2;left:var(--pad-x);right:calc(var(--pad-x) + 72px);bottom:28px}
 
 /* build-line (compartilhada: .is-h e mobile) */
@@ -123,7 +123,19 @@ html.is-motion .s-showcase .sc-card.is-live .sc-thread{animation:sc-thread .64s 
 
   .s-showcase .sc-outro{order:3;display:block;margin:52px var(--pad-x) 0;padding-top:36px}
   .s-showcase .sc-outro .t-d3{max-width:16ch}
-  .s-showcase .sc-outro .cta{display:grid;width:100%;margin-top:32px}
+  .s-showcase .sc-outro .cta{display:flex;width:100%;margin-top:32px}
+  .s-showcase .sc-outro .cta .cta-label{flex:1}
+}
+
+/* celular com pin: duas páginas por vez (pares empilhados), andando par a par na horizontal */
+@media (max-width:899px){
+  .s-showcase.is-h .sc-track{display:grid;grid-auto-flow:column;grid-template-rows:auto auto;align-content:center;align-items:start;
+    column-gap:14px;row-gap:18px;width:max-content;padding:calc(var(--nav-h) + 8px) var(--pad-x) 96px}
+  .s-showcase.is-h .sc-intro,.s-showcase.is-h .sc-outro{grid-row:1 / span 2;align-self:center}
+  .s-showcase.is-h .sc-intro{width:min(84vw,340px)}
+  .s-showcase.is-h .sc-outro{width:min(84vw,340px);margin-left:10px}
+  .s-showcase.is-h .sc-card{width:min(84vw,calc((100svh - 320px) * .89))}
+  .s-showcase.is-h .sc-card:nth-of-type(n){translate:none}
 }
 
 /* sem JS: sem build-line (nada a acompanhar) */

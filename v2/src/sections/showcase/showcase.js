@@ -89,13 +89,16 @@ WDF.register('showcase', {
       if (!c.v.paused) c.ctl.pause();
       else if (c.live.dataset.state === 'wait') setLabel(c, '');
     }
+    // celular com pin: os cards andam em pares empilhados (0-1, 2-3…) e o par visível toca junto
+    const pair = (i) => (mode === 'h' && F.mobile && i >= 0 ? (i % 2 ? i - 1 : (i + 1 < cards.length ? i + 1 : -1)) : -1);
     function setActive(i) {
       if (i === cur) return;
-      const prev = cards[cur];
+      const prev = [cur, pair(cur)].filter((k) => k >= 0 && k !== i && k !== pair(i));
       cur = i;
-      if (prev) deactivate(prev);                  // pausa ANTES de tocar o próximo: nunca 2 da seção sem paused
+      prev.forEach((k) => deactivate(cards[k]));   // pausa ANTES de tocar o próximo
       if (i >= 0) {
         activate(cards[i]);
+        if (pair(i) >= 0) activate(cards[pair(i)]);
         lblA.textContent = 'PROJETO ' + cards[i].n;
         lblB.textContent = cards[i].n + ' / ' + total;
       }

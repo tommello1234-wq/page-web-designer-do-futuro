@@ -29,7 +29,7 @@
 <link rel="preload" href="/ASSETS/FRAMES/frame_0042.webp" as="image" fetchpriority="high">
 <script>(function(d,w){var h=d.documentElement;h.className=h.className.replace('no-js','js');var fx=null,seen=null;
 try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}
-try{fx=localStorage.getItem('wdf-fx');seen=sessionStorage.getItem('wdf-pre')}catch(e){}
+try{localStorage.removeItem('wdf-fx');fx=localStorage.getItem('wdf-fx');seen=sessionStorage.getItem('wdf-pre')}catch(e){}
 var mq=function(q){return !!(w.matchMedia&&w.matchMedia(q).matches)};
 var rm=mq('(prefers-reduced-motion: reduce)');var motion=fx==='1'?true:fx==='0'?false:!rm;
 h.classList.add(motion?'is-motion':'is-static');var c=navigator.connection||{};

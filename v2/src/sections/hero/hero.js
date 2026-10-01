@@ -215,7 +215,9 @@ WDF.register('hero', {
 
     // saem: .hero-left e, só quando está no palco (desktop com pin), .hero-right
     let exits = [];
-    const setExits = () => { exits = [...left.children, ...(right && right.parentNode === stage ? right.children : [])]; };
+    // subheadline e botão ficam na tela durante toda a ativação (pedido do dono); só o selo e o texto lateral saem
+    const stays = (el) => el.matches('.hero-sub, .cta');
+    const setExits = () => { exits = [...left.children, ...(right && right.parentNode === stage ? right.children : [])].filter((el) => !stays(el)); };
     setExits();
     ctx.onRefresh(setExits);
     let lastP = -1, lastF = -1, override = null;

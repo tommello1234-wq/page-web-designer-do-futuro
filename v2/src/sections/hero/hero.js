@@ -270,7 +270,8 @@ WDF.register('hero', {
       const q = seg(p, .86, 1);
       const par = sx * (1 - seg(p, 0, .2));
       const y = -q * H * .04, sc = 1 - .03 * q;
-      fig.style.transform = `perspective(1200px) translate3d(${(par * 1.2).toFixed(3)}%, ${y.toFixed(1)}px, 0) rotateY(${(par * 2).toFixed(3)}deg) scale(${sc.toFixed(4)})`;
+      // a figura nunca sobe: o recorte da jaqueta tem base reta e descolaria do pé da dobra (só escala a partir da base)
+      fig.style.transform = `perspective(1200px) translate3d(${(par * 1.2).toFixed(3)}%, 0, 0) rotateY(${(par * 2).toFixed(3)}deg) scale(${sc.toFixed(4)})`;
       typeB.style.transform = q ? `translate3d(0, ${y.toFixed(1)}px, 0) scale(${sc.toFixed(4)})` : '';
       arcs.style.transform = par ? `translate3d(${(par * .6).toFixed(3)}%, 0, 0)` : '';
       hud.style.opacity = q ? String(1 - q) : '';

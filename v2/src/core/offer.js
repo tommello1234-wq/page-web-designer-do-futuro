@@ -5,9 +5,10 @@ const WDF = window.WDF, core = WDF.core, d = document;
 const OFFER = /*OFFER*/{
   "checkoutUrl": "https://payment.ticto.app/OE053E87F",
   "currency": "BRL",
-  "installments": null,
+  "installments": { "n": 12, "value": 10.03 },
   "cash": { "value": 97.00 },
   "anchor": 2088,
+  "from": 997.00,
   "items": [
     { "key": "item-0", "label": "Archive-01 // Core", "title": "O Método Completo", "value": 997 },
     { "key": "item-1", "label": "Archive-02 // Bônus Exclusivo", "title": "Biblioteca Premium Assets", "value": 297 },
@@ -45,6 +46,7 @@ function offerText(k) {
   if (k === 'anchor') return brl(OFFER.anchor, 0);
   if (k === 'installment') return OFFER.installments ? num(OFFER.installments.value, 2) : null;
   if (k === 'cash') return num(OFFER.cash.value, 2);
+  if (k === 'from') return brl(OFFER.from, 2);                                   // âncora do card, igual ao checkout: R$ 997,00
   if (k === 'price') return num(OFFER.cash.value, OFFER.cash.value % 1 ? 2 : 0);   // preço à vista em destaque: 97
   return null;
 }

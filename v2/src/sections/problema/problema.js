@@ -39,12 +39,15 @@ WDF.register('problema', {
     root.classList.add(mode === 'pin' ? 'is-pinned' : 'is-sticky');
 
     /* ---------- parâmetros da timeline (§4.2) ---------- */
-    const BUILT = [.15, .30, .45, .60];                  // header · hero · 3 cards · footer (corte seco)
-    const FLIP = [.60, .035];                            // browser encolhe para a célula 1
-    const COPY0 = .60, COPY_STEP = .1334 / (N - 1);      // células 2..N em corte seco (desktop: .0058 por célula)
-    const EVAP0 = .74, EVAP_W = .04, EVAP_END = .88;     // 23 (ou 15) células evaporam, ordem fixa seed 7
-    const SEL = [.88, .03];                              // moldura --ai da sobrevivente
-    const ZOOM = [.94, .06];                             // zoom-through (só desktop)
+    const BUILT = [.12, .24, .36, .48];                  // header · hero · 3 cards · footer (corte seco)
+    const FLIP = [.48, .035];                            // browser encolhe para a célula 1
+    const COPY0 = .48, COPY_STEP = .10 / (N - 1);        // células 2..N em corte seco
+    const EVAP0 = .58, EVAP_W = .04, EVAP_END = .70;     // 23 (ou 15) células evaporam, ordem fixa seed 7
+    const SEL = [.70, .03];                              // moldura --ai da sobrevivente
+    const live = root.querySelector('.p10-live');        // a página real em ação (vídeo 07), só depois de renderizar
+    const liveCtl = live ? ctx.media.lazyVideo(live, { group: 'problema', auto: false }) : null;
+    let liveOn = false;
+    const REAL = [.75, .13];                             // a sobrevivente vira a PÁGINA REAL (AERIS X); .88 → 1 segura
     const SURV = mode === 'pin' ? 13 : 9;                // célula 14 (6×4) · célula 10 (4×4)
 
     const clamp01 = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
@@ -79,15 +82,10 @@ WDF.register('problema', {
       const s = cells[SURV], sp = offIn(s, machine);
       geo.sel = { x: sp.x, y: sp.y, w: s.offsetWidth, h: s.offsetHeight };
       sel.style.width = geo.sel.w + 'px'; sel.style.height = geo.sel.h + 'px';
-      if (mode === 'pin') {
-        /* zoom-through: plano paper no rect da sobrevivente → centro do palco, S = max(W/w, H/h) × 1,1 */
-        zoom.style.left = sp.x + 'px'; zoom.style.top = sp.y + 'px';
-        zoom.style.width = geo.sel.w + 'px'; zoom.style.height = geo.sel.h + 'px';
-        const m = offIn(machine, stage), W = stage.clientWidth, H = stage.clientHeight;
-        geo.tx = W / 2 - (m.x + sp.x + geo.sel.w / 2);
-        geo.ty = H / 2 - (m.y + sp.y + geo.sel.h / 2);
-        geo.S = Math.max(W / Math.max(1, geo.sel.w), H / Math.max(1, geo.sel.h)) * 1.1;
-      }
+      /* página real: plano no rect do browser; parte do rect da sobrevivente (transform-origin 0 0) */
+      zoom.style.left = b.x + 'px'; zoom.style.top = b.y + 'px';
+      zoom.style.width = bw + 'px'; zoom.style.height = bh + 'px';
+      geo.r0 = { tx: sp.x - b.x, ty: sp.y - b.y, sx: bw ? geo.sel.w / bw : 1, sy: bh ? geo.sel.h / bh : 1 };
       L = {};                                           // força reescrita completa
       S.dirty = true;
     }
@@ -101,7 +99,7 @@ WDF.register('problema', {
 
     function render(p) {
       /* 0 → .60: cronômetro (vírgula decimal pt-BR) */
-      const secs = Math.min(10, (p / .6) * 10);
+      const secs = Math.min(10, (p / BUILT[3]) * 10);
       const t = secs.toFixed(1).replace('.', ',').padStart(4, '0');
       if (t !== L.t) { L.t = t; timerNode.nodeValue = t; }
 
@@ -127,6 +125,7 @@ WDF.register('problema', {
         browser.style.transform = e <= 0 ? '' : 'translate(' + (geo.dx * e).toFixed(2) + 'px,' + (geo.dy * e).toFixed(2) + 'px) scale('
           + (1 + (geo.sx - 1) * e).toFixed(4) + ',' + (1 + (geo.sy - 1) * e).toFixed(4) + ')';
         vis(browser, e < 1);
+        browser.style.opacity = e < 1 ? '' : '0';     // os blocos têm visibility explícita: a opacidade esconde o conteúdo junto
       }
 
       /* cópias (corte seco) e evaporação (.74 → .88) */
@@ -152,20 +151,29 @@ WDF.register('problema', {
 
       /* .88 → .94: moldura da sobrevivente (entra encolhendo, easeOut) */
       const s = p >= SEL[0] ? easeOut(clamp01((p - SEL[0]) / SEL[1])) : -1;
-      if (s !== L.s && geo.sel) {
-        L.s = s;
-        vis(sel, s >= 0);
+      const selOn = s >= 0 && p < REAL[0];
+      if ((s !== L.s || selOn !== L.selOn) && geo.sel) {
+        L.s = s; L.selOn = selOn;
+        vis(sel, selOn);
         sel.style.transform = 'translate(' + geo.sel.x + 'px,' + geo.sel.y + 'px) scale(' + (1 + .35 * (1 - Math.max(0, s))).toFixed(4) + ')';
       }
 
-      /* .94 → 1: zoom-through (plano paper sólido; barato) */
-      if (mode === 'pin') {
-        const z = p >= ZOOM[0] ? ease(clamp01((p - ZOOM[0]) / ZOOM[1])) : -1;
-        if (z !== L.z) {
-          L.z = z;
-          vis(zoom, z >= 0);
-          const zz = Math.max(0, z);
-          zoom.style.transform = 'translate(' + (geo.tx * zz).toFixed(2) + 'px,' + (geo.ty * zz).toFixed(2) + 'px) scale(' + (1 + (geo.S - 1) * zz).toFixed(4) + ')';
+      /* .75 → .88: a sobrevivente cresce até o browser e a página real renderiza de cima para baixo */
+      const r = p >= REAL[0] ? clamp01((p - REAL[0]) / REAL[1]) : -1;
+      if (r !== L.r && geo.r0) {
+        L.r = r;
+        vis(zoom, r >= 0);
+        if (r >= 0) {
+          const g = ease(clamp01(r / .6)), w = easeOut(clamp01((r - .25) / .75)), R0 = geo.r0;
+          zoom.style.transform = 'translate(' + (R0.tx * (1 - g)).toFixed(2) + 'px,' + (R0.ty * (1 - g)).toFixed(2) + 'px) scale('
+            + (R0.sx + (1 - R0.sx) * g).toFixed(4) + ',' + (R0.sy + (1 - R0.sy) * g).toFixed(4) + ')';
+          zoom.style.setProperty('--wipe', ((1 - w) * 100).toFixed(2) + '%');
+          zoom.style.setProperty('--scan-o', w > 0 && w < 1 ? '1' : '0');
+        }
+        const wantLive = r >= 1;
+        if (liveCtl && wantLive !== liveOn) {
+          liveOn = wantLive;
+          if (wantLive) { liveCtl.load(); liveCtl.play(); } else liveCtl.pause();
         }
       }
     }
@@ -174,14 +182,14 @@ WDF.register('problema', {
     const S = { p: 0, dirty: true };
     let theme = null;
     const setTheme = (p) => {
-      const th = mode === 'pin' && p >= .95 ? 'paper' : null;
+      const th = null;                                  // termina na página real (sem zoom-through para paper)
       if (th !== theme) { theme = th; ctx.theme.override(th); }
     };
     const onUpdate = (self) => { S.p = self.progress; S.dirty = true; setTheme(S.p); };
 
     let tl;
     if (mode === 'pin') {
-      tl = ctx.scrubTl({ trigger: p10, start: 'top top', end: '+=140%', pin: stage, anticipatePin: 1, invalidateOnRefresh: true, onUpdate });
+      tl = ctx.scrubTl({ trigger: p10, start: 'top top', end: '+=170%', pin: stage, anticipatePin: 1, invalidateOnRefresh: true, onUpdate });
     } else {
       const sticky = { top: 0, h: 0 };
       const m = () => { sticky.top = parseFloat(getComputedStyle(machine).top) || 0; sticky.h = machine.offsetHeight; };
@@ -212,9 +220,9 @@ WDF.register('problema', {
       blocks.forEach((el) => { el.style.visibility = ''; });
       status.forEach((li) => li.classList.remove('is-off'));
       ['visibility', 'left', 'top'].forEach((k) => cursor.style.removeProperty(k));
-      browser.style.transform = ''; browser.style.visibility = '';
+      browser.style.transform = ''; browser.style.visibility = ''; browser.style.opacity = '';
       ['visibility', 'transform', 'width', 'height'].forEach((k) => sel.style.removeProperty(k));
-      ['visibility', 'transform', 'width', 'height', 'left', 'top'].forEach((k) => zoom.style.removeProperty(k));
+      ['visibility', 'transform', 'width', 'height', 'left', 'top', '--wipe', '--scan-o'].forEach((k) => zoom.style.removeProperty(k));
     };
   },
 });

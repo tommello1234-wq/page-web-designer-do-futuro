@@ -137,3 +137,18 @@
   .s-problema.is-sticky .p10-count{justify-self:start}
   .s-problema.is-sticky .p10-grid{gap:6px;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}
 }
+
+/* fim da máquina: a sobrevivente vira a PÁGINA REAL (AERIS X), renderizando de cima para baixo */
+.s-problema:is(.is-pinned,.is-sticky) .p10-zoom{display:flex;flex-direction:column;position:absolute;left:0;top:0;z-index:5;visibility:hidden;pointer-events:none;
+  transform-origin:0 0;overflow:hidden;background:var(--ink);border:1px solid rgb(var(--white-rgb) / .14)}
+.s-problema .p10-real-bar{flex:none;height:32px;display:flex;align-items:center;gap:6px;padding:0 12px;background:var(--ink);border-bottom:1px solid rgb(var(--white-rgb) / .14)}
+.s-problema .p10-real-bar i{width:6px;height:6px;border-radius:50%;background:rgb(var(--white-rgb) / .3)}
+.s-problema .p10-real-bar .micro{margin-left:auto;color:var(--flame);white-space:nowrap;overflow:hidden}
+.s-problema .p10-real-view{position:relative;flex:1;overflow:hidden;background:var(--gen-block)}
+.s-problema .p10-real{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;clip-path:inset(0 0 var(--wipe,100%) 0)}
+.s-problema .p10-scan{position:absolute;left:0;right:0;top:calc(100% - var(--wipe,100%));height:2px;margin-top:-1px;background:var(--flame);
+  box-shadow:0 0 18px rgb(var(--flame-rgb) / .8);opacity:var(--scan-o,0)}
+@media (max-width:899px){ .s-problema.is-sticky .p10-track{height:140svh} }
+/* a página real em ação: o vídeo entra por cima da imagem quando começa a tocar */
+.s-problema .p10-live{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;opacity:0;transition:opacity .6s var(--ease-out)}
+.s-problema .p10-real-view.is-playing .p10-live{opacity:1}

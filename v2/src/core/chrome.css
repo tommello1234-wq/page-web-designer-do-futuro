@@ -58,8 +58,16 @@
 .nav-fx-l{opacity:.8}
 .fx-switch::before{content:"";position:absolute;inset:-12px -8px}          /* alvo ≥ 44px sem mudar o desenho */
 .nav-cta{transition:color .3s linear,box-shadow .45s var(--ease-out),transform .15s var(--ease-out),opacity .3s linear,visibility .3s linear}
-.nav-cta .cta-label{white-space:nowrap}
-body[data-ui="flame"] .nav-cta{--arrow-bg:var(--ink);--arrow-fg:var(--flame)}   /* selo flame sumiria no fundo flame */
+/* botão do topo = "aura" da v1: pílula escura com stroke fino em gradiente girando (mais simples que os CTAs da página) */
+.nav-cta{position:relative;isolation:isolate;display:inline-flex;height:44px;padding:1.5px;overflow:hidden;border-radius:999px;text-decoration:none}
+.nav-cta::before{content:"";position:absolute;left:50%;top:50%;z-index:-1;width:max(140%,320px);aspect-ratio:1;translate:-50% -50%;
+  background:conic-gradient(from 90deg,#0f172a 0%,#FF6600 40%,#6100B7 60%,#0f172a 100%);animation:v3-turn 3s linear infinite}
+.nav-cta-in{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:100%;padding:0 22px;border-radius:999px;
+  background:#020617;color:#cbd5e1;font-family:var(--font);font-weight:600;font-size:14px;letter-spacing:-.005em;white-space:nowrap;transition:color .3s,background-color .3s}
+.nav-cta-i{width:18px;height:18px;flex:none}
+@media (hover:hover){ .nav-cta:hover .nav-cta-in{color:var(--white);background:#0f172a} }
+.nav-cta:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){ .nav-cta::before{animation:none} }
 .nav-menu{display:none;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 14px;
   border:1px solid var(--line-2);font-size:11px;line-height:1;letter-spacing:.14em;text-transform:uppercase;
   transition:border-color .3s linear,background-color .3s linear,color .3s linear}
@@ -78,9 +86,9 @@ body[data-ui="flame"] .nav-cta{--arrow-bg:var(--ink);--arrow-fg:var(--flame)}   
   .nav-logo .nav-logo-ia{display:block}
   .nav-right{gap:8px}
   .nav-fx{display:none}
-  .nav-cta{padding:3px}
-  .nav-cta .cta-arrow{display:none}
-  .nav-cta .cta-label{padding:8px 10px;font-size:11px;letter-spacing:.06em}
+  .nav-cta{height:40px}
+  .nav-cta-in{padding:0 16px;font-size:13px}
+  .nav-cta-i{display:none}
   .nav-menu{padding:0 10px}
   body.has-dock .nav-cta{opacity:0;visibility:hidden}
 }

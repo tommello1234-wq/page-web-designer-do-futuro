@@ -199,3 +199,6 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
 
 /* botão da v1 numa linha só na coluna lateral do desktop */
 @media (min-width:900px){ .s-hero .hero-left .cta-label{white-space:nowrap;font-size:14px;letter-spacing:.1em} }
+/* subheadline com mais respiro entre as linhas */
+.s-hero .hero-sub{line-height:1.22}
+@media (max-width:899px){ .s-hero .hero-sub{line-height:1.3} }

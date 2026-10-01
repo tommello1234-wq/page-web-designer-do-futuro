@@ -116,10 +116,24 @@ WDF.register('superpoder', {
     });
     ctx.cleanup(() => { svg.textContent = ''; });
 
+    // roteiro: página montada → explode → acende camada por camada (01→06) com legenda → volta a montar
+    const X0 = .07, X1 = .24, C0 = .86, STEP = (C0 - X1) / layers.length;
+    const num = $('.sp-x-count .t-num'), nm = $('.sp-x-nm'), ds = $('.sp-x-ds');
+    const names = lis.map((li) => li.querySelector('span').textContent.split('·').pop().trim());
     let p = 0;
-    ctx.st({ trigger: xs, start: 'top top', end: '+=140%', pin: xStage, scrub: true, onUpdate: (s) => { p = s.progress; } });
+    ctx.st({ trigger: xs, start: 'top top', end: flags.mobile ? '+=260%' : '+=300%', pin: xStage, scrub: true, onUpdate: (s) => { p = s.progress; } });
     const eio = (t) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-    let lastP = -1;
+    let lastP = -1, lastK = -2;
+    const caption = (k) => {
+      const scan = k >= 0, done = k === -1 && p >= C0;
+      root.classList.toggle('is-scan', scan);
+      num.textContent = scan ? String(k + 1).padStart(2, '0') : '06';
+      nm.textContent = scan ? 'CAMADA ' + String(k + 1).padStart(2, '0') + ' · ' + names[k] : done ? 'CAMADAS JUNTAS' : 'CAMADAS';
+      ds.hidden = !(scan || done || p >= X0);
+      ds.textContent = scan ? lis[k].dataset.desc : done ? 'Juntas, viram uma experiência imersiva.' : 'Toda página imersiva é feita delas.';
+      layers.forEach((L, i) => { L.classList.toggle('is-hot', i === k); L.classList.toggle('is-dim', scan && i !== k); });
+      lis.forEach((li, i) => { li.classList.toggle('is-hot', i === k); lines[i].g.classList.toggle('is-hot', i === k); });
+    };
     ctx.tick(xStage, () => {
       if (p === lastP) return;
       lastP = p;
@@ -128,13 +142,16 @@ WDF.register('superpoder', {
       const anchors = layers.map((L) => L.querySelector('.anc').getBoundingClientRect());
       const boxes = lis.map((li) => li.getBoundingClientRect());
 
-      const e = p < .12 ? 0 : p < .42 ? eio((p - .12) / .30) : p < .78 ? 1 : 1 - eio((p - .78) / .22);
-      const rot = e;
-      page.style.transform = `rotateX(${(58 * rot).toFixed(2)}deg) rotateZ(${(-38 * rot).toFixed(2)}deg)`;
-      const zStep = flags.mobile ? 38 : 70;
-      layers.forEach((L, i) => { L.style.transform = `translateZ(${(i * zStep * e).toFixed(1)}px)`; });
+      const e = p < X0 ? 0 : p < X1 ? eio((p - X0) / (X1 - X0)) : p < C0 ? 1 : 1 - eio((p - C0) / (1 - C0));
+      const k = p >= X1 && p < C0 ? Math.min(layers.length - 1, Math.floor((p - X1) / STEP)) : -1;
+      page.style.setProperty('--e', e.toFixed(3));
+      page.style.setProperty('--rx', (56 * e).toFixed(2) + 'deg');
+      page.style.setProperty('--rz', (-36 * e).toFixed(2) + 'deg');
+      const zStep = flags.mobile ? 40 : 66;
+      layers.forEach((L, i) => { L.style.setProperty('--z', (i * zStep * e).toFixed(1) + 'px'); });
       meterN.textContent = String(Math.round(e * 100)).padStart(3, '0');
       meterBar.style.transform = `scaleX(${e.toFixed(3)})`;
+      if (k !== lastK || k === -1) { lastK = k; caption(k); }
 
       lis.forEach((li, i) => {
         const on = e > .35 + i * .08;
@@ -152,6 +169,10 @@ WDF.register('superpoder', {
         ln.ring.setAttribute('cx', ax.toFixed(1)); ln.ring.setAttribute('cy', ay.toFixed(1));
       });
     });
-    return () => { page.style.transform = ''; layers.forEach((L) => { L.style.transform = ''; }); lis.forEach((li) => li.classList.remove('is-in')); };
+    return () => {
+      ['--e', '--rx', '--rz'].forEach((v) => page.style.removeProperty(v)); root.classList.remove('is-scan');
+      layers.forEach((L) => { L.style.removeProperty('--z'); L.classList.remove('is-hot', 'is-dim'); });
+      lis.forEach((li) => li.classList.remove('is-in', 'is-hot'));
+    };
   },
 });

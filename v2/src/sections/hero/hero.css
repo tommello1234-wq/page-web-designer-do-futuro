@@ -154,3 +154,39 @@ html.no-js .s-hero .hero-clip, html.no-js .s-hero .hero-iris{display:none}
   .s-hero .hero-sub{font-size:17px;color:var(--white)}
   .s-hero .hero-left .cta{min-height:48px;margin-top:12px}
 }
+
+/* ═══════ Visual da v1 no estado inicial (pedido do dono): fundo escuro com grade + partículas, FUTURO em gradiente.
+   O laranja entra com o scroll, pela íris que nasce dos olhos. ═══════ */
+.s-hero{--fut-grad:radial-gradient(37.61% 100.79% at 50.23% -0.79%, #FF6F00 0%, #6100B7 100%);--brand-grad:linear-gradient(135deg, #FF6600 0%, #6100B7 100%)}
+.s-hero .hero-bg{background:
+  radial-gradient(48% 56% at 50% 64%, rgb(var(--flame-rgb) / .13), transparent 70%),
+  linear-gradient(rgb(var(--white-rgb) / .045) 1px, transparent 1px) 0 0 / 60px 60px,
+  linear-gradient(90deg, rgb(var(--white-rgb) / .045) 1px, transparent 1px) 0 0 / 60px 60px,
+  linear-gradient(180deg, var(--ink) 0%, #0F0F0F 100%)}
+.s-hero .hero-particles{position:absolute;inset:0;z-index:1;width:100%;height:100%;pointer-events:none}
+.s-hero .hero-arcs{display:none}
+.s-hero .hero-iris{background:
+  repeating-radial-gradient(circle at var(--ex) var(--ey), transparent 0 72px, rgb(var(--white-rgb) / .07) 72px 120px),
+  radial-gradient(circle at var(--ex) var(--ey), rgb(var(--white-rgb) / .16), transparent 46%),
+  var(--flame)}
+.s-hero .hero-type--a .hero-line-in{background:radial-gradient(37.61% 100.79% at 50.23% -0.79%, #FFFFFF 0%, #D2B2FF 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.s-hero .hero-type--a .hero-futuro > span{background:var(--fut-grad);background-size:var(--fw,100%) var(--fh,100%);background-position:calc(-1 * var(--fx,0px)) 0;
+  background-repeat:no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.s-hero .hero-type--b .hero-line, .s-hero .hero-type--b .hero-futuro{color:var(--ink)}
+.s-hero .hero-badge{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;padding:6px 16px;border:1px solid rgb(var(--flame-rgb) / .3);
+  border-radius:999px;background:rgb(23 23 23 / .8);color:var(--white)}
+.s-hero .hero-badge .dot{width:8px;height:8px;background:var(--brand-grad);box-shadow:0 0 10px rgb(var(--flame-rgb) / .6)}
+html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infinite}
+@keyframes hero-pulse{0%,100%{opacity:.8;transform:scale(.9)}50%{opacity:1;transform:scale(1.3);box-shadow:0 0 15px rgb(var(--flame-rgb) / .8),0 0 25px rgb(97 0 183 / .6)}}
+.s-hero .hero-badge-t{background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:brightness(1.35)}
+.s-hero .hero-sub{color:var(--white)}
+.s-hero .hero-desc{color:var(--grey-1)}
+.s-hero .hero-desc em{color:var(--white);font-style:italic;font-weight:500;text-decoration:none}
+.s-hero .hero-feats .micro{color:var(--flame);opacity:1}
+.s-hero .hero-feats strong{color:var(--white)}
+.s-hero .hud-state{background:rgb(var(--white-rgb) / .04)}
+@media (max-width:899px){
+  .s-hero .hero-badge{color:var(--white);margin-bottom:12px}
+  .s-hero .hero-sub{color:var(--white)}
+}

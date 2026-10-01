@@ -36,13 +36,13 @@ h.classList.add(motion?'is-motion':'is-static');var c=navigator.connection||{};
 if(!motion||c.saveData===true||location.hash.length>1||seen||/[?&](fbclid|gclid|utm_[a-z]+)=/.test(location.search)||mq('(max-width:899px)'))h.classList.add('pre-skip');
 try{new PerformanceObserver(function(l){var e=l.getEntries();w.__lcp=Math.round(e[e.length-1].startTime)}).observe({type:'largest-contentful-paint',buffered:true})}catch(e){}
 })(document,window);</script>
-<link rel="stylesheet" href="/v2/dist/wdf.1375d726a6.css">
+<link rel="stylesheet" href="/v2/dist/wdf.fbb45708ac.css">
 <script defer src="/v2/vendor/gsap.min.js?v=3.15.0"></script>
 <script defer src="/v2/vendor/ScrollTrigger.min.js?v=3.15.0"></script>
 <script defer src="/v2/vendor/SplitText.min.js?v=3.15.0"></script>
 <script defer src="/v2/vendor/CustomEase.min.js?v=3.15.0"></script>
 <script defer src="/v2/vendor/lenis.min.js?v=1.3.26"></script>
-<script defer src="/v2/dist/wdf.3c9fbc7fe9.js"></script>
+<script defer src="/v2/dist/wdf.81ed624dd9.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"Web Designer do Futuro","description":"Pare de vender páginas estáticas genéricas e comece a vender Páginas High Ticket nível Apple. Crie verdadeiras experiências imersivas com Agentes de IA.","provider":{"@type":"Organization","name":"Upward Academy","url":"https://lp.upwardacademy.com.br/promo"},"offers":{"@type":"Offer","price":"97.00","priceCurrency":"BRL","url":"https://lp.upwardacademy.com.br/promo#preco","availability":"https://schema.org/InStock"},"instructor":{"@type":"Person","name":"Washington Melo"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quais ferramentas são utilizadas no curso?","acceptedAnswer":{"@type":"Answer","text":"95% do curso é feito com ferramentas gratuitas de última geração, como o Google Antigravity e o Gemini. Você aprenderá a extrair o máximo poder dessas IAs sem custos adicionais."}},{"@type":"Question","name":"O curso ensina a prospectar clientes?","acceptedAnswer":{"@type":"Answer","text":"Sim! O método não foca apenas na criação. Ensinamos você a montar um portfólio de elite e as estratégias exatas para prospectar e fechar clientes High Ticket (R$ 3k a R$ 5k por projeto)."}},{"@type":"Question","name":"Preciso saber programar para fazer o curso?","acceptedAnswer":{"@type":"Answer","text":"Absolutamente não. O foco é design imersivo e uso de Agentes de IA. Você aprenderá a criar experiências incríveis sem precisar digitar uma única linha de código."}},{"@type":"Question","name":"Quanto tempo tenho de acesso ao conteúdo?","acceptedAnswer":{"@type":"Answer","text":"Você terá acesso completo ao curso e a todas as atualizações por um ano a partir da data de inscrição."}},{"@type":"Question","name":"Existe suporte para tirar dúvidas?","acceptedAnswer":{"@type":"Answer","text":"Sim, você terá acesso ao nosso suporte VIP e à nossa comunidade exclusiva de alunos para trocar experiências e tirar dúvidas."}}]}]}</script>
 </head>
 <body data-ui="flame">
@@ -127,10 +127,11 @@ try{new PerformanceObserver(function(l){var e=l.getEntries();w.__lcp=Math.round(
 <div class="cursor" aria-hidden="true"><i class="cursor-dot"></i><i class="cursor-ring"><em class="cursor-label"></em></i></div>
 <div class="grain" aria-hidden="true"></div>
 <main id="main">
-<section id="inicio" class="s-hero" data-theme="flame" data-nav="inicio" aria-labelledby="inicio-title">
+<section id="inicio" class="s-hero" data-theme="ink" data-nav="inicio" aria-labelledby="inicio-title">
   <div class="hero-track">
   <div class="hero-stage">
     <div class="hero-bg" aria-hidden="true"></div>
+    <canvas class="hero-particles" aria-hidden="true"></canvas>
     <svg class="hero-arcs" aria-hidden="true" focusable="false" viewBox="0 0 1600 1600"><circle cx="800" cy="800" r="280"/><circle cx="800" cy="800" r="400"/><circle cx="800" cy="800" r="520"/><circle cx="800" cy="800" r="640"/><circle cx="800" cy="800" r="760"/><circle cx="800" cy="800" r="880"/></svg>
     <h1 id="inicio-title" class="hero-type hero-type--a" aria-label="Se torne um web designer do FUTURO">
       <span class="hero-line" aria-hidden="true"><span class="hero-line-in">Se torne um web designer do</span></span>
@@ -149,7 +150,7 @@ try{new PerformanceObserver(function(l){var e=l.getEntries();w.__lcp=Math.round(
       <i class="hero-eye hero-eye--l"></i><i class="hero-eye hero-eye--r"></i>
     </figure>
     <div class="hero-left">
-      <p class="hero-badge eyebrow"><span class="dot blink"></span>PIONEIROS DA NOVA ERA</p>
+      <p class="hero-badge eyebrow"><span class="dot"></span><span class="hero-badge-t">PIONEIROS DA NOVA ERA</span></p>
       <p class="hero-sub">Pare de vender páginas estáticas genéricas e comece a vender Páginas High Ticket nível Apple.</p>
       <a class="cta cta--light magnetic" href="#preco" data-cursor="ativar"><span class="cta-label">Sim, eu quero fazer parte</span><span class="cta-arrow" aria-hidden="true">↗</span></a>
     </div>
@@ -287,24 +288,24 @@ try{new PerformanceObserver(function(l){var e=l.getEntries();w.__lcp=Math.round(
       <p class="micro sp-x-title" data-ui>ANATOMIA DE UMA PÁGINA IMERSIVA</p>
       <div class="sp-page-box" aria-hidden="true">
         <div class="sp-page">
-          <div class="L L1"><i class="anc"></i></div>
-          <div class="L L2"><i class="anc"></i></div>
-          <div class="L L3"><span class="L3-word">FUTURO</span><i class="anc"></i></div>
-          <div class="L L4"><img src="/ASSETS/FRAMES/frame_0135.webp" width="900" height="864" alt="" loading="lazy" decoding="async"><i class="anc"></i></div>
-          <div class="L L5"><svg viewBox="0 0 400 250" focusable="false"><path d="M22 214C92 96 206 58 378 92"/><path d="M30 122C128 222 266 232 372 166"/><rect x="19" y="211" width="6" height="6" transform="rotate(45 22 214)"/><rect x="375" y="89" width="6" height="6" transform="rotate(45 378 92)"/><rect x="27" y="119" width="6" height="6" transform="rotate(45 30 122)"/><rect x="369" y="163" width="6" height="6" transform="rotate(45 372 166)"/></svg><i class="anc"></i></div>
-          <div class="L L6"><span class="L6-cta"></span><span class="L6-ring"></span><i class="anc"></i></div>
+          <div class="L L1"><span class="L-tag">01 · FUNDO</span><i class="anc"></i></div>
+          <div class="L L2"><span class="L-tag">02 · GRADE</span><i class="anc"></i></div>
+          <div class="L L3"><span class="L3-eye">SE TORNE UM WEB DESIGNER DO</span><span class="L3-word">FUTURO</span><span class="L-tag">03 · TIPOGRAFIA</span><i class="anc"></i></div>
+          <div class="L L4"><img src="/ASSETS/FRAMES/frame_0135.webp" width="900" height="864" alt="" loading="lazy" decoding="async"><span class="L-tag">04 · MÍDIA</span><i class="anc"></i></div>
+          <div class="L L5"><svg viewBox="0 0 400 250" focusable="false"><defs><marker id="sp-arw" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker></defs><path class="L5-p" d="M20 196C80 92 188 52 356 70" marker-end="url(#sp-arw)"/><path class="L5-p" d="M44 112C136 206 262 214 368 150" marker-end="url(#sp-arw)"/><circle cx="20" cy="196" r="4"/><circle cx="44" cy="112" r="4"/></svg><span class="L-tag">05 · MOVIMENTO</span><i class="anc"></i></div>
+          <div class="L L6"><span class="L6-cta"><b>QUERO MINHA VAGA</b><i>↗</i></span><span class="L6-ring"></span><svg class="L6-cur" viewBox="0 0 24 24" focusable="false"><path d="M4 2l15 9-6.6 1.6L16 20l-2.8 1.4-3.6-7.4L4 18z"/></svg><span class="L-tag">06 · INTERAÇÃO</span><i class="anc"></i></div>
         </div>
       </div>
       <ul class="sp-callouts" data-ui>
-        <li data-side="left"><b class="micro">01</b><span class="micro">CAMADA 01 · FUNDO</span></li>
-        <li data-side="left"><b class="micro">02</b><span class="micro">CAMADA 02 · GRADE</span></li>
-        <li data-side="left"><b class="micro">03</b><span class="micro">CAMADA 03 · TIPOGRAFIA</span></li>
-        <li data-side="right"><b class="micro">04</b><span class="micro">CAMADA 04 · MÍDIA</span></li>
-        <li data-side="right"><b class="micro">05</b><span class="micro">CAMADA 05 · MOVIMENTO</span></li>
-        <li data-side="right"><b class="micro">06</b><span class="micro">CAMADA 06 · INTERAÇÃO</span></li>
+        <li data-side="left" data-desc="Cor e luz que criam o clima da página."><b class="micro">01</b><span class="micro">CAMADA 01 · FUNDO</span></li>
+        <li data-side="left" data-desc="A estrutura invisível que alinha tudo."><b class="micro">02</b><span class="micro">CAMADA 02 · GRADE</span></li>
+        <li data-side="left" data-desc="Títulos grandes que prendem o olhar."><b class="micro">03</b><span class="micro">CAMADA 03 · TIPOGRAFIA</span></li>
+        <li data-side="right" data-desc="Imagem, vídeo e 3D que contam a história."><b class="micro">04</b><span class="micro">CAMADA 04 · MÍDIA</span></li>
+        <li data-side="right" data-desc="Animações que reagem ao scroll."><b class="micro">05</b><span class="micro">CAMADA 05 · MOVIMENTO</span></li>
+        <li data-side="right" data-desc="Botões e cursor que respondem a cada gesto."><b class="micro">06</b><span class="micro">CAMADA 06 · INTERAÇÃO</span></li>
       </ul>
       <svg class="sp-lines" aria-hidden="true" focusable="false"></svg>
-      <p class="sp-x-count" data-ui><b class="t-num">06</b><span class="micro">camadas</span></p>
+      <p class="sp-x-count" data-ui><b class="t-num">06</b><span class="sp-x-cap"><span class="micro sp-x-nm">camadas</span><em class="sp-x-ds" hidden></em></span></p>
       <p class="micro sp-x-legend" data-ui>CAMADAS 01 → 06</p>
       <div class="sp-x-meter" data-ui><span class="micro">VISTA EXPLODIDA <b>000</b>%</span><i></i></div>
     </div>

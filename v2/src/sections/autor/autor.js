@@ -1,5 +1,5 @@
 /* autor · §4.8 · assinatura "Sem máscara".
-   ctx.st({trigger:.au-card, start:'top 75%', end:'center 50%', scrub}) → --c 100% → 0% no trecho p .35 → .75 (easeInOutCubic):
+   ctx.st({trigger:.au-grid, start:'top 80%', end:'top 30%', scrub}) → --c 100% → 0% no trecho p .35 → .75 (easeInOutCubic):
    a armadura (frame 135, sobre ink) dá lugar ao rosto; reversível. O HTML/CSS já é o estado final (--c:0%);
    estático / sem JS / init falho = foto inteira. Escrita por frame com style.setProperty + restauração no cleanup. */
 const WDF = window.WDF;
@@ -25,7 +25,8 @@ WDF.register('autor', {
     };
 
     const st = ctx.st({
-      trigger: card, start: 'top 75%', end: 'center 50%', scrub: true, invalidateOnRefresh: true,
+      // gatilho no grid (o cartão é sticky): a cortina termina quando a seção chega ao topo, nunca fica pela metade na leitura
+      trigger: root.querySelector('.au-grid') || card, start: 'top 80%', end: 'top 30%', scrub: true, invalidateOnRefresh: true,
       onUpdate: (s) => apply(s.progress),
       onRefresh: (s) => apply(s.progress),
     });

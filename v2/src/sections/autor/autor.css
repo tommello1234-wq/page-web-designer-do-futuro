@@ -5,7 +5,9 @@
 .s-autor .au-grid{align-items:start;row-gap:clamp(48px,7vh,72px)}
 
 /* ---------------- cartão de identificação (col 1–4) ---------------- */
-.s-autor .au-card{grid-column:1/span 4;justify-self:start;align-self:end;width:min(100%,300px);margin:0;padding:9px;
+/* topo da coluna (alinhado ao kicker) e preso enquanto o texto rola — antes ficava no pé, com um vazio em cima */
+.s-autor .au-card{grid-column:1/span 4;justify-self:start;align-self:start;position:sticky;top:calc(var(--nav-h) + 32px);
+  width:min(100%,360px);margin:0;padding:9px;
   --line-2:var(--white);                                   /* cantoneiras brancas, cheias */
   border:1px solid rgb(var(--white-rgb) / .55);             /* moldura branca .55 */
   background-color:var(--surface);display:grid;grid-template-columns:minmax(0,1fr);gap:9px}
@@ -46,7 +48,7 @@
   .s-autor{padding-block:clamp(72px,11svh,112px) clamp(88px,13svh,128px)}
   .s-autor .au-grid{row-gap:clamp(32px,5svh,44px)}
   /* 72vw (≤300px); em telas baixas o cartão encolhe para o nome caber no 1º viewport da seção */
-  .s-autor .au-card{grid-column:1/-1;justify-self:center;align-self:start;width:clamp(min(150px,72vw),calc((100svh - 340px) * .75),min(72vw,300px))}
+  .s-autor .au-card{grid-column:1/-1;justify-self:center;align-self:start;position:relative;top:auto;width:clamp(min(150px,72vw),calc((100svh - 340px) * .75),min(72vw,300px))}
   .s-autor .au-text{grid-column:1/-1}
   .s-autor .au-text .kicker{margin-bottom:16px}
   .s-autor .au-name{white-space:normal;font-size:var(--fs-name);margin-top:.12em}

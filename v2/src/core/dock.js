@@ -17,7 +17,7 @@ WDF.layer('dock', {
       dock.dataset.state = 'post';
       const apply = () => {
         lab.textContent = 'GARANTIR MEU ACESSO';
-        if (sub) { sub.textContent = WDF.offer.installments.n + 'x R$ ' + WDF.fmt.num(WDF.offer.installments.value, 2); sub.hidden = false; }
+        if (sub) { const O = WDF.offer; sub.textContent = O.installments ? O.installments.n + 'x R$ ' + WDF.fmt.num(O.installments.value, 2) : 'R$ ' + WDF.fmt.num(O.cash.value, O.cash.value % 1 ? 2 : 0) + ' à vista'; sub.hidden = false; }
         cta.href = WDF.offer.checkoutUrl;
         cta.setAttribute('data-checkout', 'dock');
       };

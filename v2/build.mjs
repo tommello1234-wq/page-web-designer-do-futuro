@@ -211,8 +211,9 @@ function offerExpected(O, k) {
   if ((m = /^item-(\d+)$/.exec(k)) && O.items[+m[1]]) return brl(O.items[+m[1]].value);
   if ((m = /^bonus-(\d+)$/.exec(k)) && O.bonus[+m[1]]) return brl(O.bonus[+m[1]].value);
   if (k === 'anchor') return brl(O.anchor);
-  if (k === 'installment') return numBR(O.installments.value, 2);
+  if (k === 'installment') return O.installments ? numBR(O.installments.value, 2) : null;
   if (k === 'cash') return numBR(O.cash.value, 2);
+  if (k === 'price') return numBR(O.cash.value, O.cash.value % 1 ? 2 : 0);
   return null;
 }
 function checkOffer(html, tree, mode, ofertaPresent) {
@@ -493,7 +494,7 @@ function selftest() {
   ok([...('Sistema pronto; log in; catálogo; blog').matchAll(JARGON)].map((m) => m[1]).join() === 'log', 'jargão: palavra inteira, Unicode-aware');
   // offer
   const O = loadOffer();
-  ok(O && O.items.reduce((a, i) => a + i.value, 0) === O.anchor && offerExpected(O, 'anchor') === 'R$ 2.088' && offerExpected(O, 'installment') === '61,74' && offerExpected(O, 'cash') === '597,00', 'OFFER: soma 2.088 e formatos R$ 2.088 · 61,74 · 597,00');
+  ok(O && O.items.reduce((a, i) => a + i.value, 0) === O.anchor && offerExpected(O, 'anchor') === 'R$ 2.088' && offerExpected(O, 'price') === '97' && offerExpected(O, 'cash') === '97,00', 'OFFER: soma 2.088 e formatos R$ 2.088 · 97 · 97,00');
   // tracking
   const before = errors.length; checkTracking(null);
   ok(errors.length === before, 'tracking.v1.html ⊂ tail.html e idêntico ao trecho da v1');

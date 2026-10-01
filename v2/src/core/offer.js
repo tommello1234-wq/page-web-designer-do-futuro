@@ -3,10 +3,10 @@
 const WDF = window.WDF, core = WDF.core, d = document;
 
 const OFFER = /*OFFER*/{
-  "checkoutUrl": "https://checkout.ticto.app/O5F4574E0",
+  "checkoutUrl": "https://payment.ticto.app/OE053E87F",
   "currency": "BRL",
-  "installments": { "n": 12, "value": 61.74 },
-  "cash": { "value": 597.00 },
+  "installments": null,
+  "cash": { "value": 97.00 },
   "anchor": 2088,
   "items": [
     { "key": "item-0", "label": "Archive-01 // Core", "title": "O Método Completo", "value": 997 },
@@ -43,8 +43,9 @@ function offerText(k) {
   if ((m = /^item-(\d+)$/.exec(k)) && OFFER.items[+m[1]]) return brl(OFFER.items[+m[1]].value, 0);
   if ((m = /^bonus-(\d+)$/.exec(k)) && OFFER.bonus[+m[1]]) return brl(OFFER.bonus[+m[1]].value, 0);
   if (k === 'anchor') return brl(OFFER.anchor, 0);
-  if (k === 'installment') return num(OFFER.installments.value, 2);
+  if (k === 'installment') return OFFER.installments ? num(OFFER.installments.value, 2) : null;
   if (k === 'cash') return num(OFFER.cash.value, 2);
+  if (k === 'price') return num(OFFER.cash.value, OFFER.cash.value % 1 ? 2 : 0);   // preço à vista em destaque: 97
   return null;
 }
 

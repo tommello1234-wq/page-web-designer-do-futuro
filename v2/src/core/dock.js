@@ -10,7 +10,8 @@ WDF.layer('dock', {
     const heroTrack = d.querySelector('#inicio .hero-track');
     const offerCta = d.querySelector('#preco a[data-checkout="oferta"]');
     const preco = d.querySelector('#preco'), bar = d.querySelector('.s-footer .ft-bar');
-    const vis = { cta: false, preco: false, bar: false };
+    const foot = d.querySelector('.s-footer');
+    const vis = { cta: false, preco: false, bar: false, foot: false };
 
     const toPost = (animate) => {
       if (!dock || dock.dataset.state === 'post') return;
@@ -29,14 +30,14 @@ WDF.layer('dock', {
     const offSeen = WDF.bus.on('offer:seen', () => { toPost(true); update(); });
     sc.cleanup(offSeen);
 
-    let shown = null;
+    let shown = null, waShown = null;
     function update() {
       const past = heroTrack ? heroTrack.getBoundingClientRect().bottom <= 1 : scrollY > innerHeight;
-      const show = past && !vis.cta && !vis.bar && !(vis.preco && !WDF.state.offerSeen);
+      const show = past && !vis.cta && !vis.bar && !vis.foot && !(vis.preco && !WDF.state.offerSeen);
+      if (wa && vis.foot !== waShown) { waShown = vis.foot; wa.classList.toggle('is-in', vis.foot); }
       if (show === shown) return;
       shown = show;
       if (dock) { if (show) dock.hidden = false; dock.classList.toggle('is-in', show); }
-      if (wa) wa.classList.toggle('is-in', show);
       d.body.classList.toggle('has-dock', show && !!dock && sc.flags.mobile);
     }
     if ('IntersectionObserver' in window) {
@@ -48,6 +49,7 @@ WDF.layer('dock', {
       watch(offerCta, 'cta', .5);
       watch(preco, 'preco', 0);
       watch(bar, 'bar', 0);
+      watch(foot, 'foot', 0);
     }
     const onScroll = () => update();
     window.addEventListener('scroll', onScroll, { passive: true });

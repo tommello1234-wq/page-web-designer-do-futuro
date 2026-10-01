@@ -190,3 +190,9 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
   .s-hero .hero-badge{color:var(--white);margin-bottom:12px}
   .s-hero .hero-sub{color:var(--white)}
 }
+
+/* pedido do dono: linha de cima centralizada, FUTURO no peso Medium da v1 e subheadline mais leve */
+.s-hero .hero-line{text-align:center}
+.s-hero .hero-futuro{font-family:"NeuePower Medium",var(--brand);font-weight:500}
+.s-hero .hero-sub{font-weight:500}
+@media (max-width:899px){ .s-hero .hero-sub{font-weight:500} }

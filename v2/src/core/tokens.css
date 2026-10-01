@@ -3,6 +3,8 @@
 @font-face{font-family:"Geist";src:url("/v2/fonts/Geist-Variable.pt.woff2?v=2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Geist Mono";src:url("/v2/fonts/GeistMono-Variable.pt.woff2?v=2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 @font-face{font-family:"NeuePower";src:url("/v2/fonts/NeuePower-Ultra.pt.woff2?v=2") format("woff2");font-weight:900;font-style:normal;font-display:swap}
+/* FUTURO do hero no peso da v1 (Neue Power Medium; só ASCII — a palavra não tem acento) */
+@font-face{font-family:"NeuePower Medium";src:url("/v2/fonts/NeuePower-Medium.ascii.woff2?v=1") format("woff2");font-weight:500;font-style:normal;font-display:swap}
 /* fallbacks métricos (evitam salto de layout no FUTURO) */
 @font-face{font-family:"NeuePower Fallback";src:local("Arial Black"),local("Arial-Black"),local("Arial Bold"),local("Arial-BoldMT");size-adjust:90%;ascent-override:80%;descent-override:20%;line-gap-override:0%}
 @font-face{font-family:"Geist Fallback";src:local("Arial"),local("Helvetica Neue"),local("Helvetica");size-adjust:104%;ascent-override:97%;descent-override:28%;line-gap-override:0%}

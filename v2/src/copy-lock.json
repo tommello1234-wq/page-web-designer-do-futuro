@@ -1,0 +1,175 @@
+{
+  "_doc": "Copy de vendas do dono, verbatim (§4.x). Cada string é normalizada como §6.3-2 (entidades decodificadas, espaços colapsados) e precisa aparecer no texto extraído da seção (sem data-ui/aria-hidden; inline junta sem espaço; bloco e <br> viram espaço). 'global' = nav/CTA da nav, conferido na página inteira (só aviso enquanto core/chrome-top.html tiver o marcador de stub do F0b).",
+  "global": [
+    "Início", "Conteúdo", "Bônus", "Preço",
+    "Quero garantir minha vaga"
+  ],
+  "sections": {
+    "hero": [
+      "Se torne um web designer do FUTURO",
+      "PIONEIROS DA NOVA ERA",
+      "Pare de vender páginas estáticas genéricas e comece a vender Páginas High Ticket nível Apple.",
+      "Fuja da guerra de preços do mercado estático e domine a nova era: crie verdadeiras experiências imersivas com Agentes de IA.",
+      "Método Inovador", "Páginas 100% com IA", "Arsenal High Ticket",
+      "Sim, eu quero fazer parte",
+      "100%", "Satisfação dos Alunos"
+    ],
+    "problema": [
+      "PROBLEMA",
+      "O problema brutal de ignorar os agentes de IA.",
+      "Se você continuar entregando o básico, suas habilidades e serviços vão evaporar ou se tornar tão baratos que será quase de graça.",
+      "1. A Guerra de Migalhas",
+      "Você passa horas montando uma proposta de site só para o cliente responder que \"com a IA ele faz mais rápido e mais barato\". O seu suor e criatividade não são valorizados porque o cliente simplesmente não enxerga diferença no seu trabalho.",
+      "2. Reféns do Formato Comum",
+      "Todo mundo ao seu redor aperta os mesmos botões dos velhos construtores. Aquela página WordPress fria e parecida com todas as outras já não impressiona o consumidor atual, que é cada vez mais exigente — e as agências americanas já perceberam isso.",
+      "3. A Armadilha Silenciosa",
+      "Você continua tentando vender exatamente o que todos os outros profissionais entregam. Ao oferecer o \"mesmo de sempre\", você se torna uma commodity facilmente substituível. Entra em um leilão de preços onde a única forma de ganhar é cobrando menos e trabalhando muito mais.",
+      "Enquanto você briga pelo básico, o mercado de elite já mudou de jogo.",
+      "E sabe qual é a pior parte? A Inteligência Artificial já faz sites estáticos em 10 segundos. Se você continuar entregando o básico, suas habilidades, seu portfólio e seus serviços vão evaporar."
+    ],
+    "solucao": [
+      "SOLUÇÃO",
+      "VOCÊ SERÁ UM DOS PIONEIROS!",
+      "Enquanto o mercado tradicional se afoga na mesmice e briga por centavos, uma nova elite está sendo formada agora. O segredo? Deixar de ser um \"apertador de botões\" e se tornar um arquiteto de experiências imersivas.",
+      "Dominar a tecnologia mais desejada do ano em tempo recorde.",
+      "Criar sem limites criativos e sem precisar digitar código.",
+      "Sair do leilão de preços e fechar projetos de R$ 3k a R$ 5k.",
+      "Sabe por que você vai vender? Porque você será o único na sala capaz de entregar esse tipo de projeto."
+    ],
+    "superpoder": [
+      "Ganhe um Superpoder",
+      "Aperte para sentir a diferença entre entregar um site comum e uma experiência de elite absoluta.",
+      "Status: Site Estático",
+      "Status: Site Interativo e animado"
+    ],
+    "depoimentos": [
+      "DEPOIMENTOS",
+      "O Que Nossos Alunos Dizem",
+      "Feedback real de alunos que passaram pelo treinamento e transformaram sua forma de criar sites.",
+      "100%", "Satisfação dos Alunos",
+      "Já fiz minha primeira página de vendas e vou subir hoje para a hospedagem",
+      "show, depois me manda pra eu ver",
+      "e já vendi uma hoje kkkk top demais",
+      "nem terminei o curso ainda",
+      "ah garoto, boaa, isso ai",
+      "Olá! Só passando pra agradecer pelo conhecimento, didática muito boa. Tô aprendendo bem rápido e já colocando em prática!",
+      "Que massa, depois me manda os resultados 👊🏼🔥🔥",
+      "Pode deixar, vou começar montar o portfólio, ai mando no grupo dos alunos.",
+      "Opa, boa tarde. Já tem uma semana aqui que você comprou o treinamento, o que está achando?",
+      "eae mano, cara ta incrivel mano, nunca foi tao facil construir páginas, esse método teu é oq vai colocar dinheiro no bolso da galera agora. Elementor nunca mais.",
+      "Que massa, pior q é verdade mano, dessa forma vc não tem restrição, você pode construir sua página como quiser. Vlw pelo feedback mano!",
+      "Cara, eu tô abismado com o curso, tu é doido, essa é a melhor forma de criar páginas.",
+      "A liberdade criativa, a facilidade, ainda mais com os templates q tu disponibiliza. Facilmente o meu ticket médio por página vai aumentar umas 5x depois q eu começar vender páginas assim.",
+      "Opaaa mano, obrigado pelo depoimento mano.",
+      "Mas tipo assim, pq ainda ninguem ta falando sobre isso? Acho q não existe nenhum curso q ensina isso q tu ensina aqui no brazil",
+      "Pois é, o pessoal ainda fica meio discrente com IA, mas esse é o nivel q ta hoje, todo o processo com IA. Quem ta no curso tá muito na frente!"
+    ],
+    "showcase": [
+      "SHOWCASE",
+      "Veja o nível dos projetos que você vai aprender a criar:",
+      "Estas são as experiências imersivas que você vai aprender a criar.",
+      "Páginas que não apenas informam, mas convertem através do deslumbramento.",
+      "Sim, eu quero fazer parte",
+      "01 // MOTION", "02 // DESIGN", "03 // LUXURY", "04 // INNOVATION"
+    ],
+    "modulos": [
+      "MÓDULOS",
+      "O que você vai aprender",
+      "Montando seu Agente de IA Construtor",
+      "Hero Sections Lendárias",
+      "Construindo Experiências Visuais do Zero",
+      "Produtividade 10x",
+      "Portfólio Premium",
+      "Prospecção Magnética",
+      "Paralax", "Animações 3D", "Interativas",
+      "Design", "Implementação", "Otimização",
+      "Templates", "Skills", "Elementos"
+    ],
+    "autor": [
+      "QUEM VAI TE ENSINAR",
+      "Quem vai te ensinar",
+      "Washington Melo",
+      "\"Eu percebi que o dinheiro segue tendências, e quem permanece vivo no jogo não é o mais talentoso, mas sim o mais capaz de se adaptar.\"",
+      "Há quase 6 anos dominando o mercado e com mais de R$ 500 mil faturados como Designer, eu aprendi que a maior armadilha é se tornar um \"apertador de botões\" genérico. Minha missão é transformar você em um arquiteto de experiências imersivas, capaz de cobrar o que o seu trabalho realmente vale.",
+      "+6 Anos no Mercado",
+      "+R$ 500k em Faturamento",
+      "Projetos Top-Tier Atendidos"
+    ],
+    "bonus": [
+      "O PACOTE DE ACELERAÇÃO INJUSTA",
+      "Ferramentas secretas para você começar no topo.",
+      "Ganhe acesso imediato ao meu arsenal pessoal de ferramentas e assets.",
+      "BIBLIOTECA PREMIUM DE ASSETS",
+      "Componentes validados e de altíssima conversão prontos para plugar. Esqueça o bloqueio criativo, puxe o template, adapte para a IA e o resultado sai em minutos.",
+      "DESIGN SYSTEM: O MODELO MESTRE",
+      "Estruture qualquer projeto web com o rigor técnico dos grandes estúdios do mercado. Padronize cores, tipografia e espaçamento em 4 minutos.",
+      "ACESSO ÀS MINHAS PRINCIPAIS SKILLS",
+      "Meus \"comandos mágicos\" treinados. É literalmente copiar minha inteligência artificial particular para replicar meus melhores fluxos.",
+      "VALOR: R$ 297",
+      "VALOR: R$ 497"
+    ],
+    "oferta": [
+      "Tenha acesso agora ao método completo.",
+      "O método completo e todos os bônus exclusivos. Esqueça a briga por centavos e comece a faturar alto com a nova era do Web Design.",
+      "Moeda", "BRL / USD", "Disponibilidade", "● Vagas Abertas",
+      "Archive-01 // Core", "O Método Completo",
+      "Acesso a todas as aulas, atualizações do Web Designer do Futuro por um ano.",
+      "R$ 997",
+      "Archive-02 // Bônus Exclusivo", "Biblioteca Premium Assets", "R$ 297",
+      "Archive-03 // Bônus Exclusivo", "Templates Design System", "R$ 497",
+      "Archive-04 // Aula Bônus", "Minhas Principais Skills",
+      "Acesso Imediato",
+      "De R$ 2.088 por apenas:",
+      "12x de", "R$ 61,74",
+      "OU R$ 597,00 À VISTA",
+      "GARANTIR MEU ACESSO"
+    ],
+    "garantia": [
+      "RISCO ZERO",
+      "7 Dias de Garantia Incondicional",
+      "Eu tiro todo o risco das suas costas. Você tem 7 dias para testar o método, acessar a comunidade e baixar os assets. Se por qualquer motivo você achar que não é para você, basta um único e-mail e eu devolvo 100% do seu investimento. Sem perguntas, sem letras miúdas."
+    ],
+    "faq": [
+      "PERGUNTAS FREQUENTES",
+      "Dúvidas Frequentes",
+      "Tire suas principais dúvidas sobre o método e comece sua jornada na nova era do design.",
+      "Quais ferramentas são utilizadas no curso?",
+      "95% do curso é feito com ferramentas gratuitas de última geração, como o Google Antigravity e o Gemini. Você aprenderá a extrair o máximo poder dessas IAs sem custos adicionais.",
+      "O curso ensina a prospectar clientes?",
+      "Sim! O método não foca apenas na criação. Ensinamos você a montar um portfólio de elite e as estratégias exatas para prospectar e fechar clientes High Ticket (R$ 3k a R$ 5k por projeto).",
+      "Preciso saber programar para fazer o curso?",
+      "Absolutamente não. O foco é design imersivo e uso de Agentes de IA. Você aprenderá a criar experiências incríveis sem precisar digitar uma única linha de código.",
+      "Quanto tempo tenho de acesso ao conteúdo?",
+      "Você terá acesso completo ao curso e a todas as atualizações por um ano a partir da data de inscrição.",
+      "Existe suporte para tirar dúvidas?",
+      "Sim, você terá acesso ao nosso suporte VIP e à nossa comunidade exclusiva de alunos para trocar experiências e tirar dúvidas."
+    ],
+    "final": [
+      "A janela de oportunidade se abriu, mas não ficará aberta para sempre.",
+      "Você precisa agir agora, enquanto a maior parte do mercado ainda está dormindo para essa nova onda.",
+      "Sim, quero acessar o Método completo agora!"
+    ],
+    "footer": [
+      "A nova era do design imersivo.",
+      "Legal", "Termos de Uso", "Políticas de Privacidade",
+      "Suporte", "Contato / Suporte VIP",
+      "Aviso de Responsabilidade: Este produto não certifica ganho rápido sem esforço. A venda de serviços de alto valor exigirá aplicação das técnicas de prospecção ensinadas. Diferentes pessoas obtêm diferentes resultados. Os resultados dependem da dedicação e aplicação prática dos métodos apresentados.",
+      "© 2026 Web Designer do Futuro. Todos os direitos reservados."
+    ],
+    "_exemplo": [
+      "SOLUÇÃO",
+      "VOCÊ SERÁ UM DOS PIONEIROS!",
+      "Enquanto o mercado tradicional se afoga na mesmice e briga por centavos, uma nova elite está sendo formada agora.",
+      "Satisfação dos Alunos",
+      "Enquanto você briga pelo básico, o mercado de elite já mudou de jogo.",
+      "Sim, eu quero fazer parte",
+      "Tenha acesso agora ao método completo.",
+      "De R$ 2.088 por apenas:",
+      "OU R$ 597,00 À VISTA",
+      "GARANTIR MEU ACESSO",
+      "Dúvidas Frequentes",
+      "Preciso saber programar para fazer o curso?",
+      "Absolutamente não. O foco é design imersivo e uso de Agentes de IA. Você aprenderá a criar experiências incríveis sem precisar digitar uma única linha de código."
+    ]
+  }
+}

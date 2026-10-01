@@ -1,0 +1,55 @@
+/* ============ sections/garantia — §4.11 "Anel de 7 dias" ============
+   HTML/CSS = estado FINAL (7 segmentos cheios, texto sem rotação). O JS só aplica o dasharray em is-motion. */
+
+.s-garantia{padding-block:var(--section-py);overflow:clip}
+.s-garantia .gt-grid{align-items:center;row-gap:var(--s-8)}
+
+/* ---------- anel (col 1–5) ---------- */
+.s-garantia .gt-ring{grid-column:1 / span 5;justify-self:center;position:relative;width:min(100%,440px);aspect-ratio:1;
+  container-type:inline-size}
+.s-garantia .gt-svg{display:block;width:100%;height:auto;overflow:visible}
+.s-garantia .gt-inner{fill:none;stroke:var(--line);stroke-width:1}
+.s-garantia .seg-bg,.s-garantia .seg-fill{fill:none;stroke-width:2;stroke-linecap:butt}
+.s-garantia .seg-bg{stroke:var(--line-2)}
+.s-garantia .seg-fill{stroke:var(--flame)}
+.s-garantia .gt-tip-dot{fill:var(--flame)}
+.s-garantia .gt-tip-halo{fill:none;stroke:rgb(var(--flame-rgb) / .38);stroke-width:1}
+.s-garantia .gt-txt{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.2em;fill:var(--muted);
+  font-feature-settings:"zero" 1,"ss01" 1}
+.s-garantia .gt-txt--m{display:none}
+
+/* "7" + DIAS no centro do anel (escala com o anel: 59cqi ≈ 260px num anel de 440px) */
+.s-garantia .gt-seven{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:var(--s-3);
+  pointer-events:none;text-align:center}
+.s-garantia .gt-seven .t-num{display:block;font-size:clamp(140px,18vw,260px);font-size:min(59cqi,260px);line-height:.74;
+  letter-spacing:-.04em;margin-right:-.06em;color:var(--display)}
+.s-garantia .gt-seven .micro{font-size:var(--fs-label);letter-spacing:.32em;margin-right:-.32em;color:var(--accent-text)}
+
+/* ---------- texto (col 7–12) ---------- */
+.s-garantia .gt-text{grid-column:7 / span 6;min-width:0}
+.s-garantia .kicker{margin-bottom:var(--s-6)}
+.s-garantia .gt-text .t-d3{max-width:13ch}
+.s-garantia .gt-lead{margin-top:var(--s-6);color:var(--text)}
+.s-garantia .gt-hud{margin-top:var(--s-7);max-width:460px;font-size:var(--fs-label);border-bottom:1px solid var(--line)}
+.s-garantia .gt-hud li{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s-4);
+  padding:13px 0 12px;border-top:1px solid var(--line)}
+.s-garantia .gt-hud span{color:var(--muted)}
+.s-garantia .gt-hud b{font-weight:500;color:var(--display);font-variant-numeric:tabular-nums}
+.s-garantia .gt-hud li:first-child b{color:var(--accent-text)}
+
+/* ---------- mobile ---------- */
+@media (max-width:899px){
+  .s-garantia .gt-grid{row-gap:var(--s-7)}
+  .s-garantia .gt-ring{grid-column:1;width:min(72vw,360px)}
+  .s-garantia .gt-text{grid-column:1}
+  .s-garantia .seg-bg,.s-garantia .seg-fill{stroke-width:3.2}
+  .s-garantia .gt-inner{stroke-width:1.6}
+  .s-garantia .gt-tip-dot{r:5}
+  .s-garantia .gt-tip-halo{r:12;stroke-width:1.6}
+  .s-garantia .gt-txt--d{display:none}
+  .s-garantia .gt-txt--m{display:inline;font-size:17px;letter-spacing:.19em}
+  .s-garantia .kicker{margin-bottom:var(--s-5)}
+  .s-garantia .gt-lead{margin-top:var(--s-5)}
+  .s-garantia .gt-hud{margin-top:var(--s-6);max-width:none;font-size:var(--fs-label)}
+  .s-garantia .gt-hud li{min-height:44px;align-items:center;padding:0}
+}

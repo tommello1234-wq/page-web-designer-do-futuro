@@ -1,0 +1,145 @@
+/* oferta — "Doca de Ativação" (§4.10). Todo seletor começa por .s-oferta; tokens só via var().
+   HTML/CSS = estado FINAL (itens acoplados, total, régua, riscados, frame 0135, PRONTO 4/4). O JS só monta o estado
+   de partida em is-motion (e o desfaz no revert). Desktop: coluna flame sticky (sem pin) + coluna paper-2 que rola. */
+
+/* ================= grade ================= */
+.s-oferta .of-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);align-items:start}
+
+/* ================= esquerda · flame (sticky) ================= */
+.s-oferta .of-left{position:sticky;top:0;height:100vh;height:100svh;min-width:0}
+.s-oferta .of-left-in{display:flex;flex-direction:column;height:100%;padding:calc(var(--nav-h) + 24px) var(--pad-x) 32px}
+.s-oferta .kicker{margin-bottom:clamp(14px,2.2svh,26px)}
+.s-oferta .of-h2{max-width:11ch;padding-top:.04em}
+.s-oferta .of-desc{max-width:40ch;margin-top:clamp(14px,2.2svh,26px);color:var(--ink)}
+.s-oferta .of-meta{max-width:560px;margin-top:clamp(14px,2.2svh,26px);font-size:12px;line-height:1.3;letter-spacing:.1em;text-transform:uppercase}
+.s-oferta .of-meta>div{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:9px 0;border-top:1px solid var(--line)}
+.s-oferta .of-meta>div:last-child{border-bottom:1px solid var(--line)}
+.s-oferta .of-meta dt{color:var(--muted)}
+.s-oferta .of-meta dd{color:var(--ink);font-weight:500}
+.s-oferta .of-meta .blink{display:inline-block;margin-right:.35em}
+
+/* ---- Doca: janela ink dentro do flame (armadura com contraste) ---- */
+.s-oferta .of-dock{position:relative;flex:1 1 auto;min-height:clamp(180px,32svh,40svh);margin-top:24px;overflow:hidden;isolation:isolate;
+  container-type:size;background-color:var(--ink);color:var(--white);--line-2:rgb(var(--white-rgb) / .72)}
+.s-oferta .of-dock>.micro{position:absolute;z-index:4;line-height:1;white-space:nowrap}
+.s-oferta .of-d-tl{top:15px;left:16px}
+.s-oferta .of-d-tr{top:12px;right:13px}
+.s-oferta .of-d-bl{bottom:15px;left:16px}
+.s-oferta .of-d-br{bottom:15px;right:16px;opacity:.6}
+.s-oferta .of-d-bl b{font-weight:500}
+.s-oferta .of-status{padding:3px 6px 3px 7px;box-shadow:inset 0 0 0 1px rgb(var(--white-rgb) / .4);
+  transition:background-color .3s linear,color .3s linear,box-shadow .3s linear}
+.s-oferta .of-status.is-ready{background:var(--white);color:var(--ink);box-shadow:none}
+
+/* plataforma: 3 anéis concêntricos centrados na base + calor por trás da silhueta (jaqueta preta sobre ink) */
+.s-oferta .of-rings{position:absolute;left:50%;bottom:0;z-index:0;width:min(150cqh,96cqw);aspect-ratio:1;translate:-50% 50%;
+  border-radius:50%;border:1px solid rgb(var(--white-rgb) / .08);pointer-events:none;
+  background:radial-gradient(closest-side,rgb(var(--flame-rgb) / .3),rgb(var(--flame-rgb) / .1) 48%,rgb(var(--flame-rgb) / 0) 100%)}
+.s-oferta .of-rings::before,.s-oferta .of-rings::after{content:"";position:absolute;border-radius:50%;border:1px solid rgb(var(--white-rgb) / .08)}
+.s-oferta .of-rings::before{inset:17%}
+.s-oferta .of-rings::after{inset:34%}
+
+/* figura = retângulo "contain" exato do frame (900×864) ancorado na base: canvas, still e olhos no mesmo espaço */
+.s-oferta .of-fig{position:absolute;left:50%;bottom:0;z-index:1;height:min(92cqh,calc(100cqw * 864 / 900));aspect-ratio:900/864;translate:-50% 0}
+.s-oferta .of-fig>img,.s-oferta .of-fig>canvas{position:absolute;inset:0;width:100%;height:100%}
+.s-oferta .of-still{object-fit:contain;object-position:50% 100%}
+.s-oferta .of-eye{position:absolute;top:40.74%;width:15%;aspect-ratio:2/1;translate:-50% -50%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgb(var(--glow-rgb) / .95),rgb(var(--eye-mid-rgb) / .5) 42%,rgb(var(--flame-rgb) / 0) 100%);
+  mix-blend-mode:screen;opacity:.75}
+.s-oferta .of-eye--l{left:42.78%}   /* frame-space 385,352 */
+.s-oferta .of-eye--r{left:57.78%}   /* frame-space 520,352 */
+html.no-js .s-oferta .of-canvas,html.is-static .s-oferta .of-canvas,.s-oferta[data-failed] .of-canvas{display:none}
+
+/* ================= direita · paper-2 ================= */
+.s-oferta .of-right{min-width:0;padding:calc(var(--nav-h) + 24px) var(--pad-x) 10svh}
+/* cabeçalho da coluna: alinhado ao kicker da esquerda e preso no topo (faixa paper-2 esconde o que rola por baixo);
+   a margem inferior deixa o 1º item a 55svh do topo da seção → o acoplamento só começa com a Doca inteira na tela */
+.s-oferta .of-archive{position:sticky;top:calc(var(--nav-h) + 19px);z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  height:32px;margin:-5px 0 calc(55svh - var(--nav-h) - 51px);border-bottom:1px solid var(--line);background:var(--bg);color:var(--muted)}
+.s-oferta .of-archive::before{content:"";position:absolute;left:calc(-1 * var(--pad-x));right:calc(-1 * var(--pad-x));bottom:100%;
+  height:calc(var(--nav-h) + 19px);background:var(--bg)}
+.s-oferta .of-slots{display:flex;gap:4px}
+.s-oferta .of-slots i{width:8px;height:8px;background:var(--flame);box-shadow:inset 0 0 0 1px var(--flame);transition:background-color .3s linear,box-shadow .3s linear}
+.s-oferta:has(.of-item[data-i="0"]:not(.is-docked)) .of-slots i:nth-child(1),
+.s-oferta:has(.of-item[data-i="1"]:not(.is-docked)) .of-slots i:nth-child(2),
+.s-oferta:has(.of-item[data-i="2"]:not(.is-docked)) .of-slots i:nth-child(3),
+.s-oferta:has(.of-item[data-i="3"]:not(.is-docked)) .of-slots i:nth-child(4){background:transparent;box-shadow:inset 0 0 0 1px var(--line-2)}
+.s-oferta .of-items{border-bottom:1px solid var(--line)}
+.s-oferta .of-item{position:relative;display:grid;grid-template-columns:20px minmax(0,1fr) auto;column-gap:16px;align-items:start;
+  padding:20px 0 20px 20px;border-top:1px solid var(--line);transition:opacity .45s var(--ease-out)}
+.s-oferta .of-item::before{content:"";position:absolute;left:0;top:-1px;bottom:0;width:4px;background:var(--flame);
+  transform:scaleY(0);transform-origin:50% 0;transition:transform .4s var(--ease-out)}
+.s-oferta .of-item.is-docked::before{transform:none}
+.s-oferta .of-item:not(.is-docked){opacity:.35}
+.s-oferta .of-check{display:grid;place-items:center;width:20px;height:20px;margin-top:1px;border:1px solid var(--line-2);color:transparent;
+  transition:background-color .3s linear,border-color .3s linear,color .3s linear}
+.s-oferta .of-check .i{width:14px;height:14px}
+.s-oferta .of-item.is-docked .of-check{background:var(--flame);border-color:var(--flame);color:var(--ink)}
+.s-oferta .of-label{font-size:11px;line-height:1.3;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.s-oferta .of-ititle{margin-top:8px;color:var(--display)}
+.s-oferta .of-idesc{max-width:46ch;margin-top:8px;font-size:14px;line-height:1.5;color:var(--text)}
+.s-oferta .of-iprice{padding-top:1px;font-family:var(--mono);font-size:15px;line-height:1.2;color:var(--text);font-variant-numeric:tabular-nums}
+
+.s-oferta .of-total{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-top:22px}
+.s-oferta .of-total .micro{color:var(--muted)}
+.s-oferta .of-total b{font-family:var(--font);font-weight:600;font-size:28px;line-height:1;letter-spacing:-.045em;color:var(--display)}
+.s-oferta .of-rule{height:1px;margin:22px 0 clamp(28px,4svh,44px);background:var(--grad)}
+
+/* ---- card ---- */
+.s-oferta .of-card{padding:clamp(22px,2.4vw,36px);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.s-oferta .of-card-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.s-oferta .of-logo{display:block;flex:none;width:174.6px;height:28px;color:var(--ink)}
+.s-oferta .of-title{font-size:24px;line-height:1;letter-spacing:-.035em;color:var(--display);white-space:nowrap}
+.s-oferta .of-from{margin-top:20px;font-size:16px;line-height:1.3;color:var(--text)}
+.s-oferta .of-from del{margin:0 .15em;color:var(--display)}
+.s-oferta .price{margin-top:clamp(18px,2.6svh,26px)}
+.s-oferta .price-pre{font-size:13px;line-height:1;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.s-oferta .price-main{display:flex;align-items:flex-start;gap:.28em;margin-top:12px;color:var(--display);white-space:nowrap}
+.s-oferta .price-cur{font-family:var(--font);font-weight:600;font-size:24px;line-height:1;letter-spacing:-.03em;padding-top:.2em}
+.s-oferta .price-alt{margin-top:16px;font-size:13px;line-height:1.3;letter-spacing:.08em;color:var(--muted)}
+.s-oferta .of-cta{margin-top:clamp(22px,3svh,30px)}
+.s-oferta .of-trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px}
+.s-oferta .of-trust li{padding-top:10px;border-top:2px solid var(--ink);font-size:13px;line-height:1.35;color:var(--text)}
+
+/* ---- odômetro (montado pelo JS só em is-motion; parado = valor final) ---- */
+.s-oferta .of-odo{display:inline-flex}
+.s-oferta .of-odo-w{position:relative;display:inline-block;clip-path:inset(0 -.1em)}
+.s-oferta .of-odo-ghost{visibility:hidden}
+.s-oferta .odo-col{position:absolute;left:0;top:0;width:100%;text-align:center}
+.s-oferta .odo-col>span{display:block;height:.85em;line-height:.85em}
+
+/* ================= telas baixas (desktop): a Doca segue ≥180px e inteira ================= */
+@media (min-width:900px) and (max-height:820px){
+  .s-oferta .of-left h2{font-size:min(var(--fs-d3),6.4svh);max-width:13ch}
+  .s-oferta .of-meta{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .s-oferta .of-meta>div:last-child{border-bottom:0}
+}
+/* desktop muito baixo (landscape ≤560px): sem sticky de palco (flags.pin = false → composição estática) */
+@media (min-width:900px) and (orientation:landscape) and (max-height:560px){
+  .s-oferta .of-left{position:relative;height:auto}
+  .s-oferta .of-left-in{height:auto}
+  .s-oferta .of-dock{flex:none;height:max(220px,64svh)}
+  .s-oferta .of-archive{position:relative;top:auto;margin-bottom:4px}
+  .s-oferta .of-archive::before{content:none}
+}
+
+/* ================= mobile (<900): uma coluna, sem sticky ================= */
+@media (max-width:899px){
+  .s-oferta .of-grid{grid-template-columns:minmax(0,1fr)}
+  .s-oferta .of-left{position:relative;height:auto}
+  .s-oferta .of-left-in{height:auto;padding:clamp(72px,11svh,104px) 20px 32px}
+  .s-oferta .of-meta{font-size:13px;letter-spacing:.06em}
+  .s-oferta .of-dock{flex:none;height:40svh;min-height:0;margin-top:28px}
+  .s-oferta .of-d-tr{max-width:calc(100% - 158px);white-space:normal;text-align:right;line-height:1.35}
+  .s-oferta .of-right{padding:32px 20px 48px}
+  .s-oferta .of-archive{position:relative;top:auto;margin:0 0 4px}
+  .s-oferta .of-archive::before{content:none}
+  .s-oferta .of-item{grid-template-columns:20px minmax(0,1fr);padding:18px 0 18px 18px}
+  .s-oferta .of-iprice{grid-column:2;margin-top:10px;padding:0}
+  .s-oferta .of-label{font-size:13px;letter-spacing:.04em}
+  .s-oferta .of-card{padding:20px}
+  .s-oferta .of-logo{width:149.6px;height:24px}
+  .s-oferta .of-title{font-size:20px}
+  .s-oferta .cta-sub-d{display:none}
+  .s-oferta .of-trust{grid-template-columns:1fr 1fr;gap:14px 16px}
+}

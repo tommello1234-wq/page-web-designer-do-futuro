@@ -1,0 +1,130 @@
+/* showcase — §4.6 · ink · "Galeria que liga ao chegar".
+   Três composições sobre o MESMO HTML (estado final):
+   · base ≥900 (sem JS, estático, sem pin): grade 2 colunas — intro em cima, cards, outro;
+   · .is-h (JS, desktop com pin): palco 100svh pinado, trilho horizontal (intro e outro movidos para dentro do trilho);
+   · <900: trilho com scroll-snap nativo, build-line e outro ABAIXO do trilho.
+   Todo seletor começa por .s-showcase; tokens só via var(). */
+
+/* ============================== base (grade · sem JS · estático) ============================== */
+.s-showcase{padding-block:var(--section-py)}
+.s-showcase .sc-stage{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad-x);
+  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+
+.s-showcase .sc-intro{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);
+  align-items:end;margin-bottom:clamp(64px,10vh,120px)}
+.s-showcase .sc-intro .kicker{grid-column:1/-1;margin-bottom:clamp(24px,3.4vh,36px)}
+.s-showcase .sc-intro .t-d3{grid-column:1/span 7;max-width:14ch}
+.s-showcase .sc-intro .t-lead{grid-column:9/-1;color:var(--text);max-width:30ch;padding-bottom:.2em}
+.s-showcase .sc-hint{display:flex;align-items:center;gap:12px;color:var(--muted)}
+.s-showcase .sc-hint::before{content:"";width:24px;height:1px;background:currentColor}
+.s-showcase .sc-intro .sc-hint{grid-column:9/-1;margin-top:28px}
+.s-showcase .sc-hint-m{display:none}
+.s-showcase:not(.is-h) .sc-intro .sc-hint{display:none}          /* grade: nada desliza na horizontal */
+
+.s-showcase .sc-track{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(56px,9vh,104px) var(--gap);padding-bottom:clamp(40px,8vh,96px)}
+.s-showcase .sc-track>.sc-card:nth-of-type(even){transform:translateY(clamp(40px,8vh,96px))}   /* 2ª coluna desalinhada (pôster editorial) */
+
+.s-showcase .sc-outro{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);
+  align-items:end;margin-top:clamp(72px,12vh,144px);padding-top:clamp(40px,6vh,64px);border-top:1px solid var(--line)}
+.s-showcase .sc-outro .t-d3{grid-column:1/span 8;max-width:18ch}
+.s-showcase .sc-outro .cta{grid-column:9/-1;justify-self:end;width:min(100%,380px)}
+
+/* build-line: só com JS (trilho horizontal no desktop / snap no mobile) */
+.s-showcase .sc-line{display:none;align-items:center;gap:18px;color:var(--muted);pointer-events:none}
+
+/* ============================== card ============================== */
+.s-showcase .sc-card{margin:0;min-width:0}
+.s-showcase .browser{background:var(--ink-2)}
+.s-showcase .browser-bar{position:relative;z-index:1}
+.s-showcase .browser-bar>.sc-legend{margin-left:10px;color:var(--muted);white-space:nowrap;transition:color .3s linear}
+.s-showcase .sc-live{margin-left:auto;padding-left:12px;white-space:nowrap;color:var(--text);font-variant-numeric:tabular-nums}
+.s-showcase .sc-live[data-state="wait"]{color:var(--muted)}
+.s-showcase .sc-live[data-state="on"]::after{content:"●";margin-left:.7em;color:var(--flame)}
+html.is-motion .s-showcase .sc-live[data-state="on"]::after{animation:sc-blink 1.2s steps(2,jump-none) infinite}
+@keyframes sc-blink{to{opacity:0}}
+
+.s-showcase .sc-media{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ink-2)}
+.s-showcase .sc-media>.vid,.s-showcase .sc-media>.vid-poster{position:absolute;inset:0;width:100%;height:100%;
+  transition:filter .6s var(--ease-out),opacity .3s linear}
+.s-showcase .sc-open{position:absolute;inset:0;z-index:2;display:block;width:100%;height:100%;background:transparent;cursor:zoom-in}
+.s-showcase .sc-open:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+
+/* fio da régua (--grad, 1px) corre a borda superior UMA vez quando o card liga */
+.s-showcase .sc-thread{position:absolute;left:-1px;right:-1px;top:-1px;height:1px;z-index:2;pointer-events:none;
+  background-image:var(--grad);background-repeat:no-repeat;background-size:140px 100%;background-position:-140px 0}
+html.is-motion .s-showcase .sc-card.is-live .sc-thread{animation:sc-thread .64s var(--ease-inout) 1 both}
+@keyframes sc-thread{from{background-position:-140px 0}to{background-position:calc(100% + 140px) 0}}
+
+.s-showcase .sc-cap{display:flex;align-items:center;gap:12px;padding-top:14px;color:var(--muted)}
+.s-showcase .sc-cap::before{content:"";width:12px;height:1px;background:var(--line-2);transition:background-color .3s linear,width .45s var(--ease-out)}
+
+/* assinatura ligada (só com movimento): inativos em cinza; o ativo (ou o que o usuário tocou) em cor */
+.s-showcase.is-armed .sc-card:not(.is-live):not(.is-on) .sc-media>.vid,
+.s-showcase.is-armed .sc-card:not(.is-live):not(.is-on) .sc-media>.vid-poster{filter:grayscale(1) brightness(.8)}
+.s-showcase .sc-card.is-live .sc-legend,.s-showcase .sc-card.is-on .sc-legend{color:var(--display)}
+.s-showcase .sc-card.is-live .sc-cap::before{background:var(--flame)}
+@media (hover:hover) and (pointer:fine){
+  .s-showcase .sc-card:hover .sc-legend{color:var(--display)}
+}
+
+/* ============================== .is-h — desktop com pin: galeria horizontal ============================== */
+.s-showcase.is-h{padding-block:0}
+.s-showcase.is-h .sc-stage{display:block;max-width:none;padding:0;position:relative;height:100vh;height:100svh;overflow:hidden;overflow:clip}
+.s-showcase.is-h .sc-track{position:absolute;top:0;left:0;height:100%;width:max-content;display:flex;align-items:center;
+  gap:clamp(24px,2.4vw,48px);padding:var(--nav-h) var(--pad-x) 104px;will-change:transform}
+.s-showcase.is-h .sc-track>.sc-card:nth-of-type(n){transform:none}
+.s-showcase.is-h .sc-intro{flex:none;display:block;width:clamp(320px,34vw,540px);margin:0;padding-right:clamp(8px,2vw,40px)}
+.s-showcase.is-h .sc-intro .kicker{margin-bottom:clamp(20px,3vh,32px)}
+.s-showcase.is-h .sc-intro .t-d3{max-width:14ch}
+.s-showcase.is-h .sc-intro .t-lead{margin-top:clamp(20px,3vh,32px);max-width:28ch}
+.s-showcase.is-h .sc-intro .sc-hint{margin-top:clamp(28px,4.4vh,48px)}
+.s-showcase.is-h .sc-card{flex:none;width:clamp(300px,34vw,620px)}
+.s-showcase.is-h .sc-card:nth-of-type(odd){translate:0 -4svh}
+.s-showcase.is-h .sc-card:nth-of-type(even){translate:0 5svh}
+.s-showcase.is-h .sc-media>.vid,.s-showcase.is-h .sc-media>.vid-poster{left:-6%;right:auto;width:112%;max-width:none;
+  transform:translate3d(calc(var(--px,0) * 1%),0,0)}
+.s-showcase.is-h .sc-outro{flex:none;display:block;width:clamp(320px,32vw,520px);margin:0 0 0 clamp(24px,3vw,56px);padding:0;border:0}
+.s-showcase.is-h .sc-outro .t-d3{max-width:none}
+.s-showcase.is-h .sc-outro .cta{display:inline-grid;width:auto;margin-top:clamp(28px,4.4vh,48px)}
+.s-showcase.is-h .sc-line{display:flex;position:absolute;z-index:2;left:var(--pad-x);right:calc(var(--pad-x) + 72px);bottom:28px}
+
+/* build-line (compartilhada: .is-h e mobile) */
+.s-showcase .sc-l-a,.s-showcase .sc-l-b{flex:none;font-variant-numeric:tabular-nums;white-space:nowrap}
+.s-showcase .sc-l-b{color:var(--display)}
+.s-showcase .sc-rail{position:relative;flex:1;height:1px;background:var(--line-2)}
+.s-showcase .sc-rail::before{content:"";position:absolute;inset:-3px 0;
+  background-image:repeating-linear-gradient(90deg,var(--line-2) 0 1px,transparent 1px 10%);border-right:1px solid var(--line-2)}
+.s-showcase .sc-fill{position:absolute;left:0;top:0;width:100%;height:1px;background:var(--flame);transform-origin:0 50%;transform:scaleX(0)}
+.s-showcase .sc-mask{position:absolute;left:0;bottom:2px;width:48px;height:64px;max-width:none;transform:translate3d(-24px,0,0)}
+
+/* ============================== mobile (<900): scroll-snap nativo, sem pin ============================== */
+@media (max-width:899px){
+  .s-showcase .sc-stage{display:flex;flex-direction:column;padding-inline:0}
+  .s-showcase .sc-intro{display:block;padding-inline:var(--pad-x);margin-bottom:36px}
+  .s-showcase .sc-intro .kicker{margin-bottom:22px}
+  .s-showcase .sc-intro .t-d3{max-width:14ch}
+  .s-showcase .sc-intro .t-lead{margin-top:20px;max-width:32ch}
+  .s-showcase:not(.is-h) .sc-intro .sc-hint{display:flex;margin-top:28px}
+  .s-showcase .sc-hint-d{display:none}
+  .s-showcase .sc-hint-m{display:inline}
+
+  .s-showcase .sc-track{order:1;position:static;display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad-x);padding:0 var(--pad-x) 24px;overscroll-behavior-x:contain;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .s-showcase .sc-track::-webkit-scrollbar{display:none}
+  .s-showcase .sc-track>.sc-card:nth-of-type(even){transform:none}
+  .s-showcase .sc-card{flex:0 0 84vw;scroll-snap-align:start}
+  .s-showcase .sc-media>.vid-toggle{right:6px;bottom:6px}
+
+  .s-showcase .sc-line{order:2;display:flex;gap:14px;padding:44px var(--pad-x) 0}
+  .s-showcase .sc-mask{width:36px;height:48px;transform:translate3d(-18px,0,0)}
+  .s-showcase .sc-l-a,.s-showcase .sc-l-b{font-size:11px}
+
+  .s-showcase .sc-outro{order:3;display:block;margin:52px var(--pad-x) 0;padding-top:36px}
+  .s-showcase .sc-outro .t-d3{max-width:16ch}
+  .s-showcase .sc-outro .cta{display:grid;width:100%;margin-top:32px}
+}
+
+/* sem JS: sem build-line (nada a acompanhar) */
+html.no-js .s-showcase .sc-line{display:none}

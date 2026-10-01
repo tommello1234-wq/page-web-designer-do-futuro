@@ -11,3 +11,11 @@
 !ASSETS/videos-paginas/
 !ASSETS/videos-paginas/*.mp4
 !ASSETS/antes-depois/depois.mp4
+
+# Previews gerados por node v2/build.mjs --section (fora do deploy)
+v2/preview/
+
+# Fonte e ferramentas da v2 (só o build em v2/dist vai pro ar)
+v2/src/
+v2/tools/
+v2/build.mjs

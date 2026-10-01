@@ -1,0 +1,78 @@
+/* solucao — §4.3 "A edição". Todo seletor começa por .s-solucao; tokens só via var().
+   Estado FINAL sem JS: .so-body chega com .is-struck .is-selected .is-checked. Os estados "antes" existem só como
+   :not(.is-*) e só são alcançados quando o JS remove as classes (is-motion). Nada aqui muda a geometria (CLS 0):
+   risco, caixa, alças, etiqueta e checks são absolutos/transform/opacity/cor/stroke. */
+
+.s-solucao{padding-top:var(--section-py)}
+
+/* ---------- cabeçalho ---------- */
+.s-solucao .so-head{padding-bottom:clamp(56px,9vh,112px)}
+.s-solucao .kicker{margin-bottom:clamp(28px,4.2vh,48px)}
+/* folga de topo: o circunflexo/agudo da NeuePower (Ê .876em, Á .90em) passa do line-box de .9 */
+.s-solucao .so-h2{padding-top:.1em}
+.s-solucao .so-h2 .l{display:block;white-space:nowrap}
+
+/* ---------- corpo: sub (col 1–6) + lista (col 8–12) ---------- */
+.s-solucao .so-body{align-items:start;padding-bottom:var(--section-py)}
+.s-solucao .so-sub{grid-column:1/span 6;padding-top:18px;padding-bottom:40px;color:var(--text);max-width:34em;text-wrap:pretty}
+
+/* risco: 3px flame a 55% da altura do trecho; o texto cai para 45% (a linha fica cheia) */
+.s-solucao .ed-strike{position:relative;white-space:nowrap}
+.s-solucao .ed-line{position:absolute;left:-.06em;right:-.06em;top:55%;height:3px;margin-top:-1.5px;background:var(--flame);
+  transform-origin:0 50%;pointer-events:none}
+.s-solucao .so-body.is-struck .ed-strike{color:var(--muted);color:color-mix(in srgb,currentColor 45%,transparent)}
+.s-solucao .so-body:not(.is-struck) .ed-line{transform:scaleX(0)}
+
+/* seleção: retângulo (inline-block → nunca vira um polígono ao quebrar linha), caixa 1px violeta a -6px, 4 alças e etiqueta */
+.s-solucao .ed-select{position:relative;display:inline-block;margin-top:.4em}
+.s-solucao .so-body.is-selected .ed-select{color:var(--display);background-color:rgb(var(--ai-rgb) / .08)}
+.s-solucao .ed-box{position:absolute;inset:-6px;border:1px solid var(--ai);pointer-events:none}
+.s-solucao .ed-box>i{position:absolute;width:6px;height:6px;background:var(--ai)}
+.s-solucao .ed-box>i:nth-child(1){top:-3.5px;left:-3.5px}
+.s-solucao .ed-box>i:nth-child(2){top:-3.5px;right:-3.5px}
+.s-solucao .ed-box>i:nth-child(3){bottom:-3.5px;right:-3.5px}
+.s-solucao .ed-box>i:nth-child(4){bottom:-3.5px;left:-3.5px}
+/* etiqueta: mono 11px/500 INK sobre paper, borda violeta (violeta 10–11px sobre paper ficaria abaixo do quadro de contraste) */
+.s-solucao .ed-tag{position:absolute;left:-1px;top:calc(100% + 5px);padding:2px 6px;border:1px solid var(--ai);background:var(--bg);color:var(--ink);
+  font-size:11px;font-weight:500;line-height:1.3;letter-spacing:.06em;text-transform:none;white-space:nowrap}
+.s-solucao .so-body:not(.is-selected) .ed-box{opacity:0;transform:scale(.96)}
+.s-solucao .so-body:not(.is-selected) .ed-box>i{opacity:0;transform:scale(0)}
+.s-solucao .so-body:not(.is-selected) .ed-tag{opacity:0;transform:translateY(-4px)}
+
+/* lista: réguas finas, índice mono, texto Geist 500, check desenhado à direita */
+.s-solucao .so-list{grid-column:8/-1;border-bottom:1px solid var(--line)}
+.s-solucao .so-list>li{display:grid;grid-template-columns:3.2em minmax(0,1fr) 22px;column-gap:clamp(12px,1.2vw,20px);align-items:start;
+  padding:20px 0;border-top:1px solid var(--line)}
+.s-solucao .so-n{padding-top:.55em;font-size:11px;font-weight:500;color:var(--accent-text)}
+.s-solucao .so-t{font-weight:500;font-size:clamp(18px,1.5vw,22px);line-height:1.25;letter-spacing:-.02em;color:var(--display);text-wrap:pretty}
+.s-solucao .so-check{width:22px;height:22px;margin-top:.1em;fill:none;stroke:var(--flame-deep);stroke-width:2;stroke-linecap:square;
+  stroke-dasharray:30;stroke-dashoffset:0}
+.s-solucao .so-body:not(.is-checked) .so-check{stroke-dashoffset:30}
+
+/* transições só com movimento; o reset do init (.is-quiet) corta todas para não "desfazer" a edição à vista */
+html.is-motion .s-solucao .ed-line{transition:transform .6s var(--ease-out)}
+html.is-motion .s-solucao .ed-strike{transition:color .3s linear}
+html.is-motion .s-solucao .ed-select{transition:color .3s linear,background-color .3s linear}
+html.is-motion .s-solucao .ed-box{transition:opacity .45s var(--ease-out),transform .45s var(--ease-out)}
+html.is-motion .s-solucao .ed-box>i{transition:opacity .3s var(--ease-out),transform .45s var(--ease-out)}
+html.is-motion .s-solucao .so-body.is-selected .ed-box>i:nth-child(2){transition-delay:.05s}
+html.is-motion .s-solucao .so-body.is-selected .ed-box>i:nth-child(3){transition-delay:.1s}
+html.is-motion .s-solucao .so-body.is-selected .ed-box>i:nth-child(4){transition-delay:.15s}
+html.is-motion .s-solucao .ed-tag{transition:opacity .3s linear .2s,transform .45s var(--ease-out) .2s}
+html.is-motion .s-solucao .so-check{transition:stroke-dashoffset .45s var(--ease-out)}
+html.is-motion .s-solucao .so-body.is-checked .so-list>li:nth-child(2) .so-check{transition-delay:.12s}
+html.is-motion .s-solucao .so-body.is-checked .so-list>li:nth-child(3) .so-check{transition-delay:.24s}
+.s-solucao .so-body.is-quiet,.s-solucao .so-body.is-quiet *{transition:none}
+
+/* ---------- faixa do raciocínio (paper-2, full-bleed) ---------- */
+.s-solucao .so-band{padding-block:clamp(72px,10vh,120px);border-top:1px solid var(--line)}
+.s-solucao .so-reason{max-width:22ch;text-wrap:balance}
+.s-solucao .so-reason strong{font-weight:inherit;color:var(--em)}
+
+/* ---------- mobile ---------- */
+@media (max-width:899px){
+  .s-solucao .so-sub,.s-solucao .so-list{grid-column:1/-1}
+  .s-solucao .so-sub{padding-top:0;padding-bottom:48px;max-width:none}
+  .s-solucao .so-list>li{grid-template-columns:2.6em minmax(0,1fr) 22px;padding:18px 0}
+  .s-solucao .so-reason{max-width:none}
+}

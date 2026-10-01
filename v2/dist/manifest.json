@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "css": "wdf.f04946bad1.css",
+  "js": "wdf.74265cc8f8.js",
+  "gzip": {
+    "css": 23023,
+    "js": 31804
+  },
+  "sections": [
+    "hero",
+    "problema",
+    "solucao",
+    "superpoder",
+    "depoimentos",
+    "showcase",
+    "modulos",
+    "autor",
+    "bonus",
+    "oferta",
+    "garantia",
+    "faq",
+    "final",
+    "footer"
+  ],
+  "minified": true,
+  "builtAt": "2026-10-01T11:39:31.090Z"
+}

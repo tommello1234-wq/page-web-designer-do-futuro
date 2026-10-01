@@ -1,0 +1,107 @@
+/* ============ v2/src/core/tokens.css ============ */
+/* URLs ABSOLUTAS (idênticas às dos preloads do head; funcionam em /, /v2, /v2/ e no preview) */
+@font-face{font-family:"Geist";src:url("/v2/fonts/Geist-Variable.woff2?v=1") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("/v2/fonts/GeistMono-Variable.woff2?v=1") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"NeuePower";src:url("/v2/fonts/NeuePower-Ultra.woff2?v=1") format("woff2");font-weight:900;font-style:normal;font-display:swap}
+/* fallbacks métricos (evitam salto de layout no FUTURO) */
+@font-face{font-family:"NeuePower Fallback";src:local("Arial Black"),local("Arial-Black"),local("Arial Bold"),local("Arial-BoldMT");size-adjust:90%;ascent-override:80%;descent-override:20%;line-gap-override:0%}
+@font-face{font-family:"Geist Fallback";src:local("Arial"),local("Helvetica Neue"),local("Helvetica");size-adjust:104%;ascent-override:97%;descent-override:28%;line-gap-override:0%}
+
+:root{
+  /* ---- cores base ---- */
+  --ink:#0A0A0A; --ink-2:#141414; --ink-3:#1E1E1E;
+  --paper:#EEEAE3; --paper-2:#F7F5F0; --white:#FFFFFF;
+  --flame:#FF5A1F;        /* fundo flame, marcas, texto sobre ink (6,35:1) */
+  --flame-deep:#D4430C;   /* <em> display ≥32px sobre paper (3,80:1 AA-large) */
+  --flame-text:#B53D0B;   /* texto pequeno laranja sobre paper (4,82:1) */
+  --ai:#A600FF;           /* violeta do badge do LOGO; "IA agindo": marcas/linhas e display ≥52px (3,83:1 sobre ink; 4,31:1 sobre paper) */
+  --wa:#25D366;           /* único verde: ponto de 8px do WhatsApp */
+  --grey-1:#D6D6D6; --grey-2:#9A9A9A; --grey-3:#8A8A8A; --grey-paper:#625F59; --fg2-paper:#2B2A27;
+  /* site genérico do Problema ("IA genérica") */
+  --gen-bg:#E6E3DD; --gen-block:#CFCBC4; --gen-block-2:#BDB8B0; --gen-ink:#8E8997;
+  /* triplets para alpha: rgb(var(--x-rgb) / .5) */
+  --ink-rgb:10 10 10; --white-rgb:255 255 255; --flame-rgb:255 90 31; --paper-rgb:238 234 227; --ai-rgb:166 0 255; --glow-rgb:255 236 214; --deep-rgb:90 20 0;
+  --iris-core-rgb:26 12 5; --eye-mid-rgb:255 170 110;   /* íris do hero e brilho dos olhos */
+  /* régua (gradiente do LOGO) — SÓ em linhas de 1–2px */
+  --grad:linear-gradient(90deg,#4E02FF 0%,#FF0095 50%,#FF8400 100%);
+  --grad-v:linear-gradient(180deg,#4E02FF 0%,#FF0095 50%,#FF8400 100%);
+
+  /* ---- tipografia ---- */
+  --font:"Geist","Geist Fallback",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --brand:"NeuePower","NeuePower Fallback","Arial Black",sans-serif;
+  --fs-mega:min(calc((100vw - 2 * var(--pad-x)) / 4.32), 46svh);  /* FUTURO hero+footer: ≈313px@1440, ≈81px@390 */
+  --fs-statement:clamp(34px,10.2vw,172px);  /* "VOCÊ SERÁ UM / DOS PIONEIROS!" (8,112em → 82,7vw) */
+  --fs-counter:clamp(110px,22vw,330px);     /* preloader */
+  --fs-d1:clamp(44px,7vw,128px);
+  --fs-d2:clamp(38px,5.4vw,96px);
+  --fs-d3:clamp(32px,4.2vw,76px);
+  --fs-name:clamp(44px,6.4vw,112px);        /* "Washington Melo" */
+  --fs-h3:clamp(26px,2.8vw,44px);
+  --fs-h4:clamp(20px,1.8vw,28px);
+  --fs-lead:clamp(18px,1.4vw,22px);
+  --fs-hero-sub:clamp(24px,2vw,32px);   /* branco sobre flame: ≥24px (AA-large); mobile 20px peso 700 */
+  --fs-marquee:clamp(34px,4.6vw,80px);
+  --fs-num:clamp(88px,9vw,160px);           /* Geist 200: "100%", "7" */
+  --fs-price:clamp(72px,8vw,132px);         /* "61,74"; mobile: clamp(56px,17vw,72px) */
+  --fs-bonus:clamp(18px,1.6vw,26px);        /* títulos dos bônus (NeuePower) */
+  --fs-body:16px; --fs-small:14px; --fs-xs:13px;
+  --fs-kicker:12px; --fs-label:11px; --fs-micro:10px;
+
+  /* ---- espaço / grid ---- */
+  --pad-x:clamp(20px,3vw,44px);
+  --nav-h:72px;
+  --maxw:1680px;
+  --gap:clamp(12px,1.6vw,24px);
+  --section-py:clamp(96px,14vh,180px);
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px; --s-6:32px; --s-7:48px; --s-8:72px; --s-9:120px;
+
+  /* ---- movimento ---- */
+  --ease-out:cubic-bezier(.19,1,.22,1);    /* = wdf.out  (toda entrada) */
+  --ease-inout:cubic-bezier(.77,0,.18,1);  /* = wdf.inout (estados, cortinas, clip) */
+  --d-xs:150ms; --d-s:300ms; --d-m:450ms; --d-l:900ms; --d-xl:1150ms;
+
+  /* ---- camadas ---- */
+  --z-preloader:1000; --z-dialog:950; --z-menu:900; --z-cursor:300; --z-grain:150; --z-toast:140;
+  --z-dock:120; --z-wa:110; --z-nav:100; --z-rail:60; --z-lines:45;
+
+  /* ---- sombras (raras, quentes) ---- */
+  --sh-cta:0 18px 40px -24px rgb(var(--flame-rgb) / .7);
+  --sh-docked:inset 0 0 0 1px var(--ink),0 18px 40px -24px rgb(var(--flame-rgb) / .6);
+
+  interpolate-size:allow-keywords;
+}
+@media (max-width:899px){ :root{ --nav-h:64px; --fs-price:clamp(56px,17vw,72px) } }
+
+/* ---- temas: seções ([data-theme]) E chrome fixo (body[data-ui]) usam os MESMOS blocos ----
+   O chrome (.nav .menu .rail .cursor .dock .toast .wa-float .preloader) é filho do body e herda
+   de body[data-ui]; sem isso --cta-bg/--line-2/--focus ficam indefinidos (CTA transparente, sem anel de foco). */
+[data-theme="ink"],body[data-ui="ink"]{
+  --bg:var(--ink); --display:var(--white); --text:var(--grey-1); --muted:var(--grey-2);
+  --line:rgb(var(--white-rgb) / .14); --line-2:rgb(var(--white-rgb) / .34);
+  --accent:var(--flame); --accent-text:var(--flame); --em:var(--flame);
+  --surface:var(--ink-2); --surface-2:var(--ink-3); --focus:var(--flame);
+  --cta-bg:var(--white); --cta-fg:var(--ink); --cta-wipe:var(--flame); --cta-wipe-fg:var(--ink);
+  --nav-fg:var(--white); --pill-on-bg:var(--flame); --pill-on-fg:var(--ink);
+}
+[data-theme="paper"],[data-theme="paper-2"],body[data-ui="paper"]{
+  --bg:var(--paper); --display:var(--ink); --text:var(--fg2-paper); --muted:var(--grey-paper);
+  --line:rgb(var(--ink-rgb) / .14); --line-2:rgb(var(--ink-rgb) / .28);
+  --accent:var(--flame); --accent-text:var(--flame-text); --em:var(--flame-deep);
+  --surface:var(--paper-2); --surface-2:var(--white); --focus:var(--ink);
+  --cta-bg:var(--ink); --cta-fg:var(--white); --cta-wipe:var(--flame); --cta-wipe-fg:var(--ink);
+  --nav-fg:var(--ink); --pill-on-bg:var(--ink); --pill-on-fg:var(--white);
+}
+[data-theme="paper-2"]{ --bg:var(--paper-2); --surface:var(--white) }
+[data-theme="flame"],body[data-ui="flame"]{
+  --bg:var(--flame); --display:var(--white); --text:var(--ink); --muted:rgb(var(--ink-rgb) / .8);
+  --line:rgb(var(--ink-rgb) / .22); --line-2:rgb(var(--white-rgb) / .55);
+  --accent:var(--ink); --accent-text:var(--ink); --em:var(--ink);
+  --surface:rgb(var(--white-rgb) / .12); --surface-2:var(--ink); --focus:var(--ink);
+  --cta-bg:var(--ink); --cta-fg:var(--white); --cta-wipe:var(--white); --cta-wipe-fg:var(--ink);
+  --nav-fg:var(--ink); --pill-on-bg:var(--ink); --pill-on-fg:var(--white);   /* branco 14px sobre flame = 3,12:1 → proibido */
+}
+body[data-ui="flame"]{ --line-2:rgb(var(--ink-rgb) / .34) }   /* trilho do rail/pills visíveis sobre flame */
+/* o background só pinta seções; o body tem fundo próprio (sem faixa branca no rubber-band do iOS nem antes do footer) */
+[data-theme]{ background:var(--bg); color:var(--text) }
+html,body{ background:var(--ink) }

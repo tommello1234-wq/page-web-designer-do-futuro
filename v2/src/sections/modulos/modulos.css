@@ -1,0 +1,78 @@
+/* §4.7 MÓDULOS — paper · "Sumário vivo" · sem pin. Todo seletor começa por .s-modulos; tokens só via var().
+   HTML/CSS = estado final (sumário sem .is-on, capas visíveis); tilt/glare/realce só com .is-tilt (JS, ponteiro fino + motion). */
+
+.s-modulos{padding-block:var(--section-py) calc(var(--section-py) - 2vh)}
+.s-modulos .md-wrap{align-items:start}
+
+/* ---------- coluna lateral: título + sumário (sticky no desktop) ---------- */
+.s-modulos .md-side{grid-column:1/span 4;position:sticky;top:calc(var(--nav-h) + 48px);display:grid;align-content:start;
+  padding-right:clamp(0px,2vw,32px)}
+.s-modulos .md-side .kicker{margin-bottom:clamp(24px,3.4vh,36px)}
+.s-modulos .md-side .t-d2{max-width:7.4ch;padding-bottom:.04em}
+
+.s-modulos .md-index{margin-top:clamp(40px,7vh,72px);border-bottom:1px solid var(--line)}
+.s-modulos .md-index li{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);align-items:baseline;
+  padding:13px 0 13px 16px;border-top:1px solid var(--line);
+  font-family:var(--font);font-weight:500;font-size:14px;line-height:1.3;letter-spacing:-.01em;color:var(--muted);
+  transition:color .3s linear}
+.s-modulos .md-index li .micro{color:var(--muted);transition:color .3s linear}
+.s-modulos .md-index li::before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:2px;background:var(--flame);
+  transform:scaleY(0);transform-origin:50% 0;transition:transform .45s var(--ease-inout)}
+.s-modulos .md-index li.is-on,.s-modulos .md-index li.is-hot{color:var(--display)}
+.s-modulos .md-index li.is-on .micro,.s-modulos .md-index li.is-hot .micro{color:var(--accent-text)}
+.s-modulos .md-index li.is-on::before,.s-modulos .md-index li.is-hot::before{transform:scaleY(1)}
+.s-modulos.is-tilt .md-index li{cursor:pointer}
+
+/* ---------- grade de capas (col 5–12, colunas deslocadas) ---------- */
+.s-modulos .md-grid{grid-column:5/-1;display:grid;grid-template-columns:repeat(3,minmax(0,300px));justify-content:end;
+  gap:clamp(40px,6vh,64px) var(--gap);padding-bottom:8vh}
+.s-modulos .md-card:nth-child(3n+2){translate:0 8vh}
+.s-modulos .md-card:nth-child(3n){translate:0 4vh}
+.s-modulos .md-card figure{display:grid;gap:18px}
+
+/* moldura ink: as capas leem como "telas" enquadradas; .corners compõe com o background-color (longhands) */
+.s-modulos .md-cover{position:relative;width:100%;max-width:300px;padding:8px;background-color:var(--ink);
+  --line-2:rgb(var(--white-rgb) / .34)}
+.s-modulos .md-img{position:relative;display:block;overflow:hidden;background:var(--ink-2)}
+.s-modulos .md-img img{width:100%;height:auto;aspect-ratio:493/785;object-fit:cover}
+.s-modulos .md-glare{display:none}
+
+.s-modulos figcaption{display:grid;justify-items:start;gap:10px;padding-right:8px}
+.s-modulos .md-n{color:var(--accent-text)}
+.s-modulos figcaption .t-h4{color:var(--display);max-width:15ch}
+.s-modulos .md-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.s-modulos .md-pills li{padding:4px 8px;border:1px solid var(--line-2);
+  font-family:var(--mono);font-feature-settings:"zero" 1,"ss01" 1;font-weight:400;font-size:10px;line-height:1.3;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
+
+/* ---------- tilt + glare + realce cruzado (só ponteiro fino + motion; o JS liga .is-tilt) ---------- */
+.s-modulos.is-tilt .md-cover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transition:transform .45s var(--ease-out)}
+.s-modulos.is-tilt .md-glare{display:block;position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(115deg,transparent 35%,rgb(var(--white-rgb) / .12) 50%,transparent 65%);
+  background-size:250% 100%;background-repeat:no-repeat;background-position:var(--gx,50%) 0;
+  opacity:0;transition:opacity .3s linear}
+.s-modulos.is-tilt .md-card.is-hot .md-glare{opacity:1}
+.s-modulos.is-tilt .md-card{transition:opacity .3s linear}
+.s-modulos.is-tilt .md-grid.is-dim .md-card:not(.is-hot){opacity:.45}
+
+.s-modulos .md-dots{display:none}
+
+/* ---------- mobile: trilho horizontal com snap nativo; sumário oculto; contador 0N / 06 ---------- */
+@media (max-width:899px){
+  .s-modulos{padding-bottom:calc(var(--section-py) - 24px)}
+  .s-modulos .md-side{grid-column:1/-1;position:static;padding-right:0}
+  .s-modulos .md-side .t-d2{max-width:none}
+  .s-modulos .md-index{display:none}
+  .s-modulos .md-grid{grid-column:1/-1;display:flex;justify-content:flex-start;gap:14px;margin:clamp(36px,6svh,56px) calc(-1 * var(--pad-x)) 0;
+    padding:0 var(--pad-x) 16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+    scroll-padding-inline:var(--pad-x);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .s-modulos .md-grid::-webkit-scrollbar{display:none}
+  .s-modulos .md-card{flex:0 0 min(72vw,300px);scroll-snap-align:start}
+  .s-modulos .md-card:nth-child(n){translate:none}
+  .s-modulos figcaption .t-h4{max-width:none}
+  .s-modulos .md-pills li{font-size:13px;letter-spacing:.04em;padding:5px 9px}
+  .s-modulos .md-dots{display:flex;align-items:center;gap:12px;padding-inline:var(--pad-x);margin-top:8px;
+    font-size:var(--fs-label);color:var(--muted)}
+  .s-modulos .md-dots::after{content:"";flex:1;height:1px;background:var(--line)}
+}

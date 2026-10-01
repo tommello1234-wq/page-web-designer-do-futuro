@@ -1,0 +1,72 @@
+/* ============ sections/faq — §4.12 (paper; assinatura discreta) ============
+   Acordeão nativo (<details name="faq">): funciona sem JS; altura animada por ::details-content onde houver suporte. */
+
+.s-faq{padding-block:var(--section-py)}
+.s-faq .fq-grid{align-items:start;row-gap:var(--s-7)}
+
+/* ---------- coluna lateral (col 1–5, sticky) ---------- */
+.s-faq .fq-side{grid-column:1 / span 5;position:sticky;top:calc(var(--nav-h) + 48px);min-width:0}
+.s-faq .kicker{margin-bottom:var(--s-6)}
+.s-faq .fq-side .t-d2{max-width:9ch}
+.s-faq .fq-sub{margin-top:var(--s-6);max-width:34ch;color:var(--text)}
+.s-faq .fq-wa{display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:var(--s-7);padding:0 18px 0 16px;
+  font-size:12px;line-height:1;letter-spacing:.14em;color:var(--display);border:1px solid var(--line-2);
+  transition:background-color .3s linear,color .3s linear,border-color .3s linear}
+.s-faq .fq-wa-dot{background:var(--wa)}
+@media (hover:hover){
+  .s-faq .fq-wa:hover{background:var(--display);color:var(--bg);border-color:var(--display)}
+}
+
+/* ---------- lista (col 7–12) ---------- */
+.s-faq .fq-list{grid-column:7 / span 6;min-width:0;border-bottom:1px solid var(--line)}
+.s-faq .fq{position:relative;border-top:1px solid var(--line)}
+/* barra flame do item aberto (marca, não texto: flame sobre paper só como fill) */
+.s-faq .fq::before{content:"";position:absolute;left:-16px;top:-1px;bottom:0;width:2px;background:var(--flame);
+  transform:scaleY(0);transform-origin:50% 0;transition:transform .45s var(--ease-out);pointer-events:none}
+.s-faq .fq[open]::before{transform:scaleY(1)}
+
+.s-faq summary{display:grid;grid-template-columns:40px minmax(0,1fr) 22px;align-items:baseline;column-gap:var(--s-3);
+  min-height:44px;padding:22px 0;cursor:pointer;list-style:none;-webkit-tap-highlight-color:transparent}
+.s-faq summary::-webkit-details-marker{display:none}
+.s-faq summary::marker{content:""}
+.s-faq .fq-n{color:var(--muted);transition:color .3s linear}
+.s-faq .fq-q{font-weight:500;font-size:clamp(17px,1.4vw,21px);line-height:1.25;letter-spacing:-.02em;color:var(--text);
+  transition:color .3s linear;text-wrap:balance}
+.s-faq .fq-plus{position:relative;width:22px;height:22px;justify-self:end;align-self:center;color:var(--display);
+  transition:transform .45s var(--ease-out),color .3s linear}
+.s-faq .fq-plus::before,.s-faq .fq-plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;margin-top:-.5px;background:currentColor}
+.s-faq .fq-plus::after{transform:rotate(90deg)}
+.s-faq .fq[open] .fq-plus{transform:rotate(45deg)}
+.s-faq .fq[open] .fq-q{color:var(--display)}
+.s-faq .fq[open] .fq-n{color:var(--accent-text)}
+@media (hover:hover){
+  .s-faq summary:hover .fq-q{color:var(--display)}
+  .s-faq summary:hover .fq-n,.s-faq summary:hover .fq-plus{color:var(--accent-text)}
+}
+.s-faq summary:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+
+.s-faq .fq-a{padding:0 0 22px 52px}
+.s-faq .fq-a p{max-width:58ch;font-size:15px;line-height:1.6;letter-spacing:-.005em;color:var(--muted)}
+
+/* altura animada (Chrome 131+; nos demais abre instantâneo) */
+.s-faq .fq::details-content{block-size:0;overflow:clip;
+  transition:block-size .5s var(--ease-out),content-visibility .5s allow-discrete}
+.s-faq .fq[open]::details-content{block-size:auto}
+
+/* ---------- estático: sem transições ---------- */
+html.is-static .s-faq .fq::details-content,html.is-static .s-faq .fq::before,html.is-static .s-faq .fq-plus,
+html.is-static .s-faq .fq-q,html.is-static .s-faq .fq-n,html.is-static .s-faq .fq-wa{transition:none}
+
+/* ---------- mobile ---------- */
+@media (max-width:899px){
+  .s-faq .fq-side{grid-column:1;position:static}
+  .s-faq .fq-list{grid-column:1}
+  .s-faq .kicker{margin-bottom:var(--s-5)}
+  .s-faq .fq-sub{margin-top:var(--s-5)}
+  .s-faq .fq-wa{margin-top:var(--s-6);font-size:13px;letter-spacing:.1em}
+  .s-faq .fq::before{left:-12px}
+  .s-faq summary{grid-template-columns:28px minmax(0,1fr) 20px;padding:20px 0}
+  .s-faq .fq-plus{width:20px;height:20px}
+  .s-faq .fq-q{font-size:17px}
+  .s-faq .fq-a{padding:0 0 22px 40px}
+}

@@ -1,0 +1,138 @@
+/* ============ problema — "10 segundos" (§4.2) ============
+   Base (sem classe de modo) = composição ESTÁTICA: é o que se vê sem JS, em reduced/FX off e sem pin.
+   O JS acrescenta .is-pinned (desktop, pin +=140%) ou .is-sticky (mobile, sticky + scrub) e só então a máquina
+   vira palco: grade sobre o browser, seleção e plano de zoom. Tokens só via var(). */
+
+.s-problema{--p10-top:calc(var(--nav-h) + (100svh - var(--nav-h) - 58svh) / 2)}
+
+/* ---------------- A · diagnóstico ---------------- */
+.s-problema .pb-a{padding-block:var(--section-py);align-items:start}
+.s-problema .pb-side{grid-column:1 / 6;position:sticky;top:calc(var(--nav-h) + 48px);padding:44px 40px 48px}
+.s-problema .pb-title{max-width:13ch;margin-top:32px}
+.s-problema .pb-title em{color:var(--ai)}
+.s-problema .pb-sidetext{max-width:40ch;margin-top:36px;color:var(--muted)}
+
+.s-problema .pb-cards{grid-column:7 / 13;display:grid;gap:12vh;padding-top:44px}
+.s-problema .pb-card{position:relative;padding-top:32px}
+.s-problema .pb-card .hairline{background:var(--line-2)}
+.s-problema .pb-idx{position:absolute;top:30px;right:-.04em;font-family:var(--font);font-weight:200;font-size:clamp(96px,10vw,180px);
+  line-height:.8;letter-spacing:-.07em;font-variant-numeric:tabular-nums;color:var(--line-2);pointer-events:none;user-select:none}
+.s-problema .pb-card .t-h3{position:relative;max-width:18ch;padding-right:1ch}
+.s-problema .pb-card .t-body{position:relative;max-width:46ch;margin-top:28px;color:var(--text)}
+.s-problema .pb-card:first-child .t-h3{margin-top:0}
+
+/* ---------------- B · palco "10 segundos" ---------------- */
+.s-problema .p10{position:relative}
+.s-problema .p10-stage{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center;
+  column-gap:calc(var(--gap) * 2);padding:0 max(var(--pad-x),calc((100% - var(--maxw)) / 2 + var(--pad-x))) var(--section-py);overflow:clip}
+.s-problema .p10-copy{min-width:0}
+.s-problema .p10-hl{max-width:18ch}
+.s-problema .p10-warn{max-width:46ch;margin-top:40px;font-size:18px;line-height:1.5;letter-spacing:-.01em;color:var(--text)}
+.s-problema .p10-warn .warn{font-weight:600;color:var(--flame)}
+
+.s-problema .p10-track{position:relative;min-width:0}
+.s-problema .p10-machine{position:relative;width:min(52vw,820px,100%);margin-left:auto;display:grid;
+  grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"timer timer" "screen screen" "status status" "grid grid" "count count";
+  align-items:center;row-gap:14px}
+
+/* cronômetro */
+.s-problema .p10-timer{grid-area:timer;justify-self:end;font-size:clamp(64px,6vw,112px);line-height:.8;margin-bottom:6px;white-space:nowrap}
+.s-problema .p10-timer small{margin-left:.06em;font-size:.3em;font-weight:400;letter-spacing:0;color:var(--muted)}
+
+/* o site genérico: a estética "template" é proposital e SÓ existe aqui */
+.s-problema .p10-browser{--surface:var(--gen-block);--line-2:rgb(var(--ink-rgb) / .2);grid-area:screen;width:100%;aspect-ratio:16 / 10;
+  background:var(--gen-bg);container-type:inline-size;overflow:hidden;transform-origin:0 0}
+.s-problema .p10-browser .browser-bar{position:relative;z-index:1}
+.s-problema .p10-browser .browser-bar .micro{overflow:hidden;white-space:nowrap;color:rgb(var(--ink-rgb) / .68)}
+.s-problema .p10-site{position:absolute;inset:32px 0 0;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;row-gap:3.2cqw;padding:2.8cqw 4.4cqw 0}
+.s-problema .g-head{height:3.4cqw;
+  background:linear-gradient(var(--gen-block-2),var(--gen-block-2)) 0 50% / 9cqw 2.4cqw no-repeat,
+    repeating-linear-gradient(90deg,var(--gen-block) 0 5cqw,transparent 5cqw 7.5cqw) 100% 50% / 27.5cqw 1.1cqw no-repeat}
+.s-problema .g-hero{display:grid;grid-template-columns:minmax(0,1fr) 40%;grid-auto-rows:min-content;column-gap:5cqw;align-content:center}
+.s-problema .g-hero::after{content:"";grid-column:2;grid-row:1 / span 4;align-self:stretch;min-height:100%;
+  background:linear-gradient(to top right,transparent calc(50% - .6px),var(--gen-block-2) calc(50% - .6px) calc(50% + .6px),transparent calc(50% + .6px)),
+    linear-gradient(to bottom right,transparent calc(50% - .6px),var(--gen-block-2) calc(50% - .6px) calc(50% + .6px),transparent calc(50% + .6px)),
+    var(--gen-block)}
+.s-problema .g-hero>b{grid-column:1;display:block;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:400;
+  font-size:4.2cqw;line-height:1.08;letter-spacing:0;color:var(--gen-ink)}
+.s-problema .g-hero>i{grid-column:1;display:block;height:1.1cqw;margin-top:2cqw;background:var(--gen-block)}
+.s-problema .g-hero>b+i{width:92%;margin-top:3cqw}
+.s-problema .g-hero>i+i{width:66%}
+.s-problema .g-hero>u{grid-column:1;display:block;width:14cqw;height:3.8cqw;margin-top:3.2cqw;background:var(--gen-block-2)}
+.s-problema .g-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:2.6cqw;height:12cqw}
+.s-problema .g-cards>i{display:block;background:linear-gradient(var(--gen-block-2),var(--gen-block-2)) 0 0 / 100% 42% no-repeat,var(--gen-block)}
+.s-problema .g-foot{height:5.2cqw;margin-inline:-4.4cqw;background:var(--gen-block-2)}
+
+/* cursor "IA GENÉRICA" (salta sem easing) */
+.s-problema .p10-cursor{position:absolute;left:66%;top:83%;z-index:2;display:flex;align-items:flex-start;pointer-events:none}
+.s-problema .p10-cursor svg{display:block;width:14px;height:18px;fill:var(--ink);stroke:var(--white);stroke-width:1;stroke-linejoin:round;overflow:visible}
+.s-problema .p10-cursor .micro{margin:15px 0 0 -2px;padding:4px 6px 3px;background:var(--ink);color:var(--gen-bg);white-space:nowrap}
+
+/* status, contador */
+.s-problema .p10-status{grid-area:status;display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted)}
+.s-problema .p10-status li{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.s-problema .p10-status .i{width:10px;height:10px;color:var(--flame)}
+.s-problema .p10-status li.is-off{opacity:.32}
+.s-problema .p10-status li.is-off .i{visibility:hidden}
+.s-problema .p10-count{grid-area:count;color:var(--muted);white-space:nowrap}
+.s-problema .p10-count b{font-weight:500;color:var(--display);font-variant-numeric:tabular-nums}
+
+/* grade de cópias — composição estática: tira 12×2 abaixo do browser */
+.s-problema .p10-grid{grid-area:grid;position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;margin-top:22px}
+.s-problema .p10-mini{display:block;min-width:0;aspect-ratio:16 / 10;
+  background:linear-gradient(var(--gen-block),var(--gen-block)) 50% 9% / 80% 7% no-repeat,
+    linear-gradient(var(--gen-block),var(--gen-block)) 12% 38% / 44% 26% no-repeat,
+    linear-gradient(var(--gen-block),var(--gen-block)) 50% 76% / 80% 16% no-repeat,
+    linear-gradient(var(--gen-block),var(--gen-block)) 50% 100% / 100% 8% no-repeat,
+    var(--gen-bg)}
+.s-problema .p10-select,.s-problema .p10-zoom{display:none}
+
+/* sem JS: grade e contador são decoração gerada por JS */
+.s-problema:where(.no-js *) .p10-grid,.s-problema:where(.no-js *) .p10-count,.s-problema:where(.no-js *) .p10-select{display:none}
+
+/* ---------------- modo palco (JS + movimento + pin) ---------------- */
+.s-problema:is(.is-pinned,.is-sticky) .p10-machine{grid-template-areas:"timer timer" "screen screen" "status count"}
+.s-problema:is(.is-pinned,.is-sticky) .p10-count{justify-self:end;align-self:start}
+.s-problema:is(.is-pinned,.is-sticky) .p10-status{align-self:start}
+.s-problema:is(.is-pinned,.is-sticky) .p10-grid{grid-area:screen;align-self:stretch;margin:0;gap:10px;
+  grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}
+.s-problema:is(.is-pinned,.is-sticky) .p10-mini{aspect-ratio:auto;visibility:hidden;transform-origin:50% 50%}
+.s-problema:is(.is-pinned,.is-sticky) .p10-select{display:block;position:absolute;left:0;top:0;z-index:3;visibility:hidden;pointer-events:none;
+  box-shadow:inset 0 0 0 1px var(--ai),0 0 0 1px var(--ai);transform-origin:50% 50%}
+.s-problema .p10-select>i{position:absolute;width:7px;height:7px;background:var(--ai)}
+.s-problema .p10-select>i:nth-child(1){left:-4px;top:-4px}
+.s-problema .p10-select>i:nth-child(2){right:-4px;top:-4px}
+.s-problema .p10-select>i:nth-child(3){left:-4px;bottom:-4px}
+.s-problema .p10-select>i:nth-child(4){right:-4px;bottom:-4px}
+.s-problema .p10-select .micro{position:absolute;left:-1px;bottom:calc(100% + 8px);padding:4px 7px 3px;background:var(--ai);color:var(--white);white-space:nowrap}
+.s-problema.is-pinned .p10-zoom{display:block;position:absolute;left:0;top:0;z-index:5;visibility:hidden;pointer-events:none;
+  background:var(--paper);transform-origin:50% 50%;will-change:transform}
+
+.s-problema.is-pinned .p10-stage{height:100svh;padding-block:var(--nav-h) 24px}
+
+/* ---------------- mobile (<900) ---------------- */
+@media (max-width:899px){
+  .s-problema .pb-side{grid-column:auto;position:relative;top:auto;padding:30px 22px 34px}
+  .s-problema .pb-title{margin-top:26px}
+  .s-problema .pb-sidetext{margin-top:24px}
+  .s-problema .pb-cards{grid-column:auto;gap:48px;padding-top:56px}
+  .s-problema .pb-card{padding-top:24px}
+  .s-problema .pb-idx{top:22px;font-size:72px}
+  .s-problema .pb-card .t-body{margin-top:18px}
+
+  .s-problema .p10-stage{display:block;padding-bottom:var(--section-py)}
+  .s-problema .p10-warn{margin-top:28px;font-size:17px}
+  .s-problema .p10-track{margin:48px calc(50% - 46vw) 0}
+  .s-problema .p10-machine{width:100%;row-gap:12px}
+  .s-problema .p10-timer{font-size:clamp(56px,16vw,88px);margin-bottom:4px}
+  .s-problema .p10-browser .browser-bar .micro{letter-spacing:.06em}
+  .s-problema .p10-status{gap:6px 14px}
+  .s-problema .p10-grid{grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;margin-top:14px}
+  .s-problema .p10-cursor .micro{padding:3px 5px 2px}
+
+  .s-problema.is-sticky .p10-track{height:110svh}
+  .s-problema.is-sticky .p10-machine{position:sticky;top:var(--p10-top);height:58svh;align-content:center;
+    grid-template-areas:"timer timer" "screen screen" "status status" "count count"}
+  .s-problema.is-sticky .p10-count{justify-self:start}
+  .s-problema.is-sticky .p10-grid{gap:6px;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}
+}

@@ -1,0 +1,59 @@
+/* autor · §4.8 · flame · "Sem máscara". Todo seletor começa por .s-autor; tokens só via var().
+   Estado FINAL sem JS: --c:0% (foto inteira). O JS escreve --c/--scan no .au-photo só em is-motion. */
+
+.s-autor{padding-block:var(--section-py);color:var(--ink)}
+.s-autor .au-grid{align-items:start;row-gap:clamp(48px,7vh,72px)}
+
+/* ---------------- cartão de identificação (col 1–4) ---------------- */
+.s-autor .au-card{grid-column:1/span 4;justify-self:start;align-self:end;width:min(100%,300px);margin:0;padding:9px;
+  --line-2:var(--white);                                   /* cantoneiras brancas, cheias */
+  border:1px solid rgb(var(--white-rgb) / .55);             /* moldura branca .55 */
+  background-color:var(--surface);display:grid;grid-template-columns:minmax(0,1fr);gap:9px}
+.s-autor .au-id,.s-autor .au-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:18px;color:var(--ink)}
+.s-autor .au-id{padding:2px 1px 0}
+.s-autor .au-id .dot{width:6px;height:6px}
+.s-autor .au-foot{padding:0 1px 1px}
+.s-autor .au-id span,.s-autor .au-foot span{flex:none;white-space:nowrap}
+.s-autor .au-foot span{padding-top:1px}
+.s-autor .au-barcode{display:block;flex:0 1 117px;min-width:0;height:18px;fill:var(--ink)}
+.s-autor .au-card{container-type:inline-size}
+@container (max-width:219px){ .s-autor .au-barcode{display:none} }
+
+.s-autor .au-photo{--c:0%;position:relative;aspect-ratio:345/428;overflow:hidden;background:var(--ink);isolation:isolate}
+.s-autor .au-photo>img{position:absolute;display:block}
+/* armadura (frame 135) alinhada pelos olhos com o retrato: olhos do frame (452,354) → olhos da foto (≈59% · 35%) */
+.s-autor .au-mask{left:-12.9%;top:-11.2%;width:146.25%;height:auto;max-width:none}
+.s-autor .au-face{inset:0;z-index:1;width:100%;height:100%;object-fit:cover;clip-path:inset(0 0 0 var(--c,0%))}
+/* borda da cortina: 1px branco que corre com o clip (só enquanto a cortina está no meio do caminho) */
+.s-autor .au-photo::after{content:"";position:absolute;z-index:2;top:0;bottom:0;left:var(--c,0%);width:1px;margin-left:-1px;
+  background:var(--white);box-shadow:0 0 0 1px rgb(var(--white-rgb) / .12);opacity:var(--scan,0);pointer-events:none}
+
+/* ---------------- texto (col 6–12) ---------------- */
+.s-autor .au-text{grid-column:6/-1;min-width:0;container-type:inline-size}
+.s-autor .au-text .kicker{margin-bottom:clamp(24px,3.4vh,36px)}
+.s-autor .au-h2{color:var(--white);padding-top:.04em}
+.s-autor .au-name{color:var(--ink);white-space:nowrap;margin-top:.06em;font-size:min(var(--fs-name),13.4cqi)}
+.s-autor .au-rule{--line:rgb(var(--ink-rgb) / .34);margin:clamp(32px,4.6vh,48px) 0 clamp(28px,4vh,40px);transform-origin:0 50%}
+.s-autor .au-quote{color:var(--ink);max-width:30ch;text-indent:-.42em}
+.s-autor .au-bio{color:var(--ink);margin-top:clamp(20px,3vh,28px)}
+.s-autor .au-stats{list-style:none;margin:clamp(40px,6vh,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gap)}
+.s-autor .au-stats li{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:.3em;min-width:0;padding-top:14px;border-top:2px solid var(--ink);
+  font-size:var(--fs-small);line-height:1.35;letter-spacing:-.005em;color:var(--ink)}
+.s-autor .au-stats b{order:-1;flex:0 0 100%;margin-bottom:12px;font-weight:200;
+  font-size:min(clamp(40px,4vw,72px),6.6cqi);line-height:.9;letter-spacing:-.06em;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+@media (max-width:899px){
+  .s-autor{padding-block:clamp(72px,11svh,112px) clamp(88px,13svh,128px)}
+  .s-autor .au-grid{row-gap:clamp(32px,5svh,44px)}
+  /* 72vw (≤300px); em telas baixas o cartão encolhe para o nome caber no 1º viewport da seção */
+  .s-autor .au-card{grid-column:1/-1;justify-self:center;align-self:start;width:clamp(min(150px,72vw),calc((100svh - 340px) * .75),min(72vw,300px))}
+  .s-autor .au-text{grid-column:1/-1}
+  .s-autor .au-text .kicker{margin-bottom:16px}
+  .s-autor .au-name{white-space:normal;font-size:var(--fs-name);margin-top:.12em}
+  .s-autor .au-rule{margin:32px 0 28px}
+  .s-autor .au-quote{max-width:none;text-indent:0}
+  .s-autor .au-stats{grid-template-columns:minmax(0,1fr);margin-top:40px}
+  .s-autor .au-stats li{flex-wrap:nowrap;align-items:baseline;column-gap:.3em;padding:16px 0 18px;border-top-width:1px}
+  .s-autor .au-stats li:last-child{border-bottom:1px solid var(--ink)}
+  .s-autor .au-stats b{flex:none;margin:0 .35em 0 0;font-size:40px}
+}

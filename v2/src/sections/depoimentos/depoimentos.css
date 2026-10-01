@@ -1,0 +1,109 @@
+/* depoimentos — §4.5 · paper · assinatura "Marquee reativo". Todo seletor começa por .s-depoimentos; tokens só via var();
+   HTML/CSS no estado FINAL (sem JS: conversas legíveis, marquee vira lista estática quebrando linha). */
+
+.s-depoimentos{
+  --dp-edge:color-mix(in srgb,var(--ink) 15%,var(--white));      /* borda opaca do balão (rabo sem sobreposição de alpha) */
+  --dp-tail:9px;
+  --dp-offset:10vh;
+  padding-block:var(--section-py);
+}
+
+/* ================= cabeçalho ================= */
+.s-depoimentos .dp-head{align-items:end;row-gap:48px}
+.s-depoimentos .dp-intro{grid-column:1/span 7;display:grid;justify-items:start}
+.s-depoimentos .dp-intro .kicker{margin-bottom:clamp(24px,3.4vh,36px)}
+.s-depoimentos .dp-intro .t-d2{max-width:11ch;padding-top:.04em}
+.s-depoimentos .dp-intro .t-lead{margin-top:clamp(24px,3.6vh,36px);max-width:38ch;color:var(--text)}
+
+.s-depoimentos .dp-stat{grid-column:9/-1;display:grid;color:var(--display)}
+.s-depoimentos .dp-stat .t-num{margin-bottom:clamp(18px,2.6vh,28px);margin-left:-.06em;white-space:nowrap}
+.s-depoimentos .dp-stat-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-top:14px;border-top:2px solid currentColor}
+.s-depoimentos .stars{display:inline-flex;gap:4px;padding-top:1px;color:var(--flame)}
+.s-depoimentos .stars .i{width:14px;height:14px;vertical-align:0}
+.s-depoimentos .dp-stat .eyebrow{color:var(--display);text-align:right}
+
+/* ================= marquee (faixa ink full-bleed) ================= */
+.s-depoimentos .dp-marquee{margin-top:clamp(72px,12vh,144px);padding:26px 0;overflow:hidden}
+.s-depoimentos .mq-track{display:flex;width:max-content;white-space:nowrap;will-change:transform;
+  font-family:var(--font);font-weight:600;font-size:var(--fs-marquee);line-height:1.08;letter-spacing:-.05em;color:var(--display)}
+.s-depoimentos .mq-set{display:flex;align-items:center;flex:none}
+.s-depoimentos .mq-set>span,.s-depoimentos .mq-set>i{margin-right:clamp(22px,2.6vw,44px)}
+.s-depoimentos .mq-set>span{padding-bottom:.06em}
+.s-depoimentos .mq-set>i{flex:none;width:clamp(14px,1.6vw,24px);aspect-ratio:1;background:var(--flame);transform:rotate(45deg)}
+
+/* estático (reduced/FX off), sem JS e init falho: faixa parada, fragmentos quebrando linha, sem a cópia do loop */
+html.is-static .s-depoimentos .mq-track,html.no-js .s-depoimentos .mq-track,.s-depoimentos[data-failed] .mq-track{
+  width:auto;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad-x);white-space:normal;transform:none;will-change:auto;
+  font-size:clamp(28px,3.2vw,56px)}
+html.is-static .s-depoimentos .mq-set,html.no-js .s-depoimentos .mq-set,.s-depoimentos[data-failed] .mq-set{display:block;flex:1 1 auto;line-height:1.18;text-wrap:balance}
+html.is-static .s-depoimentos .mq-set>span,html.no-js .s-depoimentos .mq-set>span,.s-depoimentos[data-failed] .mq-set>span{margin-right:.32em}
+html.is-static .s-depoimentos .mq-set>i,html.no-js .s-depoimentos .mq-set>i,.s-depoimentos[data-failed] .mq-set>i{display:inline-block;vertical-align:.2em;margin-right:.42em}
+html.is-static .s-depoimentos .mq-set--dup,html.no-js .s-depoimentos .mq-set--dup,.s-depoimentos[data-failed] .mq-set--dup{display:none}
+html.is-static .s-depoimentos .mq-set>i:last-child,html.no-js .s-depoimentos .mq-set>i:last-child,.s-depoimentos[data-failed] .mq-set>i:last-child{display:none}
+html.is-static .s-depoimentos .mq-set>i,html.no-js .s-depoimentos .mq-set>i,.s-depoimentos[data-failed] .mq-set>i{width:clamp(10px,1.1vw,16px)}
+
+/* ================= conversas ================= */
+.s-depoimentos .dp-threads{max-width:calc(1200px + 2 * var(--pad-x));margin-top:clamp(80px,13vh,160px);padding-bottom:var(--dp-offset);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);align-items:start}
+/* 2 colunas independentes (01+02 | 03+04): ordem de leitura = DOM, sem buracos de linha; a 2ª desce 10vh */
+.s-depoimentos .dp-col{display:grid;gap:48px;align-content:start;min-width:0}
+.s-depoimentos .dp-col:nth-child(2){translate:0 var(--dp-offset)}
+.s-depoimentos .thread{position:relative;display:flex;flex-direction:column;min-width:0;
+  padding:clamp(20px,2vw,32px) clamp(18px,1.8vw,28px) clamp(10px,1vw,14px);background:var(--surface);border:1px solid var(--line)}
+.s-depoimentos .thread-h{display:flex;align-items:center;gap:10px;padding-bottom:16px;margin-bottom:26px;border-bottom:1px solid var(--line);color:var(--muted)}
+.s-depoimentos .thread-h::before{content:"";width:6px;height:6px;flex:none;background:var(--flame);transform:rotate(45deg)}
+
+.s-depoimentos .bubbles{display:flex;flex-direction:column}
+.s-depoimentos .b{position:relative;max-width:82%;padding:10px 12px 7px;
+  font-size:16px;line-height:1.45;letter-spacing:-.012em;color:var(--ink);overflow-wrap:anywhere}
+.s-depoimentos .b+.b{margin-top:4px}
+.s-depoimentos .b--a+.b--w,.s-depoimentos .b--w+.b--a{margin-top:16px}
+.s-depoimentos .b--a{align-self:flex-start;margin-left:var(--dp-tail);background:var(--white);border:1px solid var(--dp-edge)}
+.s-depoimentos .b--w{align-self:flex-end;margin-right:var(--dp-tail);background:var(--flame)}
+.s-depoimentos .b time{display:block;margin-top:4px;text-align:right;font-size:10px;line-height:1;letter-spacing:.08em;color:var(--muted)}
+.s-depoimentos .b--w time{color:rgb(var(--ink-rgb) / .7)}
+.s-depoimentos .b-ed{margin-right:.5em;letter-spacing:.04em;text-transform:none}
+
+/* rabo por clip-path, só no 1º balão de cada sequência do mesmo lado (como no app) */
+.s-depoimentos .b--a:not(.b--a+.b--a)::before,.s-depoimentos .b--a:not(.b--a+.b--a)::after,
+.s-depoimentos .b--w:not(.b--w+.b--w)::before{content:"";position:absolute;pointer-events:none}
+.s-depoimentos .b--a:not(.b--a+.b--a)::before{top:-1px;left:calc(-1px - var(--dp-tail));width:calc(var(--dp-tail) + 1px);height:12px;
+  background:var(--dp-edge);clip-path:polygon(0 0,100% 0,100% 100%)}
+.s-depoimentos .b--a:not(.b--a+.b--a)::after{top:0;left:calc(1.4px - var(--dp-tail));width:calc(var(--dp-tail) - .4px);height:10.3px;
+  background:var(--white);clip-path:polygon(0 0,100% 0,100% 100%)}
+.s-depoimentos .b--w:not(.b--w+.b--w)::before{top:0;right:calc(-1 * var(--dp-tail));width:var(--dp-tail);height:11px;
+  background:var(--flame);clip-path:polygon(0 0,100% 0,0 100%)}
+
+.s-depoimentos .quote{margin:0 0 8px;padding:7px 10px 8px;border-left:2px solid var(--ink);background:rgb(var(--ink-rgb) / .08);
+  font-size:13px;line-height:1.4;color:rgb(var(--ink-rgb) / .82)}
+
+.s-depoimentos .b--react{margin-bottom:18px}
+.s-depoimentos .b-react{position:absolute;right:6px;bottom:-18px;display:grid;place-items:center;width:22px;height:22px;
+  background:var(--white);border:1px solid var(--dp-edge);font-size:12px;line-height:1}
+
+.s-depoimentos .thread-print{align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;margin-top:18px;
+  font-size:11px;color:var(--text);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.4em;
+  transition:color .3s linear}
+@media (hover:hover){ .s-depoimentos .thread-print:hover{color:var(--accent-text)} }
+html.no-js .s-depoimentos .thread-print{display:none}   /* sem JS o diálogo não abre; a transcrição já está completa */
+html.no-js .s-depoimentos .thread{padding-bottom:clamp(20px,2vw,32px)}
+
+/* ================= mobile ================= */
+@media (max-width:899px){
+  .s-depoimentos{--dp-offset:0px}
+  .s-depoimentos .dp-intro,.s-depoimentos .dp-stat{grid-column:1/-1}
+  .s-depoimentos .dp-head{row-gap:44px}
+  .s-depoimentos .dp-stat .eyebrow{font-size:13px}
+  .s-depoimentos .dp-marquee{margin-top:64px;padding:22px 0}
+  .s-depoimentos .mq-track{font-size:34px}
+  .s-depoimentos .mq-set>span,.s-depoimentos .mq-set>i{margin-right:22px}
+  .s-depoimentos .mq-set>i{width:14px}
+  html.is-static .s-depoimentos .mq-track,html.no-js .s-depoimentos .mq-track,.s-depoimentos[data-failed] .mq-track{font-size:26px}
+  .s-depoimentos .dp-threads{grid-template-columns:minmax(0,1fr);margin-top:56px;row-gap:20px}
+  .s-depoimentos .dp-col{gap:20px}
+  .s-depoimentos .dp-col:nth-child(2){translate:none}
+  .s-depoimentos .thread{padding:20px 14px 8px}
+  .s-depoimentos .b{max-width:86%;font-size:15px}
+  .s-depoimentos .b time{font-size:11px}
+  .s-depoimentos .thread-print{font-size:12px;margin-top:12px}
+}

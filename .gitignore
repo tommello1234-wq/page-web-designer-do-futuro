@@ -19,3 +19,6 @@ Thumbs.db
 # Claude config
 .claude/
 .vercel
+
+# Previews gerados por node v2/build.mjs --section (fora do git)
+v2/preview/

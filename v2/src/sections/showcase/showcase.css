@@ -131,7 +131,7 @@ html.is-motion .s-showcase .sc-card.is-live .sc-thread{animation:sc-thread .64s 
 @media (max-width:899px){
   .s-showcase.is-h .sc-track{display:grid;grid-auto-flow:column;grid-template-rows:auto auto;align-content:center;align-items:start;
     column-gap:14px;row-gap:18px;width:max-content;padding:calc(var(--nav-h) + 8px) var(--pad-x) 96px}
-  .s-showcase.is-h .sc-intro,.s-showcase.is-h .sc-outro{grid-row:1 / span 2;align-self:center}
+  .s-showcase.is-h .sc-intro,.s-showcase.is-h .sc-outro{align-self:center}   /* colunas/linhas: JS (grid-area explícito) */
   .s-showcase.is-h .sc-intro{width:min(84vw,340px)}
   .s-showcase.is-h .sc-outro{width:min(84vw,340px);margin-left:10px}
   .s-showcase.is-h .sc-card{width:min(84vw,calc((100svh - 320px) * .89))}

@@ -1,23 +1,10 @@
 /* depoimentos.js — §4.5 · assinatura "Marquee reativo" (ctx.tick + ctx.velocity, só em is-motion).
    O HTML já é o estado final: conversas completas, contador em 100% (o core anima data-count e devolve o texto original),
-   marquee parado quebrando linha no estático / sem JS / init falho (CSS). Prints só carregam no clique (diálogo do core). */
+   marquee parado quebrando linha no estático / sem JS / init falho (CSS). */
 const WDF = window.WDF;
 
 WDF.register('depoimentos', {
   init(ctx, root) {
-    /* ---- VER PRINT ORIGINAL ↗ → diálogo do core (ESC, botão e fundo fecham; o foco volta ao botão) ---- */
-    root.querySelectorAll('.thread-print').forEach((btn) => {
-      ctx.on(btn, 'click', () => {
-        const n = btn.dataset.n || '';
-        const img = new Image();
-        img.width = +btn.dataset.w; img.height = +btn.dataset.h; img.decoding = 'async';
-        img.alt = 'Print original da conversa ' + n + ' no WhatsApp';
-        img.src = btn.dataset.print;                                    // só carrega aqui
-        try { btn.focus({ preventScroll: true }); } catch (e) { btn.focus(); }   // Safari não foca botão no clique
-        ctx.dialog.open({ node: img, label: 'Print original da conversa ' + n });
-      });
-    });
-
     /* ---- modo estático: faixa parada (CSS); nada de loop ---- */
     if (!ctx.flags.motion) return;
 

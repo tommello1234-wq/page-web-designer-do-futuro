@@ -46,7 +46,7 @@ WDF.register('problema', {
     const SEL = [.70, .03];                              // moldura --ai da sobrevivente
     const live = root.querySelector('.p10-live');        // a página real em ação (vídeo 07), só depois de renderizar
     const liveCtl = live ? ctx.media.lazyVideo(live, { group: 'problema', auto: false }) : null;
-    let liveOn = false;
+    let liveOn = false, livePre = false;
     const REAL = [.75, .13];                             // a sobrevivente vira a PÁGINA REAL (AERIS X); .88 → 1 segura
     const SURV = mode === 'pin' ? 13 : 9;                // célula 14 (6×4) · célula 10 (4×4)
 
@@ -158,6 +158,8 @@ WDF.register('problema', {
         sel.style.transform = 'translate(' + geo.sel.x + 'px,' + geo.sel.y + 'px) scale(' + (1 + .35 * (1 - Math.max(0, s))).toFixed(4) + ')';
       }
 
+      /* baixa o vídeo da página real cedo (20% da sequência): na 1ª visita ele só começava a baixar na hora de tocar e engasgava */
+      if (liveCtl && !livePre && p >= .2) { livePre = true; liveCtl.load('auto'); }
       /* .75 → .88: a sobrevivente cresce até o browser e a página real renderiza de cima para baixo */
       const r = p >= REAL[0] ? clamp01((p - REAL[0]) / REAL[1]) : -1;
       if (r !== L.r && geo.r0) {

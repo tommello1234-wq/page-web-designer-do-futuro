@@ -143,6 +143,15 @@ WDF.register('showcase', {
       root.classList.add('is-h');
       track.insertBefore(intro, track.firstChild);
       track.appendChild(outro);
+      /* celular: posição explícita na grade de 2 linhas (o auto-placement do Safari empilhava abertura e fechamento na 1ª coluna) */
+      const placed = [intro, outro, ...cards.map((c) => c.el)];
+      if (F.mobile) {
+        intro.style.gridArea = '1 / 1 / 3 / 2';
+        cards.forEach((c, i) => { c.el.style.gridArea = (1 + (i % 2)) + ' / ' + (2 + Math.floor(i / 2)); });
+        const oc = 2 + Math.ceil(cards.length / 2);
+        outro.style.gridArea = '1 / ' + oc + ' / 3 / ' + (oc + 1);
+      }
+      ctx.cleanup(() => placed.forEach((el) => el.style.removeProperty('grid-area')));
 
       const geo = { D: 0, W: w.innerWidth, centers: [], lefts: [], outroL: 0 };
       const S = { p: 0, lastP: -1 };

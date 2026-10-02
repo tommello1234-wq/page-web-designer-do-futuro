@@ -107,3 +107,39 @@ html.no-js .s-depoimentos .thread{padding-bottom:clamp(20px,2vw,32px)}
   .s-depoimentos .b time{font-size:11px}
   .s-depoimentos .thread-print{font-size:12px;margin-top:12px}
 }
+
+/* ================= conversas com as cores reais do WhatsApp (pedido do dono: identificação imediata) ================= */
+.s-depoimentos{--wa-head:#008069;--wa-bg:#EFEAE2;--wa-in:#FFFFFF;--wa-out:#D9FDD3;--wa-text:#111B21;--wa-time:#667781;--wa-tick:#53BDEB;--wa-green:#06CF9C}
+.s-depoimentos .thread{padding:0;overflow:hidden;border:0;border-radius:14px;background-color:var(--wa-bg);
+  background-image:radial-gradient(rgb(0 0 0 / .045) 1px,transparent 1.4px),radial-gradient(rgb(0 0 0 / .03) 1px,transparent 1.4px);
+  background-size:22px 22px,22px 22px;background-position:0 0,11px 11px;
+  box-shadow:0 1px 2px rgb(11 20 26 / .08),0 18px 40px -18px rgb(11 20 26 / .35)}
+.s-depoimentos .wa-bar{display:flex;align-items:center;gap:10px;padding:10px 14px 10px 8px;background:var(--wa-head);color:#fff}
+.s-depoimentos .wa-back{width:22px;height:22px;flex:none}
+.s-depoimentos .wa-av{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:50%;background:#DFE5E7;overflow:hidden}
+.s-depoimentos .wa-av svg{width:38px;height:38px;fill:#FFFFFF;margin-top:6px}
+.s-depoimentos .wa-who{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.s-depoimentos .wa-who b{font:600 15.5px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-depoimentos .wa-who small{font:400 12.5px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;opacity:.85}
+.s-depoimentos .wa-ic{width:22px;height:22px;flex:none;margin-left:6px}
+.s-depoimentos .bubbles{padding:16px 14px 18px}
+.s-depoimentos .b{padding:6px 9px 6px;border:0;border-radius:8px;box-shadow:0 1px .5px rgb(11 20 26 / .13);
+  font:400 15px/1.38 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:0;color:var(--wa-text)}
+.s-depoimentos .b--a{background:var(--wa-in)}
+.s-depoimentos .b--w{background:var(--wa-out)}
+.s-depoimentos .b--a:not(.b--a+.b--a){border-top-left-radius:0}
+.s-depoimentos .b--w:not(.b--w+.b--w){border-top-right-radius:0}
+.s-depoimentos .b--a:not(.b--a+.b--a)::before{top:0;left:calc(-1 * var(--dp-tail));width:var(--dp-tail);height:11px;background:var(--wa-in);clip-path:polygon(0 0,100% 0,100% 100%)}
+.s-depoimentos .b--a:not(.b--a+.b--a)::after{display:none}
+.s-depoimentos .b--w:not(.b--w+.b--w)::before{background:var(--wa-out)}
+.s-depoimentos .b time{margin-top:2px;font:400 11px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;letter-spacing:0;color:var(--wa-time)}
+.s-depoimentos .b--w time{color:var(--wa-time)}
+.s-depoimentos .b--w time::after{content:"✓✓";margin-left:4px;letter-spacing:-.32em;padding-right:.32em;font-size:11px;color:var(--wa-tick)}
+.s-depoimentos .quote{margin:0 0 6px;padding:6px 10px 7px;border-left:4px solid var(--wa-green);border-radius:6px;background:rgb(11 20 26 / .05);
+  font-size:13.5px;line-height:1.35;color:rgb(17 27 33 / .75)}
+.s-depoimentos .b-react{right:8px;bottom:-16px;width:26px;height:22px;border:0;border-radius:999px;background:#fff;box-shadow:0 1px 3px rgb(11 20 26 / .2)}
+@media (max-width:899px){
+  .s-depoimentos .thread{padding:0}
+  .s-depoimentos .b{font-size:15px}
+  .s-depoimentos .wa-who b{font-size:15px}
+}

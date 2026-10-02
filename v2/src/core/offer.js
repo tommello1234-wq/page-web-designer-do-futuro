@@ -22,7 +22,7 @@ const OFFER = /*OFFER*/{
   ],
   "whatsapp": "https://api.whatsapp.com/send?phone=5588992089323&text=Olá,%20gostaria%20de%20tirar%20dúvidas%20sobre%20o%20Web%20Designer%20do%20futuro",
   "forwardParams": true,
-  "lpCheckoutEvent": "InitiateCheckout"
+  "lpCheckoutEvent": "CliqueCheckout"
 }/*/OFFER*/;
 
 function deepFreeze(o) { Object.values(o).forEach((v) => { if (v && typeof v === 'object') deepFreeze(v); }); return Object.freeze(o); }

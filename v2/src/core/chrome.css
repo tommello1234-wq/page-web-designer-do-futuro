@@ -79,15 +79,16 @@
   .nav-pills{display:none}
   .js .nav-menu{display:inline-flex}
 }
-/* mobile: [logo-ia 28] 8 [CTA ≈192, sem seta] 8 [MENU 44] — cabe em 360 */
+/* mobile: [logo completa ≈150] … [MENU 44] — cabe em 360 */
 @media (max-width:899px){
   .nav{top:calc(var(--promo-h) + 10px);left:16px;right:16px;gap:8px}
-  .nav-logo .nav-logo-full{display:none}
-  .nav-logo .nav-logo-ia{display:block}
+  /* sem o botão do topo sobra espaço: logo completa também no celular (pedido do dono) */
+  .nav-logo .nav-logo-full{display:block;width:auto;height:24px}
+  .nav-logo .nav-logo-ia{display:none}
   .nav-right{gap:8px}
   .nav-fx{display:none}
-  .nav-cta{height:40px}
-  .nav-cta-in{padding:0 16px;font-size:13px}
+  /* celular: sem o botão no topo — a faixa de promoção e a barra fixa de compra já levam ao preço (pedido do dono) */
+  .nav-cta{display:none}
   .nav-cta-i{display:none}
   .nav-menu{padding:0 10px}
   body.has-dock .nav-cta{opacity:0;visibility:hidden}

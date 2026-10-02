@@ -142,13 +142,18 @@ WDF.register('hero', {
       layout();
       W = stage.clientWidth; H = stage.clientHeight;
       if (flags.mobile) {
-        // mobile (disposição da v1): a cabeça (≈11% do frame) começa logo abaixo do botão
+        // mobile: a cabeça (≈11% do frame) começa SEMPRE 24px abaixo do botão, em qualquer altura de tela (pedido
+        // do dono). A figura acompanha a largura, com teto; o palco tem a altura do conteúdo, no máximo 90% da tela,
+        // então o começo da próxima dobra sempre aparece. Igual ao <script> inline do hero.html.
         const textBottom = left.offsetTop + left.offsetHeight;
         const short = matchMedia('(orientation:landscape) and (max-height:560px)').matches;
         if (!short) {
-          const fh = Math.max(H * .34, Math.min(H * .62, (H - textBottom - 6) / .89));
+          const V = window.innerHeight, GAP = 24;
+          const fh = Math.max(V * .28, Math.min(window.innerWidth * 1.02, V * .48, (V * .9 - textBottom - GAP) / .89));
           root.style.setProperty('--fig-h', Math.round(fh) + 'px');
-        } else root.style.removeProperty('--fig-h');
+          stage.style.height = Math.round(textBottom + GAP + fh * .89) + 'px';
+          H = stage.clientHeight;
+        } else { root.style.removeProperty('--fig-h'); stage.style.removeProperty('height'); }
       }
       const fw = fig.offsetWidth, fh = fig.offsetHeight;
       const fx0 = fig.offsetLeft - fw / 2, fy0 = fig.offsetTop;
@@ -178,9 +183,15 @@ WDF.register('hero', {
     if (flags.pin && flags.desk) {
       ctx.st({ trigger: track, start: 'top top', end: '+=150%', pin: stage, scrub: true, anticipatePin: 1, onUpdate, invalidateOnRefresh: true });
     } else if (flags.pin) {
-      root.classList.add('is-sticky');
-      ctx.cleanup(() => root.classList.remove('is-sticky'));
-      ctx.st({ trigger: track, start: 'top top', end: 'bottom bottom', scrub: true, onUpdate });
+      // celular: a ativação roda sozinha (~3s) ao abrir, sem travar a rolagem. O hero ocupa 90% da tela e o
+      // começo da próxima dobra já aparece embaixo — a pessoa vê que tem mais (pedido do dono; antes era sticky)
+      const o = { v: 0 };
+      let tw = null;
+      // para em .86: depois disso vem a "saída" (título sobe, contador some), feita para quem rolava para fora do hero
+      const play = () => { tw = gsap.to(o, { v: .86, duration: 3, ease: 'power1.inOut', delay: .6, onUpdate: () => { p = o.v; } }); };
+      if (preRunning) { const offAuto = ctx.bus.on('preloader:done', () => { offAuto(); play(); }); ctx.cleanup(offAuto); }
+      else play();
+      ctx.cleanup(() => { if (tw) tw.kill(); });
     }
     ctx.onRefresh(() => { measure(); placeRight(); });
     measure();
@@ -282,7 +293,7 @@ WDF.register('hero', {
     return () => {
       [fig, typeB, arcs, hud, hint, still, ...left.children, ...(right ? right.children : []), ...eyes].forEach((el) => { el.style.transform = ''; el.style.opacity = ''; el.style.visibility = ''; });
       stage.style.removeProperty('--r');
-      root.style.removeProperty('--fig-h');
+      root.style.removeProperty('--fig-h'); stage.style.removeProperty('height');
     };
   },
 });

@@ -3,7 +3,7 @@
 const WDF = window.WDF, core = WDF.core, d = document;
 
 const OFFER = /*OFFER*/{
-  "checkoutUrl": "https://app.upwardacademy.com.br/checkout/3069031d-d8a8-4252-84ae-e7dbb7c358a5/559b0f6c-066c-4388-87bb-05aab29add08",
+  "checkoutUrl": "https://payment.ticto.app/OE053E87F",
   "currency": "BRL",
   "installments": { "n": 12, "value": 10.58 },
   "cash": { "value": 97.00 },

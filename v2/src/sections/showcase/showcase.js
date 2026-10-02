@@ -141,21 +141,23 @@ WDF.register('showcase', {
     /* =============================== modo H: galeria horizontal pinada =============================== */
     if (mode === 'h') {
       root.classList.add('is-h');
-      track.insertBefore(intro, track.firstChild);
+      // a intro (título e subtítulo) fica FIXA no topo do palco e só as páginas andam: ao chegar a pessoa já vê
+      // o texto e as primeiras páginas inteiras (pedido do dono — antes a intro era o 1º painel do trilho)
       track.appendChild(outro);
       /* celular: posição explícita na grade de 2 linhas (o auto-placement do Safari empilhava abertura e fechamento na 1ª coluna) */
-      const placed = [intro, outro, ...cards.map((c) => c.el)];
+      const placed = [outro, ...cards.map((c) => c.el)];
       if (F.mobile) {
-        intro.style.gridArea = '1 / 1 / 3 / 2';
-        cards.forEach((c, i) => { c.el.style.gridArea = (1 + (i % 2)) + ' / ' + (2 + Math.floor(i / 2)); });
-        const oc = 2 + Math.ceil(cards.length / 2);
+        cards.forEach((c, i) => { c.el.style.gridArea = (1 + (i % 2)) + ' / ' + (1 + Math.floor(i / 2)); });
+        const oc = 1 + Math.ceil(cards.length / 2);
         outro.style.gridArea = '1 / ' + oc + ' / 3 / ' + (oc + 1);
       }
-      ctx.cleanup(() => placed.forEach((el) => el.style.removeProperty('grid-area')));
+      ctx.cleanup(() => { placed.forEach((el) => el.style.removeProperty('grid-area')); stage.style.removeProperty('--sc-intro-h'); });
 
       const geo = { D: 0, W: w.innerWidth, centers: [], lefts: [], outroL: 0 };
       const S = { p: 0, lastP: -1 };
       const measure = () => {
+        // o tamanho das páginas depende da altura que sobra abaixo da intro (CSS: --sc-intro-h)
+        stage.style.setProperty('--sc-intro-h', intro.offsetHeight + 'px');
         geo.W = stage.clientWidth || w.innerWidth;
         geo.D = Math.max(1, track.offsetWidth - geo.W);
         geo.centers = cards.map((c) => c.el.offsetLeft + c.el.offsetWidth / 2);

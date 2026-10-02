@@ -1,10 +1,22 @@
 /* depoimentos.js — §4.5 · assinatura "Marquee reativo" (ctx.tick + ctx.velocity, só em is-motion).
-   O HTML já é o estado final: conversas completas, contador em 100% (o core anima data-count e devolve o texto original),
+   O HTML já é o estado final: prints originais e transcrições acessíveis, contador em 100% (o core anima data-count e devolve o texto original),
    marquee parado quebrando linha no estático / sem JS / init falho (CSS). */
 const WDF = window.WDF;
 
 WDF.register('depoimentos', {
   init(ctx, root) {
+    /* Ampliar o print usando o diálogo existente; sem JS, o link abre a imagem original. */
+    root.querySelectorAll('.dp-print').forEach((link) => {
+      ctx.on(link, 'click', (event) => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        const source = link.querySelector('img');
+        if (!source || !WDF.core.dialog) return;
+        const image = source.cloneNode();
+        image.loading = 'eager';
+        if (WDF.core.dialog.open({ node: image, label: link.getAttribute('aria-label') })) event.preventDefault();
+      });
+    });
+
     /* ---- modo estático: faixa parada (CSS); nada de loop ---- */
     if (!ctx.flags.motion) return;
 

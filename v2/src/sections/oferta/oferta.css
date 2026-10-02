@@ -101,12 +101,8 @@ html.no-js .s-oferta .of-canvas,html.is-static .s-oferta .of-canvas,.s-oferta[da
 .s-oferta .of-trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:24px}
 .s-oferta .of-trust li{padding-top:10px;border-top:2px solid var(--ink);font-size:13px;line-height:1.35;color:var(--text)}
 
-/* ---- odômetro (montado pelo JS só em is-motion; parado = valor final) ---- */
-.s-oferta .of-odo{display:inline-flex}
-.s-oferta .of-odo-w{position:relative;display:inline-block;clip-path:inset(0 -.1em)}
-.s-oferta .of-odo-ghost{visibility:hidden}
-.s-oferta .odo-col{position:absolute;left:0;top:0;width:100%;text-align:center}
-.s-oferta .odo-col>span{display:block;height:.85em;line-height:.85em}
+/* ---- contador da âncora (montado pelo JS só em is-motion; parado = valor final) ---- */
+.s-oferta .of-count{font-variant-numeric:tabular-nums}
 
 /* ================= telas baixas (desktop): a Doca segue ≥180px e inteira ================= */
 @media (min-width:900px) and (max-height:820px){

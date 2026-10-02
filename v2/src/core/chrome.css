@@ -36,7 +36,7 @@
 .pre-bar i{display:block;height:100%;background:var(--grad);transform-origin:0 50%;transform:scaleX(0)}
 
 /* ================= nav (§5.2) ================= */
-.nav{position:fixed;top:18px;left:var(--pad-x);right:var(--pad-x);z-index:var(--z-nav);height:44px;
+.nav{position:fixed;top:calc(var(--promo-h) + 18px);left:var(--pad-x);right:var(--pad-x);z-index:var(--z-nav);height:44px;
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   color:var(--nav-fg);transition:color .4s linear;pointer-events:none}
 .nav>*{pointer-events:auto}
@@ -81,7 +81,7 @@
 }
 /* mobile: [logo-ia 28] 8 [CTA ≈192, sem seta] 8 [MENU 44] — cabe em 360 */
 @media (max-width:899px){
-  .nav{top:10px;left:16px;right:16px;gap:8px}
+  .nav{top:calc(var(--promo-h) + 10px);left:16px;right:16px;gap:8px}
   .nav-logo .nav-logo-full{display:none}
   .nav-logo .nav-logo-ia{display:block}
   .nav-right{gap:8px}
@@ -135,7 +135,7 @@ html.menu-open .nav-menu{border-color:var(--white)}
 body.is-elite .rail-label::after{box-shadow:0 0 12px rgb(var(--flame-rgb) / .5)}
 html.is-motion .rail-label.is-blink{animation:rail-blink .3s linear 2}
 @keyframes rail-blink{0%,49.9%{opacity:.2}50%,100%{opacity:1}}
-.rail-m{position:fixed;top:0;left:0;right:0;height:2px;z-index:var(--z-rail);pointer-events:none;display:none}
+.rail-m{position:fixed;top:var(--promo-h);left:0;right:0;height:2px;z-index:var(--z-rail);pointer-events:none;display:none}
 .rail-m>i{display:block;height:100%;background:var(--grad);transform-origin:0 50%;transform:scaleX(0)}
 @media (max-width:899px){ .rail{display:none} .rail-m{display:block} }
 .no-js .rail,.no-js .rail-m{display:none}
@@ -216,3 +216,18 @@ html.is-static .dock,html.is-static .dock.is-in{transition:none}
 html.is-static body.is-elite .hairline{background:var(--grad);opacity:.6}
 html.is-static .hairline.is-lit::after{content:none}
 body.is-elite .plus{color:var(--flame)}
+
+/* ---- faixa de promoção (fixa no topo, acima do menu; o --nav-h já soma a altura dela) ---- */
+.promo-bar{position:fixed;top:0;left:0;right:0;z-index:calc(var(--z-nav) + 1);height:var(--promo-h);
+  display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,28px);padding-inline:12px;
+  background:#E0121E;color:#fff;text-decoration:none;font-size:13px;line-height:1;letter-spacing:.01em;white-space:nowrap}
+.promo-bar b{font-weight:700}
+.promo-bar s{opacity:.75}
+.promo-bar-c{display:inline-flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.08em}
+.promo-bar-time{font-variant-numeric:tabular-nums;font-weight:600;padding:3px 6px;border-radius:4px;background:rgb(0 0 0 / .22)}
+html.menu-open .promo-bar{visibility:hidden}
+@media (max-width:899px){
+  .promo-bar{font-size:11.5px;gap:8px}
+  .promo-bar-l{display:none}
+  .promo-bar-c{font-size:11px}
+}

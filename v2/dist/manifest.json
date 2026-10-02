@@ -1,10 +1,10 @@
 {
   "version": "2.0.0",
-  "css": "wdf.e78b1a3438.css",
-  "js": "wdf.7eb013e319.js",
+  "css": "wdf.d88cf49e79.css",
+  "js": "wdf.246124b3a4.js",
   "gzip": {
-    "css": 26402,
-    "js": 34063
+    "css": 24707,
+    "js": 34543
   },
   "sections": [
     "hero",
@@ -14,14 +14,13 @@
     "depoimentos",
     "showcase",
     "modulos",
-    "autor",
-    "bonus",
     "oferta",
+    "autor",
     "garantia",
     "faq",
     "final",
     "footer"
   ],
   "minified": true,
-  "builtAt": "2026-10-02T16:14:55.932Z"
+  "builtAt": "2026-10-02T23:21:14.084Z"
 }

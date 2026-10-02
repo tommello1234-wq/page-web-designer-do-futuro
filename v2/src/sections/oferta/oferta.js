@@ -41,26 +41,19 @@ WDF.register('oferta', {
     const jumping = () => WDF.state.jumping;
     const passed = (st) => { if (!st) return false; try { return st.scroll() >= st.start - 1; } catch (e) { return false; } };
 
-    /* ---------------- odômetro: colunas aria-hidden montadas JÁ no dígito final ---------------- */
+    /* ---------------- contador da âncora: do "De R$ 997" até a parcela (pedido do dono) ----------------
+       Visual aria-hidden montado JÁ no valor final; o leitor de tela lê só o valor final. */
     const valText = val.textContent;
+    const num = (t) => parseFloat(String(t).replace(/[^\d,]/g, '').replace(',', '.'));
+    const toV = num(valText), fromV = num(fromStrike && fromStrike.textContent);
+    const fmtV = (v) => v.toFixed(2).replace('.', ',');
     const odo = document.createElement('span');
-    odo.className = 'of-odo'; odo.setAttribute('aria-hidden', 'true');
+    odo.className = 'of-count'; odo.setAttribute('aria-hidden', 'true'); odo.textContent = valText;
     const sr = document.createElement('span');
     sr.className = 'visually-hidden'; sr.textContent = valText;
-    const cols = [];
-    [...valText].forEach((ch) => {
-      if (!/\d/.test(ch)) { const s = document.createElement('span'); s.className = 'of-odo-sep'; s.textContent = ch; odo.appendChild(s); return; }
-      const d = +ch;
-      const w = document.createElement('span'); w.className = 'of-odo-w';
-      const ghost = document.createElement('span'); ghost.className = 'of-odo-ghost'; ghost.textContent = ch;
-      const col = document.createElement('span'); col.className = 'odo-col'; col.dataset.d = String(d);
-      for (let k = 0; k < 20; k++) { const c = document.createElement('span'); c.textContent = String(k % 10); col.appendChild(c); }
-      w.append(ghost, col); odo.appendChild(w); cols.push(col);
-    });
     val.textContent = '';
     val.append(sr, odo);
     ctx.cleanup(() => { val.textContent = valText; });
-    cols.forEach((c) => G.set(c, { yPercent: -5 * +c.dataset.d }));
 
     /* ---------------- estado ---------------- */
     const docked = items.map(() => true);
@@ -135,13 +128,16 @@ WDF.register('oferta', {
           keyframes: [{ scale: 1.3, opacity: 1, duration: .5, ease: 'wdf.out' }, { scale: 1, opacity: .75, duration: .7, ease: 'wdf.inout' }],
         });
         G.fromTo(rings, { scale: 1 }, { keyframes: [{ scale: 1.04, duration: .45, ease: 'wdf.out' }, { scale: 1, duration: .75, ease: 'wdf.inout' }] });
-        cols.forEach((c, k) => {
-          const d = +c.dataset.d;
-          G.fromTo(c, { yPercent: -5 * d }, {
-            yPercent: -5 * (10 + d), duration: 1.1, ease: 'power3.out', delay: k * .05, overwrite: true,
-            onComplete: () => G.set(c, { yPercent: -5 * d }),      // mesma face: visualmente idêntico, parado no valor final
+        if (fromV > toV) {
+          // começa no valor de referência e despenca até a parcela: a âncora acontece na frente da pessoa
+          const o = { v: fromV };
+          odo.textContent = fmtV(fromV);
+          G.to(o, {
+            v: toV, duration: 2, ease: 'power3.out', overwrite: true,
+            onUpdate: () => { odo.textContent = fmtV(o.v); },
+            onComplete: () => { odo.textContent = valText; },
           });
-        });
+        }
       });
     }
 

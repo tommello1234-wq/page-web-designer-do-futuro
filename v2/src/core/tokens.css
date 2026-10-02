@@ -52,7 +52,8 @@
 
   /* ---- espaço / grid ---- */
   --pad-x:clamp(20px,3vw,44px);
-  --nav-h:72px;
+  --promo-h:34px;                         /* faixa de promoção fixa no topo (chrome-top) */
+  --nav-h:calc(72px + var(--promo-h));
   --maxw:1680px;
   --gap:clamp(12px,1.6vw,24px);
   --section-py:clamp(96px,14vh,180px);
@@ -73,7 +74,7 @@
 
   interpolate-size:allow-keywords;
 }
-@media (max-width:899px){ :root{ --nav-h:64px; --fs-price:clamp(56px,17vw,72px) } }
+@media (max-width:899px){ :root{ --promo-h:30px; --nav-h:calc(64px + var(--promo-h)); --fs-price:clamp(56px,17vw,72px) } }
 
 /* ---- temas: seções ([data-theme]) E chrome fixo (body[data-ui]) usam os MESMOS blocos ----
    O chrome (.nav .menu .rail .cursor .dock .toast .wa-float .preloader) é filho do body e herda

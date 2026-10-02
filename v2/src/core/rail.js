@@ -10,8 +10,9 @@ const fill = rail && rail.querySelector('.rail-fill');
 const label = rail && rail.querySelector('.rail-label');
 const barM = d.querySelector('.rail-m > i');
 
+// "Quem sou eu" fica depois do preço e a seção de bônus saiu (pedido do dono): o último marco antes do preço é Módulos
 const MARKS = [['#solution-section', 22], ['#power-section', 36], ['#depoimentos', 46], ['#conteudo', 60],
-  ['#modulos', 70], ['#author-section', 78], ['#bonus', 88]];
+  ['#modulos', 80]];
 
 let pts = [[0, 0]];            // [y, %] monotônicos
 let yReveal = null;            // scroll do 100%

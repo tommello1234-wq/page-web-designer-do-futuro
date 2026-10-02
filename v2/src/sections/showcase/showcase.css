@@ -1,7 +1,7 @@
 /* showcase — §4.6 · ink · "Galeria que liga ao chegar".
    Três composições sobre o MESMO HTML (estado final):
    · base ≥900 (sem JS, estático, sem pin): grade 2 colunas — intro em cima, cards, outro;
-   · .is-h (JS, desktop com pin): palco 100svh pinado, trilho horizontal (intro e outro movidos para dentro do trilho);
+   · .is-h (JS, com pin): palco 100svh pinado com a intro fixa no topo e o trilho horizontal (páginas + outro) abaixo;
    · <900: trilho com scroll-snap nativo, build-line e outro ABAIXO do trilho.
    Todo seletor começa por .s-showcase; tokens só via var(). */
 
@@ -70,21 +70,20 @@ html.is-motion .s-showcase .sc-card.is-live .sc-thread{animation:sc-thread .64s 
 
 /* ============================== .is-h — desktop com pin: galeria horizontal ============================== */
 .s-showcase.is-h{padding-block:0}
-.s-showcase.is-h .sc-stage{display:block;max-width:none;padding:0;position:relative;height:100vh;height:100svh;overflow:hidden;overflow:clip}
-.s-showcase.is-h .sc-track{position:absolute;top:0;left:0;height:100%;width:max-content;display:flex;align-items:center;
-  gap:clamp(24px,2.4vw,48px);padding:var(--nav-h) var(--pad-x) 104px;will-change:transform}
+.s-showcase.is-h .sc-stage{display:flex;flex-direction:column;justify-content:center;max-width:none;padding:var(--nav-h) 0 76px;
+  position:relative;height:100vh;height:100svh;overflow:hidden;overflow:clip}
+/* intro fixa no topo do palco; só o trilho anda */
+.s-showcase.is-h .sc-intro{flex:none;width:100%;max-width:var(--maxw);margin:0 auto clamp(20px,3.4vh,40px);padding-inline:var(--pad-x)}
+.s-showcase.is-h .sc-intro .kicker{margin-bottom:clamp(14px,2.2vh,24px)}
+.s-showcase.is-h .sc-intro .sc-hint{margin-top:clamp(14px,2.2vh,24px)}
+.s-showcase.is-h .sc-track{flex:none;position:relative;width:max-content;display:flex;align-items:flex-start;
+  gap:clamp(24px,2.4vw,48px);padding:0 var(--pad-x);will-change:transform}
 .s-showcase.is-h .sc-track>.sc-card:nth-of-type(n){transform:none}
-.s-showcase.is-h .sc-intro{flex:none;display:block;width:clamp(320px,34vw,540px);margin:0;padding-right:clamp(8px,2vw,40px)}
-.s-showcase.is-h .sc-intro .kicker{margin-bottom:clamp(20px,3vh,32px)}
-.s-showcase.is-h .sc-intro .t-d3{max-width:14ch}
-.s-showcase.is-h .sc-intro .t-lead{margin-top:clamp(20px,3vh,32px);max-width:28ch}
-.s-showcase.is-h .sc-intro .sc-hint{margin-top:clamp(28px,4.4vh,48px)}
-.s-showcase.is-h .sc-card{flex:none;width:clamp(300px,34vw,620px)}
-.s-showcase.is-h .sc-card:nth-of-type(odd){translate:0 -4svh}
-.s-showcase.is-h .sc-card:nth-of-type(even){translate:0 5svh}
+/* duas páginas inteiras na tela, limitadas pela altura que sobra abaixo da intro (16:9 + barra e legenda ≈ 64px) */
+.s-showcase.is-h .sc-card{flex:none;width:min(clamp(300px,34vw,620px),calc((100svh - var(--nav-h) - var(--sc-intro-h,320px) - 140px - 64px) / .5625))}
 .s-showcase.is-h .sc-media>.vid,.s-showcase.is-h .sc-media>.vid-poster{left:-6%;right:auto;width:112%;max-width:none;
   transform:translate3d(calc(var(--px,0) * 1%),0,0)}
-.s-showcase.is-h .sc-outro{flex:none;display:block;width:clamp(320px,32vw,520px);margin:0 0 0 clamp(24px,3vw,56px);padding:0;border:0}
+.s-showcase.is-h .sc-outro{flex:none;align-self:center;display:block;width:clamp(320px,32vw,520px);margin:0 0 0 clamp(24px,3vw,56px);padding:0;border:0}
 .s-showcase.is-h .sc-outro .t-d3{max-width:none}
 .s-showcase.is-h .sc-outro .cta{display:inline-flex;width:auto;margin-top:clamp(28px,4.4vh,48px)}
 .s-showcase.is-h .sc-line{display:flex;position:absolute;z-index:2;left:var(--pad-x);right:calc(var(--pad-x) + 72px);bottom:28px}
@@ -129,13 +128,14 @@ html.is-motion .s-showcase .sc-card.is-live .sc-thread{animation:sc-thread .64s 
 
 /* celular com pin: duas páginas por vez (pares empilhados), andando par a par na horizontal */
 @media (max-width:899px){
-  .s-showcase.is-h .sc-track{display:grid;grid-auto-flow:column;grid-template-rows:auto auto;align-content:center;align-items:start;
-    column-gap:14px;row-gap:18px;width:max-content;padding:calc(var(--nav-h) + 8px) var(--pad-x) 96px}
-  .s-showcase.is-h .sc-intro,.s-showcase.is-h .sc-outro{align-self:center}   /* colunas/linhas: JS (grid-area explícito) */
-  .s-showcase.is-h .sc-intro{width:min(84vw,340px)}
-  .s-showcase.is-h .sc-outro{width:min(84vw,340px);margin-left:10px}
-  .s-showcase.is-h .sc-card{width:min(84vw,calc((100svh - 320px) * .89))}
-  .s-showcase.is-h .sc-card:nth-of-type(n){translate:none}
+  .s-showcase.is-h .sc-stage{padding-bottom:84px}
+  .s-showcase.is-h .sc-intro{margin-bottom:18px}
+  .s-showcase.is-h .sc-intro .t-lead{margin-top:12px}
+  .s-showcase.is-h .sc-track{display:grid;grid-auto-flow:column;grid-template-rows:auto auto;align-items:start;
+    column-gap:14px;row-gap:14px;width:max-content;padding:0 var(--pad-x)}
+  .s-showcase.is-h .sc-outro{align-self:center;width:min(84vw,340px);margin-left:10px}   /* colunas/linhas: JS (grid-area explícito) */
+  /* duas páginas empilhadas cabendo abaixo da intro (16:9 + barra e legenda ≈ 56px cada) */
+  .s-showcase.is-h .sc-card{width:min(84vw,calc(((100svh - var(--nav-h) - var(--sc-intro-h,300px) - 120px) / 2 - 56px) / .5625))}
 }
 
 /* sem JS: sem build-line (nada a acompanhar) */

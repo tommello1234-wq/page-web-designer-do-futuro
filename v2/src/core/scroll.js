@@ -108,9 +108,11 @@ core.goTo = function goTo(target, o = {}) {
   const done = () => { if (focusEl) focusTarget(focusEl); return true; };
   const smooth = !!(lenis && WDF.ctx && WDF.ctx.flags.motion);
   if (o.immediate || !smooth) { jumpTo(y); return Promise.resolve(done()); }
-  if (Math.abs(y - w.scrollY) > 2 * w.innerHeight) return curtainJump(y).then(done);
+  // rolagem suave sempre (sem cortina); saltos longos ganham um pouco mais de tempo
+  const telas = Math.abs(y - w.scrollY) / w.innerHeight;
+  const dur = typeof o.duration === 'number' ? o.duration : clamp(1.2 + telas * 0.08, 1.2, 2.4);
   return new Promise((res) => {
-    lenis.scrollTo(y, { duration: typeof o.duration === 'number' ? o.duration : 1.4, easing: core.EXPO, force: true, onComplete: () => res(done()) });
+    lenis.scrollTo(y, { duration: dur, easing: core.EXPO, force: true, onComplete: () => res(done()) });
   });
 };
 

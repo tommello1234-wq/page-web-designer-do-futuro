@@ -3,9 +3,9 @@
 const WDF = window.WDF, core = WDF.core, d = document;
 
 const OFFER = /*OFFER*/{
-  "checkoutUrl": "https://payment.ticto.app/OE053E87F",
+  "checkoutUrl": "https://app.upwardacademy.com.br/checkout/3069031d-d8a8-4252-84ae-e7dbb7c358a5/559b0f6c-066c-4388-87bb-05aab29add08",
   "currency": "BRL",
-  "installments": { "n": 12, "value": 10.03 },
+  "installments": { "n": 12, "value": 10.58 },
   "cash": { "value": 97.00 },
   "anchor": 2088,
   "from": 997.00,
@@ -21,7 +21,7 @@ const OFFER = /*OFFER*/{
     { "key": "bonus-2", "title": "ACESSO ÀS MINHAS PRINCIPAIS SKILLS", "value": 297 }
   ],
   "whatsapp": "https://api.whatsapp.com/send?phone=5588992089323&text=Olá,%20gostaria%20de%20tirar%20dúvidas%20sobre%20o%20Web%20Designer%20do%20futuro",
-  "forwardParams": false,
+  "forwardParams": true,
   "lpCheckoutEvent": "InitiateCheckout"
 }/*/OFFER*/;
 

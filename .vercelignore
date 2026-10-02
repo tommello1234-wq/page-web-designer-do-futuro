@@ -19,3 +19,7 @@ v2/preview/
 v2/src/
 v2/tools/
 v2/build.mjs
+
+# Criativos de anúncio servidos por link público pro Meta (fora do git)
+!ads-media/
+!ads-media/*.mp4

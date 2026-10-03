@@ -24,9 +24,10 @@ v2/build.mjs
 !ads-media/
 !ads-media/*.mp4
 
-# Rascunhos locais e arquivo-fonte do vídeo (as versões web/mobile vão ao ar)
-index-v3.html
-v3/
-copy-v3.md
-BIO/
+# Rascunhos locais e arquivo-fonte do vídeo (as versões web/mobile vão ao ar).
+# Com "/" no começo: só a pasta da RAIZ. "BIO/" sem barra também ignorava ASSETS/BIO/ (capas da /bio).
+/index-v3.html
+/v3/
+/copy-v3.md
+/BIO/
 ASSETS/videos-paginas/08.mp4

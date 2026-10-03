@@ -8,9 +8,13 @@ const cur = d.querySelector('.cursor');
 const dot = cur && cur.querySelector('.cursor-dot');
 const ring = cur && cur.querySelector('.cursor-ring');
 const lbl = cur && cur.querySelector('.cursor-label');
+const CURSOR_OFF = true;
 
 WDF.layer('cursor', {
   setup(lc) {
+    // DESLIGADO a pedido do dono (03/10): o cursor sumia em partes da página (janela da roleta, etc.).
+    // Sem html.has-cursor a setinha do sistema volta em toda a página. Para religar, remova esta linha.
+    if (CURSOR_OFF) return undefined;
     if (!cur || !lc.flags.fine || !lc.flags.motion) return undefined;
     const G = core.G, P = core.pointer;
     html.classList.add('has-cursor');

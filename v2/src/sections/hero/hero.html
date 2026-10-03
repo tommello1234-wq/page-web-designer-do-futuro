@@ -35,9 +35,9 @@
   </div>
   <script>/* celular: mesma conta do measure() do hero.js, antes da 1ª pintura — a figura não "pula" quando o JS chega (CLS) */
   (function(){var r=document.getElementById('inicio');if(!r||!matchMedia('(max-width:899px)').matches||matchMedia('(orientation:landscape) and (max-height:560px)').matches)return;
-  var st=r.querySelector('.hero-stage'),l=r.querySelector('.hero-left'),V=innerHeight,b=l.offsetTop+l.offsetHeight,G=24,
-  f=Math.max(V*.28,Math.min(innerWidth*1.02,V*.48,(V*.9-b-G)/.89));
-  r.style.setProperty('--fig-h',Math.round(f)+'px');st.style.height=Math.round(b+G+f*.89)+'px'})();</script>
+  var st=r.querySelector('.hero-stage'),l=r.querySelector('.hero-left'),fg=r.querySelector('.hero-fig'),V=innerHeight,b=l.offsetTop+l.offsetHeight,G=24,C=.7,
+  f=.81*Math.max(V*.34,Math.min(innerWidth*1.3,V*.62,(V*.9-b-G)/C));
+  r.style.setProperty('--fig-h',Math.round(f)+'px');st.style.height=Math.round(b+G+f*C)+'px';fg.style.top=Math.round(b+G-f*.11)+'px';fg.style.bottom='auto'})();</script>
   <div class="hero-more-slot">
     <div class="hero-right" data-hero-more>
       <p class="hero-desc">Fuja da guerra de preços do mercado estático e domine a nova era: crie verdadeiras <em>experiências imersivas</em> com Agentes de IA.</p>

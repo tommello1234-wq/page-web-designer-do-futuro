@@ -112,9 +112,9 @@ html.no-js .s-hero .hero-clip, html.no-js .s-hero .hero-iris{display:none}
   /* 94%: a curva do "O" passava da largura e era cortada ("FUTURC") */
   .s-hero .hero-futuro{margin-top:calc(5px - .04em);font-size:calc(var(--fs-mega) * .94)}
   .s-hero .hero-fig{height:var(--fig-h)}
-  .s-hero .hero-left{left:20px;right:20px;top:calc(76px + var(--promo-h) + 16px + var(--fs-mega) * .94 * .86 + 24px);bottom:auto;width:auto;max-width:none;
+  .s-hero .hero-left{left:20px;right:20px;top:calc(76px + var(--promo-h) + 16px + var(--fs-mega) * .94 * .86 + 12px);bottom:auto;width:auto;max-width:none;
     display:flex;flex-direction:column;align-items:center;text-align:center}
-  /* ritmo: FUTURO 24 · selo 16 · texto 28 · botão (pedido do dono: espaçamento) */
+  /* ritmo: FUTURO 12 · selo 16 · texto 28 · botão (pedido do dono: espaçamento) */
   .s-hero .hero-badge{color:var(--ink);margin-bottom:20px}
   .s-hero .hero-sub{font-size:19px;font-weight:700;max-width:30ch;color:var(--ink)}
   .s-hero .hero-left .cta{margin:28px auto 0}

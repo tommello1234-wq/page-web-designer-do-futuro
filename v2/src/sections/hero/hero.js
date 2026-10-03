@@ -142,18 +142,24 @@ WDF.register('hero', {
       layout();
       W = stage.clientWidth; H = stage.clientHeight;
       if (flags.mobile) {
-        // mobile: a cabeça (≈11% do frame) começa SEMPRE 24px abaixo do botão, em qualquer altura de tela (pedido
-        // do dono). A figura acompanha a largura, com teto; o palco tem a altura do conteúdo, no máximo 90% da tela,
-        // então o começo da próxima dobra sempre aparece. Igual ao <script> inline do hero.html.
+        // mobile: a cabeça (≈11% do frame) começa SEMPRE 24px abaixo do botão, em qualquer altura de tela, e a
+        // figura é cortada na altura do peito (70% do frame a partir do topo da cabeça) para ser maior (pedido do
+        // dono). O palco termina no corte, no máximo 90% da tela: o começo da próxima dobra sempre aparece.
+        // Igual ao <script> inline do hero.html.
         const textBottom = left.offsetTop + left.offsetHeight;
         const short = matchMedia('(orientation:landscape) and (max-height:560px)').matches;
         if (!short) {
-          const V = window.innerHeight, GAP = 24;
-          const fh = Math.max(V * .28, Math.min(window.innerWidth * 1.02, V * .48, (V * .9 - textBottom - GAP) / .89));
+          const V = window.innerHeight, GAP = 24, CUT = .7;
+          const fh = .81 * Math.max(V * .34, Math.min(window.innerWidth * 1.3, V * .62, (V * .9 - textBottom - GAP) / CUT));   // .81: pedido do dono
           root.style.setProperty('--fig-h', Math.round(fh) + 'px');
-          stage.style.height = Math.round(textBottom + GAP + fh * .89) + 'px';
+          stage.style.height = Math.round(textBottom + GAP + fh * CUT) + 'px';
+          fig.style.top = Math.round(textBottom + GAP - fh * .11) + 'px';
+          fig.style.bottom = 'auto';
           H = stage.clientHeight;
-        } else { root.style.removeProperty('--fig-h'); stage.style.removeProperty('height'); }
+        } else {
+          root.style.removeProperty('--fig-h'); stage.style.removeProperty('height');
+          fig.style.removeProperty('top'); fig.style.removeProperty('bottom');
+        }
       }
       const fw = fig.offsetWidth, fh = fig.offsetHeight;
       const fx0 = fig.offsetLeft - fw / 2, fy0 = fig.offsetTop;
@@ -294,6 +300,7 @@ WDF.register('hero', {
       [fig, typeB, arcs, hud, hint, still, ...left.children, ...(right ? right.children : []), ...eyes].forEach((el) => { el.style.transform = ''; el.style.opacity = ''; el.style.visibility = ''; });
       stage.style.removeProperty('--r');
       root.style.removeProperty('--fig-h'); stage.style.removeProperty('height');
+      fig.style.removeProperty('top'); fig.style.removeProperty('bottom');
     };
   },
 });

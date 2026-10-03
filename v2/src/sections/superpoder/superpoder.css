@@ -84,6 +84,7 @@
 .s-superpoder .sp-x{position:relative}
 .s-superpoder .sp-x-stage{position:relative;width:100%;max-width:var(--maxw);margin-inline:auto;padding:0 var(--pad-x) var(--section-py);
   display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:center}
+.s-superpoder .sp-x-title em{font-style:normal;color:inherit}
 .s-superpoder .sp-x-title{grid-column:1 / -1;padding-top:var(--s-4);border-top:1px solid var(--line);color:var(--white);
   font-size:11px;letter-spacing:.16em;margin-bottom:calc(var(--sp-o) * 5 + var(--s-6))}
 .s-superpoder .sp-page-box{position:relative;grid-column:1 / span 7;grid-row:2 / span 3;
@@ -238,7 +239,11 @@
 
 /* celular: vista explodida animada também (pedido do dono) — página girando no centro, camadas em 2 colunas embaixo */
 @media (max-width:899px){
-  .s-superpoder.is-3d .sp-x-title{top:calc(var(--nav-h) + 36px)}
+  .s-superpoder.is-3d .sp-x-title{top:calc(var(--nav-h) + 28px)}
+  /* celular: vira título de verdade, centralizado (pedido do dono, 03/10); no computador segue etiqueta .micro */
+  .s-superpoder .sp-x-title{padding-top:0;border-top:0;text-align:center;font-family:var(--font);font-weight:600;
+    font-size:clamp(30px,8.6vw,40px);line-height:1.02;letter-spacing:-.045em;text-transform:none;text-wrap:balance}
+  .s-superpoder .sp-x-title em{color:var(--flame)}
   .s-superpoder.is-3d .sp-x-legend, .s-superpoder.is-3d .sp-lines{display:none}
   .s-superpoder.is-3d .sp-page-box{width:min(72vw,390px);top:51%}
   .s-superpoder.is-3d .sp-x-count{display:flex;left:var(--pad-x);right:var(--pad-x);bottom:calc(132px + env(safe-area-inset-bottom));gap:14px}

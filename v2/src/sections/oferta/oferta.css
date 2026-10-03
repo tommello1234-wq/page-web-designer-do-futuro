@@ -156,3 +156,6 @@ html.no-js .s-oferta .of-canvas,html.is-static .s-oferta .of-canvas,.s-oferta[da
 .s-oferta .of-card .price-alt span{color:#FF6600}
 .s-oferta .of-card .of-trust li{border-top-color:rgb(var(--white-rgb) / .3);color:var(--grey-1)}
 @media (prefers-reduced-motion:reduce){ .s-oferta .of-card::before{animation:none} }
+
+/* sem a "Doca de ativação" (pedido do dono): o bloco visual some; a lista de itens e o preço continuam */
+.s-oferta .of-dock{display:none}

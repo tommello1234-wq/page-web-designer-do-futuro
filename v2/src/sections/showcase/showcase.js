@@ -197,12 +197,15 @@ WDF.register('showcase', {
         const inView = y >= st.start - H * 0.3 && y <= st.end + H * 0.3;
         let best = -1;
         if (inView) {
-          let bd = 1;
+          // o ponto de ativação anda com a rolagem: 1ª página no começo, última no fim. Com a intro fixa no topo
+          // as primeiras páginas ficam à esquerda e nunca passavam pelo centro da tela (a 1ª não ligava)
+          const last = cards.length - 1;
+          const focus = geo.centers[0] + p * (geo.centers[last] - geo.centers[0]);
+          let bd = Infinity;
           for (let i = 0; i < cards.length; i++) {
-            const dd = Math.abs((geo.centers[i] + x) / geo.W - 0.5);
-            if (dd <= 0.15 && dd < bd) { bd = dd; best = i; }
+            const dd = Math.abs(geo.centers[i] - focus);
+            if (dd < bd - 1) { bd = dd; best = i; }
           }
-          if (best < 0 && cur >= 0 && Math.abs((geo.centers[cur] + x) / geo.W - 0.5) <= 0.2) best = cur;   // histerese
           /* pré-carga (metadados) do próximo card que chega pela direita: a ≤ meia tela */
           for (let i = 0; i < cards.length; i++) {
             const l = geo.lefts[i] + x;

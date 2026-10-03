@@ -79,7 +79,8 @@
 
 /* mobile travado + horizontal (.is-hm, JS): o palco ocupa a tela e a fileira de capas anda por transform */
 @media (max-width:899px){
-  .s-modulos.is-hm{overflow:clip}
+  /* sem a margem de cima da seção: o palco travado já tem a dele (nav + respiro); somadas davam ~225px de vazio */
+  .s-modulos.is-hm{overflow:clip;padding-top:0}
   .s-modulos.is-hm .md-wrap{min-height:100vh;min-height:100svh;align-content:center;padding-top:calc(var(--nav-h, 64px) + 8px);padding-bottom:calc(84px + env(safe-area-inset-bottom))}   /* espaço da barra de compra */
   .s-modulos.is-hm .md-grid{overflow:visible;scroll-snap-type:none;width:max-content;max-width:none;margin-right:0;will-change:transform}
   .s-modulos.is-hm .md-card{flex-basis:min(56vw,250px,calc((100svh - 380px) * .6))}

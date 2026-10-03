@@ -70,7 +70,8 @@ html.is-motion .s-showcase .sc-card.is-live .sc-thread{animation:sc-thread .64s 
 
 /* ============================== .is-h — desktop com pin: galeria horizontal ============================== */
 .s-showcase.is-h{padding-block:0}
-.s-showcase.is-h .sc-stage{display:flex;flex-direction:column;justify-content:center;max-width:none;padding:var(--nav-h) 0 76px;
+/* margens iguais em cima e embaixo (a linha de progresso fica dentro da margem de baixo) — pedido do dono */
+.s-showcase.is-h .sc-stage{display:flex;flex-direction:column;justify-content:center;max-width:none;padding:calc(var(--nav-h) + 12px) 0;
   position:relative;height:100vh;height:100svh;overflow:hidden;overflow:clip}
 /* intro fixa no topo do palco; só o trilho anda */
 .s-showcase.is-h .sc-intro{flex:none;width:100%;max-width:var(--maxw);margin:0 auto clamp(20px,3.4vh,40px);padding-inline:var(--pad-x)}
@@ -81,11 +82,12 @@ html.is-motion .s-showcase .sc-card.is-live .sc-thread{animation:sc-thread .64s 
 .s-showcase.is-h .sc-track>.sc-card:nth-of-type(n){transform:none}
 /* duas páginas inteiras na tela, limitadas pela altura que sobra abaixo da intro (16:9 + barra e legenda ≈ 64px) */
 .s-showcase.is-h .sc-card{flex:none;width:min(clamp(300px,34vw,620px),calc((100svh - var(--nav-h) - var(--sc-intro-h,320px) - 140px - 64px) / .5625))}
-.s-showcase.is-h .sc-media>.vid,.s-showcase.is-h .sc-media>.vid-poster{left:-6%;right:auto;width:112%;max-width:none;
-  transform:translate3d(calc(var(--px,0) * 1%),0,0)}
-.s-showcase.is-h .sc-outro{flex:none;align-self:center;display:block;width:clamp(320px,32vw,520px);margin:0 0 0 clamp(24px,3vw,56px);padding:0;border:0}
+/* sem ampliação de parallax: cada página aparece inteira em 16:9 (a 112% as bordas eram cortadas — pedido do dono) */
+/* fecho: alinhado ao topo das páginas e com o título limitado pela altura (em tela baixa ele estourava a dobra) */
+.s-showcase.is-h .sc-outro{flex:none;align-self:flex-start;display:block;width:clamp(340px,34vw,560px);margin:0 0 0 clamp(24px,3vw,56px);padding:0;border:0}
 .s-showcase.is-h .sc-outro .t-d3{max-width:none}
-.s-showcase.is-h .sc-outro .cta{display:inline-flex;width:auto;margin-top:clamp(28px,4.4vh,48px)}
+@media (min-width:900px){ .s-showcase.is-h .sc-outro .t-d3{font-size:min(var(--fs-d3), 5svh, 3.6vw)} }   /* só desktop: no celular 3.6vw dava ~13px */
+.s-showcase.is-h .sc-outro .cta{display:inline-flex;width:auto;margin-top:clamp(18px,3vh,32px)}
 .s-showcase.is-h .sc-line{display:flex;position:absolute;z-index:2;left:var(--pad-x);right:calc(var(--pad-x) + 72px);bottom:28px}
 
 /* build-line (compartilhada: .is-h e mobile) */

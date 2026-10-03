@@ -23,3 +23,10 @@ v2/build.mjs
 # Criativos de anúncio servidos por link público pro Meta (fora do git)
 !ads-media/
 !ads-media/*.mp4
+
+# Rascunhos locais e arquivo-fonte do vídeo (as versões web/mobile vão ao ar)
+index-v3.html
+v3/
+copy-v3.md
+BIO/
+ASSETS/videos-paginas/08.mp4

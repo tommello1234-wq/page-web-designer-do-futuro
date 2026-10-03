@@ -59,7 +59,8 @@ WDF.register('oferta', {
     const docked = items.map(() => true);
     let revealed = WDF.state.offerRevealed, lit = true, p = 1, dirty = true, frameN = 4;
 
-    const count = () => (desk ? docked.filter(Boolean).length : frameN);
+    // a doca visual saiu da página (pedido do dono): a contagem vem só dos itens da oferta, no celular também
+    const count = () => docked.filter(Boolean).length;
     function paintStatus() {
       const n = count();
       nEl.textContent = String(n);

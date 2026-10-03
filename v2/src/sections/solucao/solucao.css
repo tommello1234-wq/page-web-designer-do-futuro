@@ -73,6 +73,7 @@ html.is-motion .s-solucao .so-body.is-checked .so-list>li:nth-child(3) .so-check
 @media (max-width:899px){
   .s-solucao .so-sub,.s-solucao .so-list{grid-column:1/-1}
   .s-solucao .so-sub{padding-top:0;padding-bottom:48px;max-width:none}
+  .s-solucao .so-head{padding-bottom:28px}   /* título → texto: no celular o clamp de desktop (até 112px) sobrava */
   .s-solucao .so-list>li{grid-template-columns:2.6em minmax(0,1fr) 22px;padding:18px 0}
   .s-solucao .so-reason{max-width:none}
 }

@@ -173,9 +173,15 @@ WDF.register('showcase', {
         S.lastP = -1;
       };
       measure();
+      // celular: o palco trava encostado no menu fixo (altura em --nav-h)
+      const navH = () => {   // --nav-h é um calc(): mede a altura real com uma sonda invisível
+        const probe = d.createElement('div');
+        probe.style.cssText = 'position:absolute;visibility:hidden;height:var(--nav-h);width:1px';
+        d.body.appendChild(probe); const h = probe.offsetHeight; probe.remove(); return h;
+      };
       const pinLen = () => Math.max(1, Math.round(Math.min(geo.D * 0.75, w.innerHeight * 2.2)));   // teto 2,2 telas
       const st = ctx.st({
-        trigger: F.mobile ? stage : root, start: 'top top', end: () => { measure(); return '+=' + pinLen(); },
+        trigger: F.mobile ? stage : root, start: F.mobile ? () => 'top top+=' + navH() : 'top top', end: () => { measure(); return '+=' + pinLen(); },
         pin: stage, scrub: true, anticipatePin: 1, invalidateOnRefresh: true,
         onUpdate: (s) => { S.p = s.progress; },
       });

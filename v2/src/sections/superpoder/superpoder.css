@@ -198,7 +198,7 @@
 .s-superpoder.is-scan .sp-x-cap .micro{color:var(--flame)}
 .s-superpoder .sp-x-ds{max-width:30ch;font-style:normal;font-size:16px;line-height:1.35;color:var(--white)}
 .s-superpoder.is-3d .sp-x-legend{position:absolute;top:calc(var(--nav-h) + var(--s-5));right:var(--pad-x);z-index:3;margin:0}
-.s-superpoder.is-3d .sp-x-meter{position:absolute;right:var(--pad-x);bottom:calc(var(--s-6) + 14px);z-index:3;display:block;width:min(260px,20vw);color:var(--white)}
+.s-superpoder.is-3d .sp-x-meter{position:absolute;right:var(--pad-x);bottom:calc(var(--s-6) + 14px);z-index:3;display:none;width:min(260px,20vw);color:var(--white)}   /* "vista explodida 000%" removido a pedido do dono (03/10) */
 .s-superpoder .sp-x-meter span{display:block;padding-bottom:10px;font-variant-numeric:tabular-nums}
 .s-superpoder .sp-x-meter b{font-weight:500;color:var(--flame)}
 .s-superpoder .sp-x-meter i{display:block;height:1px;background:var(--line)}
@@ -238,10 +238,10 @@
 
 /* celular: vista explodida animada também (pedido do dono) — página girando no centro, camadas em 2 colunas embaixo */
 @media (max-width:899px){
-  .s-superpoder.is-3d .sp-x-title{top:calc(var(--nav-h) + 12px)}
+  .s-superpoder.is-3d .sp-x-title{top:calc(var(--nav-h) + 36px)}
   .s-superpoder.is-3d .sp-x-legend, .s-superpoder.is-3d .sp-lines{display:none}
   .s-superpoder.is-3d .sp-page-box{width:min(72vw,390px);top:51%}
-  .s-superpoder.is-3d .sp-x-count{display:flex;left:var(--pad-x);right:var(--pad-x);bottom:calc(96px + env(safe-area-inset-bottom));gap:14px}
+  .s-superpoder.is-3d .sp-x-count{display:flex;left:var(--pad-x);right:var(--pad-x);bottom:calc(132px + env(safe-area-inset-bottom));gap:14px}
   .s-superpoder.is-3d .sp-x-count .t-num{font-size:64px}
   .s-superpoder .sp-x-ds{font-size:14px}
   .s-superpoder.is-3d .sp-callouts{display:none}

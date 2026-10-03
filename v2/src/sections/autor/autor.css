@@ -1,4 +1,4 @@
-/* autor · §4.8 · flame · "Sem máscara". Todo seletor começa por .s-autor; tokens só via var().
+/* autor · §4.8 · paper (era flame; fundo claro a pedido do dono, 03/10) · "Sem máscara". Todo seletor começa por .s-autor; tokens só via var().
    Estado FINAL sem JS: --c:0% (foto inteira). O JS escreve --c/--scan no .au-photo só em is-motion. */
 
 .s-autor{padding-block:var(--section-py);color:var(--ink)}
@@ -8,8 +8,8 @@
 /* topo da coluna (alinhado ao kicker) e preso enquanto o texto rola — antes ficava no pé, com um vazio em cima */
 .s-autor .au-card{grid-column:1/span 4;justify-self:start;align-self:start;position:sticky;top:calc(var(--nav-h) + 32px);
   width:min(100%,360px);margin:0;padding:9px;
-  --line-2:var(--white);                                   /* cantoneiras brancas, cheias */
-  border:1px solid rgb(var(--white-rgb) / .55);             /* moldura branca .55 */
+  --line-2:var(--ink);                                     /* cantoneiras escuras, cheias (fundo claro) */
+  border:1px solid rgb(var(--ink-rgb) / .22);               /* moldura escura .22 */
   background-color:var(--surface);display:grid;grid-template-columns:minmax(0,1fr);gap:9px}
 .s-autor .au-id,.s-autor .au-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:18px;color:var(--ink)}
 .s-autor .au-id{padding:2px 1px 0}
@@ -33,7 +33,7 @@
 /* ---------------- texto (col 6–12) ---------------- */
 .s-autor .au-text{grid-column:6/-1;min-width:0;container-type:inline-size}
 .s-autor .au-text .kicker{margin-bottom:clamp(24px,3.4vh,36px)}
-.s-autor .au-h2{color:var(--white);padding-top:.04em}
+.s-autor .au-h2{color:var(--flame-deep);padding-top:.04em}
 .s-autor .au-name{color:var(--ink);white-space:nowrap;margin-top:.06em;font-size:min(var(--fs-name),13.4cqi)}
 .s-autor .au-rule{--line:rgb(var(--ink-rgb) / .34);margin:clamp(32px,4.6vh,48px) 0 clamp(28px,4vh,40px);transform-origin:0 50%}
 .s-autor .au-quote{color:var(--ink);max-width:30ch;text-indent:-.42em}

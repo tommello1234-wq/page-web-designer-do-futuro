@@ -159,3 +159,5 @@ html.no-js .s-oferta .of-canvas,html.is-static .s-oferta .of-canvas,.s-oferta[da
 
 /* sem a "Doca de ativação" (pedido do dono): o bloco visual some; a lista de itens e o preço continuam */
 .s-oferta .of-dock{display:none}
+/* sem a doca, não há o que esperar na tela: o cabeçalho da lista não reserva mais meia tela antes do 1º item */
+@media (min-width:900px){ .s-oferta .of-archive{margin-bottom:clamp(20px,3svh,32px)} }

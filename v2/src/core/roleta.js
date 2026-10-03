@@ -18,6 +18,23 @@ const store = {
 };
 const clarity = (name) => { try { if (typeof w.clarity === 'function') { w.clarity('event', name); w.clarity('set', 'roleta', name); } } catch (_) { /* noop */ } };
 
+/* mesmo evento no lead tracker (tabela lp_eventos): é o que liga a roleta à venda pelo código da visita */
+const LT_EVENT = 'https://lead-tracker-three-xi.vercel.app/api/cart-capture/lp-event';
+function visitor() {
+  let v = store.get().v;
+  if (!v) { v = Math.random().toString(36).slice(2, 12) + Date.now().toString(36); store.set({ v }); }
+  return v;
+}
+function report(evento, extra) {
+  clarity(evento);
+  try {
+    let acq = {}; try { acq = JSON.parse(w.localStorage.getItem('upw_acquisition_v1') || '{}') || {}; } catch (_) { /* sem storage */ }
+    const body = JSON.stringify(Object.assign({ evento, visitante: visitor(), lp: location.pathname,
+      utm_content: acq.utm_content || '', utm_campaign: acq.utm_campaign || '' }, extra));
+    fetch(LT_EVENT, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body, keepalive: true }).catch(() => {});
+  } catch (_) { /* medição nunca atrapalha a página */ }
+}
+
 /* ---------- cupom no link do checkout (qualquer CTA, depois de ganhar) ---------- */
 d.addEventListener('click', (e) => {
   const a = e.target && e.target.closest && e.target.closest('a[data-checkout]');
@@ -27,7 +44,7 @@ d.addEventListener('click', (e) => {
     const url = new URL(a.getAttribute('href'), location.href);
     url.searchParams.set('cupom', CODE);
     a.setAttribute('href', url.toString());
-    if (a.getAttribute('data-checkout') === 'roleta') clarity('roleta_checkout');
+    report('roleta_checkout', { journey_id: url.searchParams.get('client_reference_id') || '', motivo: a.getAttribute('data-checkout') || '' });
   } catch (_) { /* o checkout abre sem cupom */ }
 });
 
@@ -83,7 +100,7 @@ function wheelSvg() {
 let dlg = null, timer = 0;
 function open(reason) {
   store.set({ shown: 1, reason, at: Date.now() });
-  clarity('roleta_exibida');
+  report('roleta_exibida', { motivo: reason });
   dlg = el('dialog', 'rlt');
   dlg.setAttribute('aria-labelledby', 'rlt-t');
   dlg.innerHTML =
@@ -108,7 +125,7 @@ function close() { if (dlg && dlg.open) dlg.close(); }
 function spin(e) {
   const btn = e.currentTarget;
   btn.disabled = true; btn.textContent = 'GIRANDO…';
-  clarity('roleta_girada');
+  report('roleta_girada');
   const step = 360 / SLICES.length, jitter = (Math.random() - 0.5) * step * 0.5;
   const target = 360 * 6 + (360 - (WIN * step + step / 2)) + jitter;
   const rot = dlg.querySelector('.rlt-rot');
@@ -133,7 +150,7 @@ function win() {
     '<a class="rlt-cta" data-checkout="roleta" href="' + OFFER.checkoutUrl + '">USAR CUPOM AGORA</a>';
   step.querySelector('.rlt-copy').addEventListener('click', (e) => {
     const b = e.currentTarget;
-    const done = () => { b.textContent = 'Copiado!'; clarity('roleta_cupom_copiado'); };
+    const done = () => { b.textContent = 'Copiado!'; report('roleta_cupom_copiado'); };
     try { navigator.clipboard.writeText(CODE).then(done, done); } catch (_) { done(); }
   });
   const clock = step.querySelector('.rlt-clock');

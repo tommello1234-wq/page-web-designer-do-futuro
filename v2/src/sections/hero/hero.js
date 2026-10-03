@@ -142,17 +142,16 @@ WDF.register('hero', {
       layout();
       W = stage.clientWidth; H = stage.clientHeight;
       if (flags.mobile) {
-        // mobile: a cabeça (≈11% do frame) começa SEMPRE 24px abaixo do botão, em qualquer altura de tela, e a
-        // figura é cortada na altura do peito (70% do frame a partir do topo da cabeça) para ser maior (pedido do
-        // dono). O palco termina no corte, no máximo 90% da tela: o começo da próxima dobra sempre aparece.
-        // Igual ao <script> inline do hero.html.
+        // mobile: a cabeça (≈11% do frame) começa SEMPRE 24px abaixo do botão, em qualquer altura de tela, e o
+        // palco tem 95% da tela — o começo da próxima dobra aparece (pedido do dono). Igual ao <script> do hero.html.
         const textBottom = left.offsetTop + left.offsetHeight;
         const short = matchMedia('(orientation:landscape) and (max-height:560px)').matches;
         if (!short) {
-          const V = window.innerHeight, GAP = 24, CUT = .7;
-          const fh = .81 * Math.max(V * .34, Math.min(window.innerWidth * 1.3, V * .62, (V * .9 - textBottom - GAP) / CUT));   // .81: pedido do dono
+          // hero com 95% da tela (pedido do dono): a figura vai da cabeça (24px abaixo do botão) até o pé do palco
+          const V = window.innerHeight, GAP = 24, S = Math.round(V * .95);
+          const fh = Math.max(V * .3, (S - textBottom - GAP) / .89);
           root.style.setProperty('--fig-h', Math.round(fh) + 'px');
-          stage.style.height = Math.round(textBottom + GAP + fh * CUT) + 'px';
+          stage.style.height = S + 'px';
           fig.style.top = Math.round(textBottom + GAP - fh * .11) + 'px';
           fig.style.bottom = 'auto';
           H = stage.clientHeight;

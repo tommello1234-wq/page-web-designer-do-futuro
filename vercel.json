@@ -1,35 +1,69 @@
 {
   "rewrites": [
-    { "source": "/wdf", "destination": "/index.html" },
-    { "source": "/wdf/(.*)", "destination": "/$1" },
-    { "source": "/wdf2", "destination": "/wdf2.html" },
-    { "source": "/bio", "destination": "/bio.html" },
-    { "source": "/promo", "destination": "/index-v2.html" }
+    {
+      "source": "/wdf",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/wdf/(.*)",
+      "destination": "/$1"
+    },
+    {
+      "source": "/wdf2",
+      "destination": "/wdf2.html"
+    },
+    {
+      "source": "/bio",
+      "destination": "/bio.html"
+    },
+    {
+      "source": "/promo",
+      "destination": "/index-v2.html"
+    }
   ],
   "headers": [
     {
       "source": "/ASSETS/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.css",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.js",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.woff2",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/promo",
+      "permanent": false
     }
   ]
 }

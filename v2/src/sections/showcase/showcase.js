@@ -152,12 +152,18 @@ WDF.register('showcase', {
         outro.style.gridArea = '1 / ' + oc + ' / 3 / ' + (oc + 1);
       }
       ctx.cleanup(() => { placed.forEach((el) => el.style.removeProperty('grid-area')); stage.style.removeProperty('--sc-intro-h'); });
+      /* celular: o título rola embora e só as páginas travam, maiores (pedido do dono, 03/10) */
+      if (F.mobile) {
+        root.insertBefore(intro, stage);
+        intro.classList.add('is-out');
+        ctx.cleanup(() => { intro.classList.remove('is-out'); stage.insertBefore(intro, stage.firstChild); });
+      }
 
       const geo = { D: 0, W: w.innerWidth, centers: [], lefts: [], outroL: 0 };
       const S = { p: 0, lastP: -1 };
       const measure = () => {
         // o tamanho das páginas depende da altura que sobra abaixo da intro (CSS: --sc-intro-h)
-        stage.style.setProperty('--sc-intro-h', intro.offsetHeight + 'px');
+        stage.style.setProperty('--sc-intro-h', (F.mobile ? 0 : intro.offsetHeight) + 'px');
         geo.W = stage.clientWidth || w.innerWidth;
         geo.D = Math.max(1, track.offsetWidth - geo.W);
         geo.centers = cards.map((c) => c.el.offsetLeft + c.el.offsetWidth / 2);
@@ -169,7 +175,7 @@ WDF.register('showcase', {
       measure();
       const pinLen = () => Math.max(1, Math.round(Math.min(geo.D * 0.75, w.innerHeight * 2.2)));   // teto 2,2 telas
       const st = ctx.st({
-        trigger: root, start: 'top top', end: () => { measure(); return '+=' + pinLen(); },
+        trigger: F.mobile ? stage : root, start: 'top top', end: () => { measure(); return '+=' + pinLen(); },
         pin: stage, scrub: true, anticipatePin: 1, invalidateOnRefresh: true,
         onUpdate: (s) => { S.p = s.progress; },
       });

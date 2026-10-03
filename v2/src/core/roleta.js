@@ -70,36 +70,36 @@ function wheelSvg() {
   SLICES.forEach((label, i) => {
     const a0 = i * step, a1 = a0 + step, [x0, y0] = pt(a0, r), [x1, y1] = pt(a1, r);
     const lose = label === '✕';
-    s += `<path d="M${c} ${c}L${x0.toFixed(2)} ${y0.toFixed(2)}A${r} ${r} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}Z" class="rl-s ${lose ? 'rl-s--x' : i % 4 === 2 ? 'rl-s--b' : 'rl-s--a'}"/>`;
+    s += `<path d="M${c} ${c}L${x0.toFixed(2)} ${y0.toFixed(2)}A${r} ${r} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}Z" class="rlt-s ${lose ? 'rlt-s--x' : i % 4 === 2 ? 'rlt-s--b' : 'rlt-s--a'}"/>`;
     const mid = a0 + step / 2, [tx, ty] = pt(mid, lose ? 70 : 62);
     const words = label.split(' ');
     const lines = lose ? [label] : label === 'BÔNUS SECRETO' ? ['BÔNUS', 'SECRETO'] : [words.slice(0, 2).join(' '), words.slice(2).join(' ')];
-    s += `<text x="${tx.toFixed(2)}" y="${ty.toFixed(2)}" transform="rotate(${mid.toFixed(1)} ${tx.toFixed(2)} ${ty.toFixed(2)})" class="rl-t${lose ? ' rl-t--x' : ''}">` +
+    s += `<text x="${tx.toFixed(2)}" y="${ty.toFixed(2)}" transform="rotate(${mid.toFixed(1)} ${tx.toFixed(2)} ${ty.toFixed(2)})" class="rlt-t${lose ? ' rlt-t--x' : ''}">` +
       lines.map((l, k) => `<tspan x="${tx.toFixed(2)}" dy="${k === 0 ? (lines.length > 1 ? '-0.45em' : '0.35em') : '1.1em'}">${l}</tspan>`).join('') + '</text>';
   });
-  return `<svg viewBox="0 0 220 220" aria-hidden="true"><circle cx="${c}" cy="${c}" r="${r + 6}" class="rl-rim"/>${s}<circle cx="${c}" cy="${c}" r="16" class="rl-hub"/></svg>`;
+  return `<svg viewBox="0 0 220 220" aria-hidden="true"><circle cx="${c}" cy="${c}" r="${r + 6}" class="rlt-rim"/>${s}<circle cx="${c}" cy="${c}" r="16" class="rlt-hub"/></svg>`;
 }
 
 let dlg = null, timer = 0;
 function open(reason) {
   store.set({ shown: 1, reason, at: Date.now() });
   clarity('roleta_exibida');
-  dlg = el('dialog', 'rl');
-  dlg.setAttribute('aria-labelledby', 'rl-t');
+  dlg = el('dialog', 'rlt');
+  dlg.setAttribute('aria-labelledby', 'rlt-t');
   dlg.innerHTML =
-    '<button class="rl-x" type="button" aria-label="Fechar">×</button>' +
-    '<div class="rl-step rl-step--spin">' +
-      '<p class="rl-kick">ESPERA! PRESENTE PRA VOCÊ</p>' +
-      '<h2 id="rl-t" class="rl-h">Gire a roleta e ganhe um desconto no seu acesso</h2>' +
-      '<div class="rl-wheel"><span class="rl-pin" aria-hidden="true"></span><div class="rl-rot">' + wheelSvg() + '</div></div>' +
-      '<button class="rl-go" type="button">GIRAR A ROLETA</button>' +
-      '<p class="rl-note">Você tem 1 giro.</p>' +
+    '<button class="rlt-x" type="button" aria-label="Fechar">×</button>' +
+    '<div class="rlt-step rlt-step--spin">' +
+      '<p class="rlt-kick">ESPERA! PRESENTE PRA VOCÊ</p>' +
+      '<h2 id="rlt-t" class="rlt-h">Gire a roleta e ganhe um desconto no seu acesso</h2>' +
+      '<div class="rlt-wheel"><span class="rlt-pin" aria-hidden="true"></span><div class="rlt-rot">' + wheelSvg() + '</div></div>' +
+      '<button class="rlt-go" type="button">GIRAR A ROLETA</button>' +
+      '<p class="rlt-note">Você tem 1 giro.</p>' +
     '</div>';
   d.body.appendChild(dlg);
-  dlg.querySelector('.rl-x').addEventListener('click', close);
+  dlg.querySelector('.rlt-x').addEventListener('click', close);
   dlg.addEventListener('close', () => { clearInterval(timer); core.lock('roleta', false); dlg.remove(); dlg = null; });
   dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
-  dlg.querySelector('.rl-go').addEventListener('click', spin, { once: true });
+  dlg.querySelector('.rlt-go').addEventListener('click', spin, { once: true });
   dlg.showModal();
   core.lock('roleta', true);
 }
@@ -111,7 +111,7 @@ function spin(e) {
   clarity('roleta_girada');
   const step = 360 / SLICES.length, jitter = (Math.random() - 0.5) * step * 0.5;
   const target = 360 * 6 + (360 - (WIN * step + step / 2)) + jitter;
-  const rot = dlg.querySelector('.rl-rot');
+  const rot = dlg.querySelector('.rlt-rot');
   const reduce = w.matchMedia('(prefers-reduced-motion: reduce)').matches;
   rot.style.transition = 'transform ' + (reduce ? 0.6 : 4.6) + 's cubic-bezier(.12,.62,.08,1)';
   requestAnimationFrame(() => { rot.style.transform = 'rotate(' + target + 'deg)'; });
@@ -122,21 +122,21 @@ function win() {
   if (!dlg) return;
   const until = Date.now() + CLOCK_MS;
   store.set({ won: PRIZE });
-  const step = dlg.querySelector('.rl-step');
-  step.className = 'rl-step rl-step--win';
+  const step = dlg.querySelector('.rlt-step');
+  step.className = 'rlt-step rlt-step--win';
   step.innerHTML =
-    '<div class="rl-gift" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg></div>' +
-    '<h2 id="rl-t" class="rl-h">Parabéns! Você ganhou <em>R$ ' + PRIZE + ' OFF</em></h2>' +
-    '<p class="rl-sub">O cupom já vai aplicado no checkout.</p>' +
-    '<div class="rl-code"><div><span class="rl-lbl">SEU CUPOM</span><strong>' + CODE + '</strong></div><button class="rl-copy" type="button">Copiar</button></div>' +
-    '<div class="rl-exp"><span class="rl-lbl">EXPIRA EM</span><strong class="rl-clock">05:00</strong></div>' +
-    '<a class="rl-cta" data-checkout="roleta" href="' + OFFER.checkoutUrl + '">USAR CUPOM AGORA</a>';
-  step.querySelector('.rl-copy').addEventListener('click', (e) => {
+    '<div class="rlt-gift" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg></div>' +
+    '<h2 id="rlt-t" class="rlt-h">Parabéns! Você ganhou <em>R$ ' + PRIZE + ' OFF</em></h2>' +
+    '<p class="rlt-sub">O cupom já vai aplicado no checkout.</p>' +
+    '<div class="rlt-code"><div><span class="rlt-lbl">SEU CUPOM</span><strong>' + CODE + '</strong></div><button class="rlt-copy" type="button">Copiar</button></div>' +
+    '<div class="rlt-exp"><span class="rlt-lbl">EXPIRA EM</span><strong class="rlt-clock">05:00</strong></div>' +
+    '<a class="rlt-cta" data-checkout="roleta" href="' + OFFER.checkoutUrl + '">USAR CUPOM AGORA</a>';
+  step.querySelector('.rlt-copy').addEventListener('click', (e) => {
     const b = e.currentTarget;
     const done = () => { b.textContent = 'Copiado!'; clarity('roleta_cupom_copiado'); };
     try { navigator.clipboard.writeText(CODE).then(done, done); } catch (_) { done(); }
   });
-  const clock = step.querySelector('.rl-clock');
+  const clock = step.querySelector('.rlt-clock');
   const tick = () => {
     const left = Math.max(0, until - Date.now()), s = Math.ceil(left / 1000);
     clock.textContent = pad(Math.floor(s / 60)) + ':' + pad(s % 60);

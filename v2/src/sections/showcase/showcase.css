@@ -135,6 +135,7 @@ html.is-motion .s-showcase .sc-card.is-live .sc-thread{animation:sc-thread .64s 
   .s-showcase.is-h .sc-intro .t-lead{margin-top:12px}
   .s-showcase.is-h .sc-track{display:grid;grid-auto-flow:column;grid-template-rows:auto auto;align-items:start;
     column-gap:14px;row-gap:14px;width:max-content;padding:0 var(--pad-x)}
+  .s-showcase.is-h .sc-intro.is-out{margin:0;padding:var(--section-py) var(--pad-x) 8px}
   .s-showcase.is-h .sc-outro{align-self:center;width:min(84vw,340px);margin-left:10px}   /* colunas/linhas: JS (grid-area explícito) */
   /* duas páginas empilhadas cabendo abaixo da intro (16:9 + barra e legenda ≈ 56px cada) */
   .s-showcase.is-h .sc-card{width:min(84vw,calc(((100svh - var(--nav-h) - var(--sc-intro-h,300px) - 120px) / 2 - 56px) / .5625))}

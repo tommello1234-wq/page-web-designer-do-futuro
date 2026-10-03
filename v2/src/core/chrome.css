@@ -146,8 +146,10 @@ html.is-motion .rail-label.is-blink{animation:rail-blink .3s linear 2}
   transition:opacity .3s linear}
 html.has-cursor .cursor{display:block}
 html.has-cursor,html.has-cursor *{cursor:none}
-html.has-cursor .dlg,html.has-cursor .dlg *{cursor:auto}
-html:has(.dlg[open]) .cursor{display:none}
+/* qualquer janela modal (vídeo, roleta…) fica na camada do topo, acima do cursor: nela volta a setinha do sistema */
+html.has-cursor dialog,html.has-cursor dialog *{cursor:auto}
+html.has-cursor dialog :is(a,button),html.has-cursor dialog :is(a,button) *{cursor:pointer}
+html:has(dialog[open]) .cursor{display:none}
 .cursor.is-off{opacity:0}
 .cursor-dot,.cursor-ring{position:fixed;left:0;top:0;border-radius:50%;will-change:transform}
 .cursor-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:currentColor}
@@ -162,7 +164,7 @@ html:has(.dlg[open]) .cursor{display:none}
 .cursor.is-down .cursor-ring{width:26px;height:26px;margin:-13px 0 0 -13px}
 body[data-ui="paper"] .cursor,body[data-ui="flame"] .cursor{color:var(--ink)}
 body[data-ui="paper"] .cursor-label,body[data-ui="flame"] .cursor-label{color:var(--white)}
-html.has-cursor .magnetic{translate:var(--mx,0px) var(--my,0px)}
+html.has-magnet .magnetic{translate:var(--mx,0px) var(--my,0px)}
 
 /* ================= grain (§2; data-URI rasterizado uma vez, movido só por transform) ================= */
 .grain{position:fixed;inset:-80px;z-index:var(--z-grain);pointer-events:none;opacity:.06;

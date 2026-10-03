@@ -65,7 +65,7 @@
   --d-xs:150ms; --d-s:300ms; --d-m:450ms; --d-l:900ms; --d-xl:1150ms;
 
   /* ---- camadas ---- */
-  --z-preloader:1000; --z-dialog:950; --z-menu:900; --z-cursor:300; --z-grain:150; --z-toast:140;
+  --z-preloader:1000; --z-dialog:950; --z-menu:900; --z-cursor:990; --z-grain:150; --z-toast:140;
   --z-dock:120; --z-wa:110; --z-nav:100; --z-rail:60; --z-lines:45;
 
   /* ---- sombras (raras, quentes) ---- */

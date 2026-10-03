@@ -8,15 +8,17 @@ const cur = d.querySelector('.cursor');
 const dot = cur && cur.querySelector('.cursor-dot');
 const ring = cur && cur.querySelector('.cursor-ring');
 const lbl = cur && cur.querySelector('.cursor-label');
-const CURSOR_OFF = true;
+const CURSOR_OFF = false;
 
 WDF.layer('cursor', {
   setup(lc) {
-    // DESLIGADO a pedido do dono (03/10): o cursor sumia em partes da página (janela da roleta, etc.).
-    // Sem html.has-cursor a setinha do sistema volta em toda a página. Para religar, remova esta linha.
-    if (CURSOR_OFF) return undefined;
-    if (!cur || !lc.flags.fine || !lc.flags.motion) return undefined;
+    if (!lc.flags.fine || !lc.flags.motion) return undefined;
     const G = core.G, P = core.pointer;
+    // Cursor custom: some sozinho em janelas modais (chrome.css: dialog[open]) e fica acima do menu (--z-cursor).
+    // O magnético dos botões é independente (html.has-magnet). Para desligar só o cursor: CURSOR_OFF = true.
+    html.classList.add('has-magnet');
+    const withCursor = !CURSOR_OFF && !!cur;
+    if (withCursor) {
     html.classList.add('has-cursor');
     let rx = P.x, ry = P.y, lx = -1, ly = -1, lrx = -1, lry = -1, label = '';
     cur.classList.toggle('is-off', !P.active);
@@ -43,6 +45,7 @@ WDF.layer('cursor', {
     lc.on(d, 'pointerdown', (e) => { if (e.pointerType !== 'touch') cur.classList.add('is-down'); }, { passive: true });
     lc.on(w, 'pointerup', () => cur.classList.remove('is-down'), { passive: true });
     lc.on(w, 'blur', () => cur.classList.remove('is-down'));
+    }
 
     /* magnético: delegação (as seções criam/recriam .magnetic a cada build) */
     let mag = null;
@@ -66,10 +69,13 @@ WDF.layer('cursor', {
     lc.on(d.documentElement, 'pointerleave', () => { if (mag) { leave(mag); mag = null; } });
 
     return () => {
-      html.classList.remove('has-cursor');
-      cur.classList.remove('is-label', 'is-down', 'is-off');
-      lbl.textContent = '';
-      dot.style.transform = ''; ring.style.transform = '';
+      html.classList.remove('has-magnet');
+      if (withCursor) {
+        html.classList.remove('has-cursor');
+        cur.classList.remove('is-label', 'is-down', 'is-off');
+        lbl.textContent = '';
+        dot.style.transform = ''; ring.style.transform = '';
+      }
       d.querySelectorAll('.magnetic').forEach((el) => { G.killTweensOf(el, '--mx,--my'); el.style.removeProperty('--mx'); el.style.removeProperty('--my'); });
     };
   },

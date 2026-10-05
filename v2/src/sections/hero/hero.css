@@ -230,16 +230,18 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
    (à esquerda não cabe em notebook de 720px); no celular sob o CTA. A cópia do computador é aria-hidden (sem leitura dupla). */
 .s-hero .hero-tools{margin-top:16px}
 .s-hero .hero-tools--m{display:none}
+/* sem rótulo (pedido do dono): só as 3 logos com nome, numa linha */
 .s-hero .hero-tools-t{margin:0 0 8px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgb(var(--white-rgb) / .5)}
 .s-hero .hero-tools-l{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin:0;padding:0;list-style:none}
 .s-hero .hero-tools-l li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;letter-spacing:-.01em;color:rgb(var(--white-rgb) / .78)}
 .s-hero .hero-tools-l svg{width:18px;height:18px;flex:none;fill:currentColor}
+.s-hero .hero-tools-img{width:18px;height:18px;flex:none;opacity:.78}   /* silhueta branca (PNG) no mesmo tom das SVGs */
 @media (max-width:899px){
   .s-hero .hero-tools--d{display:none}
   .s-hero .hero-tools--m{display:block}
   .s-hero .hero-tools{margin-top:20px;text-align:center}
   .s-hero .hero-tools-l{justify-content:center;gap:8px 18px}
   .s-hero .hero-tools-l li{font-size:13px}
-  .s-hero .hero-tools-l svg{width:16px;height:16px}
+  .s-hero .hero-tools-l svg,.s-hero .hero-tools-img{width:16px;height:16px}
 }
 @media (orientation:landscape) and (max-height:560px){ .s-hero .hero-tools{display:none} }

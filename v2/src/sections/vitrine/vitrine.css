@@ -1,0 +1,32 @@
+/* vitrine · carrossel contínuo. Todo seletor começa por .s-vitrine; tokens só via var(). */
+.s-vitrine{position:relative;padding-block:clamp(40px,7vh,72px);overflow:hidden}
+.s-vitrine .vt-label{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 clamp(20px,3vh,32px);padding-inline:var(--pad-x);
+  font-size:11px;letter-spacing:.16em;color:var(--muted)}
+.s-vitrine .vt-dot{width:6px;height:6px;border-radius:50%;background:var(--flame);box-shadow:0 0 10px rgb(var(--flame-rgb) / .7)}
+.s-vitrine .vt-viewport{overflow-x:auto;scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
+.s-vitrine .vt-viewport::-webkit-scrollbar{display:none}
+.s-vitrine .vt-track{display:flex;gap:clamp(14px,1.4vw,24px);width:max-content;margin:0;padding:0 var(--pad-x);list-style:none}
+.s-vitrine .vt-item{flex:none;width:clamp(260px,30vw,460px)}
+.s-vitrine .vt-item[aria-hidden="true"]{display:none}
+.s-vitrine .vt-card{background:var(--ink-2)}
+.s-vitrine .browser-bar .micro{margin-left:auto;font-size:10px;letter-spacing:.12em;color:var(--muted)}
+.s-vitrine .vt-media{position:relative;aspect-ratio:16 / 9;overflow:hidden;background:var(--ink-3)}
+.s-vitrine .vt-media>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s-vitrine .vt-media video{opacity:0;transition:opacity .5s var(--ease-out)}
+.s-vitrine .vt-media.is-playing video{opacity:1}
+
+/* com movimento (JS liga .is-loop): a cópia aparece, o trilho anda -50% sem fim e a rolagem manual sai */
+.s-vitrine.is-loop .vt-viewport{overflow:hidden}
+.s-vitrine.is-loop .vt-item[aria-hidden="true"]{display:block}
+.s-vitrine.is-loop .vt-track{padding:0;gap:0;animation:vt-marquee var(--vt-dur,80s) linear infinite;will-change:transform}
+.s-vitrine.is-loop .vt-item{margin-right:clamp(14px,1.4vw,24px)}
+.s-vitrine.is-loop.is-off .vt-track{animation-play-state:paused}
+@media (hover:hover) and (pointer:fine){ .s-vitrine.is-loop .vt-viewport:hover .vt-track{animation-play-state:paused} }
+@keyframes vt-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+
+@media (max-width:899px){
+  .s-vitrine{padding-block:32px 40px}
+  .s-vitrine .vt-label{font-size:10px;letter-spacing:.12em}
+  .s-vitrine .vt-item{width:72vw}
+}

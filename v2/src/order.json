@@ -10,7 +10,7 @@
              "core/media.js", "core/frames.js", "core/track.js", "core/rail.js", "core/nav.js", "core/cursor.js",
              "core/dock.js", "core/elite.js", "core/fx.js", "core/dialog.js", "core/preloader.js", "core/promo.js", "core/roleta.js"],
   "jsBoot": "core/boot.js",
-  "main": ["hero", "problema", "solucao", "superpoder", "depoimentos", "showcase", "modulos",
+  "main": ["hero", "vitrine", "problema", "solucao", "superpoder", "depoimentos", "showcase", "modulos",
            "oferta", "autor", "garantia", "faq", "final"],
   "afterMain": ["footer"],
   "vendor": ["v2/vendor/gsap.min.js?v=3.15.0", "v2/vendor/ScrollTrigger.min.js?v=3.15.0",

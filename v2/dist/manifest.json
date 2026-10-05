@@ -1,13 +1,14 @@
 {
   "version": "2.0.0",
-  "css": "wdf.5c0aab2658.css",
-  "js": "wdf.d6ee99b818.js",
+  "css": "wdf.54f8d34143.css",
+  "js": "wdf.9361c1469f.js",
   "gzip": {
-    "css": 26539,
-    "js": 37558
+    "css": 26926,
+    "js": 37845
   },
   "sections": [
     "hero",
+    "vitrine",
     "problema",
     "solucao",
     "superpoder",
@@ -22,5 +23,5 @@
     "footer"
   ],
   "minified": true,
-  "builtAt": "2026-10-05T16:04:10.193Z"
+  "builtAt": "2026-10-05T16:08:15.749Z"
 }

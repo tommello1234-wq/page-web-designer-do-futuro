@@ -245,7 +245,8 @@
     font-size:clamp(30px,8.6vw,40px);line-height:1.02;letter-spacing:-.045em;text-transform:none;text-wrap:balance}
   .s-superpoder .sp-x-title em{color:var(--flame)}
   .s-superpoder.is-3d .sp-x-legend, .s-superpoder.is-3d .sp-lines{display:none}
-  .s-superpoder.is-3d .sp-page-box{width:min(72vw,390px);top:51%}
+  /* camadas um pouco mais baixas e, em tela baixa, menores: no topo da explosão a camada 06 não pode entrar no título */
+  .s-superpoder.is-3d .sp-page-box{width:min(72vw,390px,34svh);top:57%}
   .s-superpoder.is-3d .sp-x-count{display:flex;left:var(--pad-x);right:var(--pad-x);bottom:calc(132px + env(safe-area-inset-bottom));gap:14px}
   .s-superpoder.is-3d .sp-x-count .t-num{font-size:64px}
   .s-superpoder .sp-x-ds{font-size:14px}
@@ -258,3 +259,10 @@
 
 /* bloco "Ganhe um Superpoder" oculto (pedido do dono): .grid-12 é display:grid, então o [hidden] precisa vencer aqui */
 .s-superpoder .sp-a[hidden]{display:none}
+
+/* celular baixo (Safari com barras, iPhone SE): título e contador menores para sobrar altura para as camadas */
+@media (max-width:899px) and (max-height:740px){
+  .s-superpoder.is-3d .sp-x-title{top:calc(var(--nav-h) + 14px)}
+  .s-superpoder .sp-x-title{font-size:clamp(26px,7.4vw,34px)}
+  .s-superpoder.is-3d .sp-x-count .t-num{font-size:52px}
+}

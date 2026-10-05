@@ -147,7 +147,7 @@ WDF.register('superpoder', {
       page.style.setProperty('--e', e.toFixed(3));
       page.style.setProperty('--rx', (56 * e).toFixed(2) + 'deg');
       page.style.setProperty('--rz', (-36 * e).toFixed(2) + 'deg');
-      const zStep = flags.mobile ? 40 : 66;
+      const zStep = flags.mobile ? Math.max(24, Math.min(40, window.innerHeight * .048)) : 66;   // celular baixo: camadas mais juntas (cabem entre o título e o contador)
       layers.forEach((L, i) => { L.style.setProperty('--z', (i * zStep * e).toFixed(1) + 'px'); });
       meterN.textContent = String(Math.round(e * 100)).padStart(3, '0');
       meterBar.style.transform = `scaleX(${e.toFixed(3)})`;

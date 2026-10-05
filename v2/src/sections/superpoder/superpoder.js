@@ -161,7 +161,8 @@ WDF.register('superpoder', {
         if (!on || flags.mobile) return;              // celular: sem linhas (não cabem)
         const b = boxes[i], a = anchors[i];
         const left = li.dataset.side === 'left';
-        const sx = (left ? b.right + 12 : b.left - 12) - sr.left, sy = b.top + 12 - sr.top;
+        // a linha nasce colada na régua de cima do rótulo (border-top), sem folga: rótulo e linha leem como um traço só
+        const sx = (left ? b.right : b.left) - sr.left, sy = b.top + .5 - sr.top;
         const mx = sx + (left ? 40 : -40);
         const ax = a.left - sr.left, ay = a.top - sr.top;
         ln.path.setAttribute('d', `M${sx.toFixed(1)} ${sy.toFixed(1)}L${mx.toFixed(1)} ${sy.toFixed(1)}L${ax.toFixed(1)} ${ay.toFixed(1)}`);

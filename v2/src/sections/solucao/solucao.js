@@ -1,11 +1,11 @@
 /* solucao.js — §4.3 assinatura "A edição".
    Sensor ctx.st({trigger:.so-body, start:'top 65%', end:'bottom 45%'}); limiares UMA vez, por classe + transição CSS:
-     p > .15 → .is-struck (risco) · p > .28 → .is-selected (caixa de seleção) · p > .45 → .is-checked (checks).
+     p > .15 → .is-struck (risco) · p > .28 → .is-selected (caixa de seleção) · p > .45 → .is-checked (checks) · p > .55 → .is-paid (notificações de Pix).
    O HTML já traz as três classes (estado final): sem JS, em modo estático e com o init falho tudo aparece pronto.
    Em is-motion o init remove só as que ainda não foram alcançadas (sem transição) e o cleanup devolve as três.
    Uma vez aplicada, a classe nunca sai (nem ao rolar para cima, nem num rebuild: `shown` sobrevive ao revert). */
 const WDF = window.WDF;
-const STEPS = [['is-struck', .15], ['is-selected', .28], ['is-checked', .45]];
+const STEPS = [['is-struck', .15], ['is-selected', .28], ['is-checked', .45], ['is-paid', .55]];
 const GAP = .22;              // respiro mínimo entre dois atos quando um salto cruza vários limiares de uma vez
 const shown = new Set();      // classes já exibidas nesta visita (sobrevive a rebuilds: FX, breakpoint, reduced)
 

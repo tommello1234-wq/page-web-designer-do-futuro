@@ -1,16 +1,15 @@
 {
   "version": "2.0.0",
-  "css": "wdf.09ae55dac1.css",
-  "js": "wdf.7e9abc364b.js",
+  "css": "wdf.fe341c4447.css",
+  "js": "wdf.3d0c177db2.js",
   "gzip": {
-    "css": 26337,
-    "js": 37538
+    "css": 23080,
+    "js": 35446
   },
   "sections": [
     "hero",
     "problema",
     "solucao",
-    "superpoder",
     "depoimentos",
     "showcase",
     "modulos",
@@ -22,5 +21,5 @@
     "footer"
   ],
   "minified": true,
-  "builtAt": "2026-10-05T14:21:43.419Z"
+  "builtAt": "2026-10-05T14:53:51.166Z"
 }

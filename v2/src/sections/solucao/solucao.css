@@ -68,24 +68,24 @@ html.is-motion .s-solucao .so-body.is-checked .so-list>li:nth-child(3) .so-check
    Sem JS / sem movimento: lista simples. Com movimento o JS liga .is-stacked e roda a pilha a cada 5,2 s enquanto visível. ---------- */
 .s-solucao .so-sub{grid-row:1}
 .s-solucao .so-list{grid-row:1 / span 2}
-.s-solucao .so-pix{grid-column:1/span 5;grid-row:2;max-width:430px;padding-bottom:8px}
+.s-solucao .so-pix{grid-column:1/span 5;grid-row:2;max-width:370px;padding-bottom:8px}
 .s-solucao .pix-stack{display:grid;gap:12px}
-.s-solucao .pix-n{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:14px;padding:18px 20px;border-radius:23px;
+.s-solucao .pix-n{display:grid;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:12px;padding:14px 16px;border-radius:20px;
   background:var(--ink-2);border:1px solid rgb(var(--white-rgb) / .09);box-shadow:0 12px 24px rgb(var(--ink-rgb) / .14);color:rgb(var(--white-rgb) / .78)}
-.s-solucao .pix-ic{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;background:var(--flame);color:var(--ink)}
-.s-solucao .pix-ic svg{width:26px;height:26px}
-.s-solucao .pix-meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px;font-size:10px;line-height:1.2;color:rgb(var(--white-rgb) / .6)}
+.s-solucao .pix-ic{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--flame);color:var(--ink)}
+.s-solucao .pix-ic svg{width:22px;height:22px}
+.s-solucao .pix-meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:5px;font-size:9px;line-height:1.2;color:rgb(var(--white-rgb) / .6)}
 .s-solucao .pix-meta span:first-child{text-transform:uppercase;letter-spacing:.08em;font-weight:500}
-.s-solucao .pix-t{white-space:nowrap;font-size:11px}
-.s-solucao .pix-n strong{display:block;font-size:15px;font-weight:600;line-height:1.35;color:var(--white)}
-.s-solucao .pix-n p{margin-top:4px;font-size:13px;line-height:1.4}
+.s-solucao .pix-t{white-space:nowrap;font-size:10px}
+.s-solucao .pix-n strong{display:block;font-size:14px;font-weight:600;line-height:1.35;color:var(--white)}
+.s-solucao .pix-n p{margin-top:3px;font-size:12px;line-height:1.4}
 .s-solucao .pix-n b{font-weight:600;color:var(--white);white-space:nowrap}
 .s-solucao .pix-disc{margin-top:18px;font-size:10px;color:var(--muted)}
 
 /* pilha */
-.s-solucao .pix-stack.is-stacked{position:relative;display:block;height:calc(var(--pix-h,128px) + 46px);isolation:isolate}
+.s-solucao .pix-stack.is-stacked{position:relative;display:block;height:calc(var(--pix-h,110px) + 38px);isolation:isolate}
 .s-solucao .is-stacked .pix-n{position:absolute;inset:0 0 auto;width:100%;transform-origin:center top;z-index:calc(3 - var(--slot,0));
-  transform:translateY(calc(var(--slot,0) * 20px)) scale(var(--sc,1));transition:transform .55s cubic-bezier(.22,1,.36,1),background-color .55s}
+  transform:translateY(calc(var(--slot,0) * 16px)) scale(var(--sc,1));transition:transform .55s cubic-bezier(.22,1,.36,1),background-color .55s}
 .s-solucao .is-stacked .pix-n[data-slot="1"]{--sc:.94;background:var(--ink-3)}
 .s-solucao .is-stacked .pix-n[data-slot="2"]{--sc:.88;background:var(--grey-paper)}
 .s-solucao .is-stacked .pix-n>*{transition:opacity .25s}
@@ -106,8 +106,9 @@ html.is-motion .s-solucao .so-pix{transition:opacity .5s var(--ease-out),transfo
 @media (max-width:899px){
   .s-solucao .so-sub,.s-solucao .so-list,.s-solucao .so-pix{grid-column:1/-1;grid-row:auto}
   .s-solucao .so-pix{padding-bottom:48px}
-  .s-solucao .pix-n{grid-template-columns:36px minmax(0,1fr);gap:12px;padding:16px 14px;border-radius:20px}
-  .s-solucao .pix-ic{width:36px;height:36px}
+  .s-solucao .pix-n{grid-template-columns:32px minmax(0,1fr);gap:11px;padding:13px 14px;border-radius:18px}
+  .s-solucao .pix-ic{width:32px;height:32px}
+  .s-solucao .so-pix{max-width:340px}
   .s-solucao .so-sub{padding-top:0;padding-bottom:48px;max-width:none}
   .s-solucao .so-head{padding-bottom:28px}   /* título → texto: no celular o clamp de desktop (até 112px) sobrava */
   .s-solucao .so-list>li{grid-template-columns:2.6em minmax(0,1fr) 22px;padding:18px 0}

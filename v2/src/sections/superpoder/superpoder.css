@@ -255,3 +255,6 @@
   .s-superpoder.is-3d .sp-callouts span{font-size:10px;letter-spacing:.08em}
   .s-superpoder.is-3d .sp-x-meter{left:var(--pad-x);right:var(--pad-x);width:auto;top:calc(var(--nav-h) + 40px);bottom:auto}   /* acima: embaixo fica a barra de compra */
 }
+
+/* bloco "Ganhe um Superpoder" oculto (pedido do dono): .grid-12 é display:grid, então o [hidden] precisa vencer aqui */
+.s-superpoder .sp-a[hidden]{display:none}

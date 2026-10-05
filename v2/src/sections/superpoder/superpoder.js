@@ -134,6 +134,36 @@ WDF.register('superpoder', {
       layers.forEach((L, i) => { L.classList.toggle('is-hot', i === k); L.classList.toggle('is-dim', scan && i !== k); });
       lis.forEach((li, i) => { li.classList.toggle('is-hot', i === k); lines[i].g.classList.toggle('is-hot', i === k); });
     };
+    /* celular: camadas encaixadas no espaço ENTRE o título e a legenda, medidos de verdade (a altura útil do Safari varia).
+       Mede a pose toda explodida, escala se não couber e centraliza no meio; refaz no resize/refresh. */
+    const zStepOf = () => (flags.mobile ? Math.max(24, Math.min(40, xStage.clientHeight * .048)) : 66);
+    const box = $('.sp-page-box'), titleEl = $('.sp-x-title'), countEl = $('.sp-x-count');
+    const fitMobile = () => {
+      if (!flags.mobile || !box || !titleEl || !countEl) return;
+      box.style.removeProperty('--fit-y'); box.style.removeProperty('--fit-s');
+      const keep = ['--e', '--rx', '--rz'].map((v) => page.style.getPropertyValue(v)), keepZ = layers.map((L) => L.style.getPropertyValue('--z'));
+      page.style.setProperty('--e', '1'); page.style.setProperty('--rx', '56deg'); page.style.setProperty('--rz', '-36deg');
+      const zs = zStepOf(); layers.forEach((L, i) => L.style.setProperty('--z', (i * zs) + 'px'));
+      const sr = xStage.getBoundingClientRect(), rs = layers.map((L) => L.getBoundingClientRect()), b = box.getBoundingClientRect();
+      const uTop = Math.min(...rs.map((r) => r.top)) - sr.top, uBot = Math.max(...rs.map((r) => r.bottom)) - sr.top;
+      const bc = (b.top + b.bottom) / 2 - sr.top;
+      const t = titleEl.getBoundingClientRect().bottom - sr.top + 20;            // folga sob o título
+      const c = countEl.getBoundingClientRect().top - sr.top - 30;             // topo da legenda + folga (cabe 1 linha a mais de descrição)
+      const s = Math.min(1.15, Math.max(.6, (c - t) / Math.max(1, uBot - uTop)));   // tela alta: cresce um pouco para ocupar o espaço
+      const dy = (t + c) / 2 - (bc + ((uTop + uBot) / 2 - bc) * s);
+      box.style.setProperty('--fit-y', dy.toFixed(1) + 'px'); box.style.setProperty('--fit-s', s.toFixed(3));
+      ['--e', '--rx', '--rz'].forEach((v, i) => (keep[i] ? page.style.setProperty(v, keep[i]) : page.style.removeProperty(v)));
+      layers.forEach((L, i) => (keepZ[i] ? L.style.setProperty('--z', keepZ[i]) : L.style.removeProperty('--z')));
+      lastP = -1;
+    };
+    if (flags.mobile) {
+      fitMobile();
+      let rt = 0; const onResize = () => { clearTimeout(rt); rt = setTimeout(fitMobile, 150); };
+      ctx.on(window, 'resize', onResize);
+      ctx.onRefresh(fitMobile);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (box.isConnected) fitMobile(); });
+      ctx.cleanup(() => { clearTimeout(rt); box.style.removeProperty('--fit-y'); box.style.removeProperty('--fit-s'); });
+    }
     ctx.tick(xStage, () => {
       if (p === lastP) return;
       lastP = p;
@@ -147,7 +177,7 @@ WDF.register('superpoder', {
       page.style.setProperty('--e', e.toFixed(3));
       page.style.setProperty('--rx', (56 * e).toFixed(2) + 'deg');
       page.style.setProperty('--rz', (-36 * e).toFixed(2) + 'deg');
-      const zStep = flags.mobile ? Math.max(24, Math.min(40, window.innerHeight * .048)) : 66;   // celular baixo: camadas mais juntas (cabem entre o título e o contador)
+      const zStep = zStepOf();
       layers.forEach((L, i) => { L.style.setProperty('--z', (i * zStep * e).toFixed(1) + 'px'); });
       meterN.textContent = String(Math.round(e * 100)).padStart(3, '0');
       meterBar.style.transform = `scaleX(${e.toFixed(3)})`;

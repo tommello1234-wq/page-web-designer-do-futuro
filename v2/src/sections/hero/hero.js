@@ -9,6 +9,7 @@ WDF.register('hero', {
     const hud = $('.hero-hud'), hudVal = $('.hud-val'), hudN = $('.hud-n'), slots = $$('.hud-slots i'), hint = $('.hud-hint');
     const left = $('.hero-left'), right = $('.hero-right'), slot = $('.hero-more-slot');
     const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+    heroVitrine(ctx, root);
     const seg = (p, a, b) => clamp((p - a) / (b - a));
 
     /* ── layout side | stack (só desktop) ── */
@@ -303,3 +304,35 @@ WDF.register('hero', {
     };
   },
 });
+
+/* carrossel dos projetos atrás da figura: com movimento liga .is-loop (CSS anda -50%; a 2ª metade é a cópia), duração pela
+   largura (velocidade fixa), pausa fora da tela e só carrega/toca o vídeo do card visível (versão -m). Sem movimento: capas paradas. */
+function heroVitrine(ctx, root) {
+  const band = root.querySelector('.hero-vt'), track = band && band.querySelector('.vt-track');
+  if (!track || !ctx.flags.motion) return;
+  const vids = [...band.querySelectorAll('video')];
+  band.classList.add('is-loop');
+  const setDur = () => band.style.setProperty('--vt-dur', Math.max(20, (track.scrollWidth / 2) / 50).toFixed(1) + 's');
+  setDur();
+  const ro = 'ResizeObserver' in window ? new ResizeObserver(setDur) : null;
+  if (ro) ro.observe(track);
+  let onScreen = false;
+  const io = new IntersectionObserver((es) => {
+    es.forEach((e) => {
+      if (e.target === band) { onScreen = e.isIntersecting; band.classList.toggle('is-off', !onScreen); if (!onScreen) vids.forEach((v) => v.pause()); return; }
+      const v = e.target;
+      if (e.isIntersecting && onScreen && ctx.flags.autoplay !== false) {
+        if (!v.getAttribute('src')) { v.preload = 'auto'; v.src = v.dataset.src; }
+        const pr = v.play(); if (pr && pr.catch) pr.catch(() => {});
+      } else v.pause();
+    });
+  }, { threshold: 0.35, rootMargin: ctx.flags.mobile ? '0px' : '0px -28% 0px -28%' });   // computador: só toca o miolo visível
+  io.observe(band);
+  const onPlay = (e) => e.target.parentElement.classList.add('is-playing');
+  vids.forEach((v) => { io.observe(v); v.addEventListener('playing', onPlay); });
+  ctx.cleanup(() => {
+    io.disconnect(); if (ro) ro.disconnect();
+    vids.forEach((v) => { v.removeEventListener('playing', onPlay); v.pause(); v.parentElement.classList.remove('is-playing'); });
+    band.classList.remove('is-loop', 'is-off'); band.style.removeProperty('--vt-dur');
+  });
+}

@@ -246,3 +246,28 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
   .s-hero .hero-tools-l svg,.s-hero .hero-tools-img{width:16px;height:16px}
 }
 @media (orientation:landscape) and (max-height:560px){ .s-hero .hero-tools{display:none} }
+
+/* ---------- carrossel dos projetos atrás da figura (acima do fundo e da íris laranja, abaixo da figura).
+   Computador: só o miolo aparece (26–74%), as colunas de texto ficam limpas ---------- */
+.s-hero .hero-vt{position:absolute;z-index:4;left:0;right:0;top:calc(100% - var(--fig-h) * .5);translate:0 -50%;overflow:hidden;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 26%,#000 36%,#000 64%,transparent 74%);mask-image:linear-gradient(90deg,transparent 26%,#000 36%,#000 64%,transparent 74%)}
+.s-hero .vt-track{display:flex;width:max-content;margin:0;padding:0;list-style:none}
+.s-hero .vt-item{flex:none;width:clamp(220px,19vw,320px);margin-right:clamp(12px,1.2vw,20px)}
+.s-hero .vt-item[aria-hidden="true"]{display:none}
+.s-hero .vt-card{background:var(--ink-2)}
+.s-hero .vt-card .browser-bar{height:24px}
+.s-hero .vt-card .browser-bar .micro{margin-left:auto;font-size:9px;letter-spacing:.12em;color:var(--muted)}
+.s-hero .vt-media{position:relative;aspect-ratio:16 / 9;overflow:hidden;background:var(--ink-3)}
+.s-hero .vt-media>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s-hero .vt-media video{opacity:0;transition:opacity .5s var(--ease-out)}
+.s-hero .vt-media.is-playing video{opacity:1}
+.s-hero .hero-vt.is-loop .vt-item[aria-hidden="true"]{display:block}
+.s-hero .hero-vt.is-loop .vt-track{animation:vt-marquee var(--vt-dur,80s) linear infinite;will-change:transform}
+.s-hero .hero-vt.is-off .vt-track{animation-play-state:paused}
+@keyframes vt-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (max-width:899px){
+  /* celular: faixa inteira (a figura fica sozinha embaixo do texto), na altura do rosto */
+  .s-hero .hero-vt{top:calc(100% - var(--fig-h) * .62);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%)}
+  .s-hero .vt-item{width:46vw;margin-right:10px}
+}

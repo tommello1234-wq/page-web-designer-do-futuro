@@ -51,7 +51,8 @@
 
 /* z6 coluna direita (nasce no slot; no desktop com pin o JS a move para o palco) */
 .s-hero .hero-right{width:var(--side-w)}
-.s-hero .hero-stage > .hero-right{position:absolute;z-index:6;right:var(--pad-x);top:max(50svh, calc(var(--futuro-base) + 28px))}
+/* mesmo topo da coluna da esquerda (selo e texto da direita começam na mesma linha; pedido do dono) */
+.s-hero .hero-stage > .hero-right{position:absolute;z-index:6;right:var(--pad-x);top:max(44svh, calc(var(--futuro-base) + 64px))}
 .s-hero .hero-desc{margin:0 0 22px;font-size:16px;line-height:1.5;color:var(--ink)}
 .s-hero .hero-desc em{font-style:normal;font-weight:700;color:var(--ink);text-decoration:underline 2px rgb(var(--white-rgb) / .75);text-underline-offset:.2em}
 .s-hero .hero-feats{list-style:none;margin:0;padding:0}
@@ -220,7 +221,7 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
 /* notebook baixo: o texto lateral desceu com a faixa de promoção e encostava no quadro de estado —
    menos respiro acima do selo e sem o quadro (decorativo) */
 @media (min-width:900px) and (max-height:800px){
-  .s-hero .hero-left{top:max(44svh, calc(var(--futuro-base) + 56px))}
+  .s-hero .hero-left, .s-hero .hero-stage > .hero-right{top:max(44svh, calc(var(--futuro-base) + 56px))}
   .s-hero .hero-sub{font-size:min(30px, 4.2svh)}
   .s-hero .hero-left .cta{margin-top:20px}
   .s-hero .hud-state{display:none}

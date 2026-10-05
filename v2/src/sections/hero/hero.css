@@ -267,6 +267,6 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
 @keyframes vt-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 @media (max-width:899px){
   /* celular: faixa inteira na altura do rosto */
-  .s-hero .hero-vt{top:calc(100% - var(--fig-h) * .62);-webkit-mask-image:none;mask-image:none}   /* celular: sem esmaecido nas bordas (pedido do dono) */
+  .s-hero .hero-vt{top:calc(100% - var(--fig-h) * .52);-webkit-mask-image:none;mask-image:none}   /* celular: sem esmaecido nas bordas (pedido do dono) */
   .s-hero .vt-item{width:46vw;margin-right:10px}
 }

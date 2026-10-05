@@ -1,9 +1,9 @@
 {
   "version": "2.0.0",
-  "css": "wdf.5fb7b9ced4.css",
+  "css": "wdf.09ae55dac1.css",
   "js": "wdf.7e9abc364b.js",
   "gzip": {
-    "css": 26313,
+    "css": 26337,
     "js": 37538
   },
   "sections": [
@@ -22,5 +22,5 @@
     "footer"
   ],
   "minified": true,
-  "builtAt": "2026-10-05T14:13:51.168Z"
+  "builtAt": "2026-10-05T14:21:43.419Z"
 }

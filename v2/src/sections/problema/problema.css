@@ -26,6 +26,9 @@
 .s-problema .p10-stage{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center;
   column-gap:calc(var(--gap) * 2);padding:0 max(var(--pad-x),calc((100% - var(--maxw)) / 2 + var(--pad-x))) var(--section-py);overflow:clip}
 .s-problema .p10-copy{min-width:0}
+/* centra o texto no MONITOR, não na máquina inteira: o cronômetro em cima (.8 × fonte + 20px) pesa mais que a régua de baixo (~27px);
+   com align-items:center, margin-top de (cronômetro − régua) desce o centro do texto em metade disso = centro do monitor */
+@media (min-width:900px){ .s-problema .p10-copy{margin-top:calc(clamp(64px,6vw,112px) * .8 - 7px)} }
 .s-problema .p10-hl{max-width:18ch}
 .s-problema .p10-warn{max-width:46ch;margin-top:40px;font-size:18px;line-height:1.5;letter-spacing:-.01em;color:var(--text)}
 .s-problema .p10-warn .warn{font-weight:600;color:var(--flame)}

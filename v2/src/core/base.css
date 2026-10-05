@@ -38,24 +38,24 @@ main>section,footer.s-footer{position:relative}
 main>section,footer.s-footer{scroll-margin-top:var(--nav-h)}
 main{display:block}
 
-/* kicker "/// NN — " gerado pelo atributo da SEÇÃO (attr() leria o próprio .kicker, então as regras
+/* kicker "/// NN · " gerado pelo atributo da SEÇÃO (attr() leria o próprio .kicker, então as regras
    são geradas por valor; resistem a preview isolado e reordenação) */
-.kicker[data-kicker]::before{content:"/// " attr(data-kicker) " — "}
-section[data-kicker="00"] .kicker::before{content:"/// 00 — "}
-section[data-kicker="01"] .kicker::before{content:"/// 01 — "}
-section[data-kicker="02"] .kicker::before{content:"/// 02 — "}
-section[data-kicker="03"] .kicker::before{content:"/// 03 — "}
-section[data-kicker="04"] .kicker::before{content:"/// 04 — "}
-section[data-kicker="05"] .kicker::before{content:"/// 05 — "}
-section[data-kicker="06"] .kicker::before{content:"/// 06 — "}
-section[data-kicker="07"] .kicker::before{content:"/// 07 — "}
-section[data-kicker="08"] .kicker::before{content:"/// 08 — "}
-section[data-kicker="09"] .kicker::before{content:"/// 09 — "}
-section[data-kicker="10"] .kicker::before{content:"/// 10 — "}
-section[data-kicker="11"] .kicker::before{content:"/// 11 — "}
-section[data-kicker="12"] .kicker::before{content:"/// 12 — "}
-section[data-kicker="13"] .kicker::before{content:"/// 13 — "}
-section[data-kicker="14"] .kicker::before{content:"/// 14 — "}
+.kicker[data-kicker]::before{content:"/// " attr(data-kicker) " · "}
+section[data-kicker="00"] .kicker::before{content:"/// 00 · "}
+section[data-kicker="01"] .kicker::before{content:"/// 01 · "}
+section[data-kicker="02"] .kicker::before{content:"/// 02 · "}
+section[data-kicker="03"] .kicker::before{content:"/// 03 · "}
+section[data-kicker="04"] .kicker::before{content:"/// 04 · "}
+section[data-kicker="05"] .kicker::before{content:"/// 05 · "}
+section[data-kicker="06"] .kicker::before{content:"/// 06 · "}
+section[data-kicker="07"] .kicker::before{content:"/// 07 · "}
+section[data-kicker="08"] .kicker::before{content:"/// 08 · "}
+section[data-kicker="09"] .kicker::before{content:"/// 09 · "}
+section[data-kicker="10"] .kicker::before{content:"/// 10 · "}
+section[data-kicker="11"] .kicker::before{content:"/// 11 · "}
+section[data-kicker="12"] .kicker::before{content:"/// 12 · "}
+section[data-kicker="13"] .kicker::before{content:"/// 13 · "}
+section[data-kicker="14"] .kicker::before{content:"/// 14 · "}
 
 /* travas de rolagem do core (menu/diálogo em modo estático, sem Lenis) */
 html.is-locked{overflow:hidden}

@@ -25,3 +25,6 @@ v2/preview/
 
 # Criativos de anúncio (só no deploy, não no git)
 ads-media/
+
+# Vídeos locais da página Vídeos com IA.
+!curso-ugc-ia/assets/videos/*.mp4

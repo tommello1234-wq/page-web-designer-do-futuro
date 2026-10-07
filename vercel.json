@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/curso-ugc-ia",
+      "destination": "/curso-ugc-ia/index.html"
+    },
+    {
       "source": "/wdf",
       "destination": "/index-v1.html"
     },

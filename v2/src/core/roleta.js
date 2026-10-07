@@ -1,16 +1,16 @@
 /* core/roleta.js — roleta de desconto (pedido do dono, 03/10).
    Aparece uma vez por visitante: após 90s com a aba visível, após 25s parado (com ≥30s na página),
    na intenção de saída (mouse indo para o topo, computador) ou ao voltar para a aba (celular).
-   Nunca aparece para quem já clicou para o checkout. Sempre cai em R$ 30 OFF.
+   Nunca aparece para quem já clicou para o checkout. Sempre cai em 20% OFF (cupom DESCONTO20OFF; era R$ 30 até 07/10).
    O relógio de 5 min é só urgência (pedido do dono): o cupom continua indo no link depois dele.
    RASTREIO: o botão é um a[data-checkout] comum, então o track.js faz tudo igual aos outros CTAs.
    O cupom entra no link DEPOIS (listener em bolha), sem tocar no código da visita. */
 const WDF = window.WDF, core = WDF.core, OFFER = WDF.offer, w = window, d = document;
 
-const CODE = 'DESCONTO30', PRIZE = 30, CLOCK_MS = 5 * 60 * 1000;
+const CODE = 'DESCONTO20OFF', PRIZE = '20% OFF', CLOCK_MS = 5 * 60 * 1000;
 const KEY = 'upw_roleta_v1';
-const SLICES = ['R$ 10 OFF', '✕', 'R$ 15 OFF', '✕', 'BÔNUS SECRETO', '✕', 'R$ 30 OFF', '✕'];
-const WIN = SLICES.indexOf('R$ 30 OFF');
+const SLICES = ['10% OFF', '✕', '15% OFF', '✕', 'BÔNUS SECRETO', '✕', '20% OFF', '✕'];
+const WIN = SLICES.indexOf(PRIZE);
 
 const store = {
   get() { try { return JSON.parse(w.localStorage.getItem(KEY) || 'null') || {}; } catch (_) { return {}; } },
@@ -90,7 +90,7 @@ function wheelSvg() {
     s += `<path d="M${c} ${c}L${x0.toFixed(2)} ${y0.toFixed(2)}A${r} ${r} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}Z" class="rlt-s ${lose ? 'rlt-s--x' : i % 4 === 2 ? 'rlt-s--b' : 'rlt-s--a'}"/>`;
     const mid = a0 + step / 2, [tx, ty] = pt(mid, lose ? 70 : 62);
     const words = label.split(' ');
-    const lines = lose ? [label] : label === 'BÔNUS SECRETO' ? ['BÔNUS', 'SECRETO'] : [words.slice(0, 2).join(' '), words.slice(2).join(' ')];
+    const lines = lose ? [label] : label === 'BÔNUS SECRETO' ? ['BÔNUS', 'SECRETO'] : [words[0], words.slice(1).join(' ')];   // '20%' / 'OFF'
     s += `<text x="${tx.toFixed(2)}" y="${ty.toFixed(2)}" transform="rotate(${mid.toFixed(1)} ${tx.toFixed(2)} ${ty.toFixed(2)})" class="rlt-t${lose ? ' rlt-t--x' : ''}">` +
       lines.map((l, k) => `<tspan x="${tx.toFixed(2)}" dy="${k === 0 ? (lines.length > 1 ? '-0.45em' : '0.35em') : '1.1em'}">${l}</tspan>`).join('') + '</text>';
   });
@@ -143,7 +143,7 @@ function win() {
   step.className = 'rlt-step rlt-step--win';
   step.innerHTML =
     '<div class="rlt-gift" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg></div>' +
-    '<h2 id="rlt-t" class="rlt-h">Parabéns! Você ganhou <em>R$ ' + PRIZE + ' OFF</em></h2>' +
+    '<h2 id="rlt-t" class="rlt-h">Parabéns! Você ganhou <em>' + PRIZE + '</em></h2>' +
     '<p class="rlt-sub">O cupom já vai aplicado no checkout.</p>' +
     '<div class="rlt-code"><div><span class="rlt-lbl">SEU CUPOM</span><strong>' + CODE + '</strong></div><button class="rlt-copy" type="button">Copiar</button></div>' +
     '<div class="rlt-exp"><span class="rlt-lbl">EXPIRA EM</span><strong class="rlt-clock">05:00</strong></div>' +

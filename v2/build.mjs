@@ -283,6 +283,9 @@ function checkForbidden(s, label) {
   if (relUrl) err(`[proibido] ${label}: ${relUrl.length} URL(s) relativa(s) ASSETS/ ou v2/ remanescente(s)`);
   if (/url\(\s*["']?(?:\.\/)?(?:ASSETS|v2)\//i.test(s) || /url\(\s*["']?\.\.\//i.test(s)) err(`[proibido] ${label}: url() relativa no CSS (use /ASSETS/… ou /v2/…)`);
   if (/\s(?:src|href|data-src|data-src-m|data-print|srcset)\s*=\s*["']\.\.\//i.test(s)) err(`[proibido] ${label}: URL relativa "../" (use /ASSETS/… ou /v2/…)`);
+  /* /v2/img tem cache imutável de 1 ano (vercel.json): toda referência precisa de ?v= (trocou o arquivo ⇒ aumente o ?v=) */
+  const noVer = s.match(/\/v2\/img\/[^"'\s?)]+(?=["'\s)])/g);
+  if (noVer) err(`[proibido] ${label}: ${noVer.length} URL(s) de /v2/img sem ?v= (${[...new Set(noVer)].slice(0, 3).join(', ')})`);
 }
 function checkMediaAttrs(tree, label) {
   for (const el of walk(tree)) if ((el.tag === 'img' || el.tag === 'video') && (!hasAttr(el, 'width') || !hasAttr(el, 'height'))) warn(`[mídia] ${label}: <${el.tag}${el.attrs.class ? ' class="' + el.attrs.class + '"' : ''}> sem width/height`);

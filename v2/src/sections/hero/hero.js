@@ -13,6 +13,7 @@ WDF.register('hero', {
     const seg = (p, a, b) => clamp((p - a) / (b - a));
 
     /* ── layout side | stack (só desktop) ── */
+    /* a conta abaixo é repetida no <script> inline do hero.html (layout antes da 1ª pintura): mudar nos dois */
     function layout() {
       if (flags.mobile) { root.dataset.layout = 'mobile'; return; }
       const W = innerWidth, H = innerHeight;
@@ -238,10 +239,12 @@ WDF.register('hero', {
     setExits();
     ctx.onRefresh(setExits);
     let lastP = -1, lastF = -1, override = null;
+    const irisEls = [$('.hero-iris'), $('.hero-clip')].filter(Boolean);   // únicos que usam var(--r)
+    let rNow = 0;
     const easeInCubic = (t) => t * t * t;
 
     ctx.tick(stage, (time, dt) => {
-      if (PT && (!Rmax || parseFloat(stage.style.getPropertyValue('--r') || 0) < Rmax * .98)) PT.draw(dt, false);
+      if (PT && (!Rmax || rNow < Rmax * .98)) PT.draw(dt, false);
       sx += (nx - sx) * (1 - Math.exp(-dt * 7));
       const moving = Math.abs(nx - sx) > .001;
       if (p === lastP && !dirty && !moving && !(p >= .70 && p <= .86)) return;
@@ -281,7 +284,7 @@ WDF.register('hero', {
 
       // íris .34 → .70
       const r = easeInCubic(seg(p, .34, .70)) * Rmax;
-      stage.style.setProperty('--r', r.toFixed(1) + 'px');
+      const rTxt = r.toFixed(1); rNow = +rTxt; irisEls.forEach((el) => el.style.setProperty('--r', rTxt + 'px'));
       const ov = r >= thr ? 'flame' : null;           // íris laranja cobre a nav
       if (ov !== override) { override = ov; ctx.theme.override(ov); }
 
@@ -298,7 +301,7 @@ WDF.register('hero', {
 
     return () => {
       [fig, typeB, arcs, hud, hint, still, ...left.children, ...(right ? right.children : []), ...eyes].forEach((el) => { el.style.transform = ''; el.style.opacity = ''; el.style.visibility = ''; });
-      stage.style.removeProperty('--r');
+      irisEls.forEach((el) => el.style.removeProperty('--r'));
       root.style.removeProperty('--fig-h'); stage.style.removeProperty('height');
       fig.style.removeProperty('top'); fig.style.removeProperty('bottom');
     };

@@ -21,6 +21,10 @@ let railH = 0;
 let manual = null;             // {p, label} (ctx.rail.set)
 let revealed = !!WDF.state.offerRevealed;
 let dirty = true, lastY = -1, lastTxt = '', lastP = -1, wasPaused = false;
+/* ler scrollY força recálculo de estilo no frame; parado, o draw() não toca no layout */
+let scrolled = true;
+w.addEventListener('scroll', () => { scrolled = true; }, { passive: true });
+WDF.bus.on('jump:end', () => { scrolled = true; });
 
 const maxScroll = () => Math.max(0, (d.scrollingElement || d.documentElement).scrollHeight - w.innerHeight);
 const top = (el) => el.getBoundingClientRect().top + w.scrollY;
@@ -72,6 +76,8 @@ function at(y) {
 }
 
 function draw() {
+  if (!dirty && !scrolled && !(WDF.lenis && WDF.lenis.isScrolling)) return;
+  scrolled = false;
   const y = Math.round(w.scrollY);
   if (!dirty && y === lastY) return;
   dirty = false; lastY = y;

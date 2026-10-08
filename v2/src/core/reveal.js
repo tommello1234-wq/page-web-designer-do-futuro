@@ -33,7 +33,8 @@ core.makeReveal = function makeReveal(sc) {
     const vars = { trigger, start: o.start || START[kind], once: true, onEnter: () => play() };
     const spacer = trigger.closest && trigger.closest('.pin-spacer');
     if (spacer && spacer.firstElementChild && spacer.firstElementChild !== trigger) vars.pinnedContainer = spacer.firstElementChild;
-    st = sc.st(vars);
+    if (vars.pinnedContainer && sc.stAfterRefresh) sc.stAfterRefresh(vars, (t) => { st = t; });
+    else st = sc.st(vars);
     if (!done) io.observe(el);
 
     const passed = () => { if (!st) return true; try { return st.scroll() >= st.start - 1; } catch (e) { return true; } };

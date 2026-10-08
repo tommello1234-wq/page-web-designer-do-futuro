@@ -10,6 +10,7 @@ const QUERIES = {
 };
 
 let mm = null, first = true, pendingAnchor = null, reason = 'init';
+let afterRefresh = null; // fila do build: STs criados logo após o sort()+refresh() global
 
 /* ---------- ticks: 1 laço global no gsap.ticker; cada fn só roda com o elemento a ≤ margin viewports ---------- */
 const ticks = new Set();
@@ -73,6 +74,13 @@ function makeUnit(name, root, isLayer) {
   const sc = Object.create(ctx);
   sc.name = name; sc.root = root || null;
   sc.st = (vars) => (u.alive ? inCtx(() => ST.create(prio(vars))) : null);
+  /* reveal dentro de container pinado: criado logo após o refresh global do build (mede uma vez só) */
+  sc.stAfterRefresh = (vars, cb) => {
+    if (!u.alive) return;
+    const v = prio(vars);                      // prioridade decidida no init, igual ao sc.st
+    const make = () => { if (u.alive) cb(inCtx(() => ST.create(v))); };
+    if (afterRefresh) afterRefresh.push(make); else make();
+  };
   sc.scrubTl = (vars) => (u.alive ? inCtx(() => G.timeline({ defaults: { ease: 'none' }, scrollTrigger: prio({ ...vars, scrub: true }) })) : null);
   sc.later = (fn) => {
     if (!u.alive || typeof fn !== 'function') return undefined;
@@ -154,10 +162,13 @@ function build(mmctx) {
   WDF.ctx = ctx;
 
   const units = [];
+  afterRefresh = [];
   _.layers.forEach((L) => { if (typeof L.def.setup === 'function') units.push(runLayer(L)); });
   presentSections().forEach((s) => units.push(runSection(s)));
 
   ST.sort(); ST.refresh();
+  const queued = afterRefresh; afterRefresh = null;
+  queued.forEach((fn) => { try { fn(); } catch (e) { console.error('[WDF] reveal (após refresh)', e); } });
   _.layers.forEach((L) => {
     if (typeof L.def.after === 'function') { try { L.def.after(ctx); } catch (e) { console.error('[WDF] camada ' + L.name + ' (after)', e); } }
   });
@@ -213,10 +224,33 @@ function whenFonts(cap) {
   return Promise.race([ready, new Promise((r) => setTimeout(r, cap))]);
 }
 
+/* deixa o navegador pintar antes do build: o build é UMA tarefa de 0,5–1,4 s no celular e, quando as fontes já estão
+   prontas (rede rápida/cache), rodava ANTES da 1ª pintura — FCP/LCP presos atrás dele (a nota 45 do PageSpeed) */
+function afterPaint() {
+  return new Promise((res) => {
+    if (d.hidden) { res(); return; }               // aba em segundo plano não tem rAF: segue como antes
+    let ok = false;
+    const go = () => { if (!ok) { ok = true; res(); } };
+    requestAnimationFrame(() => setTimeout(go, 0)); // roda logo depois do frame pintado
+    setTimeout(go, 1000);                           // salvaguarda
+  });
+}
+
 function start() {
   core.mark('boot');
   if (!core.OK) { WDF.state.preloader = 'skipped'; _.T.preloaderDone = _.T.boot; return; }
-  ST.config({ ignoreMobileResize: true });
+  ST.config({ ignoreMobileResize: true, autoRefreshEvents: 'visibilitychange,resize' });
+  /* DCL/load: refresh só se a geometria das seções mudou desde o último refresh (imagens e vídeos têm width/height; fontes têm o refresh próprio) */
+  let geo = '';
+  const sig = () => {
+    const o = [(d.scrollingElement || html).scrollHeight, w.innerWidth, w.innerHeight];
+    d.querySelectorAll('main > section, body > footer').forEach((s) => o.push(s.offsetTop, s.offsetHeight));
+    return o.join(',');
+  };
+  ST.addEventListener('refresh', () => { geo = sig(); });
+  const check = () => { if (WDF.ctx && sig() !== geo) WDF.refresh(); };
+  if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', check, { once: true });
+  if (d.readyState !== 'complete') w.addEventListener('load', check, { once: true });
   G.ticker.lagSmoothing(0);
 
   const f0 = core.readFlags(null);
@@ -239,7 +273,7 @@ function start() {
     if (m.addEventListener) m.addEventListener('change', fn); else if (m.addListener) m.addListener(fn);
   });
 
-  whenFonts(1500).then(() => {
+  whenFonts(1500).then(afterPaint).then(() => {
     mm = G.matchMedia();
     ctx.mm = mm;
     mm.add(QUERIES, build);

@@ -44,7 +44,13 @@ html.is-static .s-depoimentos .mq-set>i,html.no-js .s-depoimentos .mq-set>i,.s-d
 .s-depoimentos .dp-threads{max-width:calc(1200px + 2 * var(--pad-x));margin-top:clamp(80px,13vh,160px)}
 .s-depoimentos .dp-track{columns:2;column-gap:var(--gap)}
 .s-depoimentos .dp-testimonial{min-width:0;margin:0 0 48px;break-inside:avoid}
-.s-depoimentos .dp-print{display:block;overflow:hidden;border-radius:14px;background:var(--ink);cursor:zoom-in}
+.s-depoimentos .dp-print{display:block;overflow:hidden;background:var(--ink);cursor:zoom-in}
+/* moldura igual à das páginas da galeria de projetos (.browser do core em tema ink): borda fina, barra com os três quadradinhos
+   e rótulo "0n // NOME", cantos retos (pedido do dono, 09/10) */
+.s-depoimentos .dp-frame{background:var(--ink-2)}
+.s-depoimentos .dp-frame .browser-bar{position:relative;z-index:1}
+.s-depoimentos .browser-bar>.dp-legend{margin-left:10px;min-width:0;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s linear}
+@media (hover:hover) and (pointer:fine){ .s-depoimentos .dp-testimonial:hover .dp-legend{color:var(--display)} }
 .s-depoimentos .dp-print img{display:block;width:100%;height:auto}
 .s-depoimentos .dp-print:focus-visible{outline:3px solid var(--accent-text);outline-offset:5px}
 .s-depoimentos .dp-line{display:none;align-items:center;gap:18px;color:var(--muted);pointer-events:none}
@@ -83,7 +89,6 @@ html.is-static .s-depoimentos .mq-set>i,html.no-js .s-depoimentos .mq-set>i,.s-d
   .s-depoimentos .dp-threads{margin-top:56px}
   .s-depoimentos .dp-track{columns:1}
   .s-depoimentos .dp-testimonial{margin-bottom:16px}
-  .s-depoimentos .dp-print{border-radius:10px}
   /* celular com movimento: também trava e anda na horizontal, um print por vez em largura quase cheia */
   /* a linha de progresso fica acima do botão fixo de compra (.dock: 48px a max(12px, safe-area) da borda) e os prints
      se centralizam no espaço entre o menu e a linha */

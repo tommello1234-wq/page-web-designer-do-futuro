@@ -2,7 +2,6 @@
    HTML/CSS no estado FINAL (sem JS: prints visíveis, marquee vira lista estática quebrando linha). */
 
 .s-depoimentos{
-  --dp-offset:10vh;
   padding-block:var(--section-py);
 }
 
@@ -41,19 +40,37 @@ html.is-static .s-depoimentos .mq-set>i:last-child,html.no-js .s-depoimentos .mq
 html.is-static .s-depoimentos .mq-set>i,html.no-js .s-depoimentos .mq-set>i,.s-depoimentos[data-failed] .mq-set>i{width:clamp(10px,1.1vw,16px)}
 
 /* ================= prints originais ================= */
-.s-depoimentos .dp-threads{max-width:calc(1200px + 2 * var(--pad-x));margin-top:clamp(80px,13vh,160px);padding-bottom:var(--dp-offset);
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);align-items:start}
-/* Colunas independentes mantêm a ordem de leitura e a proporção de cada print. */
-.s-depoimentos .dp-col{display:grid;gap:48px;align-content:start;min-width:0}
-.s-depoimentos .dp-col:nth-child(2){translate:0 var(--dp-offset)}
-.s-depoimentos .dp-testimonial{min-width:0;margin:0}
+/* estado final (sem JS, estático, tela baixa): duas colunas corridas — a leitura desce a 1ª e depois a 2ª, proporção de cada print preservada */
+.s-depoimentos .dp-threads{max-width:calc(1200px + 2 * var(--pad-x));margin-top:clamp(80px,13vh,160px)}
+.s-depoimentos .dp-track{columns:2;column-gap:var(--gap)}
+.s-depoimentos .dp-testimonial{min-width:0;margin:0 0 48px;break-inside:avoid}
 .s-depoimentos .dp-print{display:block;overflow:hidden;border-radius:14px;background:var(--ink);cursor:zoom-in}
 .s-depoimentos .dp-print img{display:block;width:100%;height:auto}
 .s-depoimentos .dp-print:focus-visible{outline:3px solid var(--accent-text);outline-offset:5px}
+.s-depoimentos .dp-line{display:none;align-items:center;gap:18px;color:var(--muted);pointer-events:none}
+
+/* ================= .is-h (JS, com pin): fileira de prints andando na horizontal — mesmo efeito da galeria de projetos (pedido do dono, 09/10) ================= */
+.s-depoimentos.is-h{padding-bottom:0}
+.s-depoimentos.is-h .dp-threads{position:relative;display:flex;flex-direction:column;justify-content:center;max-width:none;
+  margin-top:clamp(24px,4vh,48px);padding:calc(var(--nav-h) + 12px) 0 84px;height:100vh;height:100svh;overflow:hidden;overflow:clip}
+.s-depoimentos.is-h .dp-track{columns:auto;flex:none;display:flex;align-items:center;gap:clamp(24px,2.4vw,48px);
+  width:max-content;padding:0 var(--pad-x);will-change:transform}
+.s-depoimentos.is-h .dp-testimonial{flex:none;margin:0}
+/* todos na mesma altura, largura pela proporção de cada print (os width/height do HTML seguram o espaço antes de carregar) */
+.s-depoimentos.is-h .dp-print img{width:auto;height:min(60svh,520px)}
+.s-depoimentos.is-h .dp-line{display:flex;position:absolute;z-index:2;left:var(--pad-x);right:calc(var(--pad-x) + 72px);bottom:28px}
+
+/* linha de progresso (igual à dos projetos) */
+.s-depoimentos .dp-l-a,.s-depoimentos .dp-l-b{flex:none;font-variant-numeric:tabular-nums;white-space:nowrap}
+.s-depoimentos .dp-l-b{color:var(--display)}
+.s-depoimentos .dp-rail{position:relative;flex:1;height:1px;background:var(--line-2)}
+.s-depoimentos .dp-rail::before{content:"";position:absolute;inset:-3px 0;
+  background-image:repeating-linear-gradient(90deg,var(--line-2) 0 1px,transparent 1px 10%);border-right:1px solid var(--line-2)}
+.s-depoimentos .dp-fill{position:absolute;left:0;top:0;width:100%;height:1px;background:var(--flame);transform-origin:0 50%;transform:scaleX(0)}
+.s-depoimentos .dp-mask{position:absolute;left:0;bottom:2px;width:48px;height:64px;max-width:none;transform:translate3d(-24px,0,0)}
 
 /* ================= mobile ================= */
 @media (max-width:899px){
-  .s-depoimentos{--dp-offset:0px}
   .s-depoimentos .dp-intro,.s-depoimentos .dp-stat{grid-column:1/-1}
   .s-depoimentos .dp-head{row-gap:44px}
   .s-depoimentos .dp-stat .eyebrow{font-size:13px}
@@ -62,9 +79,18 @@ html.is-static .s-depoimentos .mq-set>i,html.no-js .s-depoimentos .mq-set>i,.s-d
   .s-depoimentos .mq-set>span,.s-depoimentos .mq-set>i{margin-right:22px}
   .s-depoimentos .mq-set>i{width:14px}
   html.is-static .s-depoimentos .mq-track,html.no-js .s-depoimentos .mq-track,.s-depoimentos[data-failed] .mq-track{font-size:26px}
-  /* celular: um print embaixo do outro (pedido do dono), em largura cheia; o print abre ampliado no toque */
-  .s-depoimentos .dp-threads{grid-template-columns:minmax(0,1fr);row-gap:16px;margin-top:56px}
-  .s-depoimentos .dp-col{gap:16px}
+  /* celular sem movimento: um print embaixo do outro, em largura cheia; o print abre ampliado no toque */
+  .s-depoimentos .dp-threads{margin-top:56px}
+  .s-depoimentos .dp-track{columns:1}
+  .s-depoimentos .dp-testimonial{margin-bottom:16px}
   .s-depoimentos .dp-print{border-radius:10px}
-  .s-depoimentos .dp-col:nth-child(2){translate:none}
+  /* celular com movimento: também trava e anda na horizontal, um print por vez em largura quase cheia */
+  /* a linha de progresso fica acima do botão fixo de compra (.dock: 48px a max(12px, safe-area) da borda) e os prints
+     se centralizam no espaço entre o menu e a linha */
+  .s-depoimentos.is-h .dp-threads{margin-top:24px;padding:calc(var(--nav-h) + 8px) 0 calc(48px + max(12px,env(safe-area-inset-bottom)) + 92px)}
+  .s-depoimentos.is-h .dp-track{gap:14px}
+  .s-depoimentos.is-h .dp-print img{width:min(84vw,400px);height:auto}
+  .s-depoimentos.is-h .dp-line{gap:14px;right:var(--pad-x);bottom:calc(48px + max(12px,env(safe-area-inset-bottom)) + 26px)}
+  .s-depoimentos .dp-mask{width:36px;height:48px;transform:translate3d(-18px,0,0)}
+  .s-depoimentos .dp-l-a,.s-depoimentos .dp-l-b{font-size:11px}
 }

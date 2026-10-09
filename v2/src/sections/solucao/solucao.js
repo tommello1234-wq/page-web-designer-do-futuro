@@ -1,11 +1,15 @@
 /* solucao.js — §4.3 assinatura "A edição".
    Sensor ctx.st({trigger:.so-body, start:'top 65%', end:'bottom 45%'}); limiares UMA vez, por classe + transição CSS:
      p > .15 → .is-struck (risco) · p > .28 → .is-selected (caixa de seleção) · p > .45 → .is-checked (checks) · p > .55 → .is-paid (pilha de notificações de Pix; depois ela gira sozinha, ver pixStack).
+   Celular (≤899px): a pilha de Pix fica ENTRE o texto e a lista, numa coluna só. Esperar os 55% do corpo inteiro deixava um
+   buraco em branco do tamanho de uma tela (a lista já com os checks, o Pix só no fim): lá o 4º ato acontece quando a própria
+   pilha entra na tela (PIX_MOBILE_START). No desktop nada muda.
    O HTML já traz as três classes (estado final): sem JS, em modo estático e com o init falho tudo aparece pronto.
    Em is-motion o init remove só as que ainda não foram alcançadas (sem transição) e o cleanup devolve as três.
    Uma vez aplicada, a classe nunca sai (nem ao rolar para cima, nem num rebuild: `shown` sobrevive ao revert). */
 const WDF = window.WDF;
 const STEPS = [['is-struck', .15], ['is-selected', .28], ['is-checked', .45], ['is-paid', .55]];
+const PIX_MOBILE_START = .82;   // celular: a pilha entra quando o topo dela cruza 82% da altura da tela (como as revelações da página: 85–88%)
 const GAP = .22;              // respiro mínimo entre dois atos quando um salto cruza vários limiares de uma vez
 const shown = new Set();      // classes já exibidas nesta visita (sobrevive a rebuilds: FX, breakpoint, reduced)
 
@@ -18,6 +22,11 @@ WDF.register('solucao', {
     if (!ctx.flags.motion) { final(); return undefined; }          // estático: estado final, sem sensor
     pixStack(ctx, root, body);
 
+    /* celular: o 4º ato (Pix) sai do sensor do corpo e passa a seguir a posição da própria pilha */
+    const pix = ctx.flags.mobile ? root.querySelector('.so-pix') : null;
+    const steps = pix ? STEPS.filter(([c]) => c !== 'is-paid') : STEPS;
+    const pixAlcancado = () => !!pix && pix.getBoundingClientRect().top <= (window.innerHeight || 1) * PIX_MOBILE_START;
+
     /* progresso atual medido na geometria (independe de o ScrollTrigger já ter feito refresh) */
     const progressNow = () => {
       const r = body.getBoundingClientRect(), vh = window.innerHeight || 1;
@@ -26,25 +35,34 @@ WDF.register('solucao', {
 
     /* estado inicial: some só o que ainda não foi alcançado nem exibido; sem transição (nada se "desfaz" à vista) */
     const p0 = progressNow();
+    if (pixAlcancado()) shown.add('is-paid');                          // medido antes de tirar as classes (o estado "sem Pix" desloca a pilha 16px)
     body.classList.add('is-quiet');
-    STEPS.forEach(([c, t]) => {
+    steps.forEach(([c, t]) => {
       if (p0 > t) shown.add(c);
       if (!shown.has(c)) body.classList.remove(c);
     });
+    if (pix && !shown.has('is-paid')) body.classList.remove('is-paid');
     void body.offsetWidth;                                            // confirma o estado sem transição antes de religá-las
     body.classList.remove('is-quiet');
 
     /* atos em sequência: se um salto cruza vários limiares no mesmo quadro, cada ato espera GAP pelo anterior */
     let nextAt = 0, calls = [];
     const G = ctx.gsap;
-    function apply(p) {
-      STEPS.forEach(([c, t]) => {
-        if (p <= t || shown.has(c)) return;
-        shown.add(c);
-        const now = G.ticker.time, at = Math.max(now, nextAt);
-        nextAt = at + GAP;
-        if (at - now < .01 || WDF.state.jumping) { body.classList.add(c); return; }
-        ctx.later(() => { calls.push(G.delayedCall(at - now, () => body.classList.add(c))); });
+    function grant(c) {
+      if (shown.has(c)) return;
+      shown.add(c);
+      const now = G.ticker.time, at = Math.max(now, nextAt);
+      nextAt = at + GAP;
+      if (at - now < .01 || WDF.state.jumping) { body.classList.add(c); return; }
+      ctx.later(() => { calls.push(G.delayedCall(at - now, () => body.classList.add(c))); });
+    }
+    function apply(p) { steps.forEach(([c, t]) => { if (p > t) grant(c); }); }
+
+    if (pix) {
+      ctx.st({
+        trigger: pix, start: 'top ' + Math.round(PIX_MOBILE_START * 100) + '%', once: true,
+        onEnter: () => grant('is-paid'),
+        onRefresh: (s) => { if (s.progress > 0) grant('is-paid'); },
       });
     }
 

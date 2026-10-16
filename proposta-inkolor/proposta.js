@@ -42,7 +42,7 @@ window.PROPOSTA = {
   },
 
   // Link final da proposta (para a prévia no WhatsApp). Pode ficar vazio no teste.
-  compartilhar: { url: 'https://lp.upwardacademy.com.br/portfolio/', imagem: 'og.jpg' },
+  compartilhar: { url: 'https://lp.upwardacademy.com.br/proposta-inkolor/', imagem: 'og.jpg' },
 
   /* ------------------------------------------------------------- SEU SERVIÇO */
   autor: {

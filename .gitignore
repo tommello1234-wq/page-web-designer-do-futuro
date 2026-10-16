@@ -29,5 +29,5 @@ ads-media/
 # Vídeos locais da página Vídeos com IA.
 !curso-ugc-ia/assets/videos/*.mp4
 
-# Proposta comercial (/portfolio): vídeos do portfólio vão ao ar.
-!portfolio/portfolio/*.mp4
+# Propostas comerciais (/proposta-<cliente>): vídeos do portfólio vão ao ar.
+!proposta-*/portfolio/*.mp4

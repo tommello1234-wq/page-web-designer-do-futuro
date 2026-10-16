@@ -1,8 +1,18 @@
 {
   "redirects": [
     {
+      "source": "/proposta-:cliente",
+      "destination": "/proposta-:cliente/",
+      "permanent": false
+    },
+    {
       "source": "/portfolio",
-      "destination": "/portfolio/",
+      "destination": "/proposta-inkolor/",
+      "permanent": false
+    },
+    {
+      "source": "/portfolio/",
+      "destination": "/proposta-inkolor/",
       "permanent": false
     }
   ],
@@ -83,7 +93,7 @@
       ]
     },
     {
-      "source": "/portfolio",
+      "source": "/proposta-:cliente",
       "headers": [
         {
           "key": "X-Robots-Tag",
@@ -100,7 +110,7 @@
       ]
     },
     {
-      "source": "/portfolio/(.*)",
+      "source": "/proposta-:cliente/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
@@ -117,7 +127,7 @@
       ]
     },
     {
-      "source": "/portfolio/",
+      "source": "/proposta-:cliente/",
       "headers": [
         {
           "key": "Cache-Control",
@@ -126,7 +136,7 @@
       ]
     },
     {
-      "source": "/portfolio/(index\\.html|proposta\\.js)",
+      "source": "/proposta-:cliente/(index\\.html|proposta\\.js)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -135,7 +145,7 @@
       ]
     },
     {
-      "source": "/portfolio/(.*)\\.(mp4|webp|jpg)",
+      "source": "/proposta-:cliente/(.*)\\.(mp4|webp|jpg)",
       "headers": [
         {
           "key": "Cache-Control",

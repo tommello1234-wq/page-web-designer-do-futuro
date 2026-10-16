@@ -22,7 +22,7 @@ window.PROPOSTA = {
 
   /* ---------------------------------------------------------------- POR CLIENTE */
   numero: '014', // só para uso interno (não aparece na página)
-  validaAte: '2026-10-23', // AAAA-MM-DD · vale até 23:59 (horário de Brasília)
+  validaAte: '2026-10-25', // AAAA-MM-DD · vale até 23:59 (horário de Brasília)
   motivoValidade: 'quando fecho a agenda do próximo mês',
 
   cliente: {
@@ -50,6 +50,9 @@ window.PROPOSTA = {
     cargo: 'Web designer',
     foto: 'img/tom.webp', // foto quadrada pequena (avatar); deixe '' se não tiver
     recorte: 'img/tom', // foto recortada sem fundo da abertura (img/tom-480/760/1100.webp); '' para não usar
+    // Abertura: sua foto recortada e a versão revelada pelo mouse (mesmo enquadramento)
+    // arquivos img/tom-rosto-600/1000.webp e img/tom-capacete-600/1000.webp (1000x1250)
+    revelar: { base: 'img/tom-rosto', revelada: 'img/tom-capacete' },
     whatsapp: '5588992089323', // só números: 55 + DDD + número
     email: '', // ex.: 'contato@seudominio.com.br' (vazio: não aparece)
     instagram: '', // ex.: '@seuperfil' (vazio: não aparece)
@@ -59,6 +62,8 @@ window.PROPOSTA = {
     ],
   },
 
+  // Frase grande da abertura, ao lado da foto (o mouse revela a armadura)
+  revelacao: 'Vou revelar o melhor da sua *marca*.',
   promessa: 'Um site com cara de marca grande, rápido no celular e feito para *vender*.',
 
   // Portfólio: vídeos em public/portfolio/ (versão computador e celular).

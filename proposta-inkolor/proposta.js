@@ -64,7 +64,7 @@ window.PROPOSTA = {
 
   // Frase grande da abertura, ao lado da foto (o mouse revela a armadura)
   revelacao: 'Vou revelar o melhor da sua *marca*.',
-  promessa: 'Um site com cara de marca grande, rápido no celular e feito para *vender*.',
+  promessa: 'Não é só um simples site. É uma *experiência*.',
 
   // Portfólio: vídeos em public/portfolio/ (versão computador e celular).
   portfolio: {

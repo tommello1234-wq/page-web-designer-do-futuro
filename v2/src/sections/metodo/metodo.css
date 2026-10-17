@@ -1,0 +1,30 @@
+/* ============ metodo — "Do zero absoluto à página no ar" ============
+   Regras do bloco .pb-* que moravam em problema.css (16/10/2026), as mesmas, só com o escopo da seção nova. */
+.s-metodo .pb-a{padding-block:var(--section-py);align-items:start}
+.s-metodo .pb-side{grid-column:1 / 6;position:sticky;top:calc(var(--nav-h) + 48px);padding:44px 40px 48px}
+.s-metodo .pb-title{max-width:13ch;margin-top:32px}
+.s-metodo .pb-title em{color:var(--ai)}
+.s-metodo .pb-sidetext{max-width:40ch;margin-top:36px;color:var(--muted)}
+.s-metodo .pb-cards{grid-column:7 / 13;display:grid;gap:12vh;padding-top:44px}
+.s-metodo .pb-card{position:relative;padding-top:0}
+.s-metodo .pb-card .hairline{background:var(--line-2);margin-bottom:32px}   /* respiro entre a linha e o título */
+.s-metodo .pb-idx{position:absolute;top:40px;right:-.04em;font-family:var(--font);font-weight:200;font-size:clamp(96px,10vw,180px);
+  line-height:.8;letter-spacing:-.07em;font-variant-numeric:tabular-nums;color:var(--line-2);pointer-events:none;user-select:none}
+.s-metodo .pb-card .t-h3{position:relative;max-width:18ch;padding-right:1ch}
+.s-metodo .pb-card .t-body{position:relative;max-width:46ch;margin-top:28px;color:var(--text)}
+.s-metodo .pb-card:first-child .t-h3{margin-top:0}
+
+@media (max-width:899px){
+  .s-metodo .pb-side{grid-column:auto;position:relative;top:auto;padding:30px 22px 34px}
+  .s-metodo .pb-title{margin-top:26px}
+  .s-metodo .pb-sidetext{margin-top:24px}
+  .s-metodo .pb-cards{grid-column:auto;gap:48px;padding-top:56px}
+  .s-metodo .pb-card{padding-top:0}
+  .s-metodo .pb-card .hairline{margin-bottom:24px}
+  .s-metodo .pb-card{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;align-items:start}
+  .s-metodo .pb-card .hairline{grid-column:1 / -1}
+  .s-metodo .pb-idx{position:static;grid-column:2;grid-row:2;font-size:64px;margin-top:-4px}
+  .s-metodo .pb-card .t-h3{grid-column:1;grid-row:2;padding-right:0}
+  .s-metodo .pb-card .t-body{grid-column:1 / -1;grid-row:3}
+  .s-metodo .pb-card .t-body{margin-top:18px}
+}

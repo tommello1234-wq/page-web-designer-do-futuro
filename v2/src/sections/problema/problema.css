@@ -6,20 +6,7 @@
 .s-problema{--p10-top:calc(var(--nav-h) + (100svh - var(--nav-h) - 58svh) / 2)}
 
 /* ---------------- A · diagnóstico ---------------- */
-.s-problema .pb-a{padding-block:var(--section-py);align-items:start}
-.s-problema .pb-side{grid-column:1 / 6;position:sticky;top:calc(var(--nav-h) + 48px);padding:44px 40px 48px}
-.s-problema .pb-title{max-width:13ch;margin-top:32px}
-.s-problema .pb-title em{color:var(--ai)}
-.s-problema .pb-sidetext{max-width:40ch;margin-top:36px;color:var(--muted)}
 
-.s-problema .pb-cards{grid-column:7 / 13;display:grid;gap:12vh;padding-top:44px}
-.s-problema .pb-card{position:relative;padding-top:0}
-.s-problema .pb-card .hairline{background:var(--line-2);margin-bottom:32px}   /* respiro entre a linha e o título */
-.s-problema .pb-idx{position:absolute;top:40px;right:-.04em;font-family:var(--font);font-weight:200;font-size:clamp(96px,10vw,180px);
-  line-height:.8;letter-spacing:-.07em;font-variant-numeric:tabular-nums;color:var(--line-2);pointer-events:none;user-select:none}
-.s-problema .pb-card .t-h3{position:relative;max-width:18ch;padding-right:1ch}
-.s-problema .pb-card .t-body{position:relative;max-width:46ch;margin-top:28px;color:var(--text)}
-.s-problema .pb-card:first-child .t-h3{margin-top:0}
 
 /* ---------------- B · palco "10 segundos" ---------------- */
 .s-problema .p10{position:relative}
@@ -115,19 +102,7 @@
 
 /* ---------------- mobile (<900) ---------------- */
 @media (max-width:899px){
-  .s-problema .pb-side{grid-column:auto;position:relative;top:auto;padding:30px 22px 34px}
-  .s-problema .pb-title{margin-top:26px}
-  .s-problema .pb-sidetext{margin-top:24px}
-  .s-problema .pb-cards{grid-column:auto;gap:48px;padding-top:56px}
-  .s-problema .pb-card{padding-top:0}
-  .s-problema .pb-card .hairline{margin-bottom:24px}
   /* celular: número fora do texto — linha / [título | número] / parágrafo (antes ficava por cima do parágrafo) */
-  .s-problema .pb-card{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;align-items:start}
-  .s-problema .pb-card .hairline{grid-column:1 / -1}
-  .s-problema .pb-idx{position:static;grid-column:2;grid-row:2;font-size:64px;margin-top:-4px}
-  .s-problema .pb-card .t-h3{grid-column:1;grid-row:2;padding-right:0}
-  .s-problema .pb-card .t-body{grid-column:1 / -1;grid-row:3}
-  .s-problema .pb-card .t-body{margin-top:18px}
 
   .s-problema .p10-stage{display:block;padding-bottom:var(--section-py)}
   .s-problema .p10-warn{margin-top:28px;font-size:17px}
@@ -164,4 +139,3 @@
 /* ordem nova (pedido do dono): os "10 segundos" abrem a seção, logo depois do hero; o problema + 3 cards vêm em seguida */
 .s-problema .p10-stage{padding-top:var(--section-py)}
 .s-problema.is-pinned .p10-stage{padding-top:var(--nav-h)}
-.s-problema .pb-a{padding-top:calc(var(--section-py) * .5)}

@@ -17,21 +17,8 @@
       "Páginas 100% com IA",
       "Arsenal High Ticket",
       "Sim, eu quero fazer parte",
-      "100%",
-      "Satisfação dos Alunos"
-    ],
-    "problema": [
-      "O MÉTODO",
-      "Do zero absoluto à página no ar.",
-      "Você não precisa entender nada de IA nem de design. Você aprende do zero, no passo a passo completo: da tela em branco até a página no ar, pronta para mostrar ao cliente.",
-      "1. Criação do Design System",
-      "Mesmo sem nunca ter aberto uma ferramenta de design, você começa pela base: cores, tipografia, espaçamentos e componentes que dão a cara da página. É o que faz tudo parecer premium e coerente, e você reaproveita em cada novo projeto.",
-      "2. Criação da Página Premium",
-      "Com o design system pronto, você constrói a página seção por seção e dá vida a ela com animações e interações que prendem a atenção. É aqui que nasce a experiência que nenhum construtor comum entrega.",
-      "3. Otimização e Publicação",
-      "Você deixa a página leve, rápida e perfeita no celular, conecta o domínio e coloca no ar. No fim, você tem um link profissional pronto para mostrar ao cliente e cobrar por isso.",
-      "Enquanto você briga pelo básico, o mercado de elite já mudou de jogo.",
-      "E sabe qual é a pior parte? A Inteligência Artificial já faz sites estáticos em 10 segundos. Se você continuar entregando o básico, suas habilidades, seu portfólio e seus serviços vão evaporar."
+      "+250",
+      "Alunos no método"
     ],
     "solucao": [
       "SOLUÇÃO",
@@ -51,8 +38,8 @@
       "DEPOIMENTOS",
       "O Que Nossos Alunos Dizem",
       "Feedback real de alunos que passaram pelo treinamento e transformaram sua forma de criar sites.",
-      "100%",
-      "Satisfação dos Alunos",
+      "+250",
+      "Alunos no método",
       "Já fiz minha primeira página de vendas e vou subir hoje para a hospedagem",
       "show, depois me manda pra eu ver",
       "e já vendi uma hoje kkkk top demais",
@@ -100,9 +87,9 @@
     "autor": [
       "QUEM VAI TE ENSINAR",
       "Quem vai te ensinar",
-      "Washington Melo",
+      "Tom Melo",
       "\"Eu percebi que o dinheiro segue tendências, e quem permanece vivo no jogo não é o mais talentoso, mas sim o mais capaz de se adaptar.\"",
-      "Há quase 6 anos dominando o mercado e com mais de R$ 500 mil faturados como Designer, eu aprendi que a maior armadilha é se tornar um \"apertador de botões\" genérico. Minha missão é transformar você em um arquiteto de experiências imersivas, capaz de cobrar o que o seu trabalho realmente vale.",
+      "Há mais de 6 anos dominando o mercado e com mais de R$ 500 mil faturados como Designer, eu aprendi que a maior armadilha é se tornar um \"apertador de botões\" genérico. Minha missão é transformar você em um arquiteto de experiências imersivas, capaz de cobrar o que o seu trabalho realmente vale.",
       "+6 Anos no Mercado",
       "+R$ 500k em Faturamento",
       "Projetos Top-Tier Atendidos"
@@ -140,7 +127,7 @@
       "Archive-04 // Aula Bônus",
       "Minhas Principais Skills",
       "Acesso Imediato",
-      "De R$ 997,00 por apenas:",
+      "Preço normal R$ 997,00, hoje por apenas:",
       "12x de",
       "R$ 10,41",
       "OU R$ 97,00 À VISTA",
@@ -194,6 +181,21 @@
       "Dúvidas Frequentes",
       "Preciso saber programar para fazer o curso?",
       "Absolutamente não. O foco é design imersivo e uso de Agentes de IA. Você aprenderá a criar experiências incríveis sem precisar digitar uma única linha de código."
+    ],
+    "metodo": [
+      "O MÉTODO",
+      "Do zero absoluto à página no ar.",
+      "Você não precisa entender nada de IA nem de design. Você aprende do zero, no passo a passo completo: da tela em branco até a página no ar, pronta para mostrar ao cliente.",
+      "1. Criação do Design System",
+      "Mesmo sem nunca ter aberto uma ferramenta de design, você começa pela base: cores, tipografia, espaçamentos e componentes que dão a cara da página. É o que faz tudo parecer premium e coerente, e você reaproveita em cada novo projeto.",
+      "2. Criação da Página Premium",
+      "Com o design system pronto, você constrói a página seção por seção e dá vida a ela com animações e interações que prendem a atenção. É aqui que nasce a experiência que nenhum construtor comum entrega.",
+      "3. Otimização e Publicação",
+      "Você deixa a página leve, rápida e perfeita no celular, conecta o domínio e coloca no ar. No fim, você tem um link profissional pronto para mostrar ao cliente e cobrar por isso."
+    ],
+    "problema": [
+      "Enquanto você briga pelo básico, o mercado de elite já mudou de jogo.",
+      "E sabe qual é a pior parte? A Inteligência Artificial já faz sites estáticos em 10 segundos. Se você continuar entregando o básico, suas habilidades, seu portfólio e seus serviços vão evaporar."
     ]
   }
 }

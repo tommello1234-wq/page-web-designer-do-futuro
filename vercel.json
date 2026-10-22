@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/edf",
+      "destination": "/edf/",
+      "permanent": false
+    },
+    {
       "source": "/proposta-:cliente",
       "destination": "/proposta-:cliente/",
       "permanent": false

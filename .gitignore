@@ -31,3 +31,8 @@ ads-media/
 
 # Propostas comerciais (/proposta-<cliente>): vídeos do portfólio vão ao ar.
 !proposta-*/portfolio/*.mp4
+
+# Editor do Futuro (/edf): vídeos da página de vendas vão ao ar.
+!edf/
+!edf/assets/
+!edf/assets/*.mp4

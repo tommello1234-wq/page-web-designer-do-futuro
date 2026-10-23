@@ -27,14 +27,14 @@
     <meta property="og:title" content="Editor do Futuro · Uma frase vira vídeo motion" />
     <meta property="og:description" content="Aprenda a criar vídeos motion com IA. Você pede, a IA edita: roteiro, visual, animação e som." />
     <link rel="icon" href="/edf/assets/favicon-BVyX9LzM.svg" type="image/svg+xml" />
+    <!-- capa da VSL (maior elemento da primeira tela): baixa junto com o CSS -->
+    <link rel="preload" as="image" href="/edf/assets/vsl-poster-BZPm0sZR.webp" fetchpriority="high" />
     <style>html{background:#060607}html:not(.estilos-ok) body{visibility:hidden}html:not(.estilos-ok) *,html:not(.estilos-ok) :before,html:not(.estilos-ok) :after{transition:none!important}</style>
     <script>
       (function () {
         var h = document.documentElement;
         h.classList.add('js');
-        setTimeout(function () {
-          h.classList.add('estilos-ok');
-        }, 3000);
+        h.classList.add('estilos-ok');
         if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           h.classList.add('js-motion');
           setTimeout(function () {
@@ -75,29 +75,17 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf/assets/index-k_cp6sp2.js"></script>
+    <script type="module" crossorigin src="/edf/assets/index-XZLcAxJW.js"></script>
     <link rel="modulepreload" crossorigin href="/edf/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/cena-DpfsvVvj.js">
-    <link rel="stylesheet" crossorigin href="/edf/assets/index-11fbr3aM.css">
+    <link rel="modulepreload" crossorigin href="/edf/assets/abertura-D-G4UHVj.js">
+    <link rel="stylesheet" crossorigin href="/edf/assets/index-tfAk_5xZ.css">
   </head>
   <body>
     <a class="pular" href="#timeline">Pular para o conteúdo</a>
     <div class="grao" aria-hidden="true"></div>
 
-    <!-- ================= PRÉ-CARGA: a página "renderiza" antes de abrir ================= -->
-<div class="pre" id="pre" aria-hidden="true">
-  <div class="pre__topo hud">
-    <span><i class="rec"></i> Editor do Futuro</span>
-    <span class="pre__status">Renderizando</span>
-  </div>
-  <div class="pre__centro">
-    <p class="pre__tc tc">00:00:00:00</p>
-    <div class="pre__fita" aria-hidden="true"></div>
-    <p class="pre__info hud"><span>1080 × 1920 · 30 qps</span><span>Quadro <b class="pre__quadro">000</b>/090</span></p>
-  </div>
-  <div class="pre__barra"><i></i></div>
-</div>
-
+    <!-- OCULTO (22/10, a página abre direto, sem loading): @ include partials/preloader.html -->
     <!-- ================= NAVEGAÇÃO (fixa; a linha de baixo é a timeline da página) ================= -->
 <header class="nav" id="nav">
   <div class="nav__barra">
@@ -112,7 +100,6 @@
     <nav class="nav__links" aria-label="Seções">
       <a href="#timeline">O método</a>
       <a href="#reel">Vídeos</a>
-      <a href="#aulas">Aulas</a>
       <a href="#kit">Kit</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
@@ -1005,428 +992,8 @@
 </section>
 
       <!-- OCULTO (22/10, dobra não finalizada): @ include partials/formatos.html -->
-      <!-- ================= 07 · ESTILOS (biblioteca de estilos + "a cor é um número só") =================
-     Três estilos do Tom recriados AO VIVO num monitor 9:16 (HTML + CSS + GSAP,
-     como o curso ensina). Cada composição é desenhada no espaço do vídeo de
-     verdade (1080 × 1920 px) e reduzida para caber no monitor. Controles reais:
-     abas, campo de texto (o texto se ajusta para caber), matiz da cor (um número
-     só) e "Aplicar na página inteira" (anima --acc-h no <html>).
-     Desktop: presa curta, a rolagem passa pelos 3 estilos. Celular: empilhado. -->
-<section class="estilos" id="estilos" aria-labelledby="estilos-titulo">
-  <div class="estilos__luzes" aria-hidden="true">
-    <i class="estilos__luz estilos__luz--0"></i>
-    <i class="estilos__luz estilos__luz--1"></i>
-    <i class="estilos__luz estilos__luz--2"></i>
-  </div>
-
-  <div class="estilos__palco wrap">
-    <!-- esquerda: cabeçalho + passos -->
-    <div class="estilos__esq">
-      <div class="estilos__cab">
-        <p class="rotulo"><b>03</b> Biblioteca de estilos</p>
-        <h2 class="estilos__titulo display" id="estilos-titulo" data-split>Escolha um estilo. Troque o texto e a cor.</h2>
-        <p class="estilos__lead lead" data-reveal>Você não precisa inventar o visual do zero toda vez. O curso traz estilos de vídeo prontos e testados: você troca o texto, a cor e usa.</p>
-      </div>
-
-      <ol class="estilos__passos" aria-label="Como usar um estilo" data-reveal data-reveal-grupo>
-        <li class="estilos__passo" data-passo="1"><i class="kf" aria-hidden="true"></i><b class="pixel">1</b><span>Escolha o estilo</span></li>
-        <li class="estilos__passo" data-passo="2"><i class="kf" aria-hidden="true"></i><b class="pixel">2</b><span>Troque o texto</span></li>
-        <li class="estilos__passo" data-passo="3"><i class="kf" aria-hidden="true"></i><b class="pixel">3</b><span>Aprove o quadro parado</span></li>
-        <li class="estilos__passo" data-passo="4"><i class="kf" aria-hidden="true"></i><b class="pixel">4</b><span>Peça a animação</span></li>
-      </ol>
-    </div>
-
-    <!-- centro: o monitor com a composição ao vivo -->
-    <div class="estilos__centro">
-      <p class="estilos__hud hud" aria-hidden="true">
-        <span>Estilo <b class="estilos__hud-n">01</b> / 03 · <span class="estilos__hud-nome">Grafite e sinal</span></span>
-        <span>1080 × 1920</span>
-      </p>
-
-      <div class="estilos__monitor monitor monitor--916" id="estilos-painel" role="tabpanel" aria-labelledby="estilos-aba-0">
-        <div class="monitor__tela estilos__tela" role="img" aria-label="Recriação ao vivo do estilo Grafite e sinal com o texto: Esse levou poucos minutos, eu só pedi.">
-          <!-- 01 · Grafite e sinal -->
-          <div class="estilos__comp estilos__comp--g is-ativo" data-comp="0" aria-hidden="true">
-            <div class="estilos__g-luz"></div>
-            <div class="estilos__g-pontos"><i></i></div>
-            <p class="estilos__g-titulo estilos__texto">Esse levou poucos <span class="is-hl">minutos,</span> eu só pedi.</p>
-            <div class="estilos__g-vidro">
-              <i class="estilos__g-reflexo"></i>
-              <div class="estilos__g-tempo">
-                <span class="estilos__g-num">
-                  <span class="estilos__jan"><span class="estilos__col"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span>
-                  <i>min</i>
-                </span>
-              </div>
-              <div class="estilos__g-regua">
-                <i class="estilos__g-tq"></i>
-                <i class="estilos__g-tq estilos__g-tq--on"></i>
-                <span class="estilos__g-cursor"><i class="estilos__g-cabeca"></i></span>
-              </div>
-            </div>
-          </div>
-
-          <!-- 02 · Violeta e vidro -->
-          <div class="estilos__comp estilos__comp--v" data-comp="1" aria-hidden="true">
-            <div class="estilos__v-fundo"></div>
-            <div class="estilos__v-halo">
-              <i class="estilos__v-halo-brilho"></i>
-              <i class="estilos__v-halo-miolo"></i>
-              <i class="estilos__v-halo-anel"></i>
-            </div>
-            <div class="estilos__v-caixa"><p class="estilos__v-titulo estilos__texto">Eu só pedi.</p></div>
-            <div class="estilos__v-pilha">
-              <i class="estilos__v-camada estilos__v-camada--menta"></i>
-              <i class="estilos__v-camada estilos__v-camada--lilas"></i>
-              <div class="estilos__v-painel">
-                <p class="estilos__v-rotulo">
-                  <svg viewBox="0 0 24 24"><path d="M12 1.5 L14.6 9.4 L22.5 12 L14.6 14.6 L12 22.5 L9.4 14.6 L1.5 12 L9.4 9.4 Z" /></svg>
-                  <span>Descreva o vídeo que você quer</span>
-                </p>
-                <p class="estilos__v-pedido">Cria um criativo de 20 s pra vender o meu curso</p>
-                <div class="estilos__v-rodape">
-                  <span class="estilos__v-chip">9:16</span>
-                  <span class="estilos__v-chip">20 s</span>
-                  <span class="estilos__v-botao">
-                    <svg viewBox="0 0 24 24"><path d="M12 1.5 L14.6 9.4 L22.5 12 L14.6 14.6 L12 22.5 L9.4 14.6 L1.5 12 L9.4 9.4 Z" /></svg>
-                    <span>Criar</span>
-                    <i class="estilos__v-onda"></i>
-                    <i class="estilos__v-toque"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- estrela de cristal: 8 facetas com luz vindo de cima à esquerda -->
-            <svg class="estilos__v-estrela" viewBox="0 0 200 200">
-              <defs>
-                <linearGradient id="estilos-f1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="estilos__v-s1" /><stop offset="1" class="estilos__v-s2" /></linearGradient>
-                <linearGradient id="estilos-f2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="estilos__v-s2" /><stop offset="1" class="estilos__v-s3" /></linearGradient>
-                <linearGradient id="estilos-f3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="estilos__v-s3" /><stop offset="1" class="estilos__v-s4" /></linearGradient>
-                <linearGradient id="estilos-f4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="estilos__v-s4" /><stop offset="1" class="estilos__v-s5" /></linearGradient>
-                <filter id="estilos-aura" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="15" /></filter>
-              </defs>
-              <circle class="estilos__v-aura" cx="100" cy="100" r="70" opacity=".55" filter="url(#estilos-aura)" />
-              <g stroke="rgba(255,255,255,.55)" stroke-width="1.1" stroke-linejoin="round">
-                <polygon points="100,6 76,76 100,100" fill="url(#estilos-f1)" />
-                <polygon points="100,6 124,76 100,100" fill="url(#estilos-f2)" />
-                <polygon points="194,100 124,76 100,100" fill="url(#estilos-f2)" />
-                <polygon points="194,100 124,124 100,100" fill="url(#estilos-f3)" />
-                <polygon points="100,194 124,124 100,100" fill="url(#estilos-f4)" />
-                <polygon points="100,194 76,124 100,100" fill="url(#estilos-f3)" />
-                <polygon points="6,100 76,124 100,100" fill="url(#estilos-f2)" />
-                <polygon points="6,100 76,76 100,100" fill="url(#estilos-f1)" />
-              </g>
-              <polygon points="100,12 84,62 93,58" fill="#fff" opacity=".7" />
-              <polygon points="188,100 140,88 142,96" fill="#fff" opacity=".35" />
-            </svg>
-            <svg class="estilos__v-brilho estilos__v-brilho--1" viewBox="0 0 24 24"><path d="M12 0 L14.4 9.6 L24 12 L14.4 14.4 L12 24 L9.6 14.4 L0 12 L9.6 9.6 Z" /></svg>
-            <svg class="estilos__v-brilho estilos__v-brilho--2" viewBox="0 0 24 24"><path d="M12 0 L14.4 9.6 L24 12 L14.4 14.4 L12 24 L9.6 14.4 L0 12 L9.6 9.6 Z" /></svg>
-            <svg class="estilos__v-brilho estilos__v-brilho--3" viewBox="0 0 24 24"><path d="M12 0 L14.4 9.6 L24 12 L14.4 14.4 L12 24 L9.6 14.4 L0 12 L9.6 9.6 Z" /></svg>
-          </div>
-
-          <!-- 03 · Papel e faixa -->
-          <div class="estilos__comp estilos__comp--p" data-comp="2" aria-hidden="true">
-            <div class="estilos__p-pontos"><i></i></div>
-            <div class="estilos__p-trilho"><i class="estilos__p-faixa"></i></div>
-            <div class="estilos__p-frase">
-              <span class="estilos__p-ln estilos__p-ln--p">o segredo é só</span>
-              <span class="estilos__p-ln estilos__p-ln--g">pedir.</span>
-            </div>
-            <div class="estilos__p-moldura">
-              <img
-                src="/edf/assets/moldura-400-CpOm5ya7.webp"
-                srcset="/edf/assets/moldura-400-CpOm5ya7.webp 400w, /edf/assets/moldura-800-DmVS2WXn.webp 800w"
-                sizes="(min-width: 1024px) 260px, 180px"
-                width="400"
-                height="497"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="estilos__p-quadro">
-                <div class="estilos__p-n">
-                  <span class="estilos__jan"><span class="estilos__col"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span>
-                  <i>min</i>
-                </div>
-                <div class="estilos__p-regua"><span class="estilos__p-cursor"><i class="estilos__p-cabeca"></i></span></div>
-              </div>
-            </div>
-          </div>
-
-          <i class="estilos__corte" aria-hidden="true"></i>
-        </div>
-        <div class="monitor__hud" aria-hidden="true">
-          <span class="hud"><i class="rec"></i> REC</span>
-          <span class="tc estilos__tc">00:00:00:00</span>
-        </div>
-        <i class="hud-canto" aria-hidden="true"></i>
-      </div>
-
-      <!-- fita: os 3 estilos como clipes numa faixa, com a agulha (rolagem / escolha) -->
-      <div class="estilos__fita" aria-hidden="true">
-        <i class="regua estilos__fita-regua"></i>
-        <div class="estilos__fita-trilho">
-          <span class="estilos__fita-clipe is-ativo"><b>01</b> Grafite</span>
-          <span class="estilos__fita-clipe"><b>02</b> Violeta</span>
-          <span class="estilos__fita-clipe"><b>03</b> Papel</span>
-          <span class="estilos__fita-agulha"><i></i></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- direita: os controles -->
-    <div class="estilos__dir">
-      <div class="estilos__controles vidro" data-reveal data-reveal-delay=".15">
-        <div class="estilos__bloco">
-          <p class="estilos__rot hud" id="estilos-rot-estilo"><span>Estilo</span><span class="estilos__rot-dir"><b class="estilos__abas-n">01</b> / 03</span></p>
-          <div class="estilos__abas" role="tablist" aria-labelledby="estilos-rot-estilo">
-            <button class="estilos__aba" type="button" role="tab" id="estilos-aba-0" aria-selected="true" aria-controls="estilos-painel" data-estilo="0">
-              <span class="estilos__aba-img"><img src="/edf/assets/estilo-grafite-540-Dbpv_W5Q.webp" width="540" height="960" alt="" loading="lazy" decoding="async" /></span>
-              <span class="estilos__aba-txt"><b class="mono">01</b>Grafite e sinal</span>
-            </button>
-            <button class="estilos__aba" type="button" role="tab" id="estilos-aba-1" aria-selected="false" aria-controls="estilos-painel" data-estilo="1" tabindex="-1">
-              <span class="estilos__aba-img"><img src="/edf/assets/estilo-violeta-540-DatpfWxV.webp" width="540" height="960" alt="" loading="lazy" decoding="async" /></span>
-              <span class="estilos__aba-txt"><b class="mono">02</b>Violeta e vidro</span>
-            </button>
-            <button class="estilos__aba" type="button" role="tab" id="estilos-aba-2" aria-selected="false" aria-controls="estilos-painel" data-estilo="2" tabindex="-1">
-              <span class="estilos__aba-img"><img src="/edf/assets/estilo-papel-540-BHzhMugm.webp" width="540" height="960" alt="" loading="lazy" decoding="async" /></span>
-              <span class="estilos__aba-txt"><b class="mono">03</b>Papel e faixa</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="estilos__bloco">
-          <p class="estilos__rot hud"><label for="estilos-texto">Seu texto</label><span class="estilos__rot-dir" aria-hidden="true"><b class="estilos__conta">38</b> / 40</span></p>
-          <div class="estilos__campo">
-            <input class="estilos__input" id="estilos-texto" type="text" maxlength="40" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" value="Esse levou poucos minutos, eu só pedi." aria-describedby="estilos-texto-dica" />
-            <span class="sr-only" id="estilos-texto-dica">Até 40 caracteres. O texto do vídeo muda enquanto você digita.</span>
-          </div>
-        </div>
-
-        <div class="estilos__bloco">
-          <p class="estilos__rot hud"><label for="estilos-matiz">Cor de destaque · um número só</label></p>
-          <div class="estilos__cor">
-            <output class="estilos__num pixel" for="estilos-matiz" aria-hidden="true">037</output>
-            <code class="estilos__codigo" aria-hidden="true"><span>--acc-h</span>: <b class="estilos__codigo-n">37</b>;</code>
-          </div>
-          <div class="estilos__slider">
-            <input class="estilos__matiz" id="estilos-matiz" type="range" min="0" max="360" step="1" value="37" aria-valuetext="37" />
-            <i class="estilos__lima" aria-hidden="true"><span>lima</span></i>
-          </div>
-          <p class="estilos__escala mono" aria-hidden="true"><span>0</span><span>90</span><span>180</span><span>270</span><span>360</span></p>
-        </div>
-
-        <button class="estilos__aplicar btn btn--linha btn--bloco" type="button" aria-pressed="false">
-          <i class="estilos__amostra" aria-hidden="true"></i>
-          <span class="estilos__aplicar-txt">Aplicar na página inteira</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- ================= 08 · AULAS (a grade do curso como timeline de editor) =================
-     Desktop: uma ilha de edição. Cada módulo é um CLIPE na faixa V1, com largura
-     proporcional ao número de aulas (3, 3, 4, 8, 6, 1, 5 = 30); a faixa V2 tem as
-     30 aulas. A agulha vai até o módulo escolhido (clique, teclado, mouse) e, na
-     cena presa, anda com a rolagem. O painel de baixo mostra as aulas e o
-     "Você sai com". Os módulos ★ ficam em lima. A ilha e o painel são montados
-     pelo JS a partir da lista abaixo, que é o conteúdo de verdade.
-     Celular (e sem JS): a lista, com cada módulo abrindo como acordeão. -->
-<section class="aulas" id="aulas" aria-labelledby="aulas-titulo">
-  <div class="aulas__palco wrap">
-    <header class="aulas__cab">
-      <div class="aulas__cab-esq">
-        <p class="rotulo"><b>04</b> O curso</p>
-        <h2 class="aulas__titulo display" id="aulas-titulo" data-split>30 aulas. 7 módulos. Direto ao ponto.</h2>
-      </div>
-      <p class="aulas__lead lead" data-reveal>Cada aula diz o que fazer, o que pedir à IA e como conferir. Você sai de cada módulo com algo pronto.</p>
-    </header>
-
-    <!-- Desktop: a ilha de edição (o JS preenche e mostra) -->
-    <div class="aulas__ilha" hidden>
-      <div class="aulas__hud hud" aria-hidden="true">
-        <span class="aulas__hud-esq"><i class="rec"></i> REC · Cena 08 · Grade do curso</span>
-        <span class="aulas__hud-dir">Módulo <b class="aulas__hud-mod">00</b> / 06 <i class="aulas__hud-sep"></i> Aula <b class="aulas__hud-aula pixel">01</b> / 30</span>
-      </div>
-      <div class="aulas__tl">
-        <span class="aulas__tl-nome aulas__tl-nome--regua" aria-hidden="true">Aulas</span>
-        <div class="aulas__regua" aria-hidden="true"></div>
-        <span class="aulas__tl-nome" aria-hidden="true">V1 · Módulos</span>
-        <div class="aulas__faixa" role="tablist" aria-label="Módulos do curso"></div>
-        <span class="aulas__tl-nome" aria-hidden="true">V2 · Aulas</span>
-        <div class="aulas__faixa-aulas" aria-hidden="true"></div>
-        <div class="aulas__agulha" aria-hidden="true">
-          <i class="aulas__agulha-linha"></i>
-          <span class="aulas__agulha-cabeca"></span>
-          <span class="aulas__agulha-rotulo pixel">0.1</span>
-        </div>
-      </div>
-      <div class="aulas__painel" id="aulas-painel" role="tabpanel"></div>
-    </div>
-
-    <!-- Lista dos módulos: celular (acordeão) e leitura sem JS -->
-    <ol class="aulas__lista">
-      <li class="aulas__mod" data-modulo="00" data-ini="0" data-n="3" style="--ini: 0; --n: 3">
-        <h3 class="aulas__mod-cab">
-          <button class="aulas__mod-btn" type="button" id="aulas-btn-00" aria-expanded="true" aria-controls="aulas-corpo-00">
-            <span class="aulas__mod-n pixel">00</span>
-            <span class="aulas__mod-nome">Boas-vindas e o método</span>
-            <span class="aulas__mod-qtd mono">3 aulas</span>
-            <span class="aulas__mod-mais" aria-hidden="true"></span>
-            <span class="aulas__mod-barra" aria-hidden="true"><i></i></span>
-          </button>
-        </h3>
-        <div class="aulas__mod-corpo" id="aulas-corpo-00">
-          <div class="aulas__mod-dentro">
-            <ol class="aulas__mod-aulas">
-              <li><span class="aulas__aula-n mono">0.1</span><span class="aulas__aula-t">O que você vai conseguir fazer</span></li>
-              <li><span class="aulas__aula-n mono">0.2</span><span class="aulas__aula-t">Por que fazer vídeo em código</span></li>
-              <li><span class="aulas__aula-n mono">0.3</span><span class="aulas__aula-t">O mapa do curso e o kit</span></li>
-            </ol>
-            <p class="aulas__mod-sai"><span class="hud">Você sai com</span><span class="aulas__mod-sai-t">Entende o que vai construir e por que em código.</span></p>
-          </div>
-        </div>
-      </li>
-      <li class="aulas__mod" data-modulo="01" data-ini="3" data-n="3" style="--ini: 3; --n: 3">
-        <h3 class="aulas__mod-cab">
-          <button class="aulas__mod-btn" type="button" id="aulas-btn-01" aria-expanded="true" aria-controls="aulas-corpo-01">
-            <span class="aulas__mod-n pixel">01</span>
-            <span class="aulas__mod-nome">Preparar o computador</span>
-            <span class="aulas__mod-qtd mono">3 aulas</span>
-            <span class="aulas__mod-mais" aria-hidden="true"></span>
-            <span class="aulas__mod-barra" aria-hidden="true"><i></i></span>
-          </button>
-        </h3>
-        <div class="aulas__mod-corpo" id="aulas-corpo-01">
-          <div class="aulas__mod-dentro">
-            <ol class="aulas__mod-aulas">
-              <li><span class="aulas__aula-n mono">1.1</span><span class="aulas__aula-t">Instalando a IA no computador</span></li>
-              <li><span class="aulas__aula-n mono">1.2</span><span class="aulas__aula-t">Instalando o motor</span></li>
-              <li><span class="aulas__aula-n mono">1.3</span><span class="aulas__aula-t">Seu primeiro render</span></li>
-            </ol>
-            <p class="aulas__mod-sai"><span class="hud">Você sai com</span><span class="aulas__mod-sai-t">Kit instalado e o primeiro vídeo renderizado.</span></p>
-          </div>
-        </div>
-      </li>
-      <li class="aulas__mod" data-modulo="02" data-ini="6" data-n="4" style="--ini: 6; --n: 4">
-        <h3 class="aulas__mod-cab">
-          <button class="aulas__mod-btn" type="button" id="aulas-btn-02" aria-expanded="true" aria-controls="aulas-corpo-02">
-            <span class="aulas__mod-n pixel">02</span>
-            <span class="aulas__mod-nome">Como um vídeo vira código</span>
-            <span class="aulas__mod-qtd mono">4 aulas</span>
-            <span class="aulas__mod-mais" aria-hidden="true"></span>
-            <span class="aulas__mod-barra" aria-hidden="true"><i></i></span>
-          </button>
-        </h3>
-        <div class="aulas__mod-corpo" id="aulas-corpo-02">
-          <div class="aulas__mod-dentro">
-            <ol class="aulas__mod-aulas">
-              <li><span class="aulas__aula-n mono">2.1</span><span class="aulas__aula-t">Vídeo é uma sequência de fotos</span></li>
-              <li><span class="aulas__aula-n mono">2.2</span><span class="aulas__aula-t">A composição: HTML, CSS e GSAP</span></li>
-              <li><span class="aulas__aula-n mono">2.3</span><span class="aulas__aula-t">Pedindo mudanças à IA</span></li>
-              <li><span class="aulas__aula-n mono">2.4</span><span class="aulas__aula-t">Áudio: fala, efeitos e volume</span></li>
-            </ol>
-            <p class="aulas__mod-sai"><span class="hud">Você sai com</span><span class="aulas__mod-sai-t">Sabe ler e alterar uma composição.</span></p>
-          </div>
-        </div>
-      </li>
-      <li class="aulas__mod is-destaque" data-modulo="03" data-ini="10" data-n="8" data-destaque style="--ini: 10; --n: 8">
-        <h3 class="aulas__mod-cab">
-          <button class="aulas__mod-btn" type="button" id="aulas-btn-03" aria-expanded="true" aria-controls="aulas-corpo-03">
-            <span class="aulas__mod-n pixel">03</span>
-            <span class="aulas__mod-nome">Design para vídeo <span class="aulas__estrela" aria-hidden="true">★</span><span class="sr-only">(módulo em destaque)</span></span>
-            <span class="aulas__mod-qtd mono">8 aulas</span>
-            <span class="aulas__mod-mais" aria-hidden="true"></span>
-            <span class="aulas__mod-barra" aria-hidden="true"><i></i></span>
-          </button>
-        </h3>
-        <div class="aulas__mod-corpo" id="aulas-corpo-03">
-          <div class="aulas__mod-dentro">
-            <ol class="aulas__mod-aulas">
-              <li><span class="aulas__aula-n mono">3.1</span><span class="aulas__aula-t">O que separa o vídeo amador do sofisticado</span></li>
-              <li><span class="aulas__aula-n mono">3.2</span><span class="aulas__aula-t">Hierarquia: uma coisa por vez</span></li>
-              <li><span class="aulas__aula-n mono">3.3</span><span class="aulas__aula-t">Tipografia em movimento</span></li>
-              <li><span class="aulas__aula-n mono">3.4</span><span class="aulas__aula-t">Cor: uma cor de destaque</span></li>
-              <li><span class="aulas__aula-n mono">3.5</span><span class="aulas__aula-t">Grid, margens e área segura</span></li>
-              <li><span class="aulas__aula-n mono">3.6</span><span class="aulas__aula-t">Movimento com propósito</span></li>
-              <li><span class="aulas__aula-n mono">3.7</span><span class="aulas__aula-t">Extraindo a identidade visual de uma marca</span></li>
-              <li><span class="aulas__aula-n mono">3.8</span><span class="aulas__aula-t">Treinando o olho: crítica de vídeo</span></li>
-            </ol>
-            <p class="aulas__mod-sai"><span class="hud">Você sai com</span><span class="aulas__mod-sai-t">Sabe por que um vídeo parece caro ou amador, e corrige.</span></p>
-          </div>
-        </div>
-      </li>
-      <li class="aulas__mod is-destaque" data-modulo="04" data-ini="18" data-n="6" data-destaque style="--ini: 18; --n: 6">
-        <h3 class="aulas__mod-cab">
-          <button class="aulas__mod-btn" type="button" id="aulas-btn-04" aria-expanded="true" aria-controls="aulas-corpo-04">
-            <span class="aulas__mod-n pixel">04</span>
-            <span class="aulas__mod-nome">Tipos de vídeo <span class="aulas__estrela" aria-hidden="true">★</span><span class="sr-only">(módulo em destaque)</span></span>
-            <span class="aulas__mod-qtd mono">6 aulas</span>
-            <span class="aulas__mod-mais" aria-hidden="true"></span>
-            <span class="aulas__mod-barra" aria-hidden="true"><i></i></span>
-          </button>
-        </h3>
-        <div class="aulas__mod-corpo" id="aulas-corpo-04">
-          <div class="aulas__mod-dentro">
-            <ol class="aulas__mod-aulas">
-              <li><span class="aulas__aula-n mono">4.1</span><span class="aulas__aula-t">Reels em motion e criativo de anúncio</span></li>
-              <li><span class="aulas__aula-n mono">4.2</span><span class="aulas__aula-t">Reels falado editado</span></li>
-              <li><span class="aulas__aula-n mono">4.3</span><span class="aulas__aula-t">Reels com avatar digital</span></li>
-              <li><span class="aulas__aula-n mono">4.4</span><span class="aulas__aula-t">Vídeo para YouTube</span></li>
-              <li><span class="aulas__aula-n mono">4.5</span><span class="aulas__aula-t">VSL (vídeo de vendas)</span></li>
-              <li><span class="aulas__aula-n mono">4.6</span><span class="aulas__aula-t">Documentário</span></li>
-            </ol>
-            <p class="aulas__mod-sai"><span class="hud">Você sai com</span><span class="aulas__mod-sai-t">Faz cada categoria: Reels, avatar, YouTube, VSL e documentário.</span></p>
-          </div>
-        </div>
-      </li>
-      <li class="aulas__mod" data-modulo="05" data-ini="24" data-n="1" style="--ini: 24; --n: 1">
-        <h3 class="aulas__mod-cab">
-          <button class="aulas__mod-btn" type="button" id="aulas-btn-05" aria-expanded="true" aria-controls="aulas-corpo-05">
-            <span class="aulas__mod-n pixel">05</span>
-            <span class="aulas__mod-nome">Biblioteca de estilos</span>
-            <span class="aulas__mod-qtd mono">1 aula</span>
-            <span class="aulas__mod-mais" aria-hidden="true"></span>
-            <span class="aulas__mod-barra" aria-hidden="true"><i></i></span>
-          </button>
-        </h3>
-        <div class="aulas__mod-corpo" id="aulas-corpo-05">
-          <div class="aulas__mod-dentro">
-            <ol class="aulas__mod-aulas">
-              <li><span class="aulas__aula-n mono">5.1</span><span class="aulas__aula-t">Como usar os estilos</span></li>
-            </ol>
-            <p class="aulas__mod-sai"><span class="hud">Você sai com</span><span class="aulas__mod-sai-t">Escolhe um estilo pronto, troca texto e cor e usa no próprio vídeo.</span></p>
-          </div>
-        </div>
-      </li>
-      <li class="aulas__mod is-destaque" data-modulo="06" data-ini="25" data-n="5" data-destaque style="--ini: 25; --n: 5">
-        <h3 class="aulas__mod-cab">
-          <button class="aulas__mod-btn" type="button" id="aulas-btn-06" aria-expanded="true" aria-controls="aulas-corpo-06">
-            <span class="aulas__mod-n pixel">06</span>
-            <span class="aulas__mod-nome">Skills: ensinando a IA do seu jeito <span class="aulas__estrela" aria-hidden="true">★</span><span class="sr-only">(módulo em destaque)</span></span>
-            <span class="aulas__mod-qtd mono">5 aulas</span>
-            <span class="aulas__mod-mais" aria-hidden="true"></span>
-            <span class="aulas__mod-barra" aria-hidden="true"><i></i></span>
-          </button>
-        </h3>
-        <div class="aulas__mod-corpo" id="aulas-corpo-06">
-          <div class="aulas__mod-dentro">
-            <ol class="aulas__mod-aulas">
-              <li><span class="aulas__aula-n mono">6.1</span><span class="aulas__aula-t">O que é uma skill e por que ela muda o jogo</span></li>
-              <li><span class="aulas__aula-n mono">6.2</span><span class="aulas__aula-t">Criando sua primeira skill</span></li>
-              <li><span class="aulas__aula-n mono">6.3</span><span class="aulas__aula-t">Transformando um estilo em skill</span></li>
-              <li><span class="aulas__aula-n mono">6.4</span><span class="aulas__aula-t">As regras fixas do projeto</span></li>
-              <li><span class="aulas__aula-n mono">6.5</span><span class="aulas__aula-t">Sua biblioteca de skills e estilos</span></li>
-            </ol>
-            <p class="aulas__mod-sai"><span class="hud">Você sai com</span><span class="aulas__mod-sai-t">Cria as próprias skills e monta a sua biblioteca.</span></p>
-          </div>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
+      <!-- OCULTO (22/10): @ include partials/estilos.html -->
+      <!-- OCULTO (22/10): @ include partials/aulas.html -->
       <!-- ================= 08 · KIT (a pasta que o aluno recebe) =================
      Uma janela de projeto, meio explorador de arquivos, meio "bin" de editor.
      Esquerda: as pastas (botões). Direita: a prévia da pasta aberta, com um
@@ -1439,7 +1006,7 @@
   <div class="kit__palco wrap">
     <header class="kit__cab">
       <div class="kit__cab-esq">
-        <p class="rotulo"><b>05</b> O kit</p>
+        <p class="rotulo"><b>03</b> O kit</p>
         <h2 class="kit__titulo display" id="kit-titulo" data-split>Você não começa do zero.</h2>
       </div>
       <p class="kit__lead lead" data-reveal data-reveal-delay=".15">Junto com as aulas vem a pasta que o Tom usa para fazer os vídeos. Você abre, pede à IA e começa.</p>
@@ -1740,7 +1307,7 @@
     </figure>
 
     <div class="instrutor__texto">
-      <p class="rotulo" data-reveal><b>06</b> Quem ensina</p>
+      <p class="rotulo" data-reveal><b>04</b> Quem ensina</p>
       <h2 class="instrutor__nome display" id="instrutor-titulo" data-split>Tom<br />Melo</h2>
       <p class="instrutor__cargo" data-reveal><span>Designer e criador da Upward Academy</span> <span class="instrutor__arroba mono">@tomelo.edit</span></p>
       <p class="instrutor__bio" data-reveal>Tom criou a formação Web Designer do Futuro e está à frente da Gravyx, plataforma de criação com IA. Todos os vídeos desta página foram feitos por ele, com o método que você vai aprender.</p>
@@ -1765,7 +1332,7 @@
 
   <div class="wrap">
     <header class="oferta__cab">
-      <p class="rotulo"><b>07</b> Sua vaga</p>
+      <p class="rotulo"><b>05</b> Sua vaga</p>
       <h2 class="oferta__titulo display" id="oferta-titulo" data-split>Exporte seu primeiro vídeo motion.</h2>
     </header>
 
@@ -1951,7 +1518,7 @@
   <div class="wrap grade duvidas__grade">
     <div class="duvidas__lado">
       <div class="duvidas__cab">
-        <p class="rotulo"><b>08</b> Dúvidas</p>
+        <p class="rotulo"><b>06</b> Dúvidas</p>
         <h2 class="duvidas__titulo display" id="duvidas-titulo" data-split>Antes de começar.</h2>
       </div>
 

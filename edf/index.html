@@ -88,11 +88,11 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf/assets/index-BAEbWIWh.js"></script>
+    <script type="module" crossorigin src="/edf/assets/index-D-1jVStG.js"></script>
     <link rel="modulepreload" crossorigin href="/edf/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/abertura-CNpnq7On.js">
-    <link rel="stylesheet" crossorigin href="/edf/assets/index-CZoeT9vN.css">
+    <link rel="stylesheet" crossorigin href="/edf/assets/index-BbFXBA7m.css">
   </head>
   <body>
     <a class="pular" href="#timeline">Pular para o conteúdo</a>
@@ -1731,11 +1731,9 @@
   </div>
 </section>
 
-      <!-- ================= 12 · OFERTA: a janela de exportação vira o cartão =================
-     Ao entrar na tela, a janela "renderiza" o curso (5400 quadros, 3 min a 30 qps):
-     porcentagem, contador, fita de miniaturas reais e a agulha lima. Em 100%:
-     status Pronto ✓, a fita cai, a miniatura da capa cresce até virar a capa do
-     cartão e a oferta aparece. Sem JS / movimento reduzido: o cartão já pronto.
+      <!-- ================= 12 · OFERTA: o cartão da oferta numa janela de programa =================
+     O cartão aparece pronto, sem espera (23/10/2026, pedido do dono: saiu a animação
+     de "renderizar" o curso e a capa; no lugar da capa e do nome vai a logo).
      Preço, parcelas, acesso e garantia vêm do config.js (data-oferta) e todo
      link de compra tem data-checkout. -->
 <section class="oferta" id="oferta" aria-labelledby="oferta-titulo">
@@ -1753,59 +1751,18 @@
         <div class="oferta__barra">
           <span class="oferta__botoes" aria-hidden="true"><i></i><i></i><i></i></span>
           <p class="oferta__arquivo hud">
-            <span class="oferta__giro" aria-hidden="true">
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path class="oferta__giro-arco" d="M8 2.2a5.8 5.8 0 1 1-5.6 4.3" /><path class="oferta__giro-ok" d="M4.2 8.4 6.8 11l5-6" /></svg>
-            </span>
-            <span>Exportando · Editor do Futuro</span>
+            <span class="oferta__arquivo-nome">editor-do-futuro.mp4</span>
             <span class="oferta__arquivo-fmt"><span class="oferta__ponto">· </span>1080 × 1920 · 30 qps</span>
           </p>
           <p class="oferta__status" aria-hidden="true">
-            <span class="oferta__status-render chip">Renderizando <b class="oferta__pct-mini">000%</b></span>
             <span class="oferta__status-pronto chip chip--acc">Pronto ✓</span>
           </p>
-          <button class="oferta__refazer" type="button" aria-label="Exportar de novo">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 8a5.2 5.2 0 1 1-1.6-3.8" /><path d="M12.2 1.8v2.8H9.4" /></svg>
-          </button>
           <i class="oferta__progresso" aria-hidden="true"></i>
         </div>
 
         <div class="oferta__corpo">
-          <!-- Capa: composição motion ao vivo, feita em HTML + CSS + GSAP -->
-          <figure class="oferta__capa" aria-hidden="true">
-            <div class="oferta__capa-tilt" data-tilt="5">
-              <div class="monitor monitor--916 oferta__monitor">
-                <div class="monitor__tela oferta__tela">
-                  <div class="oferta__cf">
-                    <i class="oferta__cf-pontos"></i>
-                    <i class="oferta__cf-luz"></i>
-                    <i class="oferta__cf-forma"></i>
-                    <div class="oferta__cf-faixa">
-                      <span class="oferta__cf-trilho k"><span>30 aulas · 7 módulos · 6 tipos de vídeo · </span><span>30 aulas · 7 módulos · 6 tipos de vídeo · </span></span>
-                    </div>
-                    <p class="oferta__cf-txt k">
-                      <span class="oferta__cf-m"><span class="oferta__cf-l oferta__cf-l1">Editor</span></span>
-                      <span class="oferta__cf-m"><span class="oferta__cf-l oferta__cf-l2">do</span></span>
-                      <span class="oferta__cf-m"><span class="oferta__cf-l oferta__cf-l3">Futuro</span></span>
-                    </p>
-                    <div class="oferta__cf-pe">
-                      <span class="oferta__cf-play"></span>
-                      <span class="oferta__cf-scrub"><i></i></span>
-                      <span class="oferta__cf-dur">03:00</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="monitor__hud">
-                  <span class="hud"><i class="rec"></i> REC</span>
-                  <span class="tc oferta__cf-tc">00:03:00:00</span>
-                </div>
-                <i class="hud-canto"></i>
-              </div>
-            </div>
-          </figure>
-
           <div class="oferta__ident">
-            <p class="oferta__ficha mono">editor-do-futuro.mp4</p>
-            <h3 class="oferta__nome display" id="oferta-nome">Editor do Futuro</h3>
+            <h3 class="oferta__nome" id="oferta-nome"><img class="oferta__logo" src="/edf/assets/editor-do-futuro-logo-DFkstImS.svg" alt="Editor do Futuro" width="320" height="50" /></h3>
           </div>
 
           <ul class="oferta__itens">
@@ -1851,44 +1808,6 @@
                 <span data-oferta="garantia">7 dias de garantia</span>
               </span>
             </p>
-          </div>
-
-          <!-- Camada da exportação (decorativa): some quando chega a 100% -->
-          <div class="oferta__export" aria-hidden="true">
-            <div class="oferta__exp-topo">
-              <div class="oferta__exp-pct">
-                <p class="hud oferta__exp-rot"><i class="rec"></i> Renderizando</p>
-                <p class="oferta__pct pixel"><span class="oferta__pct-n">000</span><small>%</small></p>
-              </div>
-              <dl class="oferta__exp-dados hud">
-                <div><dt>Quadro</dt><dd><span class="tc oferta__quadro">0000</span> / 5400</dd></div>
-                <div><dt>Tempo</dt><dd><span class="tc oferta__tempo">00:00:00:00</span> / 00:03:00:00</dd></div>
-                <div><dt>Saída</dt><dd>MP4 · 1080 × 1920</dd></div>
-              </dl>
-            </div>
-
-            <div class="oferta__fita">
-              <div class="oferta__fita-trilho">
-                <span class="oferta__q oferta__q--capa"></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-lima-poster-DYAqvIbe.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-nada-poster-rz9kwVWu.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-laranja-poster-Z3TcwxbQ.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-contabilidade-poster-BN2AiO4j.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-falado-poster-_zKJz_Mi.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-colagem-poster-CKmdJDYm.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-lima-poster-DYAqvIbe.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-nada-poster-rz9kwVWu.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-laranja-poster-Z3TcwxbQ.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-contabilidade-poster-BN2AiO4j.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-                <span class="oferta__q"><img src="/edf/assets/reel-falado-poster-_zKJz_Mi.jpg" alt="" width="540" height="960" loading="lazy" decoding="async" /></span>
-              </div>
-              <i class="oferta__cabeca"></i>
-            </div>
-
-            <div class="oferta__exp-pe">
-              <i class="regua"></i>
-              <div class="oferta__exp-barra"><i></i></div>
-            </div>
           </div>
         </div>
       </article>

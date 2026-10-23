@@ -27,8 +27,21 @@
     <meta property="og:title" content="Editor do Futuro · Uma frase vira vídeo motion" />
     <meta property="og:description" content="Aprenda a criar vídeos motion com IA. Você pede, a IA edita: roteiro, visual, animação e som." />
     <link rel="icon" href="/edf/assets/favicon-BVyX9LzM.svg" type="image/svg+xml" />
-    <!-- capa da VSL (maior elemento da primeira tela): baixa junto com o CSS -->
-    <link rel="preload" as="image" href="/edf/assets/vsl-poster-BZPm0sZR.webp" fetchpriority="high" />
+    <!-- VSL (player da Vturb): o código que a Vturb manda pôr no <head> -->
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <link rel="preload" href="https://scripts.converteai.net/ef387206-06d2-4d85-a3d2-816acf167612/players/6adacd67b5a47abee8639b4c/v4/player.js" as="script" />
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script" />
+    <link rel="preload" href="https://cdn.converteai.net/ef387206-06d2-4d85-a3d2-816acf167612/6adacd59a43f96837cbf948f/main.m3u8" as="fetch" />
+    <link rel="dns-prefetch" href="https://cdn.converteai.net" />
+    <link rel="dns-prefetch" href="https://scripts.converteai.net" />
+    <link rel="dns-prefetch" href="https://images.converteai.net" />
+    <link rel="dns-prefetch" href="https://license.vturb.com" />
+    <script>
+      var s = document.createElement('script');
+      s.src = 'https://scripts.converteai.net/ef387206-06d2-4d85-a3d2-816acf167612/players/6adacd67b5a47abee8639b4c/v4/player.js';
+      s.async = !0;
+      document.head.appendChild(s);
+    </script>
     <style>html{background:#060607}html:not(.estilos-ok) body{visibility:hidden}html:not(.estilos-ok) *,html:not(.estilos-ok) :before,html:not(.estilos-ok) :after{transition:none!important}</style>
     <script>
       (function () {
@@ -75,10 +88,10 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf/assets/index-XZLcAxJW.js"></script>
+    <script type="module" crossorigin src="/edf/assets/index-CZez3rFU.js"></script>
     <link rel="modulepreload" crossorigin href="/edf/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/cena-DpfsvVvj.js">
-    <link rel="modulepreload" crossorigin href="/edf/assets/abertura-D-G4UHVj.js">
+    <link rel="modulepreload" crossorigin href="/edf/assets/abertura-B4tHz8Jh.js">
     <link rel="stylesheet" crossorigin href="/edf/assets/index-tfAk_5xZ.css">
   </head>
   <body>
@@ -171,17 +184,11 @@
             <div class="monitor__tela abertura__tela">
               <!-- Composição ao vivo (montada pelo JS a partir da frase) -->
               <div class="abertura__comp">
-                <!-- VSL do curso: toca sem som em loop; o botão liga o som e começa do início -->
-                <video
-                  class="abertura__vsl"
-                  src="/edf/assets/vsl-B90KKnOK.mp4"
-                  poster="/edf/assets/vsl-poster-BZPm0sZR.webp"
-                  muted
-                  loop
-                  playsinline
-                  preload="metadata"
-                  aria-label="VSL do curso Editor do Futuro, com Tom Melo"
-                ></video>
+                <!-- VSL do curso: player da Vturb (som, play e progresso são do próprio player).
+                     O script do player está no <head> do index.html. -->
+                <div class="abertura__vsl abertura__vturb">
+                  <vturb-smartplayer id="vid-6adacd67b5a47abee8639b4c" style="display: block; margin: 0 auto; width: 100%;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
+                </div>
                 <i class="abertura__pontos"></i>
                 <i class="abertura__brilho"></i>
                 <i class="abertura__forma"><i class="abertura__forma-borda"></i><i class="abertura__forma-miolo"></i></i>
@@ -230,15 +237,6 @@
                 </div>
               </div>
               <i class="abertura__liga" aria-hidden="true"></i>
-              <button class="abertura__som" type="button" aria-pressed="false">
-                <svg class="abertura__som-ico" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4Z" fill="currentColor" />
-                  <path class="abertura__som-on" d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                  <path class="abertura__som-off" d="m16 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                </svg>
-                <span class="abertura__som-txt">Ativar som</span>
-              </button>
-              <div class="abertura__vsl-barra" aria-hidden="true"><i></i></div>
             </div>
             <div class="monitor__hud" aria-hidden="true">
               <span class="hud"><i class="rec"></i>REC</span>

@@ -1,0 +1,1 @@
+export{t as default}from"./abertura-B4tHz8Jh.js";

@@ -89,7 +89,30 @@
         </div>
       </a>
 
-      <!-- LINK 02 -->
+      <!-- LINK 02 — Editor do Futuro (23/10/2026), marcado como "bio" como o 01 -->
+      <a class="bio-card" data-bio-promo href="https://lp.upwardacademy.com.br/edf/?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=bio&amp;utm_content=bio-editor-do-futuro">
+        <div class="bio-card-banner">
+          <img class="bio-card-img" src="ASSETS/BIO/banner-04.webp" alt="Editor do Futuro"
+            width="1080" height="453" loading="lazy" decoding="async" onerror="this.remove()">
+          <span class="bio-card-slot" aria-hidden="true">
+            <iconify-icon icon="solar:gallery-wide-bold-duotone"></iconify-icon>
+            <span class="bio-card-slot-label">Banner 04</span>
+            <span class="bio-card-slot-size">1080 × 453</span>
+          </span>
+        </div>
+        <div class="bio-card-body">
+          <span class="bio-card-index">02</span>
+          <span class="bio-card-text">
+            <strong class="bio-card-title">Editor do Futuro</strong>
+            <span class="bio-card-subtitle">Crie vídeos com IA, sem editar</span>
+          </span>
+          <span class="bio-card-arrow" aria-hidden="true">
+            <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+          </span>
+        </div>
+      </a>
+
+      <!-- LINK 03 -->
       <a class="bio-card" href="https://gravyx.com.br/bio" target="_blank" rel="noopener noreferrer">
         <div class="bio-card-banner">
           <img class="bio-card-img" src="ASSETS/BIO/banner-03.webp" alt="Gravyx"
@@ -101,7 +124,7 @@
           </span>
         </div>
         <div class="bio-card-body">
-          <span class="bio-card-index">02</span>
+          <span class="bio-card-index">03</span>
           <span class="bio-card-text">
             <strong class="bio-card-title">Gravyx</strong>
             <span class="bio-card-subtitle">Conheça a plataforma</span>
@@ -112,7 +135,7 @@
         </div>
       </a>
 
-      <!-- LINK 03 -->
+      <!-- LINK 04 -->
       <a class="bio-card" href="https://wa.me/5588992089323" target="_blank" rel="noopener noreferrer">
         <div class="bio-card-banner">
           <img class="bio-card-img" src="ASSETS/BIO/banner-01.webp" alt="Precisa de um orçamento para o seu projeto? Clique e entre em contato"
@@ -124,7 +147,7 @@
           </span>
         </div>
         <div class="bio-card-body">
-          <span class="bio-card-index">03</span>
+          <span class="bio-card-index">04</span>
           <span class="bio-card-text">
             <strong class="bio-card-title">Orçamento para o seu projeto</strong>
             <span class="bio-card-subtitle">Clique e fale comigo no WhatsApp</span>
@@ -160,17 +183,18 @@
 
   </main>
 
-  <!-- Repassa o fbclid do Instagram para a /promo: a visita leva o clique junto (cookie _fbc) -->
+  <!-- Repassa o fbclid do Instagram para as páginas dos cursos: a visita leva o clique junto (cookie _fbc) -->
   <script>
     (function () {
       try {
         var id = new URLSearchParams(location.search).get('fbclid');
-        var a = document.querySelector('[data-bio-promo]');
-        if (!id || !a) return;
-        var u = new URL(a.href);
-        u.searchParams.set('fbclid', id);
-        a.href = u.toString();
-      } catch (e) { /* o link segue sem o fbclid */ }
+        if (!id) return;
+        document.querySelectorAll('[data-bio-promo]').forEach(function (a) {
+          var u = new URL(a.href);
+          u.searchParams.set('fbclid', id);
+          a.href = u.toString();
+        });
+      } catch (e) { /* os links seguem sem o fbclid */ }
     })();
   </script>
 

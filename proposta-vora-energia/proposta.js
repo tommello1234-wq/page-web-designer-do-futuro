@@ -113,7 +113,7 @@ window.PROPOSTA = {
       },
       {
         titulo: 'Layout e desenvolvimento',
-        dias: 12,
+        dias: 17,
         voceRecebe: 'O site completo, montado com as suas informações, num link de teste',
         precisoDeVoce: 'Nada, essa parte é comigo',
       },

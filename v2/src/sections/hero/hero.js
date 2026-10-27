@@ -233,8 +233,8 @@ WDF.register('hero', {
 
     // saem: .hero-left e, só quando está no palco (desktop com pin), .hero-right
     let exits = [];
-    // selo, subheadline, botão e logos das ferramentas (celular) ficam na tela durante toda a ativação (pedido do dono); só o texto lateral sai
-    const stays = (el) => el.matches('.hero-badge, .hero-sub, .cta, .hero-tools--m');
+    // selo, subheadline, botão, nota/alunos e logos das ferramentas (celular) ficam na tela durante toda a ativação (pedido do dono); só o texto lateral sai
+    const stays = (el) => el.matches('.hero-badge, .hero-sub, .cta, .hero-tools--m, .hero-rate');
     const setExits = () => { exits = [...left.children, ...(right && right.parentNode === stage ? right.children : [])].filter((el) => !stays(el)); };
     setExits();
     ctx.onRefresh(setExits);

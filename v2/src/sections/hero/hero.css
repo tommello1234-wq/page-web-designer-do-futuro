@@ -270,3 +270,14 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
   .s-hero .hero-vt{top:calc(100% - var(--fig-h) * .62);-webkit-mask-image:none;mask-image:none}   /* celular: sem esmaecido nas bordas (pedido do dono) */
   .s-hero .vt-item{width:46vw;margin-right:10px}
 }
+
+/* nota e alunos logo abaixo do botão (pedido do dono); no celular as logos das ferramentas ficam ACIMA do botão */
+.s-hero .hero-rate{display:flex;align-items:center;gap:10px;margin:14px 0 0;font-size:13px;letter-spacing:-.005em;color:var(--white);text-shadow:0 1px 8px rgb(0 0 0 / .55)}   /* sem pílula (pedido do dono); sombra leve para ler no laranja */
+.s-hero .hero-rate .stars{display:flex;gap:2px;color:#FFC83D;filter:drop-shadow(0 1px 3px rgb(0 0 0 / .5))}   /* estrelas douradas (pedido do dono) */
+.s-hero .hero-rate .stars .i{width:14px;height:14px;fill:currentColor}
+.s-hero .hero-rate b{font-weight:600;color:var(--white)}
+.s-hero .hero-rate-t{display:flex;align-items:center;gap:10px}
+.s-hero .hero-rate-sep{width:1px;height:13px;background:rgb(var(--white-rgb) / .6);box-shadow:0 1px 6px rgb(0 0 0 / .35)}   /* divisória reta entre a nota e os alunos */
+@media (max-width:899px){ .s-hero .hero-rate{justify-content:center;margin-top:16px} }
+@media (orientation:landscape) and (max-height:560px){ .s-hero .hero-rate{margin-top:8px} }
+@media (min-width:900px){ .s-hero[data-layout="side"] .hero-left{margin-top:-30px} }   /* abre espaço para a nota sem encostar no painel "ESTADO" */

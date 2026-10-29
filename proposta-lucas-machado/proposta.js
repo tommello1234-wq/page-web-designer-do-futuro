@@ -73,7 +73,6 @@ window.PROPOSTA = {
       { nome: 'Dr. Henrique Salles', nicho: 'odontologia', video: 'portfolio/dentista', link: 'https://demonstracao-page-preview.vercel.app/dentista/henriquesalles/' },
       { nome: 'AERIS X', nicho: 'produto', video: 'portfolio/drone', link: 'https://drone-aeris-x-gravyx.vercel.app/' },
       { nome: 'Esportivo', nicho: 'automotivo', video: 'portfolio/carro' },
-      { nome: 'Renascença com Wi-Fi', nicho: 'experiência', video: 'portfolio/renascenca', link: 'https://demonstracao-page-preview.vercel.app/experiencia/renascenca/' },
       { nome: 'Lumen Jardim Europa', nicho: 'imóveis', video: 'portfolio/imoveis', link: 'https://demonstracao-page-preview.vercel.app/imoveis/lumen/' },
       { nome: 'HALO Beauty Lab', nicho: 'salão', video: 'portfolio/salao', link: 'https://demonstracao-page-preview.vercel.app/salao/halo/' },
       { nome: 'Moura Arquitetura', nicho: 'arquitetura', video: 'portfolio/arquitetura', link: 'https://demonstracao-page-preview.vercel.app/arquitetura/moura/' },

@@ -70,6 +70,7 @@ window.PROPOSTA = {
   portfolio: {
     publicados: 22, // quantos sites você já publicou (número real)
     projetos: [
+      { nome: 'Dr. Henrique Salles', nicho: 'odontologia', video: 'portfolio/dentista', link: 'https://demonstracao-page-preview.vercel.app/dentista/henriquesalles/' },
       { nome: 'AERIS X', nicho: 'produto', video: 'portfolio/drone', link: 'https://drone-aeris-x-gravyx.vercel.app/' },
       { nome: 'Esportivo', nicho: 'automotivo', video: 'portfolio/carro' },
       { nome: 'Renascença com Wi-Fi', nicho: 'experiência', video: 'portfolio/renascenca', link: 'https://demonstracao-page-preview.vercel.app/experiencia/renascenca/' },

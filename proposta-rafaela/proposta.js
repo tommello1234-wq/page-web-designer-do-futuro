@@ -72,6 +72,7 @@ window.PROPOSTA = {
     projetos: [
       { nome: 'AERIS X', nicho: 'produto', video: 'portfolio/drone', link: 'https://drone-aeris-x-gravyx.vercel.app/' },
       { nome: 'Esportivo', nicho: 'automotivo', video: 'portfolio/carro' },
+      { nome: 'IARA', nicho: 'SaaS', video: 'portfolio/iara', link: 'https://demonstracao-page-preview.vercel.app/saas/iara/' },
       { nome: 'Lumen Jardim Europa', nicho: 'imóveis', video: 'portfolio/imoveis', link: 'https://demonstracao-page-preview.vercel.app/imoveis/lumen/' },
       { nome: 'HALO Beauty Lab', nicho: 'salão', video: 'portfolio/salao', link: 'https://demonstracao-page-preview.vercel.app/salao/halo/' },
       { nome: 'Moura Arquitetura', nicho: 'arquitetura', video: 'portfolio/arquitetura', link: 'https://demonstracao-page-preview.vercel.app/arquitetura/moura/' },
@@ -83,7 +84,6 @@ window.PROPOSTA = {
       { nome: 'Vanessa Linhares Estética', nicho: 'estética', link: 'https://demonstracao-page-preview.vercel.app/estetica/vanessalinhares/' },
       { nome: 'FitsFort Academia', nicho: 'academia', link: 'https://demonstracao-page-preview.vercel.app/academia/fitsfort/' },
       { nome: 'Método Prisma', nicho: 'infoproduto', link: 'https://demonstracao-page-preview.vercel.app/infoproduto/prisma/' },
-      { nome: 'IARA', nicho: 'SaaS', link: 'https://demonstracao-page-preview.vercel.app/saas/iara/' },
     ],
   },
 

@@ -71,8 +71,8 @@ window.PROPOSTA = {
     publicados: 22, // quantos sites você já publicou (número real)
     projetos: [
       { nome: 'AERIS X', nicho: 'produto', video: 'portfolio/drone', link: 'https://drone-aeris-x-gravyx.vercel.app/' },
-      { nome: 'Esportivo', nicho: 'automotivo', video: 'portfolio/carro' },
       { nome: 'IARA', nicho: 'SaaS', video: 'portfolio/iara', link: 'https://demonstracao-page-preview.vercel.app/saas/iara/' },
+      { nome: 'Esportivo', nicho: 'automotivo', video: 'portfolio/carro' },
       { nome: 'Lumen Jardim Europa', nicho: 'imóveis', video: 'portfolio/imoveis', link: 'https://demonstracao-page-preview.vercel.app/imoveis/lumen/' },
       { nome: 'HALO Beauty Lab', nicho: 'salão', video: 'portfolio/salao', link: 'https://demonstracao-page-preview.vercel.app/salao/halo/' },
       { nome: 'Moura Arquitetura', nicho: 'arquitetura', video: 'portfolio/arquitetura', link: 'https://demonstracao-page-preview.vercel.app/arquitetura/moura/' },

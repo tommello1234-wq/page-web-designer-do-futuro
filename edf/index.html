@@ -88,11 +88,11 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf/assets/index-BwC0ASJd.js"></script>
+    <script type="module" crossorigin src="/edf/assets/index-CjKPCWri.js"></script>
     <link rel="modulepreload" crossorigin href="/edf/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/abertura-CNpnq7On.js">
-    <link rel="stylesheet" crossorigin href="/edf/assets/index-X0ox8Hpl.css">
+    <link rel="stylesheet" crossorigin href="/edf/assets/index-L4fFq5Rg.css">
   </head>
   <body>
     <a class="pular" href="#timeline">Pular para o conteúdo</a>
@@ -1369,10 +1369,10 @@
 </section>
 
       <!-- ================= 09 · PRA QUEM É =================
-     Cinco cartões de perfil, cada um com uma mini cena motion em linha (SVG
+     Seis cartões de perfil, cada um com uma mini cena motion em linha (SVG
      animado pelo GSAP, só roda com a dobra na tela) dentro de um visor com
-     cantoneiras, índice e keyframes; inclinação leve no desktop. O sexto lugar
-     da grade é o bloco "Não é pra você se…" (um clipe desativado, hachurado).
+     cantoneiras, índice e keyframes; inclinação leve no desktop. O sexto é o do editor
+     de vídeo (31/10/2026, no lugar do bloco "Não é pra você se…").
      Fecha com a frase grande que acende palavra por palavra com a rolagem,
      com uma régua e uma agulha lima correndo junto. Sem pin. -->
 <section class="paraquem" id="paraquem" aria-labelledby="paraquem-titulo">
@@ -1383,8 +1383,8 @@
         <h2 class="paraquem__titulo display" id="paraquem-titulo" data-split>Feito pra quem precisa de vídeo toda semana.</h2>
       </div>
       <p class="paraquem__legenda hud" aria-hidden="true">
-        <span>05 perfis</span>
-        <span class="paraquem__legenda-kf"><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i></span>
+        <span>06 perfis</span>
+        <span class="paraquem__legenda-kf"><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i></span>
       </p>
     </header>
 
@@ -1518,17 +1518,26 @@
         <p class="paraquem__txt">Você não precisa saber editar nem programar. Precisa saber pedir, e isso se aprende.</p>
       </li>
 
-      <!-- Não é pra você se… -->
-      <li class="paraquem__nao">
-        <div class="paraquem__nao-topo" aria-hidden="true">
-          <span class="hud">Fora do corte</span>
-          <svg class="paraquem__nao-ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M5.6 18.4 18.4 5.6" /></svg>
+      <!-- 06 · Editor de vídeo: a IA fecha as pausas da linha do tempo -->
+      <li class="paraquem__card" data-tilt="4" data-cena="editor">
+        <div class="paraquem__cena" aria-hidden="true">
+          <span class="paraquem__n pixel">06</span>
+          <span class="paraquem__kfs"><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
+          <svg class="paraquem__svg" viewBox="0 0 160 100">
+            <g class="pq-e">
+              <rect class="pq-e__pista" x="10" y="34" width="140" height="34" rx="4" />
+              <g class="pq-e__clip pq-e__clip--a"><rect x="14" y="39" width="40" height="24" rx="3" /><line x1="20" y1="49" x2="46" y2="49" /><line x1="20" y1="55" x2="38" y2="55" /></g>
+              <g class="pq-e__clip pq-e__clip--b"><rect class="pq-acc-fill" x="62" y="39" width="34" height="24" rx="3" /></g>
+              <g class="pq-e__clip pq-e__clip--c"><rect x="104" y="39" width="42" height="24" rx="3" /><line x1="110" y1="49" x2="138" y2="49" /><line x1="110" y1="55" x2="130" y2="55" /></g>
+              <g class="pq-e__regua"><line x1="14" y1="78" x2="146" y2="78" /><line x1="14" y1="75" x2="14" y2="81" /><line x1="46" y1="76" x2="46" y2="80" /><line x1="80" y1="75" x2="80" y2="81" /><line x1="112" y1="76" x2="112" y2="80" /><line x1="146" y1="75" x2="146" y2="81" /></g>
+              <path class="pq-e__brilho pq-acc" d="M80 14l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" />
+              <g class="pq-e__cabeca"><line x1="0" y1="26" x2="0" y2="76" /><path d="M-4 22h8l-4 6z" /></g>
+            </g>
+          </svg>
+          <i class="hud-canto"></i>
         </div>
-        <h3 class="paraquem__nome">Não é pra você se…</h3>
-        <ul class="paraquem__nao-lista">
-          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" /></svg><span>você procura um botão mágico que faz tudo sem você olhar</span></li>
-          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" /></svg><span>você não quer aprender a julgar o que está bom</span></li>
-        </ul>
+        <h3 class="paraquem__nome">Editor de vídeo</h3>
+        <p class="paraquem__txt">Você já edita. Aprenda a dominar a IA e entregue mais, sem largar o seu olho de editor.</p>
       </li>
     </ul>
 

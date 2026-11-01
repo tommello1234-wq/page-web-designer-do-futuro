@@ -6,6 +6,11 @@
       "permanent": false
     },
     {
+      "source": "/black",
+      "destination": "/black/",
+      "permanent": false
+    },
+    {
       "source": "/proposta-:cliente",
       "destination": "/proposta-:cliente/",
       "permanent": false

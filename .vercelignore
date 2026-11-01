@@ -43,3 +43,8 @@ ASSETS/videos-paginas/08.mp4
 !edf/
 !edf/assets/
 !edf/assets/*.mp4
+
+# Black Friday (/black): vídeos da página vão ao ar.
+!black/
+!black/assets/
+!black/assets/*.mp4

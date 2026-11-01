@@ -88,11 +88,11 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf/assets/index-CjKPCWri.js"></script>
+    <script type="module" crossorigin src="/edf/assets/index-C_RHIPAz.js"></script>
     <link rel="modulepreload" crossorigin href="/edf/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/abertura-CNpnq7On.js">
-    <link rel="stylesheet" crossorigin href="/edf/assets/index-L4fFq5Rg.css">
+    <link rel="stylesheet" crossorigin href="/edf/assets/index-BUkx5tCk.css">
   </head>
   <body>
     <a class="pular" href="#timeline">Pular para o conteúdo</a>
@@ -1371,8 +1371,8 @@
       <!-- ================= 09 · PRA QUEM É =================
      Seis cartões de perfil, cada um com uma mini cena motion em linha (SVG
      animado pelo GSAP, só roda com a dobra na tela) dentro de um visor com
-     cantoneiras, índice e keyframes; inclinação leve no desktop. O sexto é o do editor
-     de vídeo (31/10/2026, no lugar do bloco "Não é pra você se…").
+     cantoneiras, índice e keyframes; inclinação leve no desktop. O primeiro é o do editor
+     de vídeo (31/10/2026) e o do designer virou dono de negócio (01/11/2026).
      Fecha com a frase grande que acende palavra por palavra com a rolagem,
      com uma régua e uma agulha lima correndo junto. Sem pin. -->
 <section class="paraquem" id="paraquem" aria-labelledby="paraquem-titulo">
@@ -1389,33 +1389,54 @@
     </header>
 
     <ul class="paraquem__grade" data-reveal data-reveal-grupo>
-      <!-- 01 · Designer: a caneta de bézier desenha a curva -->
-      <li class="paraquem__card" data-tilt="4" data-cena="designer">
+      <!-- 01 · Editor de vídeo: a IA fecha as pausas da linha do tempo -->
+      <li class="paraquem__card" data-tilt="4" data-cena="editor">
         <div class="paraquem__cena" aria-hidden="true">
           <span class="paraquem__n pixel">01</span>
           <span class="paraquem__kfs"><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
           <svg class="paraquem__svg" viewBox="0 0 160 100">
-            <g class="pq-d">
-              <path class="pq-d__curva pq-traco" d="M18 72C44 72 56 28 82 28C108 28 118 66 142 66" pathLength="1" />
-              <g class="pq-d__alca pq-d__alca--a"><line x1="18" y1="72" x2="44" y2="72" /><circle cx="44" cy="72" r="2.4" /></g>
-              <g class="pq-d__alca pq-d__alca--b"><line x1="56" y1="28" x2="108" y2="28" /><circle cx="56" cy="28" r="2.4" /><circle cx="108" cy="28" r="2.4" /></g>
-              <g class="pq-d__alca pq-d__alca--c"><line x1="118" y1="66" x2="142" y2="66" /><circle cx="118" cy="66" r="2.4" /></g>
-              <rect class="pq-d__no pq-d__no--a" x="15" y="69" width="6" height="6" />
-              <rect class="pq-d__no pq-d__no--b pq-acc" x="79" y="25" width="6" height="6" />
-              <rect class="pq-d__no pq-d__no--c" x="139" y="63" width="6" height="6" />
-              <g class="pq-d__ponteiro"><path d="M0 0v13.5l3.6-3.2 2.6 5.4 2.4-1.1-2.5-5.3h4.9z" /></g>
+            <g class="pq-e">
+              <rect class="pq-e__pista" x="10" y="34" width="140" height="34" rx="4" />
+              <g class="pq-e__clip pq-e__clip--a"><rect x="14" y="39" width="40" height="24" rx="3" /><line x1="20" y1="49" x2="46" y2="49" /><line x1="20" y1="55" x2="38" y2="55" /></g>
+              <g class="pq-e__clip pq-e__clip--b"><rect class="pq-acc-fill" x="62" y="39" width="34" height="24" rx="3" /></g>
+              <g class="pq-e__clip pq-e__clip--c"><rect x="104" y="39" width="42" height="24" rx="3" /><line x1="110" y1="49" x2="138" y2="49" /><line x1="110" y1="55" x2="130" y2="55" /></g>
+              <g class="pq-e__regua"><line x1="14" y1="78" x2="146" y2="78" /><line x1="14" y1="75" x2="14" y2="81" /><line x1="46" y1="76" x2="46" y2="80" /><line x1="80" y1="75" x2="80" y2="81" /><line x1="112" y1="76" x2="112" y2="80" /><line x1="146" y1="75" x2="146" y2="81" /></g>
+              <path class="pq-e__brilho pq-acc" d="M80 14l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" />
+              <g class="pq-e__cabeca"><line x1="0" y1="26" x2="0" y2="76" /><path d="M-4 22h8l-4 6z" /></g>
             </g>
           </svg>
           <i class="hud-canto"></i>
         </div>
-        <h3 class="paraquem__nome">Designer</h3>
-        <p class="paraquem__txt">Leve seu olho de design para o vídeo e entregue motion sem aprender um programa novo.</p>
+        <h3 class="paraquem__nome">Editor de vídeo</h3>
+        <p class="paraquem__txt">Você já edita. Aprenda a dominar a IA e entregue mais, sem largar o seu olho de editor.</p>
       </li>
 
-      <!-- 02 · Social media: Reels de vários clientes passando pelo quadro -->
-      <li class="paraquem__card" data-tilt="4" data-cena="social">
+      <!-- 02 · Dono de negócio: o gráfico sobe e a linha de crescimento se desenha -->
+      <li class="paraquem__card" data-tilt="4" data-cena="negocio">
         <div class="paraquem__cena" aria-hidden="true">
           <span class="paraquem__n pixel">02</span>
+          <span class="paraquem__kfs"><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
+          <svg class="paraquem__svg" viewBox="0 0 160 100">
+            <g class="pq-n">
+              <line class="pq-n__base" x1="16" y1="82" x2="144" y2="82" />
+              <rect class="pq-n__barra" x="22" y="58" width="18" height="24" rx="2" />
+              <rect class="pq-n__barra" x="52" y="46" width="18" height="36" rx="2" />
+              <rect class="pq-n__barra" x="82" y="32" width="18" height="50" rx="2" />
+              <rect class="pq-n__barra pq-n__barra--topo pq-acc-fill" x="112" y="16" width="18" height="66" rx="2" />
+              <path class="pq-n__linha pq-traco" d="M31 50L61 38L91 24L121 8" pathLength="1" />
+              <path class="pq-n__brilho pq-acc" d="M140 12l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" />
+            </g>
+          </svg>
+          <i class="hud-canto"></i>
+        </div>
+        <h3 class="paraquem__nome">Dono de negócio</h3>
+        <p class="paraquem__txt">Faça os vídeos da sua empresa sem depender de agência nem de editor.</p>
+      </li>
+
+      <!-- 03 · Social media: Reels de vários clientes passando pelo quadro -->
+      <li class="paraquem__card" data-tilt="4" data-cena="social">
+        <div class="paraquem__cena" aria-hidden="true">
+          <span class="paraquem__n pixel">03</span>
           <span class="paraquem__kfs"><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
           <svg class="paraquem__svg" viewBox="0 0 160 100">
             <g class="pq-s">
@@ -1432,10 +1453,10 @@
         <p class="paraquem__txt">Produza Reels animados para vários clientes sem passar a noite editando.</p>
       </li>
 
-      <!-- 03 · Gestor de tráfego: o gancho troca (A, B, C) e renderiza de novo -->
+      <!-- 04 · Gestor de tráfego: o gancho troca (A, B, C) e renderiza de novo -->
       <li class="paraquem__card" data-tilt="4" data-cena="trafego">
         <div class="paraquem__cena" aria-hidden="true">
-          <span class="paraquem__n pixel">03</span>
+          <span class="paraquem__n pixel">04</span>
           <span class="paraquem__kfs"><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
           <svg class="paraquem__svg" viewBox="0 0 160 100">
             <defs><clipPath id="pq-t-recorte"><rect x="31" y="15" width="40" height="22" /></clipPath></defs>
@@ -1465,10 +1486,10 @@
         <p class="paraquem__txt">Teste mais criativos: troque o gancho com uma frase e renderize de novo.</p>
       </li>
 
-      <!-- 04 · Criador de conteúdo: a fala, o corte da pausa e a legenda -->
+      <!-- 05 · Criador de conteúdo: a fala, o corte da pausa e a legenda -->
       <li class="paraquem__card" data-tilt="4" data-cena="criador">
         <div class="paraquem__cena" aria-hidden="true">
-          <span class="paraquem__n pixel">04</span>
+          <span class="paraquem__n pixel">05</span>
           <span class="paraquem__kfs"><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
           <svg class="paraquem__svg" viewBox="0 0 160 100">
             <g class="pq-c">
@@ -1489,10 +1510,10 @@
         <p class="paraquem__txt">Transforme o que você grava em Reels editados, com corte e legenda.</p>
       </li>
 
-      <!-- 05 · Quem nunca editou: escreve o pedido, aperta, sai o vídeo -->
+      <!-- 06 · Quem nunca editou: escreve o pedido, aperta, sai o vídeo -->
       <li class="paraquem__card" data-tilt="4" data-cena="pedido">
         <div class="paraquem__cena" aria-hidden="true">
-          <span class="paraquem__n pixel">05</span>
+          <span class="paraquem__n pixel">06</span>
           <span class="paraquem__kfs"><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
           <svg class="paraquem__svg" viewBox="0 0 160 100">
             <g class="pq-p">
@@ -1516,28 +1537,6 @@
         </div>
         <h3 class="paraquem__nome">Quem nunca editou</h3>
         <p class="paraquem__txt">Você não precisa saber editar nem programar. Precisa saber pedir, e isso se aprende.</p>
-      </li>
-
-      <!-- 06 · Editor de vídeo: a IA fecha as pausas da linha do tempo -->
-      <li class="paraquem__card" data-tilt="4" data-cena="editor">
-        <div class="paraquem__cena" aria-hidden="true">
-          <span class="paraquem__n pixel">06</span>
-          <span class="paraquem__kfs"><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
-          <svg class="paraquem__svg" viewBox="0 0 160 100">
-            <g class="pq-e">
-              <rect class="pq-e__pista" x="10" y="34" width="140" height="34" rx="4" />
-              <g class="pq-e__clip pq-e__clip--a"><rect x="14" y="39" width="40" height="24" rx="3" /><line x1="20" y1="49" x2="46" y2="49" /><line x1="20" y1="55" x2="38" y2="55" /></g>
-              <g class="pq-e__clip pq-e__clip--b"><rect class="pq-acc-fill" x="62" y="39" width="34" height="24" rx="3" /></g>
-              <g class="pq-e__clip pq-e__clip--c"><rect x="104" y="39" width="42" height="24" rx="3" /><line x1="110" y1="49" x2="138" y2="49" /><line x1="110" y1="55" x2="130" y2="55" /></g>
-              <g class="pq-e__regua"><line x1="14" y1="78" x2="146" y2="78" /><line x1="14" y1="75" x2="14" y2="81" /><line x1="46" y1="76" x2="46" y2="80" /><line x1="80" y1="75" x2="80" y2="81" /><line x1="112" y1="76" x2="112" y2="80" /><line x1="146" y1="75" x2="146" y2="81" /></g>
-              <path class="pq-e__brilho pq-acc" d="M80 14l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" />
-              <g class="pq-e__cabeca"><line x1="0" y1="26" x2="0" y2="76" /><path d="M-4 22h8l-4 6z" /></g>
-            </g>
-          </svg>
-          <i class="hud-canto"></i>
-        </div>
-        <h3 class="paraquem__nome">Editor de vídeo</h3>
-        <p class="paraquem__txt">Você já edita. Aprenda a dominar a IA e entregue mais, sem largar o seu olho de editor.</p>
       </li>
     </ul>
 

@@ -88,7 +88,7 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf/assets/index-D_cvTGw1.js"></script>
+    <script type="module" crossorigin src="/edf/assets/index-2J7kBL_T.js"></script>
     <link rel="modulepreload" crossorigin href="/edf/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/abertura-CNpnq7On.js">
@@ -111,8 +111,8 @@
     </a>
 
     <nav class="nav__links" aria-label="Seções">
-      <a href="#timeline">O método</a>
       <a href="#reel">Vídeos</a>
+      <a href="#timeline">O método</a>
       <a href="#kit">Kit</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
@@ -372,6 +372,245 @@
   </div>
 </section>
 
+      <!-- ================= 04 · REEL (vídeos reais, galeria horizontal presa) =================
+     Desktop: a dobra trava e a galeria anda para o lado com o scroll. O card
+     que passa pelo centro cresce e acende (só ele toca); os das pontas ficam
+     menores e escuros, o vídeo tem parallax dentro do card e o título gigante
+     vazado corre no sentido contrário. Celular: carrossel com arraste e snap.
+     Movimento reduzido: grade estática, vídeos com controles. -->
+<section class="reel" id="reel" aria-labelledby="reel-titulo">
+  <div class="reel__palco">
+    <!-- Título gigante vazado (corre ao contrário) -->
+    <div class="reel__fantasma" aria-hidden="true">
+      <p class="reel__fantasma-in">Feito com IA<i></i>Feito com IA<i></i>Feito com IA<i></i>Feito com IA<i></i></p>
+    </div>
+
+    <!-- HUD do topo ("REC · Cena 04 · Galeria") saiu a pedido do dono (23/10/2026) -->
+
+    <div class="reel__janela">
+      <div class="reel__trilho">
+        <!-- Abertura da dobra (primeiro item do trilho no desktop) -->
+        <header class="reel__abre">
+          <div class="reel__abre-topo">
+            <p class="rotulo"><b>01</b> Feito com o método</p>
+            <h2 class="reel__titulo display" id="reel-titulo" data-split>Vídeos reais.<br /><span class="reel__titulo-b">Feitos assim.</span></h2>
+            <p class="reel__lead lead" data-reveal>Todos estes vídeos foram feitos pelo Tom com o método que você vai aprender. É esse o nível que você vai criar.</p>
+          </div>
+          <p class="reel__dica mono" aria-hidden="true"><span>Role · a galeria anda</span><i class="reel__dica-seta"></i></p>
+        </header>
+
+        <ol class="reel__cards" aria-label="Vídeos feitos com o método">
+          <!-- 01 · clone-realista.mp4 (primeiro a pedido do dono, 23/10/2026) -->
+          <li class="reel__card is-ativo reel__card--som" data-video="avatar">
+            <div class="reel__peca">
+              <div class="reel__monitor">
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">clone-realista.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <div class="reel__tela">
+                  <div class="reel__para">
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Avatar digital realista do Tom falando, com cards e legendas animados em volta."></video>
+                  </div>
+                  <i class="reel__sombra" aria-hidden="true"></i>
+                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
+                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
+                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    <span class="reel__som-txt">Ouvir</span>
+                  </button>
+                </div>
+                <i class="reel__brilho" aria-hidden="true"></i>
+                <i class="hud-canto" aria-hidden="true"></i>
+              </div>
+              <div class="reel__ficha">
+                <p class="reel__meta mono"><span class="reel__idx">01</span>Avatar digital · 9:16 · 30 s</p>
+                <h3 class="reel__nome">Clone realista com avatar</h3>
+                <p class="reel__desc"><em>Um avatar fala por mim. A IA escreveu o roteiro e montou a edição em volta dele.</em></p>
+              </div>
+            </div>
+          </li>
+          <!-- 02 · colagem-diretor-de-arte.mp4 -->
+          <li class="reel__card reel__card--som" data-video="colagem">
+            <div class="reel__peca">
+              <div class="reel__monitor">
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">colagem-diretor-de-arte.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <div class="reel__tela">
+                  <div class="reel__para">
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Reels em estilo colagem vintage: mãos com rolo de filme, computador antigo, robô e calendário."></video>
+                  </div>
+                  <i class="reel__sombra" aria-hidden="true"></i>
+                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
+                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
+                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    <span class="reel__som-txt">Ouvir</span>
+                  </button>
+                </div>
+                <i class="reel__brilho" aria-hidden="true"></i>
+                <i class="hud-canto" aria-hidden="true"></i>
+              </div>
+              <div class="reel__ficha">
+                <p class="reel__meta mono"><span class="reel__idx">02</span>Reels em motion · 9:16 · 40 s</p>
+                <h3 class="reel__nome">Colagem de diretor de arte</h3>
+                <p class="reel__desc"><em>Estilo colagem vintage, com imagens e clipes gerados por IA.</em></p>
+              </div>
+            </div>
+          </li>
+          <!-- 03 · corte-podcast.mp4 -->
+          <li class="reel__card reel__card--som" data-video="podcast">
+            <div class="reel__peca">
+              <div class="reel__monitor">
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">corte-podcast.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <div class="reel__tela">
+                  <div class="reel__para">
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Corte de podcast: legenda palavra por palavra, cortes de câmera e um gráfico animado de posicionamento sobre a gravação."></video>
+                  </div>
+                  <i class="reel__sombra" aria-hidden="true"></i>
+                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
+                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
+                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    <span class="reel__som-txt">Ouvir</span>
+                  </button>
+                </div>
+                <i class="reel__brilho" aria-hidden="true"></i>
+                <i class="hud-canto" aria-hidden="true"></i>
+              </div>
+              <div class="reel__ficha">
+                <p class="reel__meta mono"><span class="reel__idx">03</span>Corte de podcast · 9:16 · 14 s</p>
+                <h3 class="reel__nome">Corte de podcast</h3>
+                <p class="reel__desc"><em>Uma conversa gravada que a IA transformou num corte pronto pra Reels: legenda, cortes de câmera e um gráfico animado.</em></p>
+              </div>
+            </div>
+          </li>
+          <!-- 04 · contabilidade.mp4 -->
+          <li class="reel__card reel__card--som" data-video="contabilidade">
+            <div class="reel__peca">
+              <div class="reel__monitor">
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">contabilidade.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <div class="reel__tela">
+                  <div class="reel__para">
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Criativo de contabilidade: 3 jeitos de sonegar imposto e como a Receita pega cada um."></video>
+                  </div>
+                  <i class="reel__sombra" aria-hidden="true"></i>
+                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
+                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
+                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    <span class="reel__som-txt">Ouvir</span>
+                  </button>
+                </div>
+                <i class="reel__brilho" aria-hidden="true"></i>
+                <i class="hud-canto" aria-hidden="true"></i>
+              </div>
+              <div class="reel__ficha">
+                <p class="reel__meta mono"><span class="reel__idx">04</span>Reels em motion · 9:16 · 27 s</p>
+                <h3 class="reel__nome">3 jeitos de sonegar imposto</h3>
+                <p class="reel__desc"><em>Criativo para um escritório de contabilidade, no estilo papel e pontilhado.</em></p>
+              </div>
+            </div>
+          </li>
+          <!-- 05 · preto-e-neon.mp4 -->
+          <li class="reel__card reel__card--som" data-video="neon">
+            <div class="reel__peca">
+              <div class="reel__monitor">
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">preto-e-neon.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <div class="reel__tela">
+                  <div class="reel__para">
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Criativo do curso: uma frase, sem abrir editor, o pedido, roteiro, visual, animação e som, 3 horas viram 10 minutos."></video>
+                  </div>
+                  <i class="reel__sombra" aria-hidden="true"></i>
+                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
+                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
+                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    <span class="reel__som-txt">Ouvir</span>
+                  </button>
+                </div>
+                <i class="reel__brilho" aria-hidden="true"></i>
+                <i class="hud-canto" aria-hidden="true"></i>
+              </div>
+              <div class="reel__ficha">
+                <p class="reel__meta mono"><span class="reel__idx">05</span>Criativo · 9:16 · 31 s</p>
+                <h3 class="reel__nome">O anúncio deste curso · preto e neon</h3>
+                <p class="reel__desc"><em>O criativo do Editor do Futuro, feito com o próprio método.</em></p>
+              </div>
+            </div>
+          </li>
+          <!-- 06 · visor-lima.mp4 -->
+          <li class="reel__card" data-video="lima">
+            <div class="reel__peca">
+              <div class="reel__monitor">
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">visor-lima.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <div class="reel__tela">
+                  <div class="reel__para">
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Criativo de anúncio com visor lima: a página do Roadster sendo rolada e o texto Repara no que acontece quando eu rolo essa página."></video>
+                  </div>
+                  <i class="reel__sombra" aria-hidden="true"></i>
+                </div>
+                <i class="reel__brilho" aria-hidden="true"></i>
+                <i class="hud-canto" aria-hidden="true"></i>
+              </div>
+              <div class="reel__ficha">
+                <p class="reel__meta mono"><span class="reel__idx">06</span>Reels em motion · 9:16 · 24 s</p>
+                <h3 class="reel__nome">Criativo de anúncio · visor lima</h3>
+                <p class="reel__desc"><em>Mostra a página sendo rolada e conta que foi feita com IA.</em></p>
+              </div>
+            </div>
+          </li>
+          <!-- 07 · anuncio-6-cenas.mp4 -->
+          <li class="reel__card" data-video="laranja">
+            <div class="reel__peca">
+              <div class="reel__monitor">
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">anuncio-6-cenas.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <div class="reel__tela">
+                  <div class="reel__para">
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Anúncio em 6 cenas, preto e laranja."></video>
+                  </div>
+                  <i class="reel__sombra" aria-hidden="true"></i>
+                </div>
+                <i class="reel__brilho" aria-hidden="true"></i>
+                <i class="hud-canto" aria-hidden="true"></i>
+              </div>
+              <div class="reel__ficha">
+                <p class="reel__meta mono"><span class="reel__idx">07</span>Criativo · 9:16 · 15 s</p>
+                <h3 class="reel__nome">Anúncio em 6 cenas</h3>
+                <p class="reel__desc"><em>Preto e laranja, feito por vários agentes de IA trabalhando juntos.</em></p>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Pé: nota, progresso da galeria, contador e setas -->
+    <div class="reel__pe">
+      <p class="reel__nota nota">Os vídeos tocam sem som. Toque em Ouvir para escutar.</p>
+      <div class="reel__progresso" aria-hidden="true">
+        <i class="reel__barra"><i class="reel__barra-fill"></i></i>
+        <span class="reel__kfs"><i class="kf kf--on"></i><i class="kf"></i><i class="kf"></i><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
+      </div>
+      <div class="reel__nav">
+        <p class="reel__contador pixel" aria-hidden="true"><b class="reel__n">01</b><span class="reel__total"> / 06</span></p>
+        <button class="reel__seta reel__seta--ant" type="button" aria-label="Vídeo anterior">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <button class="reel__seta reel__seta--prox" type="button" aria-label="Próximo vídeo">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
       <!-- ================= 02 · TIMELINE (a assinatura: a rolagem é a agulha) =================
      Cabeçalho na rolagem normal; depois o palco preso vira uma ilha de edição.
      O monitor 9:16 toca o criativo de venda do curso (30 s), montado ao vivo em
@@ -382,7 +621,7 @@
   <header class="timeline__cab wrap">
     <div class="timeline__cab-grade grade">
       <div class="timeline__cab-esq">
-        <p class="rotulo" data-reveal><b>01</b> O método</p>
+        <p class="rotulo" data-reveal><b>02</b> O método</p>
         <h2 class="timeline__titulo display" id="timeline-titulo" data-split>Role.<br />Você está <span class="grifo">editando.</span></h2>
       </div>
       <div class="timeline__cab-dir" data-reveal data-reveal-delay=".15">
@@ -709,245 +948,6 @@
   <!-- Movimento reduzido: os 6 quadros-chave lado a lado (montados pelo JS) -->
   <div class="timeline__miniaturas wrap" aria-hidden="true"></div>
 
-</section>
-
-      <!-- ================= 04 · REEL (vídeos reais, galeria horizontal presa) =================
-     Desktop: a dobra trava e a galeria anda para o lado com o scroll. O card
-     que passa pelo centro cresce e acende (só ele toca); os das pontas ficam
-     menores e escuros, o vídeo tem parallax dentro do card e o título gigante
-     vazado corre no sentido contrário. Celular: carrossel com arraste e snap.
-     Movimento reduzido: grade estática, vídeos com controles. -->
-<section class="reel" id="reel" aria-labelledby="reel-titulo">
-  <div class="reel__palco">
-    <!-- Título gigante vazado (corre ao contrário) -->
-    <div class="reel__fantasma" aria-hidden="true">
-      <p class="reel__fantasma-in">Feito com IA<i></i>Feito com IA<i></i>Feito com IA<i></i>Feito com IA<i></i></p>
-    </div>
-
-    <!-- HUD do topo ("REC · Cena 04 · Galeria") saiu a pedido do dono (23/10/2026) -->
-
-    <div class="reel__janela">
-      <div class="reel__trilho">
-        <!-- Abertura da dobra (primeiro item do trilho no desktop) -->
-        <header class="reel__abre">
-          <div class="reel__abre-topo">
-            <p class="rotulo"><b>02</b> Feito com o método</p>
-            <h2 class="reel__titulo display" id="reel-titulo" data-split>Vídeos reais.<br /><span class="reel__titulo-b">Feitos assim.</span></h2>
-            <p class="reel__lead lead" data-reveal>Todos estes vídeos foram feitos pelo Tom com o método que você vai aprender. É esse o nível que você vai criar.</p>
-          </div>
-          <p class="reel__dica mono" aria-hidden="true"><span>Role · a galeria anda</span><i class="reel__dica-seta"></i></p>
-        </header>
-
-        <ol class="reel__cards" aria-label="Vídeos feitos com o método">
-          <!-- 01 · clone-realista.mp4 (primeiro a pedido do dono, 23/10/2026) -->
-          <li class="reel__card is-ativo reel__card--som" data-video="avatar">
-            <div class="reel__peca">
-              <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">clone-realista.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
-                <div class="reel__tela">
-                  <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Avatar digital realista do Tom falando, com cards e legendas animados em volta."></video>
-                  </div>
-                  <i class="reel__sombra" aria-hidden="true"></i>
-                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
-                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
-                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                    <span class="reel__som-txt">Ouvir</span>
-                  </button>
-                </div>
-                <i class="reel__brilho" aria-hidden="true"></i>
-                <i class="hud-canto" aria-hidden="true"></i>
-              </div>
-              <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">01</span>Avatar digital · 9:16 · 30 s</p>
-                <h3 class="reel__nome">Clone realista com avatar</h3>
-                <p class="reel__desc"><em>Um avatar fala por mim. A IA escreveu o roteiro e montou a edição em volta dele.</em></p>
-              </div>
-            </div>
-          </li>
-          <!-- 02 · colagem-diretor-de-arte.mp4 -->
-          <li class="reel__card reel__card--som" data-video="colagem">
-            <div class="reel__peca">
-              <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">colagem-diretor-de-arte.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
-                <div class="reel__tela">
-                  <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Reels em estilo colagem vintage: mãos com rolo de filme, computador antigo, robô e calendário."></video>
-                  </div>
-                  <i class="reel__sombra" aria-hidden="true"></i>
-                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
-                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
-                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                    <span class="reel__som-txt">Ouvir</span>
-                  </button>
-                </div>
-                <i class="reel__brilho" aria-hidden="true"></i>
-                <i class="hud-canto" aria-hidden="true"></i>
-              </div>
-              <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">02</span>Reels em motion · 9:16 · 40 s</p>
-                <h3 class="reel__nome">Colagem de diretor de arte</h3>
-                <p class="reel__desc"><em>Estilo colagem vintage, com imagens e clipes gerados por IA.</em></p>
-              </div>
-            </div>
-          </li>
-          <!-- 03 · corte-podcast.mp4 -->
-          <li class="reel__card reel__card--som" data-video="podcast">
-            <div class="reel__peca">
-              <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">corte-podcast.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
-                <div class="reel__tela">
-                  <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Corte de podcast: legenda palavra por palavra, cortes de câmera e um gráfico animado de posicionamento sobre a gravação."></video>
-                  </div>
-                  <i class="reel__sombra" aria-hidden="true"></i>
-                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
-                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
-                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                    <span class="reel__som-txt">Ouvir</span>
-                  </button>
-                </div>
-                <i class="reel__brilho" aria-hidden="true"></i>
-                <i class="hud-canto" aria-hidden="true"></i>
-              </div>
-              <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">03</span>Corte de podcast · 9:16 · 14 s</p>
-                <h3 class="reel__nome">Corte de podcast</h3>
-                <p class="reel__desc"><em>Uma conversa gravada que a IA transformou num corte pronto pra Reels: legenda, cortes de câmera e um gráfico animado.</em></p>
-              </div>
-            </div>
-          </li>
-          <!-- 04 · contabilidade.mp4 -->
-          <li class="reel__card reel__card--som" data-video="contabilidade">
-            <div class="reel__peca">
-              <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">contabilidade.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
-                <div class="reel__tela">
-                  <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Criativo de contabilidade: 3 jeitos de sonegar imposto e como a Receita pega cada um."></video>
-                  </div>
-                  <i class="reel__sombra" aria-hidden="true"></i>
-                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
-                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
-                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                    <span class="reel__som-txt">Ouvir</span>
-                  </button>
-                </div>
-                <i class="reel__brilho" aria-hidden="true"></i>
-                <i class="hud-canto" aria-hidden="true"></i>
-              </div>
-              <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">04</span>Reels em motion · 9:16 · 27 s</p>
-                <h3 class="reel__nome">3 jeitos de sonegar imposto</h3>
-                <p class="reel__desc"><em>Criativo para um escritório de contabilidade, no estilo papel e pontilhado.</em></p>
-              </div>
-            </div>
-          </li>
-          <!-- 05 · preto-e-neon.mp4 -->
-          <li class="reel__card reel__card--som" data-video="neon">
-            <div class="reel__peca">
-              <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">preto-e-neon.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
-                <div class="reel__tela">
-                  <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Criativo do curso: uma frase, sem abrir editor, o pedido, roteiro, visual, animação e som, 3 horas viram 10 minutos."></video>
-                  </div>
-                  <i class="reel__sombra" aria-hidden="true"></i>
-                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
-                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
-                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                    <span class="reel__som-txt">Ouvir</span>
-                  </button>
-                </div>
-                <i class="reel__brilho" aria-hidden="true"></i>
-                <i class="hud-canto" aria-hidden="true"></i>
-              </div>
-              <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">05</span>Criativo · 9:16 · 31 s</p>
-                <h3 class="reel__nome">O anúncio deste curso · preto e neon</h3>
-                <p class="reel__desc"><em>O criativo do Editor do Futuro, feito com o próprio método.</em></p>
-              </div>
-            </div>
-          </li>
-          <!-- 06 · visor-lima.mp4 -->
-          <li class="reel__card" data-video="lima">
-            <div class="reel__peca">
-              <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">visor-lima.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
-                <div class="reel__tela">
-                  <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Criativo de anúncio com visor lima: a página do Roadster sendo rolada e o texto Repara no que acontece quando eu rolo essa página."></video>
-                  </div>
-                  <i class="reel__sombra" aria-hidden="true"></i>
-                </div>
-                <i class="reel__brilho" aria-hidden="true"></i>
-                <i class="hud-canto" aria-hidden="true"></i>
-              </div>
-              <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">06</span>Reels em motion · 9:16 · 24 s</p>
-                <h3 class="reel__nome">Criativo de anúncio · visor lima</h3>
-                <p class="reel__desc"><em>Mostra a página sendo rolada e conta que foi feita com IA.</em></p>
-              </div>
-            </div>
-          </li>
-          <!-- 07 · anuncio-6-cenas.mp4 -->
-          <li class="reel__card" data-video="laranja">
-            <div class="reel__peca">
-              <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">anuncio-6-cenas.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
-                <div class="reel__tela">
-                  <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Anúncio em 6 cenas, preto e laranja."></video>
-                  </div>
-                  <i class="reel__sombra" aria-hidden="true"></i>
-                </div>
-                <i class="reel__brilho" aria-hidden="true"></i>
-                <i class="hud-canto" aria-hidden="true"></i>
-              </div>
-              <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">07</span>Criativo · 9:16 · 15 s</p>
-                <h3 class="reel__nome">Anúncio em 6 cenas</h3>
-                <p class="reel__desc"><em>Preto e laranja, feito por vários agentes de IA trabalhando juntos.</em></p>
-              </div>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- Pé: nota, progresso da galeria, contador e setas -->
-    <div class="reel__pe">
-      <p class="reel__nota nota">Os vídeos tocam sem som. Toque em Ouvir para escutar.</p>
-      <div class="reel__progresso" aria-hidden="true">
-        <i class="reel__barra"><i class="reel__barra-fill"></i></i>
-        <span class="reel__kfs"><i class="kf kf--on"></i><i class="kf"></i><i class="kf"></i><i class="kf"></i><i class="kf"></i><i class="kf"></i></span>
-      </div>
-      <div class="reel__nav">
-        <p class="reel__contador pixel" aria-hidden="true"><b class="reel__n">01</b><span class="reel__total"> / 06</span></p>
-        <button class="reel__seta reel__seta--ant" type="button" aria-label="Vídeo anterior">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
-        </button>
-        <button class="reel__seta reel__seta--prox" type="button" aria-label="Próximo vídeo">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
-        </button>
-      </div>
-    </div>
-  </div>
 </section>
 
       <!-- ================= 06 · FORMATOS (um método, seis tipos de vídeo) =================

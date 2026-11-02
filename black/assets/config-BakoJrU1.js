@@ -1,0 +1,1 @@
+var e={ESTADO:`pre`,ABRE:`2026-11-10T19:00:00-03:00`,FECHA:`2026-11-30T23:59:59-03:00`,LINKS:{grupo:`https://chat.whatsapp.com/KjQU7L9IvMqLoFJRwHeTzm?mode=gi_t`,checkout:``,checkoutAluno:``},PIXEL:`954383650753507`},t=new URLSearchParams(location.search).get(`estado`),n=t===`oferta`||t===`pre`?t:e.ESTADO;export{n,e as t};

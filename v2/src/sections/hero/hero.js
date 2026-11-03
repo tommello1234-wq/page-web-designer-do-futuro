@@ -9,7 +9,7 @@ WDF.register('hero', {
     const hud = $('.hero-hud'), hudVal = $('.hud-val'), hudN = $('.hud-n'), slots = $$('.hud-slots i'), hint = $('.hud-hint');
     const left = $('.hero-left'), right = $('.hero-right'), slot = $('.hero-more-slot');
     const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-    heroVitrine(ctx, root);
+    if (!heroAnel(ctx, root)) heroVitrine(ctx, root);
     const seg = (p, a, b) => clamp((p - a) / (b - a));
 
     /* ── layout side | stack (só desktop) ── */
@@ -338,4 +338,112 @@ function heroVitrine(ctx, root) {
     vids.forEach((v) => { v.removeEventListener('playing', onPlay); v.pause(); v.parentElement.classList.remove('is-playing'); });
     band.classList.remove('is-loop', 'is-off'); band.style.removeProperty('--vt-dur');
   });
+}
+
+/* anel 3D de páginas em volta da figura (01/11/2026, pedido do dono; ideia do "Depoimentos Carrossel 3D"): as capas dos projetos
+   giram num cilindro inclinado. Duas camadas com o mesmo anel: a de trás (z 4, atrás da figura) mostra os cards da metade de trás,
+   virados para quem olha; a da frente (z 5, depois da figura no DOM) mostra os da metade da frente. A troca acontece com o card de
+   lado (de perfil), então não aparece. Só com movimento: sem ele fica a faixa de capas parada (.hero-vt). Pausa fora da tela. */
+function heroAnel(ctx, root) {
+  const band = root.querySelector('.hero-vt'), fig = root.querySelector('.hero-fig');
+  if (!band || !fig || !ctx.flags.motion) return false;
+  const itens = [...band.querySelectorAll('.vt-item:not([aria-hidden])')].map((li) => {
+    const img = li.querySelector('.vt-poster'), leg = li.querySelector('.browser-bar .micro'), vid = li.querySelector('video');
+    const src = img ? (img.getAttribute('srcset') || '').split(',')[0].trim().split(' ')[0] || img.getAttribute('src') : '';
+    return { src, leg: leg ? leg.textContent : '', vsrc: vid ? vid.dataset.src : '' };
+  }).filter((x) => x.src);
+  const N = itens.length;
+  if (N < 4) return false;
+  const camada = (cls, comVideo) => {
+    const c = document.createElement('div'); c.className = 'hero-anel ' + cls; c.setAttribute('aria-hidden', 'true');
+    const r = document.createElement('div'); r.className = 'anel-ring'; c.appendChild(r);
+    const cards = itens.map((it) => {
+      const k = document.createElement('div'); k.className = 'anel-card';
+      k.innerHTML = '<div class="anel-in"><div class="browser-bar"><i></i><i></i><i></i><span class="micro"></span></div><img alt="" decoding="async" width="480" height="270"></div><i class="anel-scan"></i>';
+      k.querySelector('.micro').textContent = it.leg; k.querySelector('img').src = it.src;
+      if (comVideo && it.vsrc) {   // só a camada da frente tem vídeo: toca enquanto o card está de frente
+        const v = document.createElement('video'); v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none';
+        v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.dataset.src = it.vsrc;
+        v.addEventListener('playing', () => k.classList.add('is-playing'));
+        k.querySelector('img').after(v); k._v = v;
+      }
+      r.appendChild(k); return k;
+    });
+    return { c, r, cards };
+  };
+  const tras = camada('hero-anel--tras'), frente = camada('hero-anel--frente', ctx.flags.autoplay !== false);
+  fig.before(tras.c); fig.after(frente.c);
+  band.classList.add('is-anel');
+  const TILT = -9, VEL = 7, step = 360 / N;   // graus/s: uma volta a cada ~50 s
+  let R = 300, rot = 0, raf = 0, last = 0, onScreen = false, tEnt = 0;
+  function measure() {
+    const w = root.querySelector('.hero-stage').clientWidth, fw = fig.offsetWidth || w * .5;
+    R = Math.round(ctx.flags.mobile ? Math.min(w * .42, fw * .7) : Math.min(w * .26, fw * .6));
+    [tras, frente].forEach((l) => { l.c.style.perspective = Math.round(R * 3.2) + 'px'; });
+    render();
+  }
+  // entrada "holograma" (pedido do dono, 01/11/2026): cada página nasce de trás da figura como uma linha de luz que se abre
+  // em painel (piscando, como tela ligando), vai para o lugar no anel e uma linha de varredura desce revelando a página;
+  // a borda acesa apaga no fim. Por card: --rev (0 → 1, quanto já foi revelado) e --glow (brilho da borda e da grade).
+  const DUR = 1.4, ATRASO = .16, FIM = (N - 1) * ATRASO + DUR;
+  const sai = (x) => 1 - Math.pow(1 - x, 3), lim = (x) => Math.min(1, Math.max(0, x));
+  function render() {
+    const spin = -70 * Math.pow(1 - lim(tEnt / FIM), 3);
+    tras.r.style.transform = frente.r.style.transform = 'rotateX(' + TILT + 'deg)';
+    for (let i = 0; i < N; i++) {
+      const q = lim((tEnt - i * ATRASO) / DUR);
+      const abre = sai(lim(q / .28)), vai = sai(lim(q / .5)), rev = sai(lim((q - .3) / .5)), glow = q >= 1 ? 0 : 1 - lim((q - .72) / .28);
+      const pisca = q < .22 ? ((Math.floor(q * 55) % 3) ? 1 : .25) : 1;
+      const o = q > 0 ? pisca : 0, rr = Math.round(R * (.35 + .65 * vai));
+      const th = i * step + rot + spin, c = Math.cos(th * Math.PI / 180);
+      const tf = 'rotateY(' + th.toFixed(2) + 'deg) translateZ(' + rr + 'px) scale(1,' + (.03 + .97 * abre).toFixed(3) + ')';
+      frente.cards[i].style.transform = tf;
+      tras.cards[i].style.transform = tf + ' rotateY(180deg)';
+      frente.cards[i].style.opacity = c > 0 ? o : 0;   // opacidade cheia (pedido do dono)
+      tras.cards[i].style.opacity = c < 0 ? o : 0;
+      if (frente.cards[i]._q !== q) {
+        frente.cards[i]._q = q;
+        for (const k of [frente.cards[i], tras.cards[i]]) {
+          k.style.setProperty('--rev', rev.toFixed(3)); k.style.setProperty('--glow', glow.toFixed(3));
+          k.classList.toggle('is-holo', q < 1);
+        }
+      }
+      video(frente.cards[i], onScreen && c > .45, onScreen && c > .2);
+    }
+  }
+  // vídeo do card: começa a tocar quando ele vira de frente e para quando sai (fica tocando no meio do caminho, sem piscar)
+  function video(k, liga, mantem) {
+    const v = k._v;
+    if (!v) return;
+    if (liga && !k._on) {
+      k._on = true;
+      if (!v.getAttribute('src')) v.src = v.dataset.src;
+      const pr = v.play(); if (pr && pr.catch) pr.catch(() => {});
+    } else if (!mantem && k._on) { k._on = false; v.pause(); }
+  }
+  function frame(t) {
+    raf = 0;
+    const dt = last ? Math.min(.1, (t - last) / 1000) : 0; last = t;
+    rot = (rot - VEL * dt) % 360;
+    if (pronto && tEnt < FIM) tEnt = Math.min(FIM, tEnt + dt);
+    render();
+    kick();
+  }
+  function kick() { if (!raf && onScreen && !document.hidden) raf = requestAnimationFrame(frame); }
+  function stop() { if (raf) cancelAnimationFrame(raf); raf = 0; last = 0; }
+  // a queda só começa quando a tela de carregamento sai (senão acontece por trás dela)
+  let pronto = !(WDF.state.preloader === 'running' && !document.documentElement.classList.contains('pre-skip'));
+  if (!pronto) { const off = ctx.bus.on('preloader:done', () => { off(); pronto = true; }); ctx.cleanup(off); }
+  measure();
+  const ro = 'ResizeObserver' in window ? new ResizeObserver(measure) : null;
+  if (ro) ro.observe(fig);
+  const io = new IntersectionObserver((es) => { onScreen = es[es.length - 1].isIntersecting; render(); if (onScreen) kick(); else stop(); });
+  io.observe(frente.c.parentElement);
+  const vis = () => (document.hidden ? stop() : kick());
+  document.addEventListener('visibilitychange', vis);
+  ctx.cleanup(() => {
+    stop(); io.disconnect(); frente.cards.forEach((k) => k._v && k._v.pause()); if (ro) ro.disconnect(); document.removeEventListener('visibilitychange', vis);
+    tras.c.remove(); frente.c.remove(); band.classList.remove('is-anel');
+  });
+  return true;
 }

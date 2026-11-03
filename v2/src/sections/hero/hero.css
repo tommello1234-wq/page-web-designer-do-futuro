@@ -306,6 +306,7 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
 .s-hero .anel-card video{position:absolute;left:0;right:0;bottom:0;width:100%;aspect-ratio:16 / 9;object-fit:cover;opacity:0;transition:opacity .5s var(--ease-out)}
 .s-hero .anel-card.is-playing video{opacity:1}
 @media (max-width:899px){
-  .s-hero .hero-anel{top:calc(100% - var(--fig-h) * .3)}
-  .s-hero .anel-card{width:32vw;margin-left:-16vw}
+  /* celular: o card acompanha o tamanho da figura (em tela baixa ela fica pequena e o card cobria o rosto) */
+  .s-hero .hero-anel{top:calc(100% - var(--fig-h) * .16)}
+  .s-hero .anel-card{width:min(32vw,calc(var(--fig-h) * .44));margin-left:calc(min(32vw,calc(var(--fig-h) * .44)) / -2)}
 }

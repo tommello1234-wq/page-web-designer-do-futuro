@@ -27,8 +27,8 @@ window.PROPOSTA = {
 
   cliente: {
     contato: '', // primeiro nome para a saudação ("Boa tarde, Ana."); pode ficar vazio
-    contatoCompleto: 'Vitor Hugo', // nome completo, já preenchido na aprovação
-    empresa: 'Vitor Hugo',
+    contatoCompleto: 'Victor Hugo Tinoco', // nome completo, já preenchido na aprovação
+    empresa: 'Victor Hugo Tinoco',
   },
 
   projeto: {
@@ -42,7 +42,7 @@ window.PROPOSTA = {
   },
 
   // Link final da proposta (para a prévia no WhatsApp). Pode ficar vazio no teste.
-  compartilhar: { url: 'https://lp.upwardacademy.com.br/proposta-vitor-hugo/', imagem: 'og.jpg' },
+  compartilhar: { url: 'https://lp.upwardacademy.com.br/proposta-victor-hugo/', imagem: 'og.jpg' },
 
   /* ------------------------------------------------------------- SEU SERVIÇO */
   autor: {

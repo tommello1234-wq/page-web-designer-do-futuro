@@ -11,7 +11,7 @@ const OFFER = /*OFFER*/{
   "from": 997.00,
   "items": [
     { "key": "item-0", "label": "Archive-01 // Core", "title": "O Método Completo", "value": 997 },
-    { "key": "item-1", "label": "Archive-02 // Bônus Exclusivo", "title": "Biblioteca Premium Assets", "value": 297 },
+    { "key": "item-1", "label": "Archive-02 // Bônus Exclusivo", "title": "Biblioteca Assets", "value": 297 },
     { "key": "item-2", "label": "Archive-03 // Bônus Exclusivo", "title": "Templates Design System", "value": 497 },
     { "key": "item-3", "label": "Archive-04 // Aula Bônus", "title": "Minhas Principais Skills", "value": 297 }
   ],

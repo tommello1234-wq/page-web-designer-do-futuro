@@ -88,11 +88,11 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf/assets/index-D2h5YXqB.js"></script>
+    <script type="module" crossorigin src="/edf/assets/index-BLfRQLor.js"></script>
     <link rel="modulepreload" crossorigin href="/edf/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/abertura-CNpnq7On.js">
-    <link rel="stylesheet" crossorigin href="/edf/assets/index-DtymJVm5.css">
+    <link rel="stylesheet" crossorigin href="/edf/assets/index-D3dPLO56.css">
   </head>
   <body>
     <a class="pular" href="#timeline">Pular para o conteúdo</a>
@@ -170,6 +170,13 @@
         <span class="abertura__nome-linha"><span class="abertura__nome-in">futuro</span></span>
       </span>
     </p>
+
+    <!-- Celular (05/11/2026, pedido do dono): a promessa ACIMA do vídeo, para quem chega do anúncio ler antes de
+         decidir se fica. No celular o h1 de baixo vira só leitor de tela e o texto da direita sai (repetia a sub). -->
+    <div class="abertura__topo-mob" aria-hidden="true">
+      <p class="abertura__topo-titulo display">Edite qualquer vídeo <em>com IA</em>, mesmo que você nunca tenha editado nada.</p>
+      <p class="abertura__topo-sub">Você descreve o vídeo; a IA faz o roteiro, anima, legenda e entrega o MP4 pronto para postar.</p>
+    </div>
 
     <!-- O objeto: monitor 9:16 + mini timeline -->
     <div class="abertura__objeto">
@@ -546,24 +553,32 @@
               </div>
             </div>
           </li>
-          <!-- 06 · visor-lima.mp4 -->
-          <li class="reel__card" data-video="lima">
+          <!-- 06 · posso-ser-o-que-quiser.mp4 (05/11/2026: no lugar do visor lima, que segue na virada) -->
+          <li class="reel__card reel__card--som" data-video="look">
             <div class="reel__peca">
               <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">visor-lima.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">posso-ser-o-que-quiser.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
                 <div class="reel__tela">
                   <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Criativo de anúncio com visor lima: a página do Roadster sendo rolada e o texto Repara no que acontece quando eu rolo essa página."></video>
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Criativo Posso ser o que quiser: o mesmo vídeo gravado no quarto vira médico, fisiculturista, estúdio de podcast, palco e praia, tudo com IA."></video>
                   </div>
                   <i class="reel__sombra" aria-hidden="true"></i>
+                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
+                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
+                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    <span class="reel__som-txt">Ouvir</span>
+                  </button>
                 </div>
                 <i class="reel__brilho" aria-hidden="true"></i>
                 <i class="hud-canto" aria-hidden="true"></i>
               </div>
               <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">06</span>Reels em motion · 9:16 · 24 s</p>
-                <h3 class="reel__nome">Criativo de anúncio · visor lima</h3>
-                <p class="reel__desc"><em>Mostra a página sendo rolada e conta que foi feita com IA.</em></p>
+                <p class="reel__meta mono"><span class="reel__idx">06</span>Troca de look · 9:16 · 37 s</p>
+                <h3 class="reel__nome">Posso ser o que quiser</h3>
+                <p class="reel__desc"><em>Gravei no quarto. A IA me levou ao consultório, ao estúdio, ao palco e à praia.</em></p>
               </div>
             </div>
           </li>
@@ -614,10 +629,13 @@
 
       <!-- ================= 02 · TIMELINE (a assinatura: a rolagem é a agulha) =================
      Cabeçalho na rolagem normal; depois o palco preso vira uma ilha de edição.
-     O monitor 9:16 toca o criativo de venda do curso (30 s), montado ao vivo em
-     HTML + GSAP e controlado pelo scroll: agulha, timecode, capítulos, clipes,
-     keyframes, legenda palavra por palavra, painel Pedido digitando e o
-     checklist "A IA fez". Movimento reduzido: grade de 6 miniaturas 9:16. -->
+     O monitor 9:16 toca o criativo real do curso ("3 ferramentas", 58,5 s; o
+     vídeo entra pelo JS, VIDEO_REAL em sections/timeline.js) controlado pelo
+     scroll: agulha, timecode, capítulos, clipes, keyframes, legenda palavra por
+     palavra (uma linha por frase da narração, tempos em FALA de cenas.js),
+     painel Pedido digitando e o checklist "A IA fez". A composição antiga em
+     HTML (cenas abaixo) fica escondida enquanto o vídeo está ligado.
+     Movimento reduzido: o vídeo parado, com controles. -->
 <section class="timeline" id="timeline" aria-labelledby="timeline-titulo">
   <header class="timeline__cab wrap">
     <div class="timeline__cab-grade grade">
@@ -634,12 +652,12 @@
 
   <!-- Roteiro do criativo, em texto (o palco é decorativo para leitor de tela) -->
   <ol class="sr-only">
-    <li>Cena 1, Gancho: Uma frase. Legenda: Eu escrevi uma frase e saiu esse vídeo aqui.</li>
-    <li>Cena 2, Contraste: Sem abrir editor. Programa de edição e linha do tempo riscados. Legenda: Não abri programa de edição. Não montei linha do tempo.</li>
-    <li>Cena 3, Pedido: Cria um criativo de 20 s pra vender o meu curso. Legenda: O pedido foi exatamente esse.</li>
-    <li>Cena 4, Entrega: Roteiro. Visual. Animação. Som. Legenda: Ele escreveu o roteiro, escolheu o visual, animou e colocou o som.</li>
-    <li>Cena 5, Prova: 3 h viram 10 min. Legenda: O que levaria três horas levou dez minutos.</li>
-    <li>Cena 6, Convite: Aprenda motion com IA. Botão Saiba mais. Legenda: Quer aprender? Toca em Saiba mais.</li>
+    <li>Cena 1, Gancho: Crie vídeos 100% com IA. Uma prévia 9:16 e uma linha do tempo que se monta sozinha; depois, a edição manual, com o relógio em 3 horas. Fala: A IA já cria vídeo sozinha. Mas a maioria das pessoas ainda perde horas editando na mão.</li>
+    <li>Cena 2, Promessa: Esses 3 arquivos. O pedido "Cria um vídeo de 20 s pra vender meu curso" vira vídeo pronto; painéis de tempo e de estilo e o contador antes e depois. Fala: Veja como resolver com esses três arquivos. Eles transformam uma frase em vídeo pronto. Cada cena no tempo certo, cada palavra na hora em que é falada, como um editor profissional faria.</li>
+    <li>Cena 3, GSAP: 01, movimento. A curva de movimento, o código sendo escrito ao lado do vídeo e um estilo novo em 6 cenas. Fala: A primeira é o GSAP. Use quando você quer movimento de verdade. A IA escreve a animação em código, cena por cena, e você ajusta com uma frase. Ela cria até um estilo inteiro que combina com o seu projeto.</li>
+    <li>Cena 4, Whisper: tempo exato. A fala vira texto palavra por palavra e as pausas são cortadas. Fala: A segunda é o Whisper. Ele escuta a sua fala e transcreve palavra por palavra. A IA corta as pausas e encaixa o vídeo no tempo exato.</li>
+    <li>Cena 5, FFmpeg: 03, vídeo pronto. Os quadros viram um MP4 9:16 pronto para postar. Fala: A terceira é o FFmpeg. Ele junta cada quadro e entrega o MP4 pronto para postar. Sem exportar. Sem linha do tempo.</li>
+    <li>Cena 6, Convite: Quer aprender a editar qualquer vídeo com IA? Editor do Futuro, com o botão Saiba mais. Fala: Quer aprender a editar qualquer tipo de vídeo com IA, mesmo se você nunca tenha editado nenhum vídeo na vida? Eu te mostro tudo dentro do Editor do Futuro. Clique e saiba mais.</li>
   </ol>
 
   <div class="timeline__palco">
@@ -658,13 +676,13 @@
             <span class="hud timeline__pedido-estado" aria-hidden="true"><i></i><span class="timeline__pedido-estado-txt">Digitando</span></span>
           </div>
           <p class="timeline__pedido-txt">
-            <span class="sr-only">Cria um criativo de 30 s pra vender o meu curso de vídeo com IA.</span>
+            <span class="sr-only">Cria um vídeo de 1 min mostrando as 3 ferramentas que editam vídeo com IA.</span>
             <span class="timeline__pedido-digita" aria-hidden="true"></span>
           </p>
           <div class="timeline__pedido-pe">
             <span class="timeline__chips">
               <span class="chip">9:16</span>
-              <span class="chip">30 s</span>
+              <span class="chip">1 min</span>
               <span class="chip chip--acc"><i class="timeline__chip-cor" aria-hidden="true"></i>Lima</span>
             </span>
             <span class="timeline__enviar" aria-hidden="true">
@@ -682,26 +700,26 @@
             <span class="hud timeline__roteiro-autor" aria-hidden="true">Escrito pela IA</span>
           </div>
           <ol class="timeline__cenas-lista">
-            <li><button class="timeline__lc" type="button" data-cap="0"><b>01</b> <span class="timeline__lc-nome">Gancho</span> <span class="timeline__lc-txt">Uma frase.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:00</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="1"><b>02</b> <span class="timeline__lc-nome">Contraste</span> <span class="timeline__lc-txt">Sem abrir editor.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:05</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="2"><b>03</b> <span class="timeline__lc-nome">Pedido</span> <span class="timeline__lc-txt">Cria um criativo de 20 s pra vender o meu curso</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:10</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="3"><b>04</b> <span class="timeline__lc-nome">Entrega</span> <span class="timeline__lc-txt">Roteiro. Visual. Animação. Som.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:15</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="4"><b>05</b> <span class="timeline__lc-nome">Prova</span> <span class="timeline__lc-txt">3 h → 10 min</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:20</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="5"><b>06</b> <span class="timeline__lc-nome">Convite</span> <span class="timeline__lc-txt">Aprenda motion com IA.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:25</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="0"><b>01</b> <span class="timeline__lc-nome">Gancho</span> <span class="timeline__lc-txt">Crie vídeos 100% com IA.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:00</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="1"><b>02</b> <span class="timeline__lc-nome">Promessa</span> <span class="timeline__lc-txt">Esses 3 arquivos.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:05</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="2"><b>03</b> <span class="timeline__lc-nome">GSAP</span> <span class="timeline__lc-txt">Movimento de verdade.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:17</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="3"><b>04</b> <span class="timeline__lc-nome">Whisper</span> <span class="timeline__lc-txt">Tempo exato.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:30</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="4"><b>05</b> <span class="timeline__lc-nome">FFmpeg</span> <span class="timeline__lc-txt">Vídeo pronto para postar.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:39</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="5"><b>06</b> <span class="timeline__lc-nome">Convite</span> <span class="timeline__lc-txt">Clique e saiba mais.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:47</span></button></li>
           </ol>
         </div>
 
         <div class="timeline__relogio" aria-hidden="true">
           <span class="hud">Agulha · Timecode</span>
           <p class="timeline__tc pixel"><span class="timeline__tc-a">00:00:00:</span><b class="timeline__tc-q">00</b></p>
-          <span class="hud timeline__quadro">Quadro <b>0000</b> / 0900</span>
+          <span class="hud timeline__quadro">Quadro <b>0000</b> / 1755</span>
         </div>
       </div>
 
       <!-- Centro: o monitor 9:16 + a legenda -->
       <div class="timeline__centro">
         <div class="timeline__caixa">
-          <div class="timeline__monitor monitor monitor--916" role="img" aria-label="Criativo de 30 segundos feito em código, em 6 cenas: Uma frase. Sem abrir editor. O pedido sendo digitado. Roteiro, visual, animação e som. 3 horas viram 10 minutos. Aprenda motion com IA, com o botão Saiba mais.">
+          <div class="timeline__monitor monitor monitor--916" role="img" aria-label="Criativo de 58 segundos feito em código, em 6 partes: crie vídeos com IA; esses 3 arquivos transformam uma frase em vídeo pronto; 01, GSAP, movimento; 02, Whisper, tempo exato; 03, FFmpeg, vídeo pronto para postar; e o convite do Editor do Futuro, com o botão Saiba mais.">
             <div class="timeline__tela monitor__tela" aria-hidden="true">
               <div class="timeline__fundo"></div>
               <div class="timeline__brilho-camada"><div class="timeline__brilho"></div></div>
@@ -820,14 +838,34 @@
           </div>
         </div>
 
-        <!-- V3 · Legenda (tipo Reels, palavra por palavra) -->
+        <!-- V3 · Legenda (tipo Reels, palavra por palavra): uma linha por entrada de FALA (cenas.js), mesmas palavras -->
         <div class="timeline__legenda" aria-hidden="true">
-          <p class="timeline__legenda-linha">Eu escrevi uma frase e saiu esse vídeo aqui.</p>
-          <p class="timeline__legenda-linha">Não abri programa de edição. Não montei linha do tempo.</p>
-          <p class="timeline__legenda-linha">O pedido foi exatamente esse.</p>
-          <p class="timeline__legenda-linha">Ele escreveu o roteiro, escolheu o visual, animou e colocou o som.</p>
-          <p class="timeline__legenda-linha">O que levaria três horas levou dez minutos.</p>
-          <p class="timeline__legenda-linha">Quer aprender? Toca em Saiba mais.</p>
+          <p class="timeline__legenda-linha">A IA já cria vídeo sozinha.</p>
+          <p class="timeline__legenda-linha">Mas a maioria das pessoas</p>
+          <p class="timeline__legenda-linha">ainda perde horas editando na mão.</p>
+          <p class="timeline__legenda-linha">Veja como resolver com esses três arquivos.</p>
+          <p class="timeline__legenda-linha">Eles transformam uma frase em vídeo pronto.</p>
+          <p class="timeline__legenda-linha">Cada cena no tempo certo,</p>
+          <p class="timeline__legenda-linha">cada palavra na hora em que é falada,</p>
+          <p class="timeline__legenda-linha">como um editor profissional faria.</p>
+          <p class="timeline__legenda-linha">A primeira é o GSAP.</p>
+          <p class="timeline__legenda-linha">Use quando você quer movimento de verdade.</p>
+          <p class="timeline__legenda-linha">A IA escreve a animação em código, cena por cena,</p>
+          <p class="timeline__legenda-linha">e você ajusta com uma frase.</p>
+          <p class="timeline__legenda-linha">Ela cria até um estilo inteiro</p>
+          <p class="timeline__legenda-linha">que combina com o seu projeto.</p>
+          <p class="timeline__legenda-linha">A segunda é o Whisper.</p>
+          <p class="timeline__legenda-linha">Ele escuta a sua fala e transcreve palavra por palavra.</p>
+          <p class="timeline__legenda-linha">A IA corta as pausas</p>
+          <p class="timeline__legenda-linha">e encaixa o vídeo no tempo exato.</p>
+          <p class="timeline__legenda-linha">A terceira é o FFmpeg.</p>
+          <p class="timeline__legenda-linha">Ele junta cada quadro</p>
+          <p class="timeline__legenda-linha">e entrega o MP4 pronto para postar.</p>
+          <p class="timeline__legenda-linha">Sem exportar. Sem linha do tempo.</p>
+          <p class="timeline__legenda-linha">Quer aprender a editar qualquer tipo de vídeo com IA,</p>
+          <p class="timeline__legenda-linha">mesmo se você nunca tenha editado nenhum vídeo na vida?</p>
+          <p class="timeline__legenda-linha">Eu te mostro tudo dentro do Editor do Futuro.</p>
+          <p class="timeline__legenda-linha">Clique e saiba mais.</p>
         </div>
       </div>
 
@@ -913,20 +951,21 @@
         <div class="timeline__trilhos">
           <ol class="timeline__caps" aria-label="Capítulos do criativo">
             <li><button class="timeline__cap" type="button" data-cap="0"><b>01</b> <span>Gancho</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="1"><b>02</b> <span>Contraste</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="2"><b>03</b> <span>Pedido</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="3"><b>04</b> <span>Entrega</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="4"><b>05</b> <span>Prova</span></button></li>
+            <li><button class="timeline__cap" type="button" data-cap="1"><b>02</b> <span>Promessa</span></button></li>
+            <li><button class="timeline__cap" type="button" data-cap="2"><b>03</b> <span>GSAP</span></button></li>
+            <li><button class="timeline__cap" type="button" data-cap="3"><b>04</b> <span>Whisper</span></button></li>
+            <li><button class="timeline__cap" type="button" data-cap="4"><b>05</b> <span>FFmpeg</span></button></li>
             <li><button class="timeline__cap" type="button" data-cap="5"><b>06</b> <span>Convite</span></button></li>
           </ol>
+          <!-- régua: --x em segundos (a largura é a duração do vídeo, --tl-dur) -->
           <div class="timeline__regua" aria-hidden="true">
             <span style="--x: 0">00:00</span>
-            <span style="--x: 1">00:05</span>
-            <span style="--x: 2">00:10</span>
-            <span style="--x: 3">00:15</span>
-            <span style="--x: 4">00:20</span>
-            <span style="--x: 5">00:25</span>
-            <span style="--x: 6">00:30</span>
+            <span style="--x: 10">00:10</span>
+            <span style="--x: 20">00:20</span>
+            <span style="--x: 30">00:30</span>
+            <span style="--x: 40">00:40</span>
+            <span style="--x: 50">00:50</span>
+            <span style="--x: 58.5">00:58</span>
           </div>
           <div class="timeline__faixas" aria-hidden="true">
             <div class="timeline__faixa-tl" data-faixa="v1"></div>
@@ -939,14 +978,14 @@
           <!-- a agulha: a camada anda de 0 a 100% da largura das faixas -->
           <div class="timeline__agulha">
             <i class="timeline__agulha-linha" aria-hidden="true"></i>
-            <span class="timeline__agulha-cabeca" role="slider" tabindex="0" aria-label="Agulha da linha do tempo" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" aria-valuetext="00:00 de 00:30, capítulo 01, Gancho"><i aria-hidden="true"></i></span>
+            <span class="timeline__agulha-cabeca" role="slider" tabindex="0" aria-label="Agulha da linha do tempo" aria-valuemin="0" aria-valuemax="58.5" aria-valuenow="0" aria-valuetext="00:00 de 00:58, capítulo 01, Gancho"><i aria-hidden="true"></i></span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Movimento reduzido: os 6 quadros-chave lado a lado (montados pelo JS) -->
+  <!-- Movimento reduzido: o vídeo com controles (ou, sem VIDEO_REAL, os 6 quadros-chave da composição), montado pelo JS -->
   <div class="timeline__miniaturas wrap" aria-hidden="true"></div>
 
 </section>
@@ -958,7 +997,7 @@
      Desktop: cena presa (~3 telas); a rolagem anda a agulha pelos 6 clipes e
      clicar num clipe leva a rolagem até ele. Celular: sem pin; clipes roláveis
      de lado, arraste no monitor e avanço sozinho até a pessoa mexer. -->
-<section class="formatos" id="formatos" aria-labelledby="formatos-titulo">
+<section class="formatos tema-claro" id="formatos" aria-labelledby="formatos-titulo">
   <div class="formatos__cena wrap">
     <div class="formatos__corpo">
       <header class="formatos__cab">
@@ -989,7 +1028,7 @@
               <span class="tc formatos__mon-tc">00:00:00:00</span>
             </div>
 
-            <div class="monitor__tela formatos__tela">
+            <div class="monitor__tela formatos__tela tema-escuro">
               <!-- 01 · Reels em motion: tipografia cinética + formas (gancho, faixa, botão) -->
               <div class="formatos__comp formatos__mo" data-comp="0">
                 <i class="formatos__mo-pontos"></i>
@@ -1859,10 +1898,6 @@
               <span class="oferta__ok" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.4 6.6 11.4 12.5 4.6" /></svg></span>
               <span><b>Os vídeos do curso abertos</b>, com roteiro e passo a passo</span>
             </li>
-            <li>
-              <span class="oferta__ok" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.4 6.6 11.4 12.5 4.6" /></svg></span>
-              <span><b><span data-oferta="acesso">1 ano de acesso</span></b></span>
-            </li>
           </ul>
 
           <div class="oferta__compra">
@@ -2078,21 +2113,8 @@
         </li>
         <li class="duvidas__item">
           <h3 class="duvidas__q">
-            <button class="duvidas__botao" type="button" id="duvidas-q8" aria-expanded="true" aria-controls="duvidas-r8">
-              <span class="duvidas__num pixel" aria-hidden="true">05</span>
-              <span class="duvidas__pergunta">Por quanto tempo tenho acesso?</span>
-              <span class="duvidas__icone" aria-hidden="true"><i></i><i></i></span>
-            </button>
-          </h3>
-          <div class="duvidas__resposta" id="duvidas-r8" role="region" aria-labelledby="duvidas-q8">
-            <p>Você tem <span data-oferta="acesso">1 ano de acesso</span>, com as atualizações do curso nesse período.</p>
-          </div>
-          <i class="duvidas__agulha" aria-hidden="true"></i>
-        </li>
-        <li class="duvidas__item">
-          <h3 class="duvidas__q">
             <button class="duvidas__botao" type="button" id="duvidas-q9" aria-expanded="true" aria-controls="duvidas-r9">
-              <span class="duvidas__num pixel" aria-hidden="true">06</span>
+              <span class="duvidas__num pixel" aria-hidden="true">05</span>
               <span class="duvidas__pergunta">E se eu não gostar?</span>
               <span class="duvidas__icone" aria-hidden="true"><i></i><i></i></span>
             </button>

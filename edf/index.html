@@ -88,11 +88,11 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf/assets/index-C2DTAHEM.js"></script>
+    <script type="module" crossorigin src="/edf/assets/index-DP_c_2hW.js"></script>
     <link rel="modulepreload" crossorigin href="/edf/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/abertura-CNpnq7On.js">
-    <link rel="stylesheet" crossorigin href="/edf/assets/index-BwzAimF7.css">
+    <link rel="stylesheet" crossorigin href="/edf/assets/index-BLLUWLrl.css">
   </head>
   <body>
     <a class="pular" href="#timeline">Pular para o conteúdo</a>
@@ -101,6 +101,8 @@
     <!-- OCULTO (22/10, a página abre direto, sem loading): @ include partials/preloader.html -->
     <!-- ================= NAVEGAÇÃO (fixa; a linha de baixo é a timeline da página) ================= -->
 <header class="nav" id="nav">
+  <!-- Faixa da Black Friday (06/11/2026, pedido do dono): preta com letra amarela, no topo da página -->
+  <p class="faixa-black"><strong>Promoção de Black:</strong> acesso vitalício por R$ 97</p>
   <div class="nav__barra">
     <a class="nav__marca" href="#abertura" aria-label="Editor do Futuro · voltar ao início">
       <svg class="nav__simbolo" viewBox="0 0 28 28" aria-hidden="true">
@@ -174,7 +176,7 @@
     <!-- Celular (05/11/2026, pedido do dono): a promessa ACIMA do vídeo, para quem chega do anúncio ler antes de
          decidir se fica. No celular o h1 de baixo vira só leitor de tela e o texto da direita sai (repetia a sub). -->
     <div class="abertura__topo-mob" aria-hidden="true">
-      <p class="abertura__topo-titulo display">Edite qualquer vídeo <em>com IA</em>, mesmo que você nunca tenha editado nada.</p>
+      <p class="abertura__topo-titulo display">Domine a edição de vídeo <em>com IA</em>, mesmo que você nunca tenha editado.</p>
       <p class="abertura__topo-sub">Você descreve o vídeo; a IA faz o roteiro, anima, legenda e entrega o MP4 pronto para postar.</p>
     </div>
 
@@ -404,7 +406,7 @@
           <div class="reel__abre-topo">
             <p class="rotulo"><b>01</b> Feito com o método</p>
             <h2 class="reel__titulo display" id="reel-titulo" data-split>Vídeos reais.<br /><span class="reel__titulo-b">Feitos assim.</span></h2>
-            <p class="reel__lead lead" data-reveal>Todos estes vídeos foram feitos pelo Tom com o método que você vai aprender. É esse o nível que você vai criar.</p>
+            <p class="reel__lead lead" data-reveal>Você vai aprender a criar todos esses estilos de vídeo com IA.</p>
           </div>
           <p class="reel__dica mono" aria-hidden="true"><span>Role · a galeria anda</span><i class="reel__dica-seta"></i></p>
         </header>
@@ -1874,6 +1876,7 @@
           </ul>
 
           <div class="oferta__compra">
+            <p class="oferta-black">Oferta de Black Friday · disponível até 15/11</p>
             <p class="oferta__preco pixel"><span class="oferta__valor" data-oferta="avista">R$ 97</span></p>
             <p class="oferta__parcelas"><span data-oferta="parcelado">ou 12x de R$ 10,16 no cartão</span></p>
             <div class="oferta__cta-caixa">
@@ -1909,16 +1912,18 @@
 <section class="garantia" id="garantia" aria-labelledby="garantia-titulo">
   <div class="wrap">
     <div class="garantia__cartao" data-reveal>
+      <!-- Selo refeito (05/11/2026, pedido do dono: o antigo não estava bom): o 7 grande no pixel do preço, "dias"
+           embaixo e o texto correndo em volta do círculo. -->
       <div class="garantia__selo" aria-hidden="true">
         <svg class="garantia__selo-svg" viewBox="0 0 200 200" focusable="false">
-          <circle class="garantia__anel" cx="100" cy="100" r="94" fill="none" stroke="var(--acc-a32)" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round" />
-          <circle cx="100" cy="100" r="80" fill="var(--bg-2)" stroke="var(--acc)" stroke-width="2" />
-          <circle cx="100" cy="100" r="70" fill="none" stroke="var(--acc-a32)" stroke-width="1" />
-          <path d="M100 50 136 63v34c0 24-16 40-36 51-20-11-36-27-36-51V63z" fill="var(--acc-a08)" stroke="var(--acc)" stroke-width="3" stroke-linejoin="round" />
-          <path d="m83 98 12 12 23-26" fill="none" stroke="var(--acc)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
-          <text x="100" y="38" text-anchor="middle" class="garantia__selo-txt">GARANTIA</text>
-          <text x="100" y="172" text-anchor="middle" class="garantia__selo-txt">7 DIAS</text>
+          <defs><path id="garantia-volta" d="M100 100m-84 0a84 84 0 1 1 168 0a84 84 0 1 1-168 0" /></defs>
+          <circle cx="100" cy="100" r="98" fill="none" stroke="var(--acc-a32)" stroke-width="1" />
+          <g class="garantia__giro">
+            <text class="garantia__selo-txt"><textPath href="#garantia-volta" textLength="520" lengthAdjust="spacing">GARANTIA · 7 DIAS · 100% DO VALOR · GARANTIA · 7 DIAS · 100% DO VALOR ·</textPath></text>
+          </g>
+          <circle cx="100" cy="100" r="70" fill="var(--bg-2)" stroke="var(--acc)" stroke-width="2" />
         </svg>
+        <span class="garantia__selo-c"><span class="garantia__selo-n">7</span><span class="garantia__selo-d">dias</span></span>
       </div>
       <div class="garantia__texto">
         <p class="rotulo"><b>07</b> Garantia</p>

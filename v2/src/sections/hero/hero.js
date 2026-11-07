@@ -150,8 +150,12 @@ WDF.register('hero', {
         const short = matchMedia('(orientation:landscape) and (max-height:560px)').matches;
         if (!short) {
           // hero com 95% da tela (pedido do dono): a figura vai da cabeça (24px abaixo do botão) até o pé do palco
-          const V = window.innerHeight, GAP = 24, S = Math.round(V * .95);
+          const V = window.innerHeight, GAP = 24;
+          let S = Math.round(V * .95);
           const fh = Math.max(V * .3, (S - textBottom - GAP) / .89);
+          // tela baixa (navegador do Instagram, celular pequeno): a figura tem altura mínima e era cortada pela próxima
+          // dobra. O palco cresce até caber a figura inteira (06/11/2026, pedido do dono).
+          S = Math.max(S, Math.round(textBottom + GAP + fh * .89));
           root.style.setProperty('--fig-h', Math.round(fh) + 'px');
           stage.style.height = S + 'px';
           fig.style.top = Math.round(textBottom + GAP - fh * .11) + 'px';

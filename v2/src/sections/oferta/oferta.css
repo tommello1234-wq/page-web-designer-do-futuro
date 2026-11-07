@@ -164,3 +164,12 @@ html.no-js .s-oferta .of-canvas,html.is-static .s-oferta .of-canvas,.s-oferta[da
 
 /* Black Friday (06/11/2026): aviso perto do preço */
 .s-oferta .of-black{display:inline-block;margin-top:18px;padding:6px 12px;border-radius:6px;background:#E0121E;color:#fff;font-size:13px;font-weight:600;letter-spacing:.01em}
+/* Celular (06/11/2026, pedido do dono): cabeçalho do cartão sem cortar o "Acesso Imediato" e o bloco de preço centralizado */
+@media (max-width:899px){
+  .s-oferta .of-card-head{flex-wrap:wrap;justify-content:center;text-align:center;row-gap:10px}
+  .s-oferta .of-title{white-space:normal}
+  .s-oferta .of-black{display:table;margin-inline:auto;text-align:center}
+  .s-oferta .of-from{text-align:center}
+  .s-oferta .price{text-align:center}
+  .s-oferta .price-main{justify-content:center}
+}

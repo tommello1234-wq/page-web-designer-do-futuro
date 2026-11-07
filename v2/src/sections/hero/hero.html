@@ -43,7 +43,7 @@
   <script>/* celular: mesma conta do measure() do hero.js, antes da 1ª pintura — a figura não "pula" quando o JS chega (CLS) */
   (function(){var r=document.getElementById('inicio');if(!r||!matchMedia('(max-width:899px)').matches||matchMedia('(orientation:landscape) and (max-height:560px)').matches)return;
   var st=r.querySelector('.hero-stage'),l=r.querySelector('.hero-left'),fg=r.querySelector('.hero-fig'),V=innerHeight,b=l.offsetTop+l.offsetHeight,G=24,S=Math.round(V*.95),
-  f=Math.max(V*.3,(S-b-G)/.89);
+  f=Math.max(V*.3,(S-b-G)/.89);S=Math.max(S,Math.round(b+G+f*.89));
   r.style.setProperty('--fig-h',Math.round(f)+'px');st.style.height=S+'px';fg.style.top=Math.round(b+G-f*.11)+'px';fg.style.bottom='auto'})();</script>
   <div class="hero-more-slot" id="mais">
     <div class="hero-right" data-hero-more>

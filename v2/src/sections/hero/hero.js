@@ -150,18 +150,14 @@ WDF.register('hero', {
         const short = matchMedia('(orientation:landscape) and (max-height:560px)').matches;
         if (!short) {
           // hero com 95% da tela (pedido do dono): a figura vai da cabeça (24px abaixo do botão) até o pé do palco
-          const V = window.innerHeight, GAP = 24;
-          let S = Math.round(V * .95);
-          const fh = Math.max(V * .3, (S - textBottom - GAP) / .89);
-          // tela baixa (navegador do Instagram, celular pequeno): a figura tem altura mínima e era cortada pela próxima
-          // dobra. O palco cresce até caber a figura inteira (06/11/2026, pedido do dono).
-          // +50px de folga embaixo (06/11/2026): o anel de páginas desceu para não cobrir o rosto e precisa caber no palco;
-          // a figura desce junto (continua encostada no pé do palco)
-          const FOLGA = 50;
-          S = Math.max(S, Math.round(textBottom + GAP + fh * .89)) + FOLGA;
+          // 06/11/2026 (pedido do dono): a cabeça fica 10px abaixo das estrelas; o palco tem 95% da tela (ou o mínimo
+          // para a figura, em tela baixa) + 50px para o anel de páginas caber; a figura cresce até o pé do palco.
+          const V = window.innerHeight, GAP = 10, FOLGA = 50;
+          const S = Math.max(Math.round(V * .95), Math.round(textBottom + GAP + V * .3 * .89)) + FOLGA;
+          const fh = (S - textBottom - GAP) / .89;
           root.style.setProperty('--fig-h', Math.round(fh) + 'px');
           stage.style.height = S + 'px';
-          fig.style.top = Math.round(textBottom + GAP + FOLGA - fh * .11) + 'px';
+          fig.style.top = Math.round(textBottom + GAP - fh * .11) + 'px';
           fig.style.bottom = 'auto';
           H = stage.clientHeight;
         } else {

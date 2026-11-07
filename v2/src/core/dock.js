@@ -17,7 +17,7 @@ WDF.layer('dock', {
       if (!dock || dock.dataset.state === 'post') return;
       dock.dataset.state = 'post';
       const apply = () => {
-        lab.textContent = 'GARANTIR MEU ACESSO';
+        lab.textContent = 'QUERO APROVEITAR A BLACK';
         if (sub) { const O = WDF.offer; sub.textContent = O.installments ? O.installments.n + 'x R$ ' + WDF.fmt.num(O.installments.value, 2) : 'R$ ' + WDF.fmt.num(O.cash.value, O.cash.value % 1 ? 2 : 0) + ' à vista'; sub.hidden = false; }
         cta.href = WDF.offer.checkoutUrl;
         cta.setAttribute('data-checkout', 'dock');

@@ -173,3 +173,6 @@ html.no-js .s-oferta .of-canvas,html.is-static .s-oferta .of-canvas,.s-oferta[da
   .s-oferta .price{text-align:center}
   .s-oferta .price-main{justify-content:center}
 }
+/* botão do preço com texto longo ("QUERO APROVEITAR A BLACK"): numa linha só no celular (06/11/2026) */
+@media (max-width:420px){ .s-oferta .of-cta .cta-label{padding-inline:12px;font-size:12.5px;letter-spacing:.03em;white-space:nowrap} }
+@media (max-width:340px){ .s-oferta .of-cta .cta-label{padding-inline:8px;font-size:11px;letter-spacing:.01em} }

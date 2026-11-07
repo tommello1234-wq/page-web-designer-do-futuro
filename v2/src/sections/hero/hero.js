@@ -155,10 +155,13 @@ WDF.register('hero', {
           const fh = Math.max(V * .3, (S - textBottom - GAP) / .89);
           // tela baixa (navegador do Instagram, celular pequeno): a figura tem altura mínima e era cortada pela próxima
           // dobra. O palco cresce até caber a figura inteira (06/11/2026, pedido do dono).
-          S = Math.max(S, Math.round(textBottom + GAP + fh * .89));
+          // +50px de folga embaixo (06/11/2026): o anel de páginas desceu para não cobrir o rosto e precisa caber no palco;
+          // a figura desce junto (continua encostada no pé do palco)
+          const FOLGA = 50;
+          S = Math.max(S, Math.round(textBottom + GAP + fh * .89)) + FOLGA;
           root.style.setProperty('--fig-h', Math.round(fh) + 'px');
           stage.style.height = S + 'px';
-          fig.style.top = Math.round(textBottom + GAP - fh * .11) + 'px';
+          fig.style.top = Math.round(textBottom + GAP + FOLGA - fh * .11) + 'px';
           fig.style.bottom = 'auto';
           H = stage.clientHeight;
         } else {

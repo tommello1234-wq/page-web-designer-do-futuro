@@ -8,7 +8,7 @@ const OFFER = /*OFFER*/{
   "installments": { "n": 12, "value": 10.16 },
   "cash": { "value": 97.00 },
   "anchor": 2088,
-  "from": 997.00,
+  "from": 297.00,
   "items": [
     { "key": "item-0", "label": "Archive-01 // Core", "title": "O Método Completo", "value": 997 },
     { "key": "item-1", "label": "Archive-02 // Bônus Exclusivo", "title": "Biblioteca Assets", "value": 297 },

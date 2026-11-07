@@ -161,3 +161,6 @@ html.no-js .s-oferta .of-canvas,html.is-static .s-oferta .of-canvas,.s-oferta[da
 .s-oferta .of-dock{display:none}
 /* sem a doca, não há o que esperar na tela: o cabeçalho da lista não reserva mais meia tela antes do 1º item */
 @media (min-width:900px){ .s-oferta .of-archive{margin-bottom:clamp(20px,3svh,32px)} }
+
+/* Black Friday (06/11/2026): aviso perto do preço */
+.s-oferta .of-black{display:inline-block;margin-top:18px;padding:6px 12px;border-radius:6px;background:#000;color:#ffd400;font-size:13px;font-weight:600;letter-spacing:.01em}

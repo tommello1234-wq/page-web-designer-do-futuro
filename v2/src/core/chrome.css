@@ -234,3 +234,7 @@ html.menu-open .promo-bar{visibility:hidden}
   .promo-bar-l{display:none}
   .promo-bar-c{font-size:11px}
 }
+
+/* Black Friday (06/11/2026): faixa preta, letra amarela */
+.promo-bar.promo-bar--black{background:#000;color:#ffd400}
+.promo-bar.promo-bar--black b{color:#ffd400}

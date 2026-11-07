@@ -319,3 +319,10 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
 }
 /* "4/4 agentes de IA" removido do topo (06/11/2026, pedido do dono) */
 .s-hero .hud-pill{display:none !important}
+/* Celular (06/11/2026, pedido do dono): os cartões da frente do anel desciam ~55px além do fim do topo e eram cortados
+   pela faixa escura de baixo. O anel sobe 64px no celular. */
+@media (max-width:899px){
+  .s-hero .hero-anel{top:calc(100% - var(--fig-h) * .33 - 64px)}
+}
+/* fotos dos alunos ao lado do "+850 alunos" removidas (06/11/2026, pedido do dono) */
+.s-hero .hero-faces{display:none}

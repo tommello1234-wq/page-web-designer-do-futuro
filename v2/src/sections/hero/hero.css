@@ -117,7 +117,7 @@ html.no-js .s-hero .hero-clip, html.no-js .s-hero .hero-iris{display:none}
     display:flex;flex-direction:column;align-items:center;text-align:center}
   /* ritmo: FUTURO 12 · selo 16 · texto 28 · botão (pedido do dono: espaçamento) */
   .s-hero .hero-badge{color:var(--ink);margin-bottom:20px}
-  .s-hero .hero-sub{font-size:19px;font-weight:700;max-width:30ch;color:var(--ink)}
+  .s-hero .hero-sub{font-size:min(19px, 5vw);font-weight:700;max-width:30ch;color:var(--ink)} /* 5vw: sempre 3 linhas em celular pequeno (06/11/2026) */
   .s-hero .hero-left .cta{margin:28px auto 0}
   .s-hero .hud-state, .s-hero .hud-hint{display:none}
   .s-hero .hud-pill{top:auto;bottom:calc(14px + env(safe-area-inset-bottom));right:14px;gap:8px;padding:4px 12px;border-width:1px}
@@ -309,4 +309,11 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
   /* celular: o card acompanha o tamanho da figura (em tela baixa ela fica pequena e o card cobria o rosto) */
   .s-hero .hero-anel{top:calc(100% - var(--fig-h) * .16)}
   .s-hero .anel-card{width:min(32vw,calc(var(--fig-h) * .44));margin-left:calc(min(32vw,calc(var(--fig-h) * .44)) / -2)}
+}
+/* celular bem estreito (≤ 359 px): a linha de nota + alunos + fotos passava da borda (06/11/2026) */
+@media (max-width:359px){
+  .s-hero .hero-rate{gap:6px;font-size:11.5px}
+  .s-hero .hero-rate .stars .i{width:12px;height:12px}
+  .s-hero .hero-rate-t{gap:6px}
+  .s-hero .hero-faces img{width:19px;height:19px}
 }

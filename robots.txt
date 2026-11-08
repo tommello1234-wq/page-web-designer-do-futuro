@@ -1,0 +1,6 @@
+# Upward Academy (upwardacademy.com.br e lp.upwardacademy.com.br)
+# Buscadores e IAs liberados: queremos aparecer no Google e nas respostas do ChatGPT, Gemini, Claude e Perplexity.
+User-agent: *
+Allow: /
+
+Sitemap: https://upwardacademy.com.br/sitemap.xml

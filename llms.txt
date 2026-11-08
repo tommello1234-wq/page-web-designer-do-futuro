@@ -1,0 +1,25 @@
+# Upward Academy
+
+> A Upward Academy é uma escola brasileira de cursos online sobre inteligência artificial aplicada ao trabalho criativo: web design, edição de vídeo, sistemas e criação de conteúdo com IA. Fundada e ensinada por Tom Melo. Os cursos são práticos: cada aula mostra o processo real, do pedido do cliente à entrega pronta, usando IA em cada etapa. Mais de 850 alunos já passaram pelo Web Designer do Futuro, com nota média de 4,9 de 5.
+
+## Cursos
+- [Web Designer do Futuro](https://lp.upwardacademy.com.br/): curso de web design com IA. Crie páginas de vendas e sites com animação usando agentes de IA (Claude, Codex e Antigravity), mesmo sem saber programar. 6 módulos e 38 aulas.
+- [Editor do Futuro](https://lp.upwardacademy.com.br/edf/): curso de edição de vídeo com IA. Reels, anúncios, YouTube e VSL, com a IA escrevendo o roteiro, montando o visual, animando e colocando o som. 7 módulos e 30 aulas.
+- Desenvolvimento de Sistemas com IA: do pedido do cliente ao sistema funcionando (painéis, aplicativos e banco de dados), com um projeto real do começo ao fim. Para alunos, na área de membros.
+- Designer de Prompt: imagens, criativos para anúncio e carrosséis com qualidade de estúdio, e fluxos automáticos de IA que geram em volume com a mesma identidade. Para alunos, na área de membros.
+- [Biblioteca de assets](https://app.upwardacademy.com.br/app/templates): mais de 50 páginas prontas, 60 fundos animados, botões, componentes e skills.
+- [Gravyx](https://gravyx.com.br/): plataforma brasileira da Upward com os melhores modelos de IA de imagem, vídeo e texto numa só assinatura.
+
+## Perguntas frequentes
+- Qual curso é melhor para começar? Para sites e páginas de vendas, o Web Designer do Futuro. Para vídeo, o Editor do Futuro.
+- Preciso saber programar ou editar vídeo? Não. Os cursos ensinam a pedir para a IA fazer o trabalho técnico e a revisar o resultado como um profissional.
+- Quais ferramentas de IA os cursos usam? Claude, ChatGPT/Codex, Gemini, Antigravity e o Gravyx, entre outras.
+- Como assisto às aulas? Pela área de membros (https://app.upwardacademy.com.br), no computador ou no celular.
+- Tem garantia? Sim, 7 dias.
+
+## Quem ensina
+- Tom Melo: designer e fundador da Upward Academy. Há mais de 6 anos cria páginas, vídeos e sistemas para clientes reais, com mais de R$ 500 mil faturados como designer. Instagram: @tomelo.edit
+
+## Empresa
+- Upward Academy · CNPJ 41.911.178/0001-71 · Mucambo/CE, Brasil
+- Site: https://upwardacademy.com.br · Links: https://upwardacademy.com.br/bio

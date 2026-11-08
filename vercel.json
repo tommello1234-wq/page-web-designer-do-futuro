@@ -1,6 +1,28 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.upwardacademy.com.br"
+        }
+      ],
+      "destination": "https://upwardacademy.com.br/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path((?!bio$|bio\\.css$|upward/|ASSETS/|LOGO\\.svg$|robots\\.txt$|sitemap\\.xml$|llms\\.txt$).+)",
+      "has": [
+        {
+          "type": "host",
+          "value": "upwardacademy.com.br"
+        }
+      ],
+      "destination": "https://lp.upwardacademy.com.br/:path",
+      "permanent": false
+    },
+    {
       "source": "/edf",
       "destination": "/edf/",
       "permanent": false
@@ -27,6 +49,16 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "upwardacademy.com.br"
+        }
+      ],
+      "destination": "/upward/index.html"
+    },
     {
       "source": "/curso-ugc-ia",
       "destination": "/curso-ugc-ia/index.html"

@@ -41,3 +41,8 @@ ads-media/
 !black/
 !black/assets/
 !black/assets/*.mp4
+
+# Black Friday, página de vendas (/black-vendas): vídeos da página vão ao ar.
+!black-vendas/
+!black-vendas/assets/
+!black-vendas/assets/*.mp4

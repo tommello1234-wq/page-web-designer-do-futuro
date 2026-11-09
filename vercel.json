@@ -33,6 +33,11 @@
       "permanent": false
     },
     {
+      "source": "/black-vendas",
+      "destination": "/black-vendas/",
+      "permanent": false
+    },
+    {
       "source": "/proposta-:cliente",
       "destination": "/proposta-:cliente/",
       "permanent": false

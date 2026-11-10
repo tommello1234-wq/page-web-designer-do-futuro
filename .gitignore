@@ -46,3 +46,8 @@ ads-media/
 !black-vendas/
 !black-vendas/assets/
 !black-vendas/assets/*.mp4
+
+# Black Friday, página dos alunos (/black-alunos, R$ 697, fora do Google): vídeos da página vão ao ar.
+!black-alunos/
+!black-alunos/assets/
+!black-alunos/assets/*.mp4

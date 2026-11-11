@@ -608,14 +608,9 @@ img {
   }
 }
 
-/* faixa da Black nos cartões do WDF e do Editor (10/11/2026): por cima do pé do banner, no estilo da tarja
+/* faixa da Black nos cartões do WDF e do Editor (10/11/2026): colada embaixo do banner (por cima cobria a arte do Editor), no estilo da tarja
    das artes da Black ("OFERTA LIBERADA | CLIQUE PARA ACESSAR"), para parecer parte da imagem */
 .bio-card-black {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -635,5 +630,8 @@ img {
 
 /* cartão só com a arte (banner da Black, 10/11/2026): sem o rodapé de texto nem a linha embaixo do banner */
 .bio-card--so-banner .bio-card-banner {
+  border-bottom: 0;
+}
+.bio-card-banner:has(+ .bio-card-black) {
   border-bottom: 0;
 }

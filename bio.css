@@ -607,3 +607,28 @@ img {
     transform: none;
   }
 }
+
+/* faixa da Black nos cartões do WDF e do Editor (10/11/2026): por cima do pé do banner, no estilo da tarja
+   das artes da Black ("OFERTA LIBERADA | CLIQUE PARA ACESSAR"), para parecer parte da imagem */
+.bio-card-black {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.55em 10px 0.5em;
+  background: linear-gradient(90deg, #a400e5 0%, #e000c0 40%, #ff0097 70%, #ff1f5a 100%);
+  color: #fff;
+  font: 500 clamp(10px, 3vw, 14px)/1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.bio-card-black i {
+  font-style: normal;
+  opacity: 0.9;
+}

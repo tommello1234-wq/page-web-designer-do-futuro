@@ -1,8 +1,8 @@
 /* core/roleta.js — roleta de desconto (pedido do dono, 03/10).
    Aparece uma vez por visitante e SÓ PARA QUEM JÁ VIU O PREÇO (nesta visita ou numa anterior) e não clicou para o
-   checkout (dono, 13/11/2026: 61% viam a roleta antes de chegar ao preço). Depois de ver o preço: após 45s com a aba
+   checkout (dono, 12/11/2026: 61% viam a roleta antes de chegar ao preço). Depois de ver o preço: após 45s com a aba
    visível ("tempo_preco"), na intenção de saída (mouse indo para o topo, computador) ou ao voltar para a aba (celular).
-   O gatilho "parado" (25s sem mexer) saiu em 13/11: disparava ~30s depois de chegar e só 17% tinham visto o preço.
+   O gatilho "parado" (25s sem mexer) saiu em 12/11: disparava ~30s depois de chegar e só 17% tinham visto o preço.
    Nunca aparece para quem já clicou para o checkout. Sempre cai em 20% OFF (cupom DESCONTO20OFF; era R$ 30 até 07/10).
    O relógio de 5 min é só urgência (pedido do dono): o cupom continua indo no link depois dele.
    RASTREIO: o botão é um a[data-checkout] comum, então o track.js faz tudo igual aos outros CTAs.

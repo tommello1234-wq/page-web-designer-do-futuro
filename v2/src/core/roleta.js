@@ -1,6 +1,8 @@
 /* core/roleta.js — roleta de desconto (pedido do dono, 03/10).
-   Aparece uma vez por visitante: após 90s com a aba visível, após 25s parado (com ≥30s na página),
-   na intenção de saída (mouse indo para o topo, computador) ou ao voltar para a aba (celular).
+   Aparece uma vez por visitante e SÓ PARA QUEM JÁ VIU O PREÇO (nesta visita ou numa anterior) e não clicou para o
+   checkout (dono, 13/11/2026: 61% viam a roleta antes de chegar ao preço). Depois de ver o preço: após 45s com a aba
+   visível ("tempo_preco"), na intenção de saída (mouse indo para o topo, computador) ou ao voltar para a aba (celular).
+   O gatilho "parado" (25s sem mexer) saiu em 13/11: disparava ~30s depois de chegar e só 17% tinham visto o preço.
    Nunca aparece para quem já clicou para o checkout. Sempre cai em 20% OFF (cupom DESCONTO20OFF; era R$ 30 até 07/10).
    O relógio de 5 min é só urgência (pedido do dono): o cupom continua indo no link depois dele.
    RASTREIO: o botão é um a[data-checkout] comum, então o track.js faz tudo igual aos outros CTAs.
@@ -49,24 +51,28 @@ d.addEventListener('click', (e) => {
 });
 
 /* ---------- gatilhos ---------- */
-let armed = !store.get().shown, visibleMs = 0, lastTick = Date.now(), lastAct = Date.now(), leftAt = 0;
+const PRICE_WAIT_MS = 45 * 1000;   // tempo com a aba visível depois de ver o preço, sem clicar para o checkout
+let armed = !store.get().shown, lastTick = Date.now(), leftAt = 0;
 const started = Date.now();
 WDF.bus.on('checkout', () => { if (armed) { armed = false; store.set({ shown: 1, skipped: 'checkout' }); } });
 
+/* viu o preço: o mesmo sinal do funil (offer:seen, bloco de preço ≥50% visível). Fica guardado para a próxima visita. */
+let priceSeen = !!(store.get().preco || (WDF.state && WDF.state.offerSeen)), visibleSincePrice = 0;
+if (priceSeen) store.set({ preco: 1 });
+WDF.bus.on('offer:seen', () => { if (priceSeen) return; priceSeen = true; visibleSincePrice = 0; store.set({ preco: 1 }); });
+
 function canShow() {
-  if (!armed || d.querySelector('dialog[open]') || (core.locked && core.locked())) return false;
+  if (!armed || !priceSeen || d.querySelector('dialog[open]') || (core.locked && core.locked())) return false;
   return true;
 }
 function maybe(reason) { if (canShow()) { armed = false; open(reason); } }
 
-['scroll', 'pointermove', 'pointerdown', 'keydown', 'touchstart', 'wheel'].forEach((t) => w.addEventListener(t, () => { lastAct = Date.now(); }, { passive: true }));
 setInterval(() => {
   const now = Date.now();
-  if (d.visibilityState === 'visible') visibleMs += now - lastTick;
+  if (d.visibilityState === 'visible' && priceSeen) visibleSincePrice += now - lastTick;
   lastTick = now;
   if (!armed) return;
-  if (visibleMs >= 90 * 1000) maybe('tempo');
-  else if (now - started >= 30 * 1000 && now - lastAct >= 25 * 1000 && d.visibilityState === 'visible') maybe('parado');
+  if (priceSeen && visibleSincePrice >= PRICE_WAIT_MS) maybe('tempo_preco');
 }, 1000);
 d.addEventListener('mouseout', (e) => {
   if (!e.relatedTarget && e.clientY <= 0 && Date.now() - started >= 15 * 1000) maybe('saida');
@@ -163,5 +169,5 @@ function win() {
   timer = setInterval(tick, 1000);
 }
 
-/* teste local: __roleta() no console abre na hora, ignorando gatilhos e o "já viu" */
-if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) w.__roleta = () => { armed = true; maybe('debug'); };
+/* teste local: __roleta() no console abre na hora, ignorando gatilhos, o "já viu" e o preço */
+if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) w.__roleta = () => { armed = true; priceSeen = true; maybe('debug'); };

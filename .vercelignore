@@ -39,6 +39,10 @@ ASSETS/videos-paginas/08.mp4
 !proposta-*/portfolio/
 !proposta-*/portfolio/*.mp4
 
+# Sites modelos (/modelos, link do suporte no WhatsApp): vídeos do portfólio vão ao ar.
+!modelos/portfolio/
+!modelos/portfolio/*.mp4
+
 # Editor do Futuro (/edf): vídeos da página de vendas vão ao ar.
 !edf/
 !edf/assets/

@@ -51,6 +51,11 @@
       "source": "/portfolio/",
       "destination": "/proposta-inkolor/",
       "permanent": false
+    },
+    {
+      "source": "/modelos",
+      "destination": "/modelos/",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -193,6 +198,67 @@
     },
     {
       "source": "/proposta-:cliente/(.*)\\.(mp4|webp|jpg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/modelos",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/modelos/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/modelos/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/modelos/(index\\.html|proposta\\.js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/modelos/(.*)\\.(mp4|webp|jpg)",
       "headers": [
         {
           "key": "Cache-Control",

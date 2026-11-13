@@ -32,6 +32,9 @@ ads-media/
 # Propostas comerciais (/proposta-<cliente>): vídeos do portfólio vão ao ar.
 !proposta-*/portfolio/*.mp4
 
+# Sites modelos (/modelos, link do suporte no WhatsApp): vídeos do portfólio vão ao ar.
+!modelos/portfolio/*.mp4
+
 # Editor do Futuro (/edf): vídeos da página de vendas vão ao ar.
 !edf/
 !edf/assets/

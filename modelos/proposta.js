@@ -29,8 +29,8 @@ window.PROPOSTA = {
 
   // Abertura: selo em cima, a frase grande (revelacao) e a linha de baixo (promessa)
   selo: 'Web Designer do Futuro',
-  revelacao: 'Sites que você aprende a criar com *IA*.',
-  promessa: 'Páginas como essas, criadas com IA no Web Designer do Futuro. Abra cada uma para ver no ar.',
+  revelacao: 'Aqui alguns modelos de estilos de *páginas*.',
+  promessa: 'Abra cada uma para ver no ar.',
 
   // Link final da página (para a prévia no WhatsApp)
   compartilhar: { url: 'https://lp.upwardacademy.com.br/modelos/', imagem: 'og.jpg' },

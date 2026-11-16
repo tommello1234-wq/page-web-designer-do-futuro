@@ -23,6 +23,36 @@
       "permanent": false
     },
     {
+      "source": "/black",
+      "destination": "/black-encerrada/",
+      "permanent": false
+    },
+    {
+      "source": "/black/:path*",
+      "destination": "/black-encerrada/",
+      "permanent": false
+    },
+    {
+      "source": "/black-vendas",
+      "destination": "/black-encerrada/",
+      "permanent": false
+    },
+    {
+      "source": "/black-vendas/:path*",
+      "destination": "/black-encerrada/",
+      "permanent": false
+    },
+    {
+      "source": "/black-alunos",
+      "destination": "/black-encerrada/",
+      "permanent": false
+    },
+    {
+      "source": "/black-alunos/:path*",
+      "destination": "/black-encerrada/",
+      "permanent": false
+    },
+    {
       "source": "/edf",
       "destination": "/edf/",
       "permanent": false

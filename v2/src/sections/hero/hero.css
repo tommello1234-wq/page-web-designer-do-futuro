@@ -293,7 +293,7 @@ html.is-motion .s-hero .hero-badge .dot{animation:hero-pulse 2s ease-in-out infi
 .s-hero .hero-anel{position:absolute;z-index:4;left:50%;top:calc(100% - var(--fig-h) * .33);width:0;height:0;pointer-events:none;perspective-origin:50% 0}
 .s-hero .hero-anel--frente{z-index:5}
 .s-hero .anel-ring{position:absolute;left:0;top:0;transform-style:preserve-3d}
-.s-hero .anel-card{--rev:1;--glow:0;position:absolute;left:0;top:0;width:clamp(170px,14vw,250px);margin-left:calc(clamp(170px,14vw,250px) / -2);translate:0 -50%;border-radius:6px;backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform,opacity;
+.s-hero .anel-card{--rev:1;--glow:0;position:absolute;left:0;top:0;width:clamp(180px,15vw,270px);margin-left:calc(clamp(180px,15vw,270px) / -2);translate:0 -50%;border-radius:6px;backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform,opacity;
   border:1px solid rgb(var(--flame-rgb) / calc(.1 + .8 * var(--glow)));box-shadow:0 18px 40px -18px rgb(0 0 0 / .7),0 0 calc(28px * var(--glow)) rgb(var(--flame-rgb) / calc(.55 * var(--glow))),0 0 calc(60px * var(--glow)) rgb(var(--ai-rgb) / calc(.35 * var(--glow)))}
 .s-hero .anel-card::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:var(--glow);   /* grade de holograma enquanto materializa */
   background:linear-gradient(rgb(var(--flame-rgb) / .16),rgb(var(--ai-rgb) / .12)),repeating-linear-gradient(0deg,rgb(255 255 255 / .09) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgb(255 255 255 / .05) 0 1px,transparent 1px 22px)}

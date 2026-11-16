@@ -381,7 +381,9 @@ function heroAnel(ctx, root) {
   let R = 300, rot = 0, raf = 0, last = 0, onScreen = false, tEnt = 0;
   function measure() {
     const w = root.querySelector('.hero-stage').clientWidth, fw = fig.offsetWidth || w * .5;
-    R = Math.round(ctx.flags.mobile ? Math.min(w * .42, fw * .7) : Math.min(w * .26, fw * .6));
+    // 16/11/2026 (dono: "a distância entre as páginas pode diminuir"): no computador o anel fechou (.26/.6 → .22/.5) e os
+    // cards cresceram um pouco (hero.css); no celular já estavam juntos
+    R = Math.round(ctx.flags.mobile ? Math.min(w * .42, fw * .7) : Math.min(w * .22, fw * .5));
     [tras, frente].forEach((l) => { l.c.style.perspective = Math.round(R * 3.2) + 'px'; });
     render();
   }

@@ -19,6 +19,18 @@
 .s-problema .p10-hl{max-width:18ch}
 .s-problema .p10-warn{max-width:46ch;margin-top:40px;font-size:18px;line-height:1.5;letter-spacing:-.01em;color:var(--text)}
 .s-problema .p10-warn .warn{font-weight:600;color:var(--flame)}
+/* Ferramentas do "básico" riscadas (16/11/2026, pedido do dono): ícones apagados com um X na cor da página */
+.s-problema .p10-old{display:flex;flex-wrap:wrap;gap:16px 22px;margin:36px 0 0;padding:0;list-style:none}
+.s-problema .p10-old li{position:relative;display:grid;justify-items:center;gap:9px;width:58px}
+.s-problema .p10-old-ic{display:block;width:52px;height:52px;filter:grayscale(.3) brightness(.92);opacity:.9}
+.s-problema .p10-x{position:absolute;top:-6px;left:50%;width:64px;height:64px;margin-left:-32px;fill:none;stroke:var(--flame);stroke-width:1.6;stroke-linecap:round;pointer-events:none;filter:drop-shadow(0 1px 2px rgb(var(--ink-rgb) / .6))}
+.s-problema .p10-old-nome{color:var(--muted);font-size:10px;letter-spacing:.04em;white-space:nowrap}
+@media (max-width:899px){
+  .s-problema .p10-old{gap:14px 16px;margin-top:28px}
+  .s-problema .p10-old li{width:50px}
+  .s-problema .p10-old-ic{width:44px;height:44px}
+  .s-problema .p10-x{top:-5px;width:54px;height:54px;margin-left:-27px}
+}
 
 .s-problema .p10-track{position:relative;min-width:0}
 .s-problema .p10-machine{position:relative;width:min(52vw,820px,100%);margin-left:auto;display:grid;

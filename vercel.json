@@ -28,7 +28,7 @@
       "permanent": false
     },
     {
-      "source": "/black/:path*",
+      "source": "/black/(.*)",
       "destination": "/black-encerrada/",
       "permanent": false
     },
@@ -38,7 +38,7 @@
       "permanent": false
     },
     {
-      "source": "/black-vendas/:path*",
+      "source": "/black-vendas/(.*)",
       "destination": "/black-encerrada/",
       "permanent": false
     },
@@ -48,7 +48,7 @@
       "permanent": false
     },
     {
-      "source": "/black-alunos/:path*",
+      "source": "/black-alunos/(.*)",
       "destination": "/black-encerrada/",
       "permanent": false
     },

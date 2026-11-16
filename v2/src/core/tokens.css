@@ -17,7 +17,7 @@
   --flame-deep:#D4430C;   /* <em> display ≥32px sobre paper (3,80:1 AA-large) */
   --flame-text:#B53D0B;   /* texto pequeno laranja sobre paper (4,82:1) */
   --ai:#A600FF;           /* violeta do badge do LOGO; "IA agindo": marcas/linhas e display ≥52px (3,83:1 sobre ink; 4,31:1 sobre paper) */
-  --wa:#25D366;           /* único verde: ponto de 8px do WhatsApp */
+  --wa:#25D366;           /* único verde: ponto de 8px do WhatsApp e "de forma gratuita" no topo (16/11/2026) */
   --grey-1:#D6D6D6; --grey-2:#9A9A9A; --grey-3:#8A8A8A; --grey-paper:#625F59; --fg2-paper:#2B2A27;
   /* site genérico do Problema ("IA genérica") */
   --gen-bg:#E6E3DD; --gen-block:#CFCBC4; --gen-block-2:#BDB8B0; --gen-ink:#8E8997;

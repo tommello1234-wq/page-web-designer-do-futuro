@@ -55,6 +55,8 @@
 .s-hero .hero-stage > .hero-right{position:absolute;z-index:6;right:var(--pad-x);top:max(44svh, calc(var(--futuro-base) + 64px))}
 .s-hero .hero-desc{margin:0 0 22px;font-size:16px;line-height:1.5;color:var(--ink)}
 .s-hero .hero-desc em{font-style:normal;font-weight:700;color:var(--ink);text-decoration:underline 2px rgb(var(--white-rgb) / .75);text-underline-offset:.2em}
+/* "de forma gratuita" em negrito e verde (pedido do dono, 16/11/2026); fundo do texto é ink nos dois layouts (9,7:1) */
+.s-hero .hero-desc .hero-gratis{font-weight:700;color:var(--wa)}
 .s-hero .hero-feats{list-style:none;margin:0;padding:0}
 .s-hero .hero-feats li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
 .s-hero .hero-feats li:last-child{border-bottom:1px solid var(--line)}

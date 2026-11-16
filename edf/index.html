@@ -177,11 +177,11 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf/assets/index--fuTYqvj.js"></script>
+    <script type="module" crossorigin src="/edf/assets/index-DI1rivgT.js"></script>
     <link rel="modulepreload" crossorigin href="/edf/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf/assets/abertura-CNpnq7On.js">
-    <link rel="stylesheet" crossorigin href="/edf/assets/index-DcTPxfvi.css">
+    <link rel="stylesheet" crossorigin href="/edf/assets/index-qC-HMs4M.css">
   </head>
   <body>
     <a class="pular" href="#timeline">Pular para o conteúdo</a>
@@ -1957,8 +1957,11 @@
      (tem criança). Título igual ao da página do Web Designer. Logo antes do preço.
      Cada print leva em cima a barra do grupo ("Editor do Futuro"): o dono quer que se veja
      que é o grupo dos alunos. No do Gustavo, o quadro do vídeo dele entrou no lugar da
-     miniatura (pedido do dono). Computador: duas colunas. Celular: fileira de lado, um
-     print por vez. Tocar no print abre ampliado (depoimentos.js). Sem pin. -->
+     miniatura (pedido do dono). O 02 é o vídeo que o dono fez (16/11): a barra do grupo em cima
+     e o vídeo embaixo, tocando sem som; tocar abre grande, com som.
+     Computador (16/11, "igual no web designer"): lado a lado na mesma altura; a fileira trava no
+     meio da tela e anda de lado com a rolagem (depoimentos.js). Celular: um embaixo do outro.
+     Tocar no print abre ampliado. -->
 <section class="depo" id="depoimentos" aria-labelledby="depo-titulo">
   <div class="wrap">
     <header class="depo__cab">
@@ -1972,6 +1975,7 @@
       </p>
     </header>
 
+    <div class="depo__trilho">
     <ul class="depo__grade" data-reveal data-reveal-grupo>
       <li class="depo__item">
         <figure class="depo__card">
@@ -1989,13 +1993,15 @@
       <li class="depo__item">
         <figure class="depo__card">
           <p class="depo__barra hud" aria-hidden="true"><i class="rec"></i><span class="pixel">02</span><span class="depo__nome">Alison Nunes</span></p>
-          <button class="depo__print" type="button" aria-label="Ampliar depoimento: roteiro, trilhas e cortes feitos com as skills do curso">
-            <img src="/edf/assets/depo-alison-cortes-0fkCliYr.webp" width="924" height="1460" loading="lazy" decoding="async" alt="Print do grupo de alunos sobre roteiro, trilhas e cortes feitos com as skills do curso" />
+          <button class="depo__print depo__print--video" type="button" aria-label="Ver o depoimento em vídeo com som: vídeo que o aluno fez com as skills do curso">
+            <img class="depo__topo" src="/edf/assets/depo-topo-grupo-FH6dr-c9.webp" width="924" height="124" alt="" />
+            <span class="depo__midia">
+              <img class="depo__capa" src="/edf/assets/depo-alison-atom-capa-srrn0tna.webp" width="720" height="898" loading="lazy" decoding="async" alt="Print do grupo de alunos com o vídeo que o aluno fez com as skills do curso" />
+              <video class="depo__vid" muted loop playsinline preload="none" width="720" height="898" aria-hidden="true" tabindex="-1"></video>
+            </span>
           </button>
           <figcaption class="sr-only">
-            <p>Aluno: (…) selecionou trechos, montou o roteiro, as trilas e usou as skills la de motion e edição de video gravado.</p>
-            <p>Aluno: Tambem fez muito bem cortes de videos longos pra shorts</p>
-            <p>Aluno envia o vídeo que fez.</p>
+            <p>Aluno envia no grupo o vídeo que fez com as skills de motion e edição de vídeo gravado do curso.</p>
             <p>Aluno: Tom Melo, segue aqui também</p>
           </figcaption>
         </figure>
@@ -2030,10 +2036,12 @@
         </figure>
       </li>
     </ul>
+    </div>
   </div>
 
   <dialog class="depo__zoom" aria-label="Depoimento ampliado">
     <img class="depo__zoom-img" alt="" />
+    <video class="depo__zoom-vid" controls playsinline hidden></video>
     <button class="depo__zoom-x mono" type="button">Fechar</button>
   </dialog>
 </section>

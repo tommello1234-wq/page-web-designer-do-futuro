@@ -85,12 +85,36 @@ WDF.register('depoimentos', {
     root.querySelectorAll('.dp-print').forEach((link) => {
       ctx.on(link, 'click', (event) => {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (!WDF.core.dialog) return;
+        /* depoimento em vídeo: abre o vídeo grande, tocando sem som */
+        const vid = link.querySelector('video');
+        if (vid) {
+          const big = document.createElement('video');
+          big.src = vid.currentSrc || vid.getAttribute('data-src') || '';
+          big.muted = true; big.loop = true; big.playsInline = true; big.autoplay = true;
+          big.width = vid.width; big.height = vid.height;
+          WDF.core.dialog.open({ node: big, label: link.getAttribute('aria-label') });
+          return;
+        }
         const source = link.querySelector('img');
-        if (!source || !WDF.core.dialog) return;
+        if (!source) return;
         const image = source.cloneNode();
         image.loading = 'eager';
         if (WDF.core.dialog.open({ node: image, label: link.getAttribute('aria-label') })) event.preventDefault();
       });
+    });
+
+    /* depoimento em vídeo (08, 16/11): carrega perto (também na horizontal, onde o card está fora da tela até a fileira
+       chegar) e toca sozinho, sem som, enquanto o card aparece; sem movimento fica a capa com o ▶ */
+    root.querySelectorAll('.dp-print--video video').forEach((v) => {
+      const ctl = ctx.media.lazyVideo(v, { group: 'depoimentos', margin: '100% 100%' });
+      if (!ctx.flags.motion || !ctx.flags.autoplay || !('IntersectionObserver' in window)) return;
+      const io = new IntersectionObserver((es) => {
+        const e = es[es.length - 1];
+        if (e.isIntersecting && !ctl.userPaused) ctl.play(); else ctl.pause();
+      }, { threshold: 0.35 });
+      io.observe(v);
+      ctx.cleanup(() => io.disconnect());
     });
 
     /* ---- prints na horizontal (só com movimento e pin; sem isso ficam nas colunas do CSS) ---- */

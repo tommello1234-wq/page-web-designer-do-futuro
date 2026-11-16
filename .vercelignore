@@ -10,6 +10,8 @@
 !ASSETS/videos-bonus/*.mp4
 !ASSETS/videos-paginas/
 !ASSETS/videos-paginas/*.mp4
+!ASSETS/videos-depoimentos/
+!ASSETS/videos-depoimentos/*.mp4
 !ASSETS/antes-depois/depois.mp4
 
 # Previews gerados por node v2/build.mjs --section (fora do deploy)

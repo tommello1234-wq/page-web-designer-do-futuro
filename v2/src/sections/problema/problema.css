@@ -19,20 +19,19 @@
 .s-problema .p10-hl{max-width:18ch}
 .s-problema .p10-warn{max-width:46ch;margin-top:40px;font-size:18px;line-height:1.5;letter-spacing:-.01em;color:var(--text)}
 .s-problema .p10-warn .warn{font-weight:600;color:var(--flame)}
-/* Ferramentas do "básico" riscadas (16/11/2026, pedido do dono): logos oficiais com um X na cor da página */
-.s-problema .p10-old{display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px 26px;margin:36px 0 0;padding:0;list-style:none}
-.s-problema .p10-old li{display:grid;justify-items:center;gap:10px}
-.s-problema .p10-old-box{position:relative;display:grid;place-items:center;height:46px}
-.s-problema .p10-old-ic{display:block;width:40px;height:40px}
-.s-problema .p10-old-ic--wix{width:68px;height:31px}
-.s-problema .p10-x{position:absolute;top:50%;left:50%;width:54px;height:54px;margin:-27px 0 0 -27px;fill:none;stroke:var(--flame);stroke-width:1.6;stroke-linecap:round;pointer-events:none;filter:drop-shadow(0 1px 2px rgb(var(--ink-rgb) / .7))}
+/* Ferramentas do "básico" (16/11/2026, pedido do dono): ícones de app nas cores da marca, um X pequeno no canto */
+.s-problema .p10-old{display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px 22px;margin:36px 0 0;padding:0;list-style:none}
+.s-problema .p10-old li{display:grid;justify-items:center;gap:10px;width:58px}
+.s-problema .p10-old-box{position:relative;display:block}
+.s-problema .p10-old-ic{display:block;width:52px;height:52px}
+.s-problema .p10-x{position:absolute;top:-7px;right:-7px;width:22px;height:22px;border-radius:50%;background:var(--flame);
+  box-shadow:0 0 0 2px var(--bg);fill:none;stroke:var(--white);stroke-width:2.6;stroke-linecap:round;pointer-events:none}
 .s-problema .p10-old-nome{color:var(--muted);font-size:10px;letter-spacing:.04em;white-space:nowrap}
 @media (max-width:899px){
-  .s-problema .p10-old{gap:14px 18px;margin-top:28px}
-  .s-problema .p10-old-box{height:40px}
-  .s-problema .p10-old-ic{width:34px;height:34px}
-  .s-problema .p10-old-ic--wix{width:56px;height:25px}
-  .s-problema .p10-x{width:46px;height:46px;margin:-23px 0 0 -23px}
+  .s-problema .p10-old{gap:14px 16px;margin-top:28px}
+  .s-problema .p10-old li{width:50px}
+  .s-problema .p10-old-ic{width:44px;height:44px}
+  .s-problema .p10-x{top:-6px;right:-6px;width:19px;height:19px}
 }
 
 .s-problema .p10-track{position:relative;min-width:0}

@@ -76,18 +76,25 @@ WDF.register('solucao', {
   },
 });
 
-/* pilha de notificações de Pix (padrão da página UGC): a cada 5,2 s a de trás vem para a frente, só com a dobra visível e já "paga" */
-const PIX_TIMES = ['agora', 'há 2 min', 'há 9 min'];
+/* pilha de notificações de Pix (padrão da página UGC): a cada 5,2 s a de trás vem para a frente, só com a dobra visível e já "paga".
+   Desde 16/11/2026 são prints reais (imagens com o horário próprio), então não há mais horário para trocar. */
 function pixStack(ctx, root, body) {
   const stack = root.querySelector('.pix-stack');
   if (!stack) return;
   const items = [...stack.children];
   let order = [...items], visible = false, timer = 0;
-  const size = () => stack.style.setProperty('--pix-h', Math.max(...items.map((it) => it.offsetHeight)) + 'px');
-  const place = () => order.forEach((it, i) => {
-    it.dataset.slot = String(i); it.style.setProperty('--slot', i);
-    it.querySelector('.pix-t').textContent = PIX_TIMES[i];
-  });
+  /* altura natural de cada notificação (a imagem): as de trás ficam com a altura da da frente (--pix-front) e aparecem só como
+     uma beirada, como no celular; a caixa da pilha reserva a maior (--pix-h), para a página não pular quando a pilha gira */
+  const alto = (it) => (it.firstElementChild || it).offsetHeight;
+  const size = () => {
+    stack.style.setProperty('--pix-h', Math.max(...items.map(alto)) + 'px');
+    stack.style.setProperty('--pix-front', alto(order[0]) + 'px');
+  };
+  const place = () => {
+    order.forEach((it, i) => { it.dataset.slot = String(i); it.style.setProperty('--slot', i); });
+    stack.style.setProperty('--pix-front', alto(order[0]) + 'px');
+  };
+  stack.style.setProperty('--pix-k', items.length);
   const next = () => {
     if (!body.classList.contains('is-paid')) return;
     items.forEach((it) => it.classList.remove('is-arriving'));
@@ -97,15 +104,15 @@ function pixStack(ctx, root, body) {
   const sync = () => { clearInterval(timer); timer = 0; if (visible && !document.hidden) timer = setInterval(next, 5200); };
   stack.classList.add('is-stacked'); place(); size();
   const ro = 'ResizeObserver' in window ? new ResizeObserver(size) : null;
-  if (ro) items.forEach((it) => ro.observe(it));
+  if (ro) items.forEach((it) => ro.observe(it.firstElementChild || it));
   const io = 'IntersectionObserver' in window ? new IntersectionObserver((es) => { visible = es[0].isIntersecting; sync(); }, { threshold: 0.2 }) : null;
   if (io) io.observe(stack); else { visible = true; sync(); }
   document.addEventListener('visibilitychange', sync);
   ctx.cleanup(() => {
     clearInterval(timer); if (io) io.disconnect(); if (ro) ro.disconnect();
     document.removeEventListener('visibilitychange', sync);
-    stack.classList.remove('is-stacked'); stack.style.removeProperty('--pix-h');
-    items.forEach((it, i) => { it.classList.remove('is-arriving'); delete it.dataset.slot; it.style.removeProperty('--slot'); it.querySelector('.pix-t').textContent = PIX_TIMES[i]; });
+    stack.classList.remove('is-stacked'); ['--pix-h', '--pix-k', '--pix-front'].forEach((p) => stack.style.removeProperty(p));
+    items.forEach((it) => { it.classList.remove('is-arriving'); delete it.dataset.slot; it.style.removeProperty('--slot'); });
     order = [...items];
   });
 }

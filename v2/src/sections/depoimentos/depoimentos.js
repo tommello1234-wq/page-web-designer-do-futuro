@@ -37,7 +37,8 @@ function gallery(ctx, root) {
     S.last = -1;
   };
   measure();
-  const pinLen = () => Math.max(1, Math.round(Math.min(geo.D * 0.75, w.innerHeight * 2.2)));   // teto 2,2 telas (como os projetos)
+  /* teto 2,2 telas com 5 prints (como os projetos); com 19 (16/11) o teto cresce ~0,3 tela por print para a fileira não correr 4x mais rápido */
+  const pinLen = () => Math.max(1, Math.round(Math.min(geo.D * 0.75, w.innerHeight * Math.max(2.2, cards.length * 0.3))));
   const st = ctx.st({
     trigger: stage, start: 'top top', end: () => { measure(); return '+=' + pinLen(); },
     pin: stage, scrub: true, anticipatePin: 1, invalidateOnRefresh: true,

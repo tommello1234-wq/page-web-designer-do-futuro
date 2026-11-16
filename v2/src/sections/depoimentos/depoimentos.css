@@ -64,6 +64,8 @@ html.is-static .s-depoimentos .mq-set>i,html.no-js .s-depoimentos .mq-set>i,.s-d
 .s-depoimentos.is-h .dp-testimonial{flex:none;margin:0}
 /* todos na mesma altura, largura pela proporção de cada print (os width/height do HTML seguram o espaço antes de carregar) */
 .s-depoimentos.is-h .dp-print img{width:auto;height:min(60svh,520px)}
+/* print muito largo e baixo (uma mensagem só): na altura dos outros ficaria ampliado ~2x; fica no tamanho natural */
+@media (min-width:900px){ .s-depoimentos.is-h .dp-testimonial--wide .dp-print img{height:min(30svh,280px)} }
 .s-depoimentos.is-h .dp-line{display:flex;position:absolute;z-index:2;left:var(--pad-x);right:calc(var(--pad-x) + 72px);bottom:28px}
 
 /* linha de progresso (igual à dos projetos) */
@@ -94,7 +96,8 @@ html.is-static .s-depoimentos .mq-set>i,html.no-js .s-depoimentos .mq-set>i,.s-d
      se centralizam no espaço entre o menu e a linha */
   .s-depoimentos.is-h .dp-threads{margin-top:24px;padding:calc(var(--nav-h) + 8px) 0 calc(48px + max(12px,env(safe-area-inset-bottom)) + 92px)}
   .s-depoimentos.is-h .dp-track{gap:14px}
-  .s-depoimentos.is-h .dp-print img{width:min(84vw,400px);height:auto}
+  /* prints em pé (prints do grupo, 16/11) não passam da altura livre entre o menu e a linha: em celular baixo afinam em vez de cortar */
+  .s-depoimentos.is-h .dp-print img{width:auto;height:auto;max-width:min(84vw,400px);max-height:calc(100svh - var(--nav-h) - 220px)}
   .s-depoimentos.is-h .dp-line{gap:14px;right:var(--pad-x);bottom:calc(48px + max(12px,env(safe-area-inset-bottom)) + 26px)}
   .s-depoimentos .dp-mask{width:36px;height:48px;transform:translate3d(-18px,0,0)}
   .s-depoimentos .dp-l-a,.s-depoimentos .dp-l-b{font-size:11px}

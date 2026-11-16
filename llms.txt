@@ -1,6 +1,6 @@
 # Upward Academy
 
-> A Upward Academy é uma escola brasileira de cursos online sobre inteligência artificial aplicada ao trabalho criativo: web design, edição de vídeo, sistemas e criação de conteúdo com IA. Fundada e ensinada por Tom Melo. Os cursos são práticos: cada aula mostra o processo real, do pedido do cliente à entrega pronta, usando IA em cada etapa. Mais de 850 alunos já passaram pelo Web Designer do Futuro, com nota média de 4,9 de 5.
+> A Upward Academy é uma escola brasileira de cursos online sobre inteligência artificial aplicada ao trabalho criativo: web design, edição de vídeo, sistemas e criação de conteúdo com IA. Fundada e ensinada por Tom Melo. Os cursos são práticos: cada aula mostra o processo real, do pedido do cliente à entrega pronta, usando IA em cada etapa. Mais de 1.000 alunos já passaram pelo Web Designer do Futuro, com nota média de 4,9 de 5.
 
 ## Cursos
 - [Web Designer do Futuro](https://lp.upwardacademy.com.br/): curso de web design com IA. Crie páginas de vendas e sites com animação usando agentes de IA (Claude, Codex e Antigravity), mesmo sem saber programar. 6 módulos e 38 aulas.

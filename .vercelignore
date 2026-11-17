@@ -50,6 +50,11 @@ ASSETS/videos-paginas/08.mp4
 !edf/assets/
 !edf/assets/*.mp4
 
+# Editor do Futuro, variante do clone digital (/edf-clone, 17/11/2026): vídeos da página vão ao ar.
+!edf-clone/
+!edf-clone/assets/
+!edf-clone/assets/*.mp4
+
 # Black Friday (/black): vídeos da página vão ao ar.
 !black/
 !black/assets/

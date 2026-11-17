@@ -58,6 +58,11 @@
       "permanent": false
     },
     {
+      "source": "/edf-clone",
+      "destination": "/edf-clone/",
+      "permanent": false
+    },
+    {
       "source": "/black",
       "destination": "/black/",
       "permanent": false

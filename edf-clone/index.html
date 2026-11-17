@@ -166,7 +166,7 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf-clone/assets/index-clone-CWYNViqK.js"></script>
+    <script type="module" crossorigin src="/edf-clone/assets/index-clone-DbGmFrMF.js"></script>
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/abertura-CNpnq7On.js">
@@ -474,7 +474,7 @@
      menores e escuros, o vídeo tem parallax dentro do card e o título gigante
      vazado corre no sentido contrário. Celular: carrossel com arraste e snap.
      Movimento reduzido: grade estática, vídeos com controles. -->
-<section class="reel" id="reel" aria-labelledby="reel-titulo">
+<section class="reel" id="reel" aria-labelledby="reel-titulo" data-modulo="reel-clone">
   <div class="reel__palco">
     <!-- Título gigante vazado (corre ao contrário) -->
     <div class="reel__fantasma" aria-hidden="true">
@@ -488,17 +488,74 @@
         <!-- Abertura da dobra (primeiro item do trilho no desktop) -->
         <header class="reel__abre">
           <div class="reel__abre-topo">
-            <p class="rotulo"><b>01</b> Feito com o método</p>
-            <h2 class="reel__titulo display" id="reel-titulo" data-split>Vídeos reais.<br /><span class="reel__titulo-b">Feitos assim.</span></h2>
-            <p class="reel__lead lead" data-reveal>Você vai aprender a criar todos esses estilos de vídeo com IA.</p>
+            <p class="rotulo"><b>01</b> Feito com clone</p>
+            <h2 class="reel__titulo display" id="reel-titulo" data-split>Vídeos com clone.<br /><span class="reel__titulo-b">Feitos assim.</span></h2>
+            <p class="reel__lead lead" data-reveal>Clone falando, clone de uma foto, clone em qualquer cenário: tudo feito com IA, do jeito que o curso ensina.</p>
           </div>
           <p class="reel__dica mono" aria-hidden="true"><span>Role · a galeria anda</span><i class="reel__dica-seta"></i></p>
         </header>
 
-        <ol class="reel__cards" aria-label="Vídeos feitos com o método">
-          <!-- Variante do clone: o vídeo do clone (avatar) está no topo; aqui a galeria abre com "Posso ser o que quiser" -->
-          <!-- 04 · posso-ser-o-que-quiser.mp4 (05/11/2026: no lugar do visor lima; trocou de posição com a contabilidade, pedido do dono) -->
-          <li class="reel__card is-ativo reel__card--som" data-video="look">
+        <ol class="reel__cards" aria-label="Vídeos feitos com clone">
+          <!-- 01 · umaFoto (variante do clone) -->
+          <li class="reel__card is-ativo reel__card--som" data-video="umaFoto">
+            <div class="reel__peca">
+              <div class="reel__monitor">
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">clone-de-uma-foto.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <div class="reel__tela">
+                  <div class="reel__para">
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Uma foto de uma mulher vira um vídeo em que ela fala, com o selo Clone realista."></video>
+                  </div>
+                  <i class="reel__sombra" aria-hidden="true"></i>
+                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
+                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
+                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    <span class="reel__som-txt">Ouvir</span>
+                  </button>
+                </div>
+                <i class="reel__brilho" aria-hidden="true"></i>
+                <i class="hud-canto" aria-hidden="true"></i>
+              </div>
+              <div class="reel__ficha">
+                <p class="reel__meta mono"><span class="reel__idx">01</span>Clone de uma foto · 9:16 · 22 s</p>
+                <h3 class="reel__nome">Só uma foto</h3>
+                <p class="reel__desc"><em>Uma foto vira um clone realista falando. A IA escreveu o roteiro e montou a edição.</em></p>
+              </div>
+            </div>
+          </li>
+          <!-- 02 · avatarMercado (variante do clone) -->
+          <li class="reel__card reel__card--som" data-video="avatarMercado">
+            <div class="reel__peca">
+              <div class="reel__monitor">
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">anuncio-com-clone.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <div class="reel__tela">
+                  <div class="reel__para">
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="O clone do Tom sentado numa poltrona fala, com os textos “Você ainda perde horas” e “100% com IA” em motion."></video>
+                  </div>
+                  <i class="reel__sombra" aria-hidden="true"></i>
+                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
+                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
+                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    <span class="reel__som-txt">Ouvir</span>
+                  </button>
+                </div>
+                <i class="reel__brilho" aria-hidden="true"></i>
+                <i class="hud-canto" aria-hidden="true"></i>
+              </div>
+              <div class="reel__ficha">
+                <p class="reel__meta mono"><span class="reel__idx">02</span>Anúncio com clone · 9:16 · 18 s</p>
+                <h3 class="reel__nome">Você ainda perde horas</h3>
+                <p class="reel__desc"><em>O meu clone apresenta o anúncio. Os textos em motion entram no tempo da fala.</em></p>
+              </div>
+            </div>
+          </li>
+          <!-- 03 · look (variante do clone) -->
+          <li class="reel__card reel__card--som" data-video="look">
             <div class="reel__peca">
               <div class="reel__monitor">
                 <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">posso-ser-o-que-quiser.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
@@ -520,20 +577,20 @@
                 <i class="hud-canto" aria-hidden="true"></i>
               </div>
               <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">01</span>Troca de look · 9:16 · 37 s</p>
+                <p class="reel__meta mono"><span class="reel__idx">03</span>Troca de look · 9:16 · 37 s</p>
                 <h3 class="reel__nome">Posso ser o que quiser</h3>
                 <p class="reel__desc"><em>Gravei no quarto. A IA me levou ao consultório, ao estúdio, ao palco e à praia.</em></p>
               </div>
             </div>
           </li>
-          <!-- qual-programa.mp4 (criativo de tráfego do lote F, 15/11/2026) -->
-          <li class="reel__card reel__card--som" data-video="programa">
+          <!-- 04 · cloneBarato (variante do clone) -->
+          <li class="reel__card reel__card--som" data-video="cloneBarato">
             <div class="reel__peca">
               <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">qual-programa.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">apresentador-de-ia.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
                 <div class="reel__tela">
                   <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Qual programa eu uso para editar meus vídeos? Nenhum: eu descrevo o vídeo e a IA escreve o roteiro, anima, legenda e põe o som."></video>
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Um apresentador gerado por IA fala para a câmera, com câmera, luz e microfone riscados ao lado."></video>
                   </div>
                   <i class="reel__sombra" aria-hidden="true"></i>
                   <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
@@ -549,20 +606,20 @@
                 <i class="hud-canto" aria-hidden="true"></i>
               </div>
               <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">02</span>Tipografia animada · 9:16 · 22 s</p>
-                <h3 class="reel__nome">Qual programa eu uso? Nenhum.</h3>
-                <p class="reel__desc"><em>Eu só descrevo o vídeo. A IA escreve o roteiro, anima cada cena, legenda e põe o som.</em></p>
+                <p class="reel__meta mono"><span class="reel__idx">04</span>Apresentador de IA · 9:16 · 27 s</p>
+                <h3 class="reel__nome">Imagina um clone seu</h3>
+                <p class="reel__desc"><em>Um apresentador gerado por IA explica o clone. Ninguém gravou nada.</em></p>
               </div>
             </div>
           </li>
-          <!-- holograma-na-mao.mp4 (criativo de tráfego do lote F, 15/11/2026) -->
-          <li class="reel__card reel__card--som" data-video="holograma">
+          <!-- 05 · sonho (variante do clone) -->
+          <li class="reel__card reel__card--som" data-video="sonho">
             <div class="reel__peca">
               <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">holograma-na-mao.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">cenas-impossiveis.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
                 <div class="reel__tela">
                   <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="A mão puxa do notebook vários vídeos feitos com IA, que flutuam em cartões 3D."></video>
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Cenas feitas com IA: um homem sentado na cama, o mar dentro da geladeira, uma câmera na praia, com a legenda “Hoje, nada mais é real”."></video>
                   </div>
                   <i class="reel__sombra" aria-hidden="true"></i>
                   <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
@@ -578,20 +635,20 @@
                 <i class="hud-canto" aria-hidden="true"></i>
               </div>
               <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">03</span>Holograma na mão · 9:16 · 20 s</p>
-                <h3 class="reel__nome">Holograma na mão</h3>
-                <p class="reel__desc"><em>Puxei os meus vídeos do notebook com a mão. Os cartões 3D foram feitos com IA.</em></p>
+                <p class="reel__meta mono"><span class="reel__idx">05</span>Cenas impossíveis · 9:16 · 30 s</p>
+                <h3 class="reel__nome">Hoje, nada mais é real</h3>
+                <p class="reel__desc"><em>Cenas que não dá para gravar, feitas com IA, com legenda e trilha.</em></p>
               </div>
             </div>
           </li>
-          <!-- 02 · colagem-diretor-de-arte.mp4 -->
-          <li class="reel__card reel__card--som" data-video="colagem">
+          <!-- 06 · avatarBlack (variante do clone) -->
+          <li class="reel__card reel__card--som" data-video="avatarBlack">
             <div class="reel__peca">
               <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">colagem-diretor-de-arte.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
+                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">clone-com-oferta.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
                 <div class="reel__tela">
                   <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Reels em estilo colagem vintage: mãos com rolo de filme, computador antigo, robô e calendário."></video>
+                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="O clone do Tom fala da oferta, com o card do clone digital e os cards de acesso vitalício entrando ao lado."></video>
                   </div>
                   <i class="reel__sombra" aria-hidden="true"></i>
                   <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
@@ -607,67 +664,9 @@
                 <i class="hud-canto" aria-hidden="true"></i>
               </div>
               <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">04</span>Reels em motion · 9:16 · 40 s</p>
-                <h3 class="reel__nome">Colagem de diretor de arte</h3>
-                <p class="reel__desc"><em>Estilo colagem vintage, com imagens e clipes gerados por IA.</em></p>
-              </div>
-            </div>
-          </li>
-          <!-- 03 · corte-podcast.mp4 -->
-          <li class="reel__card reel__card--som" data-video="podcast">
-            <div class="reel__peca">
-              <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">corte-podcast.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
-                <div class="reel__tela">
-                  <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Corte de podcast: legenda palavra por palavra, cortes de câmera e um gráfico animado de posicionamento sobre a gravação."></video>
-                  </div>
-                  <i class="reel__sombra" aria-hidden="true"></i>
-                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
-                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
-                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                    <span class="reel__som-txt">Ouvir</span>
-                  </button>
-                </div>
-                <i class="reel__brilho" aria-hidden="true"></i>
-                <i class="hud-canto" aria-hidden="true"></i>
-              </div>
-              <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">05</span>Corte de podcast · 9:16 · 14 s</p>
-                <h3 class="reel__nome">Corte de podcast</h3>
-                <p class="reel__desc"><em>Uma conversa gravada que a IA transformou num corte pronto pra Reels: legenda, cortes de câmera e um gráfico animado.</em></p>
-              </div>
-            </div>
-          </li>
-          <!-- 05 · preto-e-neon.mp4 -->
-          <li class="reel__card reel__card--som" data-video="neon">
-            <div class="reel__peca">
-              <div class="reel__monitor">
-                <p class="reel__barra-sup" aria-hidden="true"><span class="reel__arq"><i class="rec"></i><span class="reel__arq-nome">preto-e-neon.mp4</span></span><span class="tc reel__tc">00:00:00:00</span></p>
-                <div class="reel__tela">
-                  <div class="reel__para">
-                    <video class="reel__video" muted playsinline loop preload="none" disablepictureinpicture aria-label="Criativo do curso: uma frase, sem abrir editor, o pedido, roteiro, visual, animação e som, 3 horas viram 10 minutos."></video>
-                  </div>
-                  <i class="reel__sombra" aria-hidden="true"></i>
-                  <button class="reel__som" type="button" aria-pressed="false" aria-label="Ouvir">
-                    <svg class="reel__som-ico" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" />
-                      <path class="reel__som-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                    <span class="reel__som-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-                    <span class="reel__som-txt">Ouvir</span>
-                  </button>
-                </div>
-                <i class="reel__brilho" aria-hidden="true"></i>
-                <i class="hud-canto" aria-hidden="true"></i>
-              </div>
-              <div class="reel__ficha">
-                <p class="reel__meta mono"><span class="reel__idx">06</span>Criativo · 9:16 · 31 s</p>
-                <h3 class="reel__nome">O anúncio deste curso · preto e neon</h3>
-                <p class="reel__desc"><em>O criativo do Editor do Futuro, feito com o próprio método.</em></p>
+                <p class="reel__meta mono"><span class="reel__idx">06</span>Clone com oferta · 9:16 · 39 s</p>
+                <h3 class="reel__nome">Meu clone vende por mim</h3>
+                <p class="reel__desc"><em>O meu clone apresenta a oferta, e os cards entram na hora certa da fala.</em></p>
               </div>
             </div>
           </li>
@@ -704,7 +703,8 @@
      painel Pedido digitando e o checklist "A IA fez". A composição antiga em
      HTML (cenas abaixo) fica escondida enquanto o vídeo está ligado.
      Movimento reduzido: o vídeo parado, com controles. -->
-<section class="timeline" id="timeline" aria-labelledby="timeline-titulo">
+<!-- Variante /edf-clone (17/11/2026): o vídeo do clone e o passo a passo do clone (módulo timeline-clone.js) -->
+<section class="timeline" id="timeline" aria-labelledby="timeline-titulo" data-modulo="timeline-clone">
   <header class="timeline__cab wrap">
     <div class="timeline__cab-grade grade">
       <div class="timeline__cab-esq">
@@ -712,7 +712,7 @@
         <h2 class="timeline__titulo display" id="timeline-titulo" data-split>Role.<br /><span class="timeline__linha2">Você está <span class="grifo">editando.</span></span></h2>
       </div>
       <div class="timeline__cab-dir" data-reveal data-reveal-delay=".15">
-        <p class="lead">Esta parte da página é um vídeo motion feito em código, do jeito que o curso ensina. A rolagem é a agulha da linha do tempo.</p>
+        <p class="lead">Do rosto e da voz ao vídeo pronto: role e veja cada passo de um vídeo com clone. A rolagem é a agulha da linha do tempo.</p>
         <p class="timeline__cab-dica hud" aria-hidden="true"><i class="timeline__cab-agulha"></i><span>Role para editar</span></p>
       </div>
     </div>
@@ -720,12 +720,12 @@
 
   <!-- Roteiro do criativo, em texto (o palco é decorativo para leitor de tela) -->
   <ol class="sr-only">
-    <li>Cena 1, Gancho: Crie vídeos 100% com IA. Uma prévia 9:16 e uma linha do tempo que se monta sozinha; depois, a edição manual, com o relógio em 3 horas. Fala: A IA já cria vídeo sozinha. Mas a maioria das pessoas ainda perde horas editando na mão.</li>
-    <li>Cena 2, Promessa: Esses 3 arquivos. O pedido "Cria um vídeo de 20 s pra vender meu curso" vira vídeo pronto; painéis de tempo e de estilo e o contador antes e depois. Fala: Veja como resolver com esses três arquivos. Eles transformam uma frase em vídeo pronto. Cada cena no tempo certo, cada palavra na hora em que é falada, como um editor profissional faria.</li>
-    <li>Cena 3, GSAP: 01, movimento. A curva de movimento, o código sendo escrito ao lado do vídeo e um estilo novo em 6 cenas. Fala: A primeira é o GSAP. Use quando você quer movimento de verdade. A IA escreve a animação em código, cena por cena, e você ajusta com uma frase. Ela cria até um estilo inteiro que combina com o seu projeto.</li>
-    <li>Cena 4, Whisper: tempo exato. A fala vira texto palavra por palavra e as pausas são cortadas. Fala: A segunda é o Whisper. Ele escuta a sua fala e transcreve palavra por palavra. A IA corta as pausas e encaixa o vídeo no tempo exato.</li>
-    <li>Cena 5, FFmpeg: 03, vídeo pronto. Os quadros viram um MP4 9:16 pronto para postar. Fala: A terceira é o FFmpeg. Ele junta cada quadro e entrega o MP4 pronto para postar. Sem exportar. Sem linha do tempo.</li>
-    <li>Cena 6, Convite: Quer aprender a editar qualquer vídeo com IA? Editor do Futuro, com o botão Saiba mais. Fala: Quer aprender a editar qualquer tipo de vídeo com IA, mesmo se você nunca tenha editado nenhum vídeo na vida? Eu te mostro tudo dentro do Editor do Futuro. Clique e saiba mais.</li>
+    <li>Cena 1, Rosto: o rosto do Tom vira um clone digital. Fala: Nada disso é real.</li>
+    <li>Cena 2, Voz: a voz também é clonada; ninguém gravou nem falou nada. Fala: Eu não gravei nada, não falei nada, não abri nenhum programa de edição.</li>
+    <li>Cena 3, Vídeo: a IA gera o vídeo sem câmera e sem iluminação. Fala: Não precisei de câmera, de iluminação, nem de saber editar.</li>
+    <li>Cena 4, Sincronia: a boca do clone acompanha a voz. Fala: O que você está vendo é um avatar realista digital. A edição também.</li>
+    <li>Cena 5, Edição: a IA coloca legenda, fundo e efeitos sonoros. Fala: Legenda, fundo, efeitos sonoros, tudo foi feito por IA. Na verdade, eu nem sei o que o Tom, o dono desse rosto, está fazendo agora.</li>
+    <li>Cena 6, Convite: o botão Saiba mais. Fala: Se você quer aprender a criar vídeos como esse, do início ao fim, com IA, clica em saiba mais que eu te mostro como.</li>
   </ol>
 
   <div class="timeline__palco">
@@ -744,14 +744,14 @@
             <span class="hud timeline__pedido-estado" aria-hidden="true"><i></i><span class="timeline__pedido-estado-txt">Digitando</span></span>
           </div>
           <p class="timeline__pedido-txt">
-            <span class="sr-only">Cria um vídeo de 1 min mostrando as 3 ferramentas que editam vídeo com IA.</span>
+            <span class="sr-only">Cria um vídeo com o meu clone dizendo que nada disso é real.</span>
             <span class="timeline__pedido-digita" aria-hidden="true"></span>
           </p>
           <div class="timeline__pedido-pe">
             <span class="timeline__chips">
               <span class="chip">9:16</span>
-              <span class="chip">1 min</span>
-              <span class="chip chip--acc"><i class="timeline__chip-cor" aria-hidden="true"></i>Lima</span>
+              <span class="chip">32 s</span>
+              <span class="chip chip--acc"><i class="timeline__chip-cor" aria-hidden="true"></i>Clone</span>
             </span>
             <span class="timeline__enviar" aria-hidden="true">
               <svg viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -768,26 +768,26 @@
             <span class="hud timeline__roteiro-autor" aria-hidden="true">Escrito pela IA</span>
           </div>
           <ol class="timeline__cenas-lista">
-            <li><button class="timeline__lc" type="button" data-cap="0"><b>01</b> <span class="timeline__lc-nome">Gancho</span> <span class="timeline__lc-txt">Crie vídeos 100% com IA.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:00</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="1"><b>02</b> <span class="timeline__lc-nome">Promessa</span> <span class="timeline__lc-txt">Esses 3 arquivos.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:05</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="2"><b>03</b> <span class="timeline__lc-nome">GSAP</span> <span class="timeline__lc-txt">Movimento de verdade.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:17</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="3"><b>04</b> <span class="timeline__lc-nome">Whisper</span> <span class="timeline__lc-txt">Tempo exato.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:30</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="4"><b>05</b> <span class="timeline__lc-nome">FFmpeg</span> <span class="timeline__lc-txt">Vídeo pronto para postar.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:39</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="5"><b>06</b> <span class="timeline__lc-nome">Convite</span> <span class="timeline__lc-txt">Clique e saiba mais.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:47</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="0"><b>01</b> <span class="timeline__lc-nome">Rosto</span> <span class="timeline__lc-txt">Nada disso é real.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:00</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="1"><b>02</b> <span class="timeline__lc-nome">Voz</span> <span class="timeline__lc-txt">Eu não gravei nada.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:03</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="2"><b>03</b> <span class="timeline__lc-nome">Vídeo</span> <span class="timeline__lc-txt">Sem câmera, sem luz.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:08</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="3"><b>04</b> <span class="timeline__lc-nome">Sincronia</span> <span class="timeline__lc-txt">Um avatar realista.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:12</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="4"><b>05</b> <span class="timeline__lc-nome">Edição</span> <span class="timeline__lc-txt">Legenda, fundo e efeitos.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:15</span></button></li>
+            <li><button class="timeline__lc" type="button" data-cap="5"><b>06</b> <span class="timeline__lc-nome">Convite</span> <span class="timeline__lc-txt">Clique e saiba mais.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:25</span></button></li>
           </ol>
         </div>
 
         <div class="timeline__relogio" aria-hidden="true">
           <span class="hud">Agulha · Timecode</span>
           <p class="timeline__tc pixel"><span class="timeline__tc-a">00:00:00:</span><b class="timeline__tc-q">00</b></p>
-          <span class="hud timeline__quadro">Quadro <b>0000</b> / 1755</span>
+          <span class="hud timeline__quadro">Quadro <b>0000</b> / 0974</span>
         </div>
       </div>
 
       <!-- Centro: o monitor 9:16 + a legenda -->
       <div class="timeline__centro">
         <div class="timeline__caixa">
-          <div class="timeline__monitor monitor monitor--916" role="img" aria-label="Criativo de 58 segundos feito em código, em 6 partes: crie vídeos com IA; esses 3 arquivos transformam uma frase em vídeo pronto; 01, GSAP, movimento; 02, Whisper, tempo exato; 03, FFmpeg, vídeo pronto para postar; e o convite do Editor do Futuro, com o botão Saiba mais.">
+          <div class="timeline__monitor monitor monitor--916" role="img" aria-label="Vídeo de 32 segundos feito com clone digital, em 6 partes: rosto clonado, voz clonada, vídeo gerado, boca sincronizada, edição com IA e o convite para saber mais.">
             <div class="timeline__tela monitor__tela" aria-hidden="true">
               <div class="timeline__fundo"></div>
               <div class="timeline__brilho-camada"><div class="timeline__brilho"></div></div>
@@ -897,7 +897,7 @@
                 <i class="hud-canto"></i>
                 <span class="timeline__v-quadro mono">Frame <b>0000</b></span>
                 <span class="timeline__v-marca mono">Upward · Editor do Futuro</span>
-                <span class="timeline__v-cena mono"><i></i><span class="timeline__v-cena-txt">01 / 06 · Gancho</span></span>
+                <span class="timeline__v-cena mono"><i></i><span class="timeline__v-cena-txt">01 / 06 · Rosto</span></span>
                 <span class="timeline__v-rec mono"><i></i>REC</span>
                 <span class="timeline__v-tc mono">00:00:00:00</span>
               </div>
@@ -908,32 +908,26 @@
 
         <!-- V3 · Legenda (tipo Reels, palavra por palavra): uma linha por entrada de FALA (cenas.js), mesmas palavras -->
         <div class="timeline__legenda" aria-hidden="true">
-          <p class="timeline__legenda-linha">A IA já cria vídeo sozinha.</p>
-          <p class="timeline__legenda-linha">Mas a maioria das pessoas</p>
-          <p class="timeline__legenda-linha">ainda perde horas editando na mão.</p>
-          <p class="timeline__legenda-linha">Veja como resolver com esses três arquivos.</p>
-          <p class="timeline__legenda-linha">Eles transformam uma frase em vídeo pronto.</p>
-          <p class="timeline__legenda-linha">Cada cena no tempo certo,</p>
-          <p class="timeline__legenda-linha">cada palavra na hora em que é falada,</p>
-          <p class="timeline__legenda-linha">como um editor profissional faria.</p>
-          <p class="timeline__legenda-linha">A primeira é o GSAP.</p>
-          <p class="timeline__legenda-linha">Use quando você quer movimento de verdade.</p>
-          <p class="timeline__legenda-linha">A IA escreve a animação em código, cena por cena,</p>
-          <p class="timeline__legenda-linha">e você ajusta com uma frase.</p>
-          <p class="timeline__legenda-linha">Ela cria até um estilo inteiro</p>
-          <p class="timeline__legenda-linha">que combina com o seu projeto.</p>
-          <p class="timeline__legenda-linha">A segunda é o Whisper.</p>
-          <p class="timeline__legenda-linha">Ele escuta a sua fala e transcreve palavra por palavra.</p>
-          <p class="timeline__legenda-linha">A IA corta as pausas</p>
-          <p class="timeline__legenda-linha">e encaixa o vídeo no tempo exato.</p>
-          <p class="timeline__legenda-linha">A terceira é o FFmpeg.</p>
-          <p class="timeline__legenda-linha">Ele junta cada quadro</p>
-          <p class="timeline__legenda-linha">e entrega o MP4 pronto para postar.</p>
-          <p class="timeline__legenda-linha">Sem exportar. Sem linha do tempo.</p>
-          <p class="timeline__legenda-linha">Quer aprender a editar qualquer tipo de vídeo com IA,</p>
-          <p class="timeline__legenda-linha">mesmo se você nunca tenha editado nenhum vídeo na vida?</p>
-          <p class="timeline__legenda-linha">Eu te mostro tudo dentro do Editor do Futuro.</p>
-          <p class="timeline__legenda-linha">Clique e saiba mais.</p>
+          <p class="timeline__legenda-linha">Nada disso é real.</p>
+          <p class="timeline__legenda-linha">Eu não gravei nada,</p>
+          <p class="timeline__legenda-linha">não falei nada,</p>
+          <p class="timeline__legenda-linha">não abri nenhum programa de edição.</p>
+          <p class="timeline__legenda-linha">Não precisei de câmera,</p>
+          <p class="timeline__legenda-linha">de iluminação, nem de saber editar.</p>
+          <p class="timeline__legenda-linha">O que você está vendo</p>
+          <p class="timeline__legenda-linha">é um avatar realista digital.</p>
+          <p class="timeline__legenda-linha">A edição também.</p>
+          <p class="timeline__legenda-linha">Legenda, fundo, efeitos sonoros,</p>
+          <p class="timeline__legenda-linha">tudo foi feito por IA.</p>
+          <p class="timeline__legenda-linha">Na verdade, eu nem sei</p>
+          <p class="timeline__legenda-linha">o que o Tom,</p>
+          <p class="timeline__legenda-linha">o dono desse rosto,</p>
+          <p class="timeline__legenda-linha">está fazendo agora.</p>
+          <p class="timeline__legenda-linha">Se você quer aprender a criar</p>
+          <p class="timeline__legenda-linha">vídeos como esse,</p>
+          <p class="timeline__legenda-linha">do início ao fim, com IA,</p>
+          <p class="timeline__legenda-linha">clica em Saiba mais</p>
+          <p class="timeline__legenda-linha">que eu te mostro como.</p>
         </div>
       </div>
 
@@ -949,11 +943,11 @@
             <span class="hud timeline__fez-conta pixel" aria-hidden="true"><b>0</b>/5</span>
           </div>
           <ul class="timeline__lista">
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Roteiro em 6 cenas</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Visual e tipografia</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Animação cena a cena</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Efeitos sonoros no tempo</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Render 1080 × 1920</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
+            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Rosto clonado</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
+            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Voz clonada</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
+            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Vídeo gerado</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
+            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Boca sincronizada com a voz</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
+            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Legenda, fundo e efeitos</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
           </ul>
           <div class="timeline__fez-pe" aria-hidden="true">
             <span class="hud timeline__fez-estado">Aguardando o pedido</span>
@@ -966,7 +960,7 @@
           <div class="timeline__painel-topo">
             <span class="hud timeline__painel-nome">
               <svg viewBox="0 0 16 16"><path d="M2.5 6h2.6L8.6 3v10L5.1 10H2.5zM11 5.6c.9.7 1.4 1.5 1.4 2.4s-.5 1.7-1.4 2.4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" /></svg>
-              A1 · Efeitos
+              A1 · Voz
             </span>
             <span class="hud timeline__audio-nome">Silêncio</span>
           </div>
@@ -976,7 +970,7 @@
         </div>
 
         <div class="timeline__transporte">
-          <p class="hud timeline__cap-atual" aria-hidden="true">Capítulo <b class="timeline__cap-n">01</b> · <span class="timeline__cap-nome">Gancho</span></p>
+          <p class="hud timeline__cap-atual" aria-hidden="true">Capítulo <b class="timeline__cap-n">01</b> · <span class="timeline__cap-nome">Rosto</span></p>
           <div class="timeline__botoes">
             <button class="timeline__bt" type="button" data-pular="-1" aria-label="Capítulo anterior">
               <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3v10M12.5 3.5 6 8l6.5 4.5z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" /></svg>
@@ -997,11 +991,11 @@
     <!-- Celular: os painéis viram uma linha de status -->
     <div class="timeline__status" aria-hidden="true">
       <span class="hud timeline__status-rot">A IA fez</span>
-      <span class="timeline__status-item"><i class="kf"></i>Roteiro</span>
-      <span class="timeline__status-item"><i class="kf"></i>Visual</span>
-      <span class="timeline__status-item"><i class="kf"></i>Animação</span>
-      <span class="timeline__status-item"><i class="kf"></i>Som</span>
-      <span class="timeline__status-item"><i class="kf"></i>Render</span>
+      <span class="timeline__status-item"><i class="kf"></i>Rosto</span>
+      <span class="timeline__status-item"><i class="kf"></i>Voz</span>
+      <span class="timeline__status-item"><i class="kf"></i>Vídeo</span>
+      <span class="timeline__status-item"><i class="kf"></i>Sincronia</span>
+      <span class="timeline__status-item"><i class="kf"></i>Edição</span>
     </div>
 
     <!-- A timeline, de margem a margem -->
@@ -1011,18 +1005,18 @@
           <span class="timeline__nome-cap">Capítulos</span>
           <span class="timeline__nome-regua">Tempo</span>
           <span class="faixa-tl__nome timeline__nome" data-faixa="v1">V1<span> · Texto</span></span>
-          <span class="faixa-tl__nome timeline__nome" data-faixa="v2">V2<span> · Formas</span></span>
+          <span class="faixa-tl__nome timeline__nome" data-faixa="v2">V2<span> · Clone</span></span>
           <span class="faixa-tl__nome timeline__nome" data-faixa="v3">V3<span> · Legenda</span></span>
-          <span class="faixa-tl__nome timeline__nome" data-faixa="a1">A1<span> · Efeitos</span></span>
+          <span class="faixa-tl__nome timeline__nome" data-faixa="a1">A1<span> · Voz</span></span>
         </div>
 
         <div class="timeline__trilhos">
           <ol class="timeline__caps" aria-label="Capítulos do criativo">
-            <li><button class="timeline__cap" type="button" data-cap="0"><b>01</b> <span>Gancho</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="1"><b>02</b> <span>Promessa</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="2"><b>03</b> <span>GSAP</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="3"><b>04</b> <span>Whisper</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="4"><b>05</b> <span>FFmpeg</span></button></li>
+            <li><button class="timeline__cap" type="button" data-cap="0"><b>01</b> <span>Rosto</span></button></li>
+            <li><button class="timeline__cap" type="button" data-cap="1"><b>02</b> <span>Voz</span></button></li>
+            <li><button class="timeline__cap" type="button" data-cap="2"><b>03</b> <span>Vídeo</span></button></li>
+            <li><button class="timeline__cap" type="button" data-cap="3"><b>04</b> <span>Sincronia</span></button></li>
+            <li><button class="timeline__cap" type="button" data-cap="4"><b>05</b> <span>Edição</span></button></li>
             <li><button class="timeline__cap" type="button" data-cap="5"><b>06</b> <span>Convite</span></button></li>
           </ol>
           <!-- régua: --x em segundos (a largura é a duração do vídeo, --tl-dur) -->
@@ -1046,7 +1040,7 @@
           <!-- a agulha: a camada anda de 0 a 100% da largura das faixas -->
           <div class="timeline__agulha">
             <i class="timeline__agulha-linha" aria-hidden="true"></i>
-            <span class="timeline__agulha-cabeca" role="slider" tabindex="0" aria-label="Agulha da linha do tempo" aria-valuemin="0" aria-valuemax="58.5" aria-valuenow="0" aria-valuetext="00:00 de 00:58, capítulo 01, Gancho"><i aria-hidden="true"></i></span>
+            <span class="timeline__agulha-cabeca" role="slider" tabindex="0" aria-label="Agulha da linha do tempo" aria-valuemin="0" aria-valuemax="32.46" aria-valuenow="0" aria-valuetext="00:00 de 00:32, capítulo 01, Rosto"><i aria-hidden="true"></i></span>
           </div>
         </div>
       </div>
@@ -1065,21 +1059,22 @@
      Desktop: cena presa (~3 telas); a rolagem anda a agulha pelos 6 clipes e
      clicar num clipe leva a rolagem até ele. Celular: sem pin; clipes roláveis
      de lado, arraste no monitor e avanço sozinho até a pessoa mexer. -->
-<section class="formatos tema-claro" id="formatos" aria-labelledby="formatos-titulo">
+<!-- Variante /edf-clone (17/11/2026): os 6 tipos são vídeos com clone, todos 9:16 (módulo formatos-clone.js) -->
+<section class="formatos tema-claro" id="formatos" aria-labelledby="formatos-titulo" data-modulo="formatos-clone">
   <div class="formatos__cena wrap">
     <div class="formatos__corpo">
       <header class="formatos__cab">
         <p class="rotulo"><b>03</b> Tipos de vídeo</p>
-        <h2 class="formatos__titulo display" id="formatos-titulo" data-split>Começa no clone. <span>Não para nele.</span></h2>
-        <p class="formatos__lead lead" data-reveal>O mesmo método faz seis tipos de vídeo: Reels com clone digital, Reels em motion, Reels falado, YouTube, VSL e documentário. Em cada aula você faz um, do roteiro ao MP4.</p>
+        <h2 class="formatos__titulo display" id="formatos-titulo" data-split>Um clone. <span>Seis tipos de vídeo.</span></h2>
+        <p class="formatos__lead lead" data-reveal>Do Reels ao anúncio, de uma foto a cenas impossíveis: com o mesmo clone, você faz todo tipo de vídeo.</p>
         <div class="formatos__metodo" data-reveal>
-          <p class="formatos__metodo-rot mono">O mesmo método em todos</p>
+          <p class="formatos__metodo-rot mono">O mesmo passo a passo em todos</p>
           <ol class="formatos__metodo-passos">
-            <li><i></i><span>Pedido</span></li>
-            <li><i></i><span>Quadro parado</span></li>
-            <li><i></i><span>Animação</span></li>
-            <li><i></i><span>Som</span></li>
-            <li><i></i><span>Render MP4</span></li>
+            <li><i></i><span>Rosto</span></li>
+            <li><i></i><span>Voz</span></li>
+            <li><i></i><span>Roteiro</span></li>
+            <li><i></i><span>Vídeo</span></li>
+            <li><i></i><span>Edição</span></li>
           </ol>
         </div>
       </header>
@@ -1388,40 +1383,40 @@
       <!-- Descrição do tipo escolhido (um painel por aba) -->
       <div class="formatos__paineis">
         <div class="formatos__painel is-ativo" role="tabpanel" id="formatos-painel-0" aria-labelledby="formatos-aba-0" tabindex="0">
-          <p class="formatos__p-meta"><span class="formatos__p-n pixel">01<i>/06</i></span><span class="chip chip--acc">9:16 · 1080 × 1920</span><span class="chip">Aula 4.1</span></p>
-          <h3 class="formatos__p-tit display">Reels em motion</h3>
-          <p class="formatos__p-txt">Criativos e anúncios sem rosto: gancho nos 3 primeiros segundos, uma mensagem por cena e o botão no fim.</p>
-          <p class="sr-only">No monitor: um Reels animado com a frase "Pare de editar na mão.", uma faixa na diagonal com "Uma mensagem por cena" e, no fim, "Feito com IA." com o botão Saiba mais sendo clicado.</p>
+          <p class="formatos__p-meta"><span class="formatos__p-n pixel">01<i>/06</i></span><span class="chip chip--acc">9:16 · 1080 × 1920</span><span class="chip">Com clone</span></p>
+          <h3 class="formatos__p-tit display">Reels com clone</h3>
+          <p class="formatos__p-txt">O seu clone fala direto para a câmera, e a IA coloca a legenda, os textos e os efeitos no tempo da fala.</p>
+          <p class="sr-only">No monitor: o clone do Tom sentado numa poltrona, com os textos "Você ainda perde horas" e "100% com IA" entrando no ritmo da fala.</p>
         </div>
         <div class="formatos__painel" role="tabpanel" id="formatos-painel-1" aria-labelledby="formatos-aba-1" tabindex="0">
-          <p class="formatos__p-meta"><span class="formatos__p-n pixel">02<i>/06</i></span><span class="chip chip--acc">9:16 · 1080 × 1920</span><span class="chip">Aula 4.2</span></p>
-          <h3 class="formatos__p-tit display">Reels falado</h3>
-          <p class="formatos__p-txt">Você grava; a IA corta as pausas, ajuda a escolher os takes e coloca legenda palavra por palavra.</p>
-          <p class="sr-only">No monitor: um Reels falado real do Tom, sem som, com a onda do áudio mostrando as pausas sendo cortadas: 1min33s de gravação viraram 28 segundos.</p>
+          <p class="formatos__p-meta"><span class="formatos__p-n pixel">02<i>/06</i></span><span class="chip chip--acc">9:16 · 1080 × 1920</span><span class="chip">Com clone</span></p>
+          <h3 class="formatos__p-tit display">Anúncio com clone</h3>
+          <p class="formatos__p-txt">O clone apresenta a oferta, e os cards entram na hora certa da fala.</p>
+          <p class="sr-only">No monitor: o clone do Tom falando da oferta, com o card do clone digital e os cards de acesso vitalício e atualizações entrando ao lado.</p>
         </div>
         <div class="formatos__painel" role="tabpanel" id="formatos-painel-2" aria-labelledby="formatos-aba-2" tabindex="0">
-          <p class="formatos__p-meta"><span class="formatos__p-n pixel">03<i>/06</i></span><span class="chip chip--acc">9:16 · 1080 × 1920</span><span class="chip">Aula 4.3</span></p>
-          <h3 class="formatos__p-tit display">Avatar digital</h3>
-          <p class="formatos__p-txt">Um avatar fala por você. A IA escreve o roteiro e edita o vídeo que a plataforma de avatar devolve.</p>
-          <p class="sr-only">No monitor: a silhueta de um apresentador digital com o selo Avatar · IA, cards que entram ao lado (sem gancho, texto miúdo, cor demais) e a legenda acompanhando a fala.</p>
+          <p class="formatos__p-meta"><span class="formatos__p-n pixel">03<i>/06</i></span><span class="chip chip--acc">9:16 · 1080 × 1920</span><span class="chip">Com clone</span></p>
+          <h3 class="formatos__p-tit display">Clone de uma foto</h3>
+          <p class="formatos__p-txt">Uma foto vira um clone realista falando, com a edição em volta.</p>
+          <p class="sr-only">No monitor: a foto de uma mulher vira um vídeo em que ela fala, com o selo Clone realista.</p>
         </div>
         <div class="formatos__painel" role="tabpanel" id="formatos-painel-3" aria-labelledby="formatos-aba-3" tabindex="0">
-          <p class="formatos__p-meta"><span class="formatos__p-n pixel">04<i>/06</i></span><span class="chip chip--acc">16:9 · 1920 × 1080</span><span class="chip">Aula 4.4</span></p>
-          <h3 class="formatos__p-tit display">YouTube</h3>
-          <p class="formatos__p-txt">Vídeo horizontal com abertura animada, capítulos e títulos na tela.</p>
-          <p class="sr-only">No monitor: um vídeo horizontal que abre com o título "Do pedido ao MP4", passa pelos capítulos Introdução, O processo e Resultado, com a barra de capítulos avançando e o nome Tom Melo numa tarja na parte de baixo.</p>
+          <p class="formatos__p-meta"><span class="formatos__p-n pixel">04<i>/06</i></span><span class="chip chip--acc">9:16 · 1080 × 1920</span><span class="chip">Com clone</span></p>
+          <h3 class="formatos__p-tit display">Clone em qualquer cenário</h3>
+          <p class="formatos__p-txt">A IA troca a roupa e o cenário a cada frase. Você aparece em qualquer lugar sem sair da cadeira.</p>
+          <p class="sr-only">No monitor: o Tom aparece de advogado, de terno e em outros cenários, um a cada frase.</p>
         </div>
         <div class="formatos__painel" role="tabpanel" id="formatos-painel-4" aria-labelledby="formatos-aba-4" tabindex="0">
-          <p class="formatos__p-meta"><span class="formatos__p-n pixel">05<i>/06</i></span><span class="chip chip--acc">16:9 · 1920 × 1080</span><span class="chip">Aula 4.5</span></p>
-          <h3 class="formatos__p-tit display">VSL</h3>
-          <p class="formatos__p-txt">Vídeo de vendas com o texto animado no ritmo da narração, slide por slide.</p>
-          <p class="sr-only">No monitor: slides de texto grande que trocam no ritmo da onda da narração: "Você não precisa saber editar.", "Precisa saber pedir.", "E isso se aprende."</p>
+          <p class="formatos__p-meta"><span class="formatos__p-n pixel">05<i>/06</i></span><span class="chip chip--acc">9:16 · 1080 × 1920</span><span class="chip">Com clone</span></p>
+          <h3 class="formatos__p-tit display">Apresentador de IA</h3>
+          <p class="formatos__p-txt">Um apresentador gerado por IA fala o seu roteiro. Para quem não quer usar o próprio rosto.</p>
+          <p class="sr-only">No monitor: um apresentador gerado por IA fala para a câmera, com a legenda acompanhando.</p>
         </div>
         <div class="formatos__painel" role="tabpanel" id="formatos-painel-5" aria-labelledby="formatos-aba-5" tabindex="0">
-          <p class="formatos__p-meta"><span class="formatos__p-n pixel">06<i>/06</i></span><span class="chip chip--acc">16:9 · 1920 × 1080</span><span class="chip">Aula 4.6</span></p>
-          <h3 class="formatos__p-tit display">Documentário</h3>
-          <p class="formatos__p-txt">Narração sobre imagens de apoio, com títulos, datas, mapas e gráficos animados.</p>
-          <p class="sr-only">No monitor: uma paisagem em preto e branco com zoom lento e o título "A rota", depois um mapa em linhas com a rota se desenhando, o carimbo de data 1969 e a legenda da narração.</p>
+          <p class="formatos__p-meta"><span class="formatos__p-n pixel">06<i>/06</i></span><span class="chip chip--acc">9:16 · 1080 × 1920</span><span class="chip">Com clone</span></p>
+          <h3 class="formatos__p-tit display">Cenas impossíveis</h3>
+          <p class="formatos__p-txt">Cenas que não dá para gravar, feitas com IA, com o seu rosto onde você quiser.</p>
+          <p class="sr-only">No monitor: cenas feitas com IA, como o mar dentro da geladeira e uma câmera na praia, com a legenda “Hoje, nada mais é real”.</p>
         </div>
       </div>
     </div>
@@ -1432,39 +1427,39 @@
       <div class="formatos__tl-rolo">
         <div class="formatos__tl-pista">
           <div class="formatos__grupos" aria-hidden="true">
-            <span class="formatos__grupo"><span>Vertical · 9:16</span></span>
-            <span class="formatos__grupo"><span>Horizontal · 16:9</span></span>
+            <span class="formatos__grupo"><span>Clone falando</span></span>
+            <span class="formatos__grupo"><span>Clone em cena</span></span>
           </div>
           <div class="formatos__regua regua" aria-hidden="true"></div>
           <div class="formatos__abas" role="tablist" aria-label="Tipos de vídeo">
             <button class="formatos__aba is-ativa" type="button" role="tab" id="formatos-aba-0" aria-controls="formatos-painel-0" aria-selected="true" data-i="0">
               <span class="formatos__aba-topo" aria-hidden="true"><i class="kf kf--on"></i><span class="formatos__aba-n">01</span><span class="formatos__aba-fmt"><i class="formatos__glifo"></i>9:16</span></span>
-              <span class="formatos__aba-nome">Reels em motion</span>
+              <span class="formatos__aba-nome">Reels com clone</span>
               <i class="formatos__aba-fita" aria-hidden="true"><b></b></i>
             </button>
             <button class="formatos__aba" type="button" role="tab" id="formatos-aba-1" aria-controls="formatos-painel-1" aria-selected="false" tabindex="-1" data-i="1">
               <span class="formatos__aba-topo" aria-hidden="true"><i class="kf"></i><span class="formatos__aba-n">02</span><span class="formatos__aba-fmt"><i class="formatos__glifo"></i>9:16</span></span>
-              <span class="formatos__aba-nome">Reels falado</span>
+              <span class="formatos__aba-nome">Anúncio com clone</span>
               <i class="formatos__aba-fita" aria-hidden="true"><b></b></i>
             </button>
             <button class="formatos__aba" type="button" role="tab" id="formatos-aba-2" aria-controls="formatos-painel-2" aria-selected="false" tabindex="-1" data-i="2">
               <span class="formatos__aba-topo" aria-hidden="true"><i class="kf"></i><span class="formatos__aba-n">03</span><span class="formatos__aba-fmt"><i class="formatos__glifo"></i>9:16</span></span>
-              <span class="formatos__aba-nome">Avatar digital</span>
+              <span class="formatos__aba-nome">Clone de uma foto</span>
               <i class="formatos__aba-fita" aria-hidden="true"><b></b></i>
             </button>
-            <button class="formatos__aba formatos__aba--h" type="button" role="tab" id="formatos-aba-3" aria-controls="formatos-painel-3" aria-selected="false" tabindex="-1" data-i="3">
-              <span class="formatos__aba-topo" aria-hidden="true"><i class="kf"></i><span class="formatos__aba-n">04</span><span class="formatos__aba-fmt"><i class="formatos__glifo"></i>16:9</span></span>
-              <span class="formatos__aba-nome">YouTube</span>
+            <button class="formatos__aba" type="button" role="tab" id="formatos-aba-3" aria-controls="formatos-painel-3" aria-selected="false" tabindex="-1" data-i="3">
+              <span class="formatos__aba-topo" aria-hidden="true"><i class="kf"></i><span class="formatos__aba-n">04</span><span class="formatos__aba-fmt"><i class="formatos__glifo"></i>9:16</span></span>
+              <span class="formatos__aba-nome">Clone em qualquer cenário</span>
               <i class="formatos__aba-fita" aria-hidden="true"><b></b></i>
             </button>
-            <button class="formatos__aba formatos__aba--h" type="button" role="tab" id="formatos-aba-4" aria-controls="formatos-painel-4" aria-selected="false" tabindex="-1" data-i="4">
-              <span class="formatos__aba-topo" aria-hidden="true"><i class="kf"></i><span class="formatos__aba-n">05</span><span class="formatos__aba-fmt"><i class="formatos__glifo"></i>16:9</span></span>
-              <span class="formatos__aba-nome">VSL</span>
+            <button class="formatos__aba" type="button" role="tab" id="formatos-aba-4" aria-controls="formatos-painel-4" aria-selected="false" tabindex="-1" data-i="4">
+              <span class="formatos__aba-topo" aria-hidden="true"><i class="kf"></i><span class="formatos__aba-n">05</span><span class="formatos__aba-fmt"><i class="formatos__glifo"></i>9:16</span></span>
+              <span class="formatos__aba-nome">Apresentador de IA</span>
               <i class="formatos__aba-fita" aria-hidden="true"><b></b></i>
             </button>
-            <button class="formatos__aba formatos__aba--h" type="button" role="tab" id="formatos-aba-5" aria-controls="formatos-painel-5" aria-selected="false" tabindex="-1" data-i="5">
-              <span class="formatos__aba-topo" aria-hidden="true"><i class="kf"></i><span class="formatos__aba-n">06</span><span class="formatos__aba-fmt"><i class="formatos__glifo"></i>16:9</span></span>
-              <span class="formatos__aba-nome">Documentário</span>
+            <button class="formatos__aba" type="button" role="tab" id="formatos-aba-5" aria-controls="formatos-painel-5" aria-selected="false" tabindex="-1" data-i="5">
+              <span class="formatos__aba-topo" aria-hidden="true"><i class="kf"></i><span class="formatos__aba-n">06</span><span class="formatos__aba-fmt"><i class="formatos__glifo"></i>9:16</span></span>
+              <span class="formatos__aba-nome">Cenas impossíveis</span>
               <i class="formatos__aba-fita" aria-hidden="true"><b></b></i>
             </button>
           </div>
@@ -2011,7 +2006,8 @@
   </dialog>
 </section>
 
-      <!-- ================= 12 · OFERTA: o cartão da oferta numa janela de programa =================
+      <!-- Variante /edf-clone (17/11/2026): oferta igual à da /edf, com o título e a lista puxados para o clone -->
+<!-- ================= 12 · OFERTA: o cartão da oferta numa janela de programa =================
      O cartão aparece pronto, sem espera (23/10/2026, pedido do dono: saiu a animação
      de "renderizar" o curso e a capa; no lugar da capa e do nome vai a logo).
      Preço, parcelas, acesso e garantia vêm do config.js (data-oferta) e todo
@@ -2022,7 +2018,7 @@
   <div class="wrap">
     <header class="oferta__cab">
       <p class="rotulo"><b>07</b> Sua vaga</p>
-      <h2 class="oferta__titulo display" id="oferta-titulo" data-split>Exporte seu primeiro vídeo motion.</h2>
+      <h2 class="oferta__titulo display" id="oferta-titulo" data-split>Exporte seu primeiro vídeo com clone.</h2>
     </header>
 
     <div class="oferta__grade grade">
@@ -2031,7 +2027,7 @@
         <div class="oferta__barra">
           <span class="oferta__botoes" aria-hidden="true"><i></i><i></i><i></i></span>
           <p class="oferta__arquivo hud">
-            <span class="oferta__arquivo-nome">editor-do-futuro.mp4</span>
+            <span class="oferta__arquivo-nome">meu-clone.mp4</span>
             <span class="oferta__arquivo-fmt"><span class="oferta__ponto">· </span>1080 × 1920 · 30 qps</span>
           </p>
           <p class="oferta__status" aria-hidden="true">
@@ -2052,7 +2048,7 @@
             </li>
             <li>
               <span class="oferta__ok" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.4 6.6 11.4 12.5 4.6" /></svg></span>
-              <span><b>Seis tipos de vídeo:</b> Reels em motion, Reels falado, avatar digital, YouTube, VSL e documentário</span>
+              <span><b>Vídeo com clone digital</b> e mais cinco tipos: Reels em motion, Reels falado, YouTube, VSL e documentário</span>
             </li>
             <li>
               <span class="oferta__ok" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.4 6.6 11.4 12.5 4.6" /></svg></span>
@@ -2347,7 +2343,8 @@
 
     </main>
 
-    <!-- ================= 14 · FINAL: fechamento + rodapé =================
+    <!-- Variante /edf-clone (17/11/2026): a frase final puxada para o clone -->
+<!-- ================= 14 · FINAL: fechamento + rodapé =================
      O fim do "vídeo" da página: HUD FIM · 00:03:00:00 (o timecode acompanha a
      posição na página e para em 3 min; o REC para de piscar e fica aceso), a
      régua com a agulha chegando ao fim, EDITOR DO FUTURO de margem a margem
@@ -2383,7 +2380,7 @@
     </div>
 
     <div class="final__fecho grade">
-      <h2 class="final__frase display" data-split>O futuro da edição é um pedido bem feito.</h2>
+      <h2 class="final__frase display" data-split>O seu próximo vídeo não precisa de câmera.</h2>
       <div class="final__acao">
         <a class="btn btn--acc btn--lg final__cta" href="#oferta" data-checkout data-magnetico="0.2">
           <span class="btn__rotulo">Quero aproveitar a Black</span>

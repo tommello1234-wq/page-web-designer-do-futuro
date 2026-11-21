@@ -1,0 +1,459 @@
+<!doctype html>
+<!--
+  Editor do Futuro · página de vendas criada por Upward Academy
+  © 2026 Upward Academy. Todos os direitos reservados (código, layout, textos e animações).
+  Uso permitido somente conforme a LICENCA.txt. Revenda e redistribuição proibidas.
+  https://app.upwardacademy.com.br/app/templates
+  Template UPW-EDITOR-K4V8 · Licença __UPW_LICENCA__
+-->
+<!-- VARIANTE "guia do clone" (21/11/2026, pedido do dono): página-isca para o Instagram com o passo a passo
+     escrito de como criar um clone digital (rosto, voz, roteiro, vídeo, edição) e, no fim, a oferta do curso
+     (mesma oferta, checkout e Pixel da /edf). Build: npm run build:guia (sai em dist-guia/, publicado em /clone/).
+     Só texto (pedido do dono): topo-guia.html e guia-clone.html; a oferta e o rodapé vêm da /edf-clone. -->
+<html lang="pt-BR" data-upw="UPW-EDITOR-K4V8">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Como criar o seu clone digital: passo a passo | Editor do Futuro</title>
+    <meta
+      name="description"
+      content="Guia gratuito: como criar o seu clone digital, passo a passo. Rosto, voz, roteiro, vídeo e edição, com HeyGen ou Omni Flash e ElevenLabs."
+    />
+    <!-- Página-isca do Instagram (guia do clone): fora do Google -->
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://lp.upwardacademy.com.br/clone/" />
+    <meta name="theme-color" content="#060607" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="author" content="Upward Academy" />
+    <meta name="copyright" content="© 2026 Upward Academy. Template UPW-EDITOR-K4V8. Revenda proibida." />
+    <meta name="upw-template" content="UPW-EDITOR-K4V8" />
+    <meta name="upw-licenca" content="__UPW_LICENCA__" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lp.upwardacademy.com.br/clone/" />
+    <meta property="og:site_name" content="Editor do Futuro" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Como criar o seu clone digital: passo a passo" />
+    <meta property="og:description" content="Guia gratuito: rosto, voz, roteiro, vídeo e edição. O mesmo caminho que eu uso para fazer vídeos com o meu clone." />
+    <meta property="og:image" content="https://lp.upwardacademy.com.br/edf/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/clone/assets/favicon-BVyX9LzM.svg" type="image/svg+xml" />
+    <!-- Guia do clone: sem o player da Vturb (o topo toca o vídeo do clone direto, topo-guia.html) -->
+    <style>html{background:#060607}html:not(.estilos-ok) body{visibility:hidden}html:not(.estilos-ok) *,html:not(.estilos-ok) :before,html:not(.estilos-ok) :after{transition:none!important}</style>
+    <script>
+      (function () {
+        var h = document.documentElement;
+        h.classList.add('js');
+        h.classList.add('estilos-ok');
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          h.classList.add('js-motion');
+          setTimeout(function () {
+            if (!window.__movimentoOk) h.classList.remove('js-motion');
+          }, 8000);
+        }
+      })();
+    </script>
+    <!-- Rastreio (carregado depois que a página fica interativa): Pixel do curso Editor do Futuro e Clarity -->
+    <script>
+      function carregarRastreio() {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+          t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1991988198407416');
+        fbq('track', 'PageView');
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "w0s4z28bte");
+      }
+      if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
+    <script type="module" crossorigin src="/clone/assets/index-guia-6QexIs9O.js"></script>
+    <link rel="modulepreload" crossorigin href="/clone/assets/motion-DQl7VF7i.js">
+    <link rel="modulepreload" crossorigin href="/clone/assets/cena-D6HbM6M4.js">
+    <link rel="stylesheet" crossorigin href="/clone/assets/index-guia-0U0MOw8H.css">
+  </head>
+  <body>
+    <a class="pular" href="#guia">Pular para o passo a passo</a>
+    <div class="grao" aria-hidden="true"></div>
+
+    <!-- OCULTO (22/10, a página abre direto, sem loading): @ include partials/preloader.html -->
+    <!-- Guia do clone (/clone, 21/11/2026): o menu sem chamada de compra (pedido do dono: o curso só aparece no final da página) -->
+<!-- ================= NAVEGAÇÃO (fixa; a linha de baixo é a timeline da página) ================= -->
+<header class="nav" id="nav">
+  <div class="nav__barra">
+    <a class="nav__marca" href="#topo" aria-label="Editor do Futuro · voltar ao início">
+      <svg class="nav__simbolo" viewBox="0 0 28 28" aria-hidden="true">
+        <path d="M2 9V4a2 2 0 0 1 2-2h5M19 2h5a2 2 0 0 1 2 2v5M26 19v5a2 2 0 0 1-2 2h-5M9 26H4a2 2 0 0 1-2-2v-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        <path d="M11 8.6v10.8a.6.6 0 0 0 .9.5l8.6-5.4a.6.6 0 0 0 0-1L11.9 8.1a.6.6 0 0 0-.9.5Z" fill="var(--acc)" />
+      </svg>
+      <span class="nav__nome">Editor <i>do</i> Futuro</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Seções">
+      <a href="#passo-1">Passo a passo</a>
+    </nav>
+
+    <div class="nav__dir">
+      <p class="nav__tc hud" aria-hidden="true"><i class="rec"></i><span class="tc nav__tempo">00:00:00:00</span></p>
+    </div>
+  </div>
+
+  <!-- A página inteira como uma timeline: marcas = começo de cada dobra, agulha = onde você está -->
+  <div class="nav__linha" aria-hidden="true">
+    <div class="nav__marcas"></div>
+    <i class="nav__progresso"></i>
+    <i class="nav__agulha"></i>
+  </div>
+</header>
+
+
+
+    <main id="conteudo">
+      <!-- ================= TOPO · GUIA DO CLONE (/clone, 21/11/2026) =================
+     Página-isca do Instagram, só texto (pedido do dono: "passo 1, passo 2"): título, uma frase e o sumário
+     dos passos. Estilos: styles/sections/guia.css (importado por guia-clone.js). -->
+<section class="gtopo" id="topo" aria-labelledby="gtopo-titulo">
+  <div class="gtopo__luz" aria-hidden="true"></div>
+  <div class="wrap gtopo__coluna">
+    <p class="rotulo" data-reveal><b>Grátis</b> Guia do clone digital</p>
+    <h1 class="gtopo__titulo display" id="gtopo-titulo" data-split>Como criar o seu clone digital, <span class="grifo">passo a passo.</span></h1>
+    <p class="lead gtopo__lead" data-reveal data-reveal-delay=".1">O mesmo caminho que eu uso para fazer vídeos com o meu clone. Está tudo aqui, para você seguir do seu jeito.</p>
+
+    <nav class="gtopo__sumario" aria-label="Passos do guia" data-reveal data-reveal-delay=".18">
+      <p class="hud">5 passos · leitura de 8 min</p>
+      <ol>
+        <li><a href="#passo-1"><b>Passo 1</b> Clone o seu rosto</a></li>
+        <li><a href="#passo-2"><b>Passo 2</b> Clone a sua voz</a></li>
+        <li><a href="#passo-3"><b>Passo 3</b> Escreva o roteiro</a></li>
+        <li><a href="#passo-4"><b>Passo 4</b> Gere o vídeo</a></li>
+        <li><a href="#passo-5"><b>Passo 5</b> Edite o vídeo</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+      <!-- ================= GUIA DO CLONE: o passo a passo escrito (/clone, 21/11/2026) =================
+     Pedido do dono: página-isca do Instagram, SÓ TEXTO ("passo 1, passo 2"), para a pessoa criar o próprio
+     clone (rosto com HeyGen OU Omni Flash do Google, voz com ElevenLabs, roteiro, vídeo) e, no fim, a ponte
+     para o curso (a edição com IA). Uma coluna de leitura. Módulo: js/sections/guia-clone.js (CSS: guia.css). -->
+<section class="guia" id="guia" aria-label="Passo a passo" data-modulo="guia-clone">
+  <article class="wrap guia__coluna">
+    <!-- Antes de começar -->
+    <section class="guia__passo" id="antes" aria-labelledby="antes-titulo">
+      <p class="guia__kicker hud">Antes de começar</p>
+      <h2 class="guia__h2" id="antes-titulo">O que você vai precisar</h2>
+      <ul class="guia__checklist">
+        <li>Um vídeo seu de 2 a 3 minutos falando para a câmera (opção A) <em>ou</em> uma foto original do seu rosto (opção B).</li>
+        <li>De 1 a 2 minutos de áudio limpo da sua voz.</li>
+        <li>Uma conta nas ferramentas: HeyGen ou Omni Flash para o rosto, ElevenLabs para a voz.</li>
+        <li>Um roteiro de 30 a 45 segundos (o passo 3 mostra como escrever).</li>
+      </ul>
+      <p class="guia__nota">As ferramentas são pagas à parte e cada uma tem o seu plano: confira os preços nas páginas oficiais.</p>
+    </section>
+
+    <!-- Passo 1 · Rosto -->
+    <section class="guia__passo" id="passo-1" aria-labelledby="passo-1-titulo">
+      <p class="guia__kicker hud"><b>Passo 1</b></p>
+      <h2 class="guia__h2" id="passo-1-titulo">Clone o seu rosto</h2>
+      <p>É aqui que o clone nasce: a IA aprende o seu rosto e o seu jeito de se mexer. Escolha um dos dois caminhos.</p>
+
+      <h3 class="guia__h3"><span>Opção A</span> <a href="https://www.heygen.com" target="_blank" rel="noopener">HeyGen</a>, a partir de um vídeo seu</h3>
+      <ol class="guia__lista">
+        <li>Grave de 2 a 3 minutos falando para a câmera: de frente, com boa luz e fundo limpo. Fale normal, com pausas e gestos leves. É desse vídeo que a IA aprende os seus movimentos.</li>
+        <li>No HeyGen, crie um avatar novo a partir de vídeo e envie a gravação.</li>
+        <li>Grave o vídeo curto de autorização que a plataforma pede. É a prova de que o rosto é seu.</li>
+        <li>Espere o processamento. Quando terminar, o seu clone aparece na sua lista de avatares.</li>
+      </ol>
+      <p class="guia__melhor"><b>Melhor para:</b> falar para a câmera, no cenário e com a roupa da gravação.</p>
+
+      <h3 class="guia__h3"><span>Opção B</span> Omni Flash, do Google, a partir de uma foto sua</h3>
+      <ol class="guia__lista">
+        <li>Escolha uma foto original sua (não gerada por IA): de frente, nítida, com boa luz.</li>
+        <li>Quer outro cenário ou outra roupa? Gere antes a imagem de partida com IA, a partir dessa foto: você no estúdio, na praia, de terno…</li>
+        <li>No Omni Flash, envie a imagem e descreva o vídeo: a cena, o enquadramento e o que você fala.</li>
+        <li>Gere takes curtos, de até 15 segundos, e guarde os melhores.</li>
+      </ol>
+      <p class="guia__melhor"><b>Melhor para:</b> aparecer em qualquer lugar e com qualquer roupa, sem gravar nada.</p>
+
+      <p class="guia__dica"><b>Dica:</b> parta sempre da sua foto original. Imagem gerada em cima de imagem gerada vai perdendo a sua cara a cada passo.</p>
+    </section>
+
+    <!-- Passo 2 · Voz -->
+    <section class="guia__passo" id="passo-2" aria-labelledby="passo-2-titulo">
+      <p class="guia__kicker hud"><b>Passo 2</b></p>
+      <h2 class="guia__h2" id="passo-2-titulo">Clone a sua voz</h2>
+      <p>Com a voz clonada, o seu clone fala qualquer roteiro com o seu timbre. A ferramenta mais usada para isso é o <a href="https://elevenlabs.io" target="_blank" rel="noopener">ElevenLabs</a>.</p>
+      <ol class="guia__lista">
+        <li>Grave de 1 a 2 minutos só da sua voz, num lugar silencioso: sem música, sem eco e sem barulho de fundo. O celular perto da boca já resolve.</li>
+        <li>No ElevenLabs, crie uma voz nova pela clonagem instantânea e envie o áudio.</li>
+        <li>Teste: escreva uma frase em português e gere. Ajuste a estabilidade e a semelhança até soar como você.</li>
+        <li>A cada vídeo, cole o roteiro, gere a fala e baixe o áudio.</li>
+      </ol>
+      <p>Na opção A, dá para usar a voz que o próprio HeyGen cria junto com o avatar. O ElevenLabs entra quando você quer mais controle da voz, ou na opção B.</p>
+      <p class="guia__dica"><b>Atenção:</b> a clonagem de voz e o uso comercial ficam nos planos pagos do ElevenLabs. Se o vídeo é para vender, use um plano pago.</p>
+    </section>
+
+    <!-- Passo 3 · Roteiro -->
+    <section class="guia__passo" id="passo-3" aria-labelledby="passo-3-titulo">
+      <p class="guia__kicker hud"><b>Passo 3</b></p>
+      <h2 class="guia__h2" id="passo-3-titulo">Escreva o roteiro</h2>
+      <p>O clone fala o que você escrever. Um bom roteiro vale mais que qualquer ferramenta.</p>
+      <ol class="guia__lista">
+        <li>Uma ideia por vídeo, de 30 a 45 segundos (mais ou menos 80 a 110 palavras).</li>
+        <li>Abra com o gancho: a primeira frase precisa prender nos 2 primeiros segundos. Exemplo: “Nada disso é real.”</li>
+        <li>Escreva do jeito que você fala, com frases curtas.</li>
+        <li>Feche com uma chamada: comentar, seguir, clicar.</li>
+      </ol>
+      <p class="guia__dica"><b>Dica:</b> peça para a IA (ChatGPT ou Claude) escrever 3 versões do mesmo roteiro e escolha a que soa mais como você.</p>
+    </section>
+
+    <!-- Passo 4 · Vídeo -->
+    <section class="guia__passo" id="passo-4" aria-labelledby="passo-4-titulo">
+      <p class="guia__kicker hud"><b>Passo 4</b></p>
+      <h2 class="guia__h2" id="passo-4-titulo">Gere o vídeo</h2>
+      <p>Agora o clone fala o seu roteiro com a sua voz.</p>
+
+      <h3 class="guia__h3"><span>Opção A</span> HeyGen</h3>
+      <ol class="guia__lista">
+        <li>Crie um vídeo novo no formato vertical (9:16).</li>
+        <li>Escolha o seu avatar.</li>
+        <li>Cole o roteiro, ou envie o áudio do ElevenLabs.</li>
+        <li>Gere e baixe o vídeo.</li>
+      </ol>
+
+      <h3 class="guia__h3"><span>Opção B</span> Omni Flash</h3>
+      <ol class="guia__lista">
+        <li>Gere os takes com a cena e a fala (passo 1).</li>
+        <li>Troque a voz pelo áudio do ElevenLabs numa ferramenta de sincronização labial (lip sync): ela ajusta a boca à sua voz.</li>
+        <li>Junte os takes na ordem do roteiro.</li>
+      </ol>
+
+      <p class="guia__dica"><b>Dica:</b> assista com som antes de seguir e confira a boca nas palavras com P, B e M, onde a sincronia mais erra. Se algo ficar estranho, gere aquele trecho de novo.</p>
+    </section>
+
+    <!-- Passo 5 · Edição -->
+    <section class="guia__passo" id="passo-5" aria-labelledby="passo-5-titulo">
+      <p class="guia__kicker hud"><b>Passo 5</b></p>
+      <h2 class="guia__h2" id="passo-5-titulo">Edite o vídeo</h2>
+      <p>O que sai da IA é o vídeo bruto: o clone falando, sem legenda, sem corte e sem movimento. O que faz a pessoa parar de rolar é a edição:</p>
+      <ul class="guia__pontos">
+        <li>legenda palavra por palavra;</li>
+        <li>cortes no ritmo da fala;</li>
+        <li>letterings e cartões que entram no tempo da fala;</li>
+        <li>efeitos sonoros e trilha.</li>
+      </ul>
+      <p>Dá para fazer à mão, num programa de edição. Ou com IA, que é como eu faço os meus vídeos: eu descrevo o vídeo e a IA monta a edição inteira, sem eu abrir programa de edição.</p>
+
+    </section>
+
+    <!-- Antes de publicar -->
+    <section class="guia__passo guia__passo--fim" aria-labelledby="cuidados-titulo">
+      <p class="guia__kicker hud">Antes de publicar</p>
+      <h2 class="guia__h2 guia__h2--menor" id="cuidados-titulo">Três cuidados</h2>
+      <ul class="guia__checklist">
+        <li>Clone só o seu rosto e a sua voz, ou os de alguém que autorizou por escrito.</li>
+        <li>Quando a rede social pedir, marque o vídeo como feito com IA.</li>
+        <li>As ferramentas mudam de preço e de recursos com frequência: confira nas páginas oficiais.</li>
+      </ul>
+    </section>
+
+    <!-- O resultado: vídeos feitos com o clone do Tom (pedido do dono, 21/11). Tocam mudos na tela; o botão liga o som. -->
+    <section class="guia__passo guia__resultado" id="resultado" aria-labelledby="resultado-titulo">
+      <p class="guia__kicker hud">O resultado</p>
+      <h2 class="guia__h2" id="resultado-titulo">Esse aqui é o resultado.</h2>
+      <p>Todos estes vídeos foram feitos com o meu clone digital. Toque em “Ouvir” para escutar.</p>
+      <div class="guia__exemplos">
+        <figure class="guia__ex" data-exemplo="avatar">
+          <div class="guia__ex-tela"></div>
+          <button class="guia__ex-som" type="button" aria-pressed="false" aria-label="Ouvir o vídeo “Nada disso é real”"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" /><path class="guia__ex-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span>Ouvir</span></button>
+          <figcaption class="hud">Nada disso é real</figcaption>
+        </figure>
+        <figure class="guia__ex" data-exemplo="parecoReal">
+          <div class="guia__ex-tela"></div>
+          <button class="guia__ex-som" type="button" aria-pressed="false" aria-label="Ouvir o vídeo “Eu pareço real”"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" /><path class="guia__ex-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span>Ouvir</span></button>
+          <figcaption class="hud">Eu pareço real</figcaption>
+        </figure>
+        <figure class="guia__ex" data-exemplo="quaisReais">
+          <div class="guia__ex-tela"></div>
+          <button class="guia__ex-som" type="button" aria-pressed="false" aria-label="Ouvir o vídeo “Quais são reais?”"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" /><path class="guia__ex-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span>Ouvir</span></button>
+          <figcaption class="hud">Quais são reais?</figcaption>
+        </figure>
+        <figure class="guia__ex" data-exemplo="look">
+          <div class="guia__ex-tela"></div>
+          <button class="guia__ex-som" type="button" aria-pressed="false" aria-label="Ouvir o vídeo “Posso ser o que quiser”"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" /><path class="guia__ex-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span>Ouvir</span></button>
+          <figcaption class="hud">Posso ser o que quiser</figcaption>
+        </figure>
+        <figure class="guia__ex" data-exemplo="mercado">
+          <div class="guia__ex-tela"></div>
+          <button class="guia__ex-som" type="button" aria-pressed="false" aria-label="Ouvir o vídeo “O mercado mudou”"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" /><path class="guia__ex-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span>Ouvir</span></button>
+          <figcaption class="hud">O mercado mudou</figcaption>
+        </figure>
+        <figure class="guia__ex" data-exemplo="umaFoto">
+          <div class="guia__ex-tela"></div>
+          <button class="guia__ex-som" type="button" aria-pressed="false" aria-label="Ouvir o vídeo “Só uma foto”"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor" /><path class="guia__ex-x" d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span>Ouvir</span></button>
+          <figcaption class="hud">Só uma foto</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Fim: a única chamada para o curso (pedido do dono, 21/11) -->
+    <section class="guia__passo guia__fecho" aria-labelledby="fecho-titulo">
+      <h2 class="guia__h2 guia__h2--menor" id="fecho-titulo">Quer ver na prática?</h2>
+      <p>Caso você queira ver esse passo a passo na prática, eu mostro com detalhes dentro do meu treinamento.</p>
+    </section>
+  </article>
+</section>
+
+      <!-- Variante /edf-clone (17/11/2026): oferta igual à da /edf, com o título e a lista puxados para o clone -->
+<!-- ================= 12 · OFERTA: o cartão da oferta numa janela de programa =================
+     O cartão aparece pronto, sem espera (23/10/2026, pedido do dono: saiu a animação
+     de "renderizar" o curso e a capa; no lugar da capa e do nome vai a logo).
+     Preço, parcelas, acesso e garantia vêm do config.js (data-oferta) e todo
+     link de compra tem data-checkout. -->
+<section class="oferta" id="oferta" aria-labelledby="oferta-titulo">
+  <div class="oferta__luz" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="oferta__cab">
+      <p class="rotulo"><b>07</b> Sua vaga</p>
+      <h2 class="oferta__titulo display" id="oferta-titulo" data-split>Exporte seu primeiro vídeo com clone.</h2>
+    </header>
+
+    <div class="oferta__grade grade">
+      <!-- A janela de exportação (o cartão da oferta) -->
+      <article class="oferta__janela spot" aria-labelledby="oferta-nome">
+        <div class="oferta__barra">
+          <span class="oferta__botoes" aria-hidden="true"><i></i><i></i><i></i></span>
+          <p class="oferta__arquivo hud">
+            <span class="oferta__arquivo-nome">meu-clone.mp4</span>
+            <span class="oferta__arquivo-fmt"><span class="oferta__ponto">· </span>1080 × 1920 · 30 qps</span>
+          </p>
+          <p class="oferta__status" aria-hidden="true">
+            <span class="oferta__status-pronto chip chip--acc">Pronto ✓</span>
+          </p>
+          <i class="oferta__progresso" aria-hidden="true"></i>
+        </div>
+
+        <div class="oferta__corpo">
+          <div class="oferta__ident">
+            <h3 class="oferta__nome" id="oferta-nome"><img class="oferta__logo" src="/clone/assets/editor-do-futuro-logo-DFkstImS.svg" alt="Editor do Futuro" width="320" height="50" /></h3>
+          </div>
+
+          <ul class="oferta__itens">
+            <li>
+              <span class="oferta__ok" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.4 6.6 11.4 12.5 4.6" /></svg></span>
+              <span><b>Kit completo:</b> motor, estilos, skills, prompts e exemplos</span>
+            </li>
+            <li>
+              <span class="oferta__ok" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.4 6.6 11.4 12.5 4.6" /></svg></span>
+              <span><b>Vídeo com clone digital</b> e mais cinco tipos: Reels em motion, Reels falado, YouTube, VSL e documentário</span>
+            </li>
+            <li>
+              <span class="oferta__ok" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.4 6.6 11.4 12.5 4.6" /></svg></span>
+              <span><b>Os vídeos do curso abertos</b>, com roteiro e passo a passo</span>
+            </li>
+          </ul>
+
+          <div class="oferta__compra">
+            <p class="oferta-black">Oferta de Black Friday · Acesso vitalício&nbsp;· disponível&nbsp;até&nbsp;22/11</p>
+            <!-- parcelado em destaque e à vista embaixo (06/11/2026, pedido do dono) -->
+            <p class="oferta__preco oferta__preco--parcela pixel"><span class="oferta__vezes">12x</span><span class="oferta__valor" data-oferta="parcela">R$ 10,16</span></p>
+            <p class="oferta__parcelas"><span data-oferta="avista">ou R$ 97 à vista</span></p>
+            <div class="oferta__cta-caixa">
+              <a class="btn btn--acc btn--lg btn--bloco oferta__cta" href="#oferta" data-checkout data-magnetico="0.14">
+                <span class="btn__rotulo">Quero aproveitar a Black</span>
+                <svg class="btn__seta" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.7" /></svg>
+              </a>
+            </div>
+            <p class="oferta__seguro">
+              <span class="oferta__selo">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.6" /><path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7" /></svg>
+                Pagamento seguro
+              </span>
+              <span class="oferta__sep" aria-hidden="true">·</span>
+              <span class="oferta__selo">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.8 13 3.6v4c0 3.2-2.2 5.5-5 6.6-2.8-1.1-5-3.4-5-6.6v-4z" /><path d="m5.8 8 1.6 1.6 2.9-3.1" /></svg>
+                <span data-oferta="garantia">7 dias de garantia</span>
+              </span>
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <!-- Variante /edf-clone (17/11/2026): a frase final puxada para o clone -->
+<!-- ================= 14 · FINAL: fechamento + rodapé =================
+     O fim do "vídeo" da página: HUD FIM · 00:03:00:00 (o timecode acompanha a
+     posição na página e para em 3 min; o REC para de piscar e fica aceso), a
+     régua com a agulha chegando ao fim, EDITOR DO FUTURO de margem a margem
+     "renderizado" por uma varredura lima (contorno → letra cheia), a frase,
+     o botão e o rodapé com o crédito obrigatório. -->
+<footer class="final" id="final" data-upw="UPW-EDITOR-K4V8">
+  <div class="final__brilho" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="final__hud" aria-hidden="true">
+      <p class="hud final__fim"><i class="rec final__rec"></i><span>Fim · <span class="tc final__tc">00:03:00:00</span></span></p>
+      <p class="hud final__quadros">Quadro <span class="tc final__quadro">5400</span> / 5400</p>
+    </div>
+    <div class="final__regua" aria-hidden="true">
+      <i class="regua"></i>
+      <i class="final__feito"></i>
+      <i class="final__agulha"></i>
+      <span class="final__fim-tag mono">Fim</span>
+    </div>
+
+    <!-- Nome gigante: duas camadas iguais (contorno e cheia); o final.js ajusta o
+         corpo para ir de margem a margem e a varredura lima "renderiza" a cheia -->
+    <div class="final__nome" aria-hidden="true">
+      <p class="final__camada final__camada--contorno marca">
+        <span class="final__l final__l--1"><span class="final__c">E</span><span class="final__c">d</span><span class="final__c">i</span><span class="final__c">t</span><span class="final__c">o</span><span class="final__c">r</span></span>
+        <span class="final__l final__l--2"><span class="final__c">d</span><span class="final__c">o</span> <span class="final__c">F</span><span class="final__c">u</span><span class="final__c">t</span><span class="final__c">u</span><span class="final__c">r</span><span class="final__c">o</span></span>
+      </p>
+      <p class="final__camada final__camada--cheia marca">
+        <span class="final__l final__l--1"><span class="final__c">E</span><span class="final__c">d</span><span class="final__c">i</span><span class="final__c">t</span><span class="final__c">o</span><span class="final__c">r</span></span>
+        <span class="final__l final__l--2"><span class="final__c">d</span><span class="final__c">o</span> <span class="final__c">F</span><span class="final__c">u</span><span class="final__c">t</span><span class="final__c">u</span><span class="final__c">r</span><span class="final__c">o</span></span>
+      </p>
+      <span class="final__varredura-caixa"><i class="final__varredura"></i></span>
+    </div>
+
+    <div class="final__fecho grade">
+      <h2 class="final__frase display" data-split>O seu próximo vídeo não precisa de câmera.</h2>
+      <div class="final__acao">
+        <a class="btn btn--acc btn--lg final__cta" href="#oferta" data-checkout data-magnetico="0.2">
+          <span class="btn__rotulo">Quero aproveitar a Black</span>
+          <svg class="btn__seta" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6" fill="none" stroke="currentColor" stroke-width="1.7" /></svg>
+        </a>
+        <p class="final__garantia">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.8 13 3.6v4c0 3.2-2.2 5.5-5 6.6-2.8-1.1-5-3.4-5-6.6v-4z" /><path d="m5.8 8 1.6 1.6 2.9-3.1" /></svg>
+          <span data-oferta="garantia">7 dias de garantia</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="final__rodape">
+      <p class="final__nota">O resultado de cada pessoa depende da prática.</p>
+      <div class="final__base">
+        <p class="final__copy">© 2026 Upward Academy</p>
+        <nav class="final__legal" aria-label="Termos e privacidade">
+          <a href="#">Termos de uso</a>
+          <a href="#">Política de privacidade</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,1 @@
+import"./motion-DQl7VF7i.js";var e=e=>String(Math.floor(e)).padStart(2,`0`);function t(t,n=30){let r=Math.max(0,t);return`${e(r/3600)}:${e(r/60%60)}:${e(r%60)}:${e(r%1*n)}`}function n(t,n=30){let r=Math.max(0,t),i=e(r%1*n);return r>=60?`${e(r/60)}:${e(r%60)}:${i}`:`${e(r)}:${i}`}export{n,t};

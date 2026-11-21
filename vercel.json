@@ -64,7 +64,17 @@
     },
     {
       "source": "/clone",
-      "destination": "/clone/",
+      "destination": "/edf/tutorial/clone/",
+      "permanent": false
+    },
+    {
+      "source": "/clone/",
+      "destination": "/edf/tutorial/clone/",
+      "permanent": false
+    },
+    {
+      "source": "/edf/tutorial/clone",
+      "destination": "/edf/tutorial/clone/",
       "permanent": false
     },
     {

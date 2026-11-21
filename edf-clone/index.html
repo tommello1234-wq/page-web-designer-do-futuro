@@ -166,7 +166,7 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf-clone/assets/index-clone-BAYfH1dJ.js"></script>
+    <script type="module" crossorigin src="/edf-clone/assets/index-clone-Ca6oelWa.js"></script>
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/abertura-CNpnq7On.js">
@@ -694,293 +694,188 @@
   </div>
 </section>
 
-      <!-- ================= 02 · TIMELINE (a assinatura: a rolagem é a agulha) =================
-     Cabeçalho na rolagem normal; depois o palco preso vira uma ilha de edição.
-     O monitor 9:16 toca o criativo real do curso ("3 ferramentas", 58,5 s; o
-     vídeo entra pelo JS, VIDEO_REAL em sections/timeline.js) controlado pelo
-     scroll: agulha, timecode, capítulos, clipes, keyframes, legenda palavra por
-     palavra (uma linha por frase da narração, tempos em FALA de cenas.js),
-     painel Pedido digitando e o checklist "A IA fez". A composição antiga em
-     HTML (cenas abaixo) fica escondida enquanto o vídeo está ligado.
-     Movimento reduzido: o vídeo parado, com controles. -->
-<!-- Variante /edf-clone (17/11/2026): o vídeo do clone e o passo a passo do clone (módulo timeline-clone.js) -->
-<section class="timeline" id="timeline" aria-labelledby="timeline-titulo" data-modulo="timeline-clone">
-  <header class="timeline__cab wrap">
-    <div class="timeline__cab-grade grade">
-      <div class="timeline__cab-esq">
+      <!-- ================= 02 · CLONAGEM (/edf-clone, 20/11/2026): "Role. Você está clonando." =================
+     A mesma ideia da timeline da /edf (a rolagem é a agulha, palco preso, painéis de estúdio), mas
+     mostrando o clone sendo criado: 01 o scanner mapeia o rosto (malha de pontos) · 02 a voz é
+     clonada (onda da voz real do clone) · 03 a foto vira o clone (cortina) · 04 o clone fala o
+     roteiro (vídeo do clone andando com a rolagem, legenda palavra por palavra, boca sincronizada)
+     · 05 vídeo pronto. Módulo: js/sections/clonagem-clone.js (CSS: styles/sections/clonagem.css,
+     importado pelo módulo; dados: js/dobras/clonagem/dados.js). Movimento reduzido: sem pin, o
+     resultado parado. Substitui a timeline-clone (que continua no código, fora da página). -->
+<section class="clab" id="timeline" aria-labelledby="clab-titulo" data-modulo="clonagem-clone">
+  <header class="clab__cab wrap">
+    <div class="clab__cab-grade grade">
+      <div class="clab__cab-esq">
         <p class="rotulo" data-reveal><b>02</b> O método</p>
-        <h2 class="timeline__titulo display" id="timeline-titulo" data-split>Role.<br /><span class="timeline__linha2">Você está <span class="grifo">editando.</span></span></h2>
+        <h2 class="clab__titulo display" id="clab-titulo" data-split>Role.<br /><span class="clab__linha2">Você está <span class="grifo">clonando.</span></span></h2>
       </div>
-      <div class="timeline__cab-dir" data-reveal data-reveal-delay=".15">
-        <p class="lead">Do rosto e da voz ao vídeo pronto: role e veja cada passo de um vídeo com clone. A rolagem é a agulha da linha do tempo.</p>
-        <p class="timeline__cab-dica hud" aria-hidden="true"><i class="timeline__cab-agulha"></i><span>Role para editar</span></p>
+      <div class="clab__cab-dir" data-reveal data-reveal-delay=".15">
+        <p class="lead">Do rosto e da voz ao clone falando: role e veja cada etapa da criação de um clone digital. A rolagem é a agulha.</p>
+        <p class="clab__cab-dica hud" aria-hidden="true"><i class="clab__cab-agulha"></i><span>Role para clonar</span></p>
       </div>
     </div>
   </header>
 
-  <!-- Roteiro do criativo, em texto (o palco é decorativo para leitor de tela) -->
+  <!-- O passo a passo em texto (o palco é decorativo para leitor de tela) -->
   <ol class="sr-only">
-    <li>Cena 1, Rosto: o rosto do Tom vira um clone digital. Fala: Nada disso é real.</li>
-    <li>Cena 2, Voz: a voz também é clonada; ninguém gravou nem falou nada. Fala: Eu não gravei nada, não falei nada, não abri nenhum programa de edição.</li>
-    <li>Cena 3, Vídeo: a IA gera o vídeo sem câmera e sem iluminação. Fala: Não precisei de câmera, de iluminação, nem de saber editar.</li>
-    <li>Cena 4, Sincronia: a boca do clone acompanha a voz. Fala: O que você está vendo é um avatar realista digital. A edição também.</li>
-    <li>Cena 5, Edição: a IA coloca legenda, fundo e efeitos sonoros. Fala: Legenda, fundo, efeitos sonoros, tudo foi feito por IA. Na verdade, eu nem sei o que o Tom, o dono desse rosto, está fazendo agora.</li>
-    <li>Cena 6, Convite: o botão Saiba mais. Fala: Se você quer aprender a criar vídeos como esse, do início ao fim, com IA, clica em saiba mais que eu te mostro como.</li>
+    <li>Etapa 1, Rosto: a IA escaneia uma foto real do Tom e mapeia os pontos do rosto.</li>
+    <li>Etapa 2, Voz: uma amostra da voz vira a voz clonada, com timbre, ritmo e sotaque.</li>
+    <li>Etapa 3, Clone: a foto vira o clone digital, em outro cenário e com outra roupa.</li>
+    <li>Etapa 4, Fala: o clone fala o roteiro, com a boca sincronizada com a voz. Fala: Eu pareço real, mas eu não sou. Eu sou o clone digital do Tom.</li>
+    <li>Etapa 5, Pronto: o vídeo sai pronto, em 1080 por 1920.</li>
   </ol>
 
-  <div class="timeline__palco">
-    <div class="timeline__aura" aria-hidden="true"></div>
+  <div class="clab__palco">
+    <div class="clab__aura" aria-hidden="true"></div>
 
-    <div class="timeline__meio">
-      <!-- Esquerda: o pedido + o timecode grande -->
-      <div class="timeline__lado timeline__lado--esq">
-        <p class="timeline__hud hud" aria-hidden="true"><i class="rec"></i> REC · Cena 02 · O método</p>
-        <div class="timeline__pedido vidro">
-          <div class="timeline__painel-topo">
-            <span class="hud timeline__painel-nome">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></svg>
-              Pedido
-            </span>
-            <span class="hud timeline__pedido-estado" aria-hidden="true"><i></i><span class="timeline__pedido-estado-txt">Digitando</span></span>
-          </div>
-          <p class="timeline__pedido-txt">
-            <span class="sr-only">Cria um vídeo com o meu clone dizendo que nada disso é real.</span>
-            <span class="timeline__pedido-digita" aria-hidden="true"></span>
-          </p>
-          <div class="timeline__pedido-pe">
-            <span class="timeline__chips">
-              <span class="chip">9:16</span>
-              <span class="chip">32 s</span>
-              <span class="chip chip--acc"><i class="timeline__chip-cor" aria-hidden="true"></i>Clone</span>
-            </span>
-            <span class="timeline__enviar" aria-hidden="true">
-              <svg viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            </span>
-          </div>
-        </div>
+    <div class="clab__meio">
+      <!-- Esquerda: as etapas + o progresso grande -->
+      <div class="clab__lado clab__lado--esq">
+        <p class="clab__hud hud" aria-hidden="true"><i class="rec"></i> REC · Cena 02 · Clonagem</p>
 
-        <div class="timeline__roteiro vidro">
-          <div class="timeline__painel-topo">
-            <span class="hud timeline__painel-nome">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.8h5.5L12.5 5v9.2h-8.5zM9.3 1.8V5.2h3.2M6 8h4.5M6 10.6h4.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></svg>
-              Roteiro · 6 cenas
+        <div class="clab__etapas vidro">
+          <div class="clab__painel-topo">
+            <span class="hud clab__painel-nome">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8 9.5 6.5 14.2 8 9.5 9.5 8 14.2 6.5 9.5 1.8 8 6.5 6.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></svg>
+              A IA está clonando
             </span>
-            <span class="hud timeline__roteiro-autor" aria-hidden="true">Escrito pela IA</span>
+            <span class="hud clab__etapas-conta pixel" aria-hidden="true"><b>0</b>/5</span>
           </div>
-          <ol class="timeline__cenas-lista">
-            <li><button class="timeline__lc" type="button" data-cap="0"><b>01</b> <span class="timeline__lc-nome">Rosto</span> <span class="timeline__lc-txt">Nada disso é real.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:00</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="1"><b>02</b> <span class="timeline__lc-nome">Voz</span> <span class="timeline__lc-txt">Eu não gravei nada.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:03</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="2"><b>03</b> <span class="timeline__lc-nome">Vídeo</span> <span class="timeline__lc-txt">Sem câmera, sem luz.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:08</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="3"><b>04</b> <span class="timeline__lc-nome">Sincronia</span> <span class="timeline__lc-txt">Um avatar realista.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:12</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="4"><b>05</b> <span class="timeline__lc-nome">Edição</span> <span class="timeline__lc-txt">Legenda, fundo e efeitos.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:15</span></button></li>
-            <li><button class="timeline__lc" type="button" data-cap="5"><b>06</b> <span class="timeline__lc-nome">Convite</span> <span class="timeline__lc-txt">Clique e saiba mais.</span> <span class="timeline__lc-tc pixel" aria-hidden="true">00:25</span></button></li>
+          <ol class="clab__lista">
+            <li><button class="clab__etapa" type="button" data-etapa="0"><i class="kf"></i><b>01</b><span class="clab__etapa-nome">Mapear o rosto</span><span class="clab__etapa-est pixel" aria-hidden="true"></span><i class="clab__etapa-barra" aria-hidden="true"></i></button></li>
+            <li><button class="clab__etapa" type="button" data-etapa="1"><i class="kf"></i><b>02</b><span class="clab__etapa-nome">Clonar a voz</span><span class="clab__etapa-est pixel" aria-hidden="true"></span><i class="clab__etapa-barra" aria-hidden="true"></i></button></li>
+            <li><button class="clab__etapa" type="button" data-etapa="2"><i class="kf"></i><b>03</b><span class="clab__etapa-nome">Gerar o clone</span><span class="clab__etapa-est pixel" aria-hidden="true"></span><i class="clab__etapa-barra" aria-hidden="true"></i></button></li>
+            <li><button class="clab__etapa" type="button" data-etapa="3"><i class="kf"></i><b>04</b><span class="clab__etapa-nome">Sincronizar a fala</span><span class="clab__etapa-est pixel" aria-hidden="true"></span><i class="clab__etapa-barra" aria-hidden="true"></i></button></li>
+            <li><button class="clab__etapa" type="button" data-etapa="4"><i class="kf"></i><b>05</b><span class="clab__etapa-nome">Vídeo pronto</span><span class="clab__etapa-est pixel" aria-hidden="true"></span><i class="clab__etapa-barra" aria-hidden="true"></i></button></li>
           </ol>
         </div>
 
-        <div class="timeline__relogio" aria-hidden="true">
-          <span class="hud">Agulha · Timecode</span>
-          <p class="timeline__tc pixel"><span class="timeline__tc-a">00:00:00:</span><b class="timeline__tc-q">00</b></p>
-          <span class="hud timeline__quadro">Quadro <b>0000</b> / 0974</span>
+        <div class="clab__relogio" aria-hidden="true">
+          <span class="hud">Clone · progresso</span>
+          <p class="clab__pct pixel"><span class="clab__pct-n">000</span><b>%</b></p>
+          <span class="hud clab__fazendo">Aguardando a foto</span>
         </div>
       </div>
 
-      <!-- Centro: o monitor 9:16 + a legenda -->
-      <div class="timeline__centro">
-        <div class="timeline__caixa">
-          <div class="timeline__monitor monitor monitor--916" role="img" aria-label="Vídeo de 32 segundos feito com clone digital, em 6 partes: rosto clonado, voz clonada, vídeo gerado, boca sincronizada, edição com IA e o convite para saber mais.">
-            <div class="timeline__tela monitor__tela" aria-hidden="true">
-              <div class="timeline__fundo"></div>
-              <div class="timeline__brilho-camada"><div class="timeline__brilho"></div></div>
-              <i class="timeline__cruz" style="--x: 14%; --y: 16%"></i>
-              <i class="timeline__cruz" style="--x: 84%; --y: 24%"></i>
-              <i class="timeline__cruz" style="--x: 9%; --y: 58%"></i>
-              <i class="timeline__cruz" style="--x: 90%; --y: 66%"></i>
-              <i class="timeline__cruz" style="--x: 26%; --y: 84%"></i>
-              <i class="timeline__cruz" style="--x: 72%; --y: 88%"></i>
-              <i class="timeline__cruz" style="--x: 52%; --y: 11%"></i>
+      <!-- Centro: o monitor 9:16 -->
+      <div class="clab__centro">
+        <div class="clab__caixa">
+          <div class="clab__monitor monitor monitor--916" role="img" aria-label="Uma foto do Tom é escaneada com uma malha de pontos no rosto, a voz é clonada e a foto vira o clone digital dele, que fala: Eu pareço real, mas eu não sou. Eu sou o clone digital do Tom.">
+            <div class="clab__tela monitor__tela" aria-hidden="true">
+              <!-- câmera: tudo o que é da imagem (foto, clone, parte lida, malha, laser) dá o zoom junto no rosto (--zoom) -->
+              <div class="clab__camera">
+                <img class="clab__foto" src="/edf-clone/assets/clonagem-foto-Tcdz9Xx3.webp" width="720" height="1280" alt="" loading="lazy" decoding="async" />
 
-              <div class="timeline__anel"><i></i></div>
-
-              <!-- 01 · Gancho -->
-              <div class="timeline__cena timeline__c1">
-                <p class="timeline__c1-txt k">
-                  <span class="timeline__m"><span class="timeline__in">Uma</span></span>
-                  <span class="timeline__m"><span class="timeline__in k--lima timeline__brilha">frase.</span></span>
-                </p>
-                <i class="timeline__c1-traco"></i>
-              </div>
-
-              <!-- 02 · Contraste -->
-              <div class="timeline__cena timeline__c2">
-                <p class="timeline__c2-cima k">
-                  <span class="timeline__m"><span class="timeline__in"><span class="riscado timeline__corta">programa</span></span></span>
-                  <span class="timeline__m"><span class="timeline__in"><span class="riscado timeline__corta">de edição</span></span></span>
-                </p>
-                <div class="timeline__faixa">
-                  <p class="timeline__faixa-txt k">Sem abrir<br />editor.</p>
+                <!-- o clone (cortina da etapa 03): o quadro parado e o vídeo que anda com a rolagem -->
+                <div class="clab__clone">
+                  <img class="clab__clone-img" src="/edf-clone/assets/clonagem-clone-Cn7xtzYq.webp" width="720" height="1280" alt="" loading="lazy" decoding="async" />
                 </div>
-                <p class="timeline__c2-baixo k">
-                  <span class="timeline__m"><span class="timeline__in"><span class="riscado timeline__corta">linha do tempo</span></span></span>
-                </p>
+
+                <!-- parte já escaneada (acima do laser) -->
+                <div class="clab__lido"><div class="clab__lido-in"></div></div>
+
+                <!-- malha do rosto (o JS desenha a partir de dados.js) -->
+                <div class="clab__malha-corte"><div class="clab__malha-wipe"><svg class="clab__malha" viewBox="0 0 1080 1920" preserveAspectRatio="xMidYMid slice"></svg></div></div>
+
+                <!-- laser -->
+                <div class="clab__laser"><i></i></div>
               </div>
 
-              <!-- 03 · Pedido -->
-              <div class="timeline__cena timeline__c3">
-                <div class="timeline__campo">
-                  <div class="timeline__campo-topo mono"><span><i></i>Pedido</span><span>IA · motion</span></div>
-                  <p class="timeline__campo-txt"></p>
-                  <div class="timeline__campo-pe">
-                    <span class="timeline__campo-chips mono"><b>9:16</b><b>20 s</b></span>
-                    <span class="timeline__gerar">Gerar <svg viewBox="0 0 16 16"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg><i class="timeline__onda"></i></span>
-                  </div>
-                  <div class="timeline__campo-barra"><i></i></div>
-                  <p class="timeline__campo-status mono"><span class="timeline__st-a">Gerando o vídeo</span><span class="timeline__st-b">Pronto ✓ 1080 × 1920</span></p>
-                </div>
-                <!-- cursor (camada do tamanho da tela: x/y em % da tela) -->
-                <div class="timeline__mouse"><svg class="timeline__seta-mouse" viewBox="0 0 24 24"><path d="M4 2.5v17.2l4.6-4.4 3 6.6 3-1.4-3-6.4h6.3z" /></svg></div>
+              <!-- grade técnica (fica parada, fora do zoom) -->
+              <div class="clab__grade"></div>
+
+              <!-- mira do rosto -->
+              <div class="clab__mira"><i class="hud-canto"></i><span class="clab__mira-tag mono"><span class="clab__mira-txt">Procurando rosto</span></span><span class="clab__mira-pts mono"><b>000</b> pontos</span></div>
+
+              <!-- boca (voz e sincronia) -->
+              <div class="clab__boca"><i class="hud-canto"></i><span class="clab__boca-tag mono">Sincronia labial</span></div>
+
+              <!-- cartão da voz (etapa 02) -->
+              <div class="clab__voz">
+                <div class="clab__voz-topo mono"><span class="clab__voz-nome"><i></i><span class="clab__voz-est">Gravando amostra</span></span><span class="clab__voz-tc">00:00</span></div>
+                <div class="clab__onda"></div>
+                <div class="clab__voz-chips mono"><span class="clab__vchip">Timbre</span><span class="clab__vchip">Ritmo</span><span class="clab__vchip">Sotaque</span></div>
               </div>
 
-              <!-- 04 · Entrega -->
-              <div class="timeline__cena timeline__c4">
-                <ul class="timeline__entrega">
-                  <li class="timeline__item4"><i class="timeline__tique"></i><span class="timeline__m"><span class="timeline__in k">Roteiro.</span></span></li>
-                  <li class="timeline__item4"><i class="timeline__tique"></i><span class="timeline__m"><span class="timeline__in k">Visual.</span></span></li>
-                  <li class="timeline__item4"><i class="timeline__tique"></i><span class="timeline__m"><span class="timeline__in k">Animação.</span></span></li>
-                  <li class="timeline__item4"><i class="timeline__tique"></i><span class="timeline__m"><span class="timeline__in k">Som.</span></span></li>
-                </ul>
+              <!-- cortina foto → clone -->
+              <div class="clab__corte"><i class="clab__corte-linha"></i><span class="clab__corte-rot clab__corte-rot--a mono">Clone</span><span class="clab__corte-rot clab__corte-rot--b mono">Foto</span></div>
+
+              <!-- selo do clone -->
+              <span class="clab__selo mono"><i></i>Clone digital · 100% IA</span>
+
+              <!-- roteiro (etapa 04) -->
+              <div class="clab__roteiro">
+                <span class="clab__roteiro-rot mono">Roteiro</span>
+                <p class="clab__roteiro-txt"><span class="clab__roteiro-digita"></span></p>
               </div>
 
-              <!-- 05 · Prova -->
-              <div class="timeline__cena timeline__c5">
-                <div class="timeline__antes">
-                  <span class="timeline__c5-rot mono">Antes</span>
-                  <p class="timeline__num k">
-                    <span class="riscado timeline__num-risco">
-                      <span class="timeline__rolo"><span class="timeline__fita timeline__fita--h"><span>0</span><span>1</span><span>2</span><span>3</span></span></span><span class="timeline__unid">h</span>
-                    </span>
-                  </p>
-                </div>
-                <i class="timeline__seta"></i>
-                <div class="timeline__agora">
-                  <i class="timeline__estouro"></i>
-                  <span class="timeline__c5-rot mono">Agora</span>
-                  <p class="timeline__num timeline__num--agora k k--lima timeline__brilha">
-                    <span class="timeline__rolo"><span class="timeline__fita timeline__fita--d"><span>0</span><span>1</span></span></span><span class="timeline__rolo"><span class="timeline__fita timeline__fita--u"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span></span></span><span class="timeline__unid">min</span>
-                  </p>
-                </div>
+              <!-- legenda tipo Reels -->
+              <p class="clab__legenda"></p>
+
+              <!-- pronto (etapa 05) -->
+              <div class="clab__pronto">
+                <span class="clab__pronto-ico"><svg viewBox="0 0 16 16"><path d="M3.5 8.3 6.6 11.2 12.5 4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                <span class="clab__pronto-txt"><b>Vídeo pronto</b><span class="mono">1080 × 1920 · clone.mp4</span></span>
               </div>
 
-              <!-- 06 · Convite -->
-              <div class="timeline__cena timeline__c6">
-                <p class="timeline__c6-txt k">
-                  <span class="timeline__m"><span class="timeline__in">Aprenda</span></span>
-                  <span class="timeline__m timeline__m--grande"><span class="timeline__in k--lima timeline__brilha">motion</span></span>
-                  <span class="timeline__m"><span class="timeline__in">com IA.</span></span>
-                </p>
-                <span class="timeline__saiba">Saiba mais <svg viewBox="0 0 16 16"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-                <!-- cursor (camada do tamanho da tela: x/y em % da tela) -->
-                <div class="timeline__mouse"><svg class="timeline__seta-mouse" viewBox="0 0 24 24"><path d="M4 2.5v17.2l4.6-4.4 3 6.6 3-1.4-3-6.4h6.3z" /></svg></div>
+              <!-- antes de rolar -->
+              <div class="clab__inicio">
+                <span class="clab__inicio-ico"><svg viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M4 12h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg></span>
+                <span class="clab__inicio-txt mono">Role para escanear</span>
               </div>
 
-              <!-- cortinas e flash (transições) -->
-              <div class="timeline__cortina"><i></i></div>
-              <div class="timeline__flash"></div>
-
-              <!-- play (estado parado, antes de rolar) -->
-              <div class="timeline__play">
-                <span class="timeline__play-btn"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" /></svg></span>
-                <span class="timeline__play-txt mono">Role para dar o play</span>
-              </div>
-
-              <!-- visor do criativo: cantoneiras, quadro, REC e timecode -->
-              <div class="timeline__visor">
-                <i class="hud-canto"></i>
-                <span class="timeline__v-quadro mono">Frame <b>0000</b></span>
-                <span class="timeline__v-marca mono">Upward · Editor do Futuro</span>
-                <span class="timeline__v-cena mono"><i></i><span class="timeline__v-cena-txt">01 / 06 · Rosto</span></span>
-                <span class="timeline__v-rec mono"><i></i>REC</span>
-                <span class="timeline__v-tc mono">00:00:00:00</span>
+              <!-- visor -->
+              <div class="clab__visor">
+                <span class="clab__v-rec mono"><i></i><span class="clab__v-rec-txt">Captura</span></span>
+                <span class="clab__v-tc mono">00:00:00:00</span>
+                <span class="clab__v-etapa mono"><span class="clab__v-etapa-txt">00 / 05 · Foto</span></span>
               </div>
             </div>
             <i class="hud-canto" aria-hidden="true"></i>
           </div>
         </div>
-
-        <!-- V3 · Legenda (tipo Reels, palavra por palavra): uma linha por entrada de FALA (cenas.js), mesmas palavras -->
-        <div class="timeline__legenda" aria-hidden="true">
-          <p class="timeline__legenda-linha">Nada disso é real.</p>
-          <p class="timeline__legenda-linha">Eu não gravei nada,</p>
-          <p class="timeline__legenda-linha">não falei nada,</p>
-          <p class="timeline__legenda-linha">não abri nenhum programa de edição.</p>
-          <p class="timeline__legenda-linha">Não precisei de câmera,</p>
-          <p class="timeline__legenda-linha">de iluminação, nem de saber editar.</p>
-          <p class="timeline__legenda-linha">O que você está vendo</p>
-          <p class="timeline__legenda-linha">é um avatar realista digital.</p>
-          <p class="timeline__legenda-linha">A edição também.</p>
-          <p class="timeline__legenda-linha">Legenda, fundo, efeitos sonoros,</p>
-          <p class="timeline__legenda-linha">tudo foi feito por IA.</p>
-          <p class="timeline__legenda-linha">Na verdade, eu nem sei</p>
-          <p class="timeline__legenda-linha">o que o Tom,</p>
-          <p class="timeline__legenda-linha">o dono desse rosto,</p>
-          <p class="timeline__legenda-linha">está fazendo agora.</p>
-          <p class="timeline__legenda-linha">Se você quer aprender a criar</p>
-          <p class="timeline__legenda-linha">vídeos como esse,</p>
-          <p class="timeline__legenda-linha">do início ao fim, com IA,</p>
-          <p class="timeline__legenda-linha">clica em Saiba mais</p>
-          <p class="timeline__legenda-linha">que eu te mostro como.</p>
-        </div>
       </div>
 
-      <!-- Direita: o que a IA fez + transporte -->
-      <div class="timeline__lado timeline__lado--dir">
-        <p class="timeline__hud hud" aria-hidden="true"><span class="timeline__hud-seq">Sequência 01 ·&nbsp;</span>1080 × 1920 · 30 qps</p>
-        <div class="timeline__fez vidro">
-          <div class="timeline__painel-topo">
-            <span class="hud timeline__painel-nome">
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8 9.5 6.5 14.2 8 9.5 9.5 8 14.2 6.5 9.5 1.8 8 6.5 6.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></svg>
-              A IA fez
+      <!-- Direita: leituras + transporte -->
+      <div class="clab__lado clab__lado--dir">
+        <p class="clab__hud hud" aria-hidden="true">Clone 01 · 1080 × 1920 · 25 qps</p>
+
+        <div class="clab__leituras vidro" aria-hidden="true">
+          <div class="clab__painel-topo">
+            <span class="hud clab__painel-nome">
+              <svg viewBox="0 0 16 16"><path d="M2 5V3a1 1 0 0 1 1-1h2M11 2h2a1 1 0 0 1 1 1v2M14 11v2a1 1 0 0 1-1 1h-2M5 14H3a1 1 0 0 1-1-1v-2M5.5 6.5h.01M10.5 6.5h.01M5.8 10.2c1.3 1.1 3.1 1.1 4.4 0" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" /></svg>
+              Rosto
             </span>
-            <span class="hud timeline__fez-conta pixel" aria-hidden="true"><b>0</b>/5</span>
+            <span class="hud clab__rosto-est">Aguardando</span>
           </div>
-          <ul class="timeline__lista">
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Rosto clonado</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Voz clonada</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Vídeo gerado</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Boca sincronizada com a voz</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
-            <li class="timeline__tarefa"><i class="kf"></i><span class="timeline__tarefa-nome">Legenda, fundo e efeitos</span><span class="timeline__tarefa-tc pixel" aria-hidden="true"></span><span class="timeline__ok" aria-hidden="true">✓</span><i class="timeline__tarefa-barra" aria-hidden="true"></i></li>
-          </ul>
-          <div class="timeline__fez-pe" aria-hidden="true">
-            <span class="hud timeline__fez-estado">Aguardando o pedido</span>
-            <span class="pixel timeline__fez-pct">0%</span>
-          </div>
-          <div class="timeline__fez-barra" aria-hidden="true"><i></i></div>
+          <div class="clab__metrica"><span class="hud">Pontos do rosto</span><span class="pixel clab__m-pontos">000</span><i class="clab__m-barra"><b class="clab__mb-pontos"></b></i></div>
+          <div class="clab__metrica"><span class="hud">Profundidade 3D</span><span class="pixel clab__m-prof">00%</span><i class="clab__m-barra"><b class="clab__mb-prof"></b></i></div>
+          <div class="clab__metrica"><span class="hud">Semelhança</span><span class="pixel clab__m-sem">00,0%</span><i class="clab__m-barra"><b class="clab__mb-sem"></b></i></div>
         </div>
 
-        <div class="timeline__audio vidro" aria-hidden="true">
-          <div class="timeline__painel-topo">
-            <span class="hud timeline__painel-nome">
+        <div class="clab__espectro vidro" aria-hidden="true">
+          <div class="clab__painel-topo">
+            <span class="hud clab__painel-nome">
               <svg viewBox="0 0 16 16"><path d="M2.5 6h2.6L8.6 3v10L5.1 10H2.5zM11 5.6c.9.7 1.4 1.5 1.4 2.4s-.5 1.7-1.4 2.4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" /></svg>
-              A1 · Voz
+              Voz do clone
             </span>
-            <span class="hud timeline__audio-nome">Silêncio</span>
+            <span class="hud clab__esp-est">Silêncio</span>
           </div>
-          <div class="timeline__vu"><span class="hud">L</span><i class="timeline__vu-barra"><b></b></i></div>
-          <div class="timeline__vu"><span class="hud">R</span><i class="timeline__vu-barra"><b></b></i></div>
-          <div class="timeline__vu-escala"><span>-48</span><span>-24</span><span>-12</span><span>-6</span><span>0 dB</span></div>
+          <div class="clab__barras"></div>
         </div>
 
-        <div class="timeline__transporte">
-          <p class="hud timeline__cap-atual" aria-hidden="true">Capítulo <b class="timeline__cap-n">01</b> · <span class="timeline__cap-nome">Rosto</span></p>
-          <div class="timeline__botoes">
-            <button class="timeline__bt" type="button" data-pular="-1" aria-label="Capítulo anterior">
+        <div class="clab__transporte">
+          <p class="hud clab__cap-atual" aria-hidden="true">Etapa <b class="clab__cap-n">00</b> · <span class="clab__cap-nome">Foto</span></p>
+          <div class="clab__botoes">
+            <button class="clab__bt" type="button" data-pular="-1" aria-label="Etapa anterior">
               <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3v10M12.5 3.5 6 8l6.5 4.5z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" /></svg>
             </button>
-            <button class="timeline__bt timeline__bt--play" type="button" aria-pressed="false">
-              <svg class="timeline__ic-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.8 8z" fill="currentColor" /></svg>
-              <svg class="timeline__ic-pausa" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 3h2.6v10H4.5zM8.9 3h2.6v10H8.9z" fill="currentColor" /></svg>
-              <span class="timeline__bt-txt">Reproduzir</span>
+            <button class="clab__bt clab__bt--play" type="button" aria-pressed="false">
+              <svg class="clab__ic-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6L12.8 8z" fill="currentColor" /></svg>
+              <svg class="clab__ic-pausa" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 3h2.6v10H4.5zM8.9 3h2.6v10H8.9z" fill="currentColor" /></svg>
+              <span class="clab__bt-txt">Clonar</span>
             </button>
-            <button class="timeline__bt" type="button" data-pular="1" aria-label="Próximo capítulo">
+            <button class="clab__bt" type="button" data-pular="1" aria-label="Próxima etapa">
               <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12 3v10M3.5 3.5 10 8l-6.5 4.5z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" /></svg>
             </button>
           </div>
@@ -988,68 +883,26 @@
       </div>
     </div>
 
-    <!-- Celular: os painéis viram uma linha de status -->
-    <div class="timeline__status" aria-hidden="true">
-      <span class="hud timeline__status-rot">A IA fez</span>
-      <span class="timeline__status-item"><i class="kf"></i>Rosto</span>
-      <span class="timeline__status-item"><i class="kf"></i>Voz</span>
-      <span class="timeline__status-item"><i class="kf"></i>Vídeo</span>
-      <span class="timeline__status-item"><i class="kf"></i>Sincronia</span>
-      <span class="timeline__status-item"><i class="kf"></i>Edição</span>
-    </div>
-
-    <!-- A timeline, de margem a margem -->
-    <div class="timeline__ilha">
-      <div class="timeline__ilha-grade">
-        <div class="timeline__nomes" aria-hidden="true">
-          <span class="timeline__nome-cap">Capítulos</span>
-          <span class="timeline__nome-regua">Tempo</span>
-          <span class="faixa-tl__nome timeline__nome" data-faixa="v1">V1<span> · Texto</span></span>
-          <span class="faixa-tl__nome timeline__nome" data-faixa="v2">V2<span> · Clone</span></span>
-          <span class="faixa-tl__nome timeline__nome" data-faixa="v3">V3<span> · Legenda</span></span>
-          <span class="faixa-tl__nome timeline__nome" data-faixa="a1">A1<span> · Voz</span></span>
-        </div>
-
-        <div class="timeline__trilhos">
-          <ol class="timeline__caps" aria-label="Capítulos do criativo">
-            <li><button class="timeline__cap" type="button" data-cap="0"><b>01</b> <span>Rosto</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="1"><b>02</b> <span>Voz</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="2"><b>03</b> <span>Vídeo</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="3"><b>04</b> <span>Sincronia</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="4"><b>05</b> <span>Edição</span></button></li>
-            <li><button class="timeline__cap" type="button" data-cap="5"><b>06</b> <span>Convite</span></button></li>
-          </ol>
-          <!-- régua: --x em segundos (a largura é a duração do vídeo, --tl-dur) -->
-          <div class="timeline__regua" aria-hidden="true">
-            <span style="--x: 0">00:00</span>
-            <span style="--x: 10">00:10</span>
-            <span style="--x: 20">00:20</span>
-            <span style="--x: 30">00:30</span>
-            <span style="--x: 40">00:40</span>
-            <span style="--x: 50">00:50</span>
-            <span style="--x: 58.5">00:58</span>
-          </div>
-          <div class="timeline__faixas" aria-hidden="true">
-            <div class="timeline__faixa-tl" data-faixa="v1"></div>
-            <div class="timeline__faixa-tl" data-faixa="v2"></div>
-            <div class="timeline__faixa-tl" data-faixa="v3"></div>
-            <div class="timeline__faixa-tl" data-faixa="a1"></div>
-            <i class="timeline__feito"></i>
-          </div>
-
-          <!-- a agulha: a camada anda de 0 a 100% da largura das faixas -->
-          <div class="timeline__agulha">
-            <i class="timeline__agulha-linha" aria-hidden="true"></i>
-            <span class="timeline__agulha-cabeca" role="slider" tabindex="0" aria-label="Agulha da linha do tempo" aria-valuemin="0" aria-valuemax="32.46" aria-valuenow="0" aria-valuetext="00:00 de 00:32, capítulo 01, Rosto"><i aria-hidden="true"></i></span>
-          </div>
-        </div>
+    <!-- A trilha das etapas, de margem a margem (a agulha anda com a rolagem; dá para clicar e arrastar) -->
+    <div class="clab__ilha">
+      <ol class="clab__caps" aria-label="Etapas da clonagem">
+        <li><button class="clab__cap" type="button" data-etapa="0"><b>01</b> <span>Rosto</span></button></li>
+        <li><button class="clab__cap" type="button" data-etapa="1"><b>02</b> <span>Voz</span></button></li>
+        <li><button class="clab__cap" type="button" data-etapa="2"><b>03</b> <span>Clone</span></button></li>
+        <li><button class="clab__cap" type="button" data-etapa="3"><b>04</b> <span>Fala</span></button></li>
+        <li><button class="clab__cap" type="button" data-etapa="4"><b>05</b> <span>Pronto</span></button></li>
+      </ol>
+      <div class="clab__trilho" aria-hidden="true">
+        <div class="clab__faixa clab__faixa--malha"><span>Malha do rosto</span></div>
+        <div class="clab__faixa clab__faixa--voz"><span>Amostra de voz</span></div>
+        <div class="clab__faixa clab__faixa--clone"><span>Clone gerado</span></div>
+        <div class="clab__faixa clab__faixa--fala"><span>Fala sincronizada</span></div>
+        <div class="clab__faixa clab__faixa--pronto"><span>Exportar</span></div>
+        <i class="clab__feito"></i>
+        <div class="clab__agulha"><i class="clab__agulha-linha"></i><span class="clab__agulha-cabeca" role="slider" tabindex="0" aria-label="Agulha da clonagem" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0%, etapa 01, Rosto"><i aria-hidden="true"></i></span></div>
       </div>
     </div>
   </div>
-
-  <!-- Movimento reduzido: o vídeo com controles (ou, sem VIDEO_REAL, os 6 quadros-chave da composição), montado pelo JS -->
-  <div class="timeline__miniaturas wrap" aria-hidden="true"></div>
-
 </section>
 
       <!-- ================= 06 · FORMATOS (um método, seis tipos de vídeo) =================

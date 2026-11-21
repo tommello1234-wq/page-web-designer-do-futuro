@@ -47,12 +47,10 @@ ads-media/
 !edf-clone/assets/
 !edf-clone/assets/*.mp4
 
-# Guia do clone (/edf/tutorial/clone, 21/11/2026): página-isca do Instagram (Editor do Futuro); vídeos do resultado vão ao ar.
-# ATENÇÃO: o deploy da /edf copia o dist com --delete para edf/; exclua edf/tutorial/ dessa cópia.
-!edf/tutorial/
-!edf/tutorial/clone/
-!edf/tutorial/clone/assets/
-!edf/tutorial/clone/assets/*.mp4
+# Guia do clone (/edf-tutorial-clone, 21/11/2026): página-isca do Instagram (Editor do Futuro); vídeos do resultado vão ao ar.
+!edf-tutorial-clone/
+!edf-tutorial-clone/assets/
+!edf-tutorial-clone/assets/*.mp4
 
 # Black Friday (/black): vídeos da página vão ao ar.
 !black/

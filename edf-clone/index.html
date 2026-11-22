@@ -171,7 +171,8 @@
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/abertura-CNpnq7On.js">
     <link rel="stylesheet" crossorigin href="/edf-clone/assets/index-clone-D4PyeIc6.css">
-  </head>
+  <style id="faixa-black-relogio">.faixa-black{gap:clamp(10px,2vw,28px)}.faixa-black__c{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em}.faixa-black__t{font-variant-numeric:tabular-nums;font-weight:600;padding:3px 6px;border-radius:4px;background:rgb(0 0 0 / .22)}@media (max-width:899px){.faixa-black{gap:6px;padding-inline:8px}.faixa-black__l{display:none}.faixa-black__c{font-size:11px}.faixa-black__t{padding:3px 5px}}</style>
+</head>
   <body>
     <a class="pular" href="#timeline">Pular para o conteúdo</a>
     <div class="grao" aria-hidden="true"></div>
@@ -180,7 +181,7 @@
     <!-- ================= NAVEGAÇÃO (fixa; a linha de baixo é a timeline da página) ================= -->
 <header class="nav" id="nav">
   <!-- Faixa da Black Friday (06/11/2026, pedido do dono): preta com letra amarela, no topo da página -->
-  <p class="faixa-black"><span><strong>Promoção de Black até 22/11:</strong> acesso vitalício por <strong>R$ 97</strong></span></p>
+  <p class="faixa-black"><span><strong>Promoção de Black:</strong> acesso vitalício por <strong>R$ 97</strong></span><span class="faixa-black__c" aria-label="Tempo restante da promoção"><span class="faixa-black__l">TERMINA EM</span> <span class="faixa-black__t" data-promo-timer>24:00:00</span></span></p>
   <div class="nav__barra">
     <a class="nav__marca" href="#abertura" aria-label="Editor do Futuro · voltar ao início">
       <svg class="nav__simbolo" viewBox="0 0 28 28" aria-hidden="true">
@@ -1910,7 +1911,7 @@
           </ul>
 
           <div class="oferta__compra">
-            <p class="oferta-black">Oferta de Black Friday · Acesso vitalício&nbsp;· disponível&nbsp;até&nbsp;22/11</p>
+            <p class="oferta-black">Oferta de Black Friday · Acesso vitalício</p>
             <!-- parcelado em destaque e à vista embaixo (06/11/2026, pedido do dono) -->
             <p class="oferta__preco oferta__preco--parcela pixel"><span class="oferta__vezes">12x</span><span class="oferta__valor" data-oferta="parcela">R$ 10,16</span></p>
             <p class="oferta__parcelas"><span data-oferta="avista">ou R$ 97 à vista</span></p>
@@ -2259,5 +2260,6 @@
   </div>
 </footer>
 
-  </body>
+  <script id="relogio-faixa">/* 22/11/2026: relógio diário da faixa (zera à meia-noite de Brasília, igual ao WDF) */(function(){var el=document.querySelector('[data-promo-timer]');if(!el)return;var D=864e5,B=-108e5,p=function(n){return String(n).padStart(2,'0')};function t(){var sp=Date.now()+B,l=(D-((sp%D)+D)%D)%D,s=Math.max(0,Math.floor(l/1e3));el.textContent=p(Math.floor(s/3600))+':'+p(Math.floor(s/60)%60)+':'+p(s%60)}t();setInterval(t,1e3)})();</script>
+</body>
 </html>

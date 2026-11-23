@@ -166,13 +166,12 @@
       if (window.requestIdleCallback) requestIdleCallback(carregarRastreio, { timeout: 3000 }); else setTimeout(carregarRastreio, 2000);
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1991988198407416&ev=PageView&noscript=1" alt="" /></noscript>
-    <script type="module" crossorigin src="/edf-clone/assets/index-clone-Ca6oelWa.js"></script>
+    <script type="module" crossorigin src="/edf-clone/assets/index-clone-DdCJnVH9.js"></script>
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/motion-9IgLcGk8.js">
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/cena-DpfsvVvj.js">
     <link rel="modulepreload" crossorigin href="/edf-clone/assets/abertura-CNpnq7On.js">
-    <link rel="stylesheet" crossorigin href="/edf-clone/assets/index-clone-D4PyeIc6.css">
-  <style id="faixa-black-relogio">.faixa-black{gap:clamp(10px,2vw,28px)}.faixa-black__c{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em}.faixa-black__t{font-variant-numeric:tabular-nums;font-weight:600;padding:3px 6px;border-radius:4px;background:rgb(0 0 0 / .22)}@media (max-width:899px){.faixa-black{gap:6px;padding-inline:8px}.faixa-black__l{display:none}.faixa-black__c{font-size:11px}.faixa-black__t{padding:3px 5px}}</style>
-</head>
+    <link rel="stylesheet" crossorigin href="/edf-clone/assets/index-clone-u2PgTuwF.css">
+  </head>
   <body>
     <a class="pular" href="#timeline">Pular para o conteúdo</a>
     <div class="grao" aria-hidden="true"></div>
@@ -1775,7 +1774,9 @@
      e o vídeo embaixo, tocando sem som; tocar abre grande, com som.
      Computador (16/11, "igual no web designer"): lado a lado na mesma altura; a fileira trava no
      meio da tela e anda de lado com a rolagem (depoimentos.js). Celular: um embaixo do outro.
-     Tocar no print abre ampliado. -->
+     Tocar no print abre ampliado.
+     05 (23/11, pedido do dono): vídeo do direct de uma aluna que criou o clone no dia da compra (sem a barra do
+     grupo, porque é direct); toca sem som e abre grande com som, igual ao 02. -->
 <section class="depo" id="depoimentos" aria-labelledby="depo-titulo">
   <div class="wrap">
     <header class="depo__cab">
@@ -1784,8 +1785,8 @@
         <h2 class="depo__titulo display" id="depo-titulo" data-split>O que nossos alunos dizem.</h2>
       </div>
       <p class="depo__legenda hud" aria-hidden="true">
-        <span>04 prints</span>
-        <span class="depo__legenda-kf"><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i></span>
+        <span>05 depoimentos</span>
+        <span class="depo__legenda-kf"><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i><i class="kf kf--on"></i></span>
       </p>
     </header>
 
@@ -1811,7 +1812,7 @@
             <img class="depo__topo" src="/edf-clone/assets/depo-topo-grupo-FH6dr-c9.webp" width="924" height="124" alt="" />
             <span class="depo__midia">
               <img class="depo__capa" src="/edf-clone/assets/depo-alison-atom-capa-srrn0tna.webp" width="720" height="898" loading="lazy" decoding="async" alt="Print do grupo de alunos com o vídeo que o aluno fez com as skills do curso" />
-              <video class="depo__vid" muted loop playsinline preload="none" width="720" height="898" aria-hidden="true" tabindex="-1"></video>
+              <video class="depo__vid" data-depo="atom" muted loop playsinline preload="none" width="720" height="898" aria-hidden="true" tabindex="-1"></video>
             </span>
           </button>
           <figcaption class="sr-only">
@@ -1846,6 +1847,21 @@
             <p>Aluno: Ele roteirizou tudo, selecionou as músicas, fez os motions</p>
             <p>Aluno: Muito bom</p>
             <p>Aluno: Usou a skill de motions e edição do curso</p>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="depo__item">
+        <figure class="depo__card">
+          <p class="depo__barra hud" aria-hidden="true"><i class="rec"></i><span class="pixel">05</span><span class="depo__nome">Aluna no direct</span></p>
+          <button class="depo__print depo__print--video depo__print--dm" type="button" aria-label="Ver o depoimento em vídeo com som: aluna que criou o clone digital no mesmo dia da compra">
+            <span class="depo__midia">
+              <img class="depo__capa" src="/edf-clone/assets/depo-clone-dm-capa-UYlet-xT.webp" width="720" height="1092" loading="lazy" decoding="async" alt="Mensagem de uma aluna no direct com o primeiro vídeo que ela fez com o clone digital" />
+              <video class="depo__vid" data-depo="cloneDm" muted loop playsinline preload="none" width="720" height="1092" aria-hidden="true" tabindex="-1"></video>
+            </span>
+          </button>
+          <figcaption class="sr-only">
+            <p>Aluna envia no direct o primeiro vídeo que fez com o clone digital.</p>
+            <p>Aluna: comprei hoje mais cedo o curso e já consegui criar meu clone digital e montei o primeiro video</p>
           </figcaption>
         </figure>
       </li>
@@ -2260,6 +2276,5 @@
   </div>
 </footer>
 
-  <script id="relogio-faixa">/* 22/11/2026: relógio diário da faixa (zera à meia-noite de Brasília, igual ao WDF) */(function(){var el=document.querySelector('[data-promo-timer]');if(!el)return;var D=864e5,B=-108e5,p=function(n){return String(n).padStart(2,'0')};function t(){var sp=Date.now()+B,l=(D-((sp%D)+D)%D)%D,s=Math.max(0,Math.floor(l/1e3));el.textContent=p(Math.floor(s/3600))+':'+p(Math.floor(s/60)%60)+':'+p(s%60)}t();setInterval(t,1e3)})();</script>
-</body>
+  </body>
 </html>

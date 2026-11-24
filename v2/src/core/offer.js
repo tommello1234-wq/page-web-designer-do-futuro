@@ -20,7 +20,7 @@ const OFFER = /*OFFER*/{
     { "key": "bonus-1", "title": "DESIGN SYSTEM: O MODELO MESTRE", "value": 497 },
     { "key": "bonus-2", "title": "ACESSO ÀS MINHAS PRINCIPAIS SKILLS", "value": 297 }
   ],
-  "whatsapp": "https://api.whatsapp.com/send?phone=5588992089323&text=Olá,%20gostaria%20de%20tirar%20dúvidas%20sobre%20o%20Web%20Designer%20do%20futuro",
+  "whatsapp": "https://api.whatsapp.com/send?phone=5588992349401&text=Olá,%20gostaria%20de%20tirar%20dúvidas%20sobre%20o%20Web%20Designer%20do%20futuro",
   "forwardParams": true,
   "lpCheckoutEvent": "CliqueCheckout"
 }/*/OFFER*/;

@@ -3,13 +3,13 @@
    checkout (dono, 12/11/2026: 61% viam a roleta antes de chegar ao preço). Depois de ver o preço: após 45s com a aba
    visível ("tempo_preco"), na intenção de saída (mouse indo para o topo, computador) ou ao voltar para a aba (celular).
    O gatilho "parado" (25s sem mexer) saiu em 12/11: disparava ~30s depois de chegar e só 17% tinham visto o preço.
-   Nunca aparece para quem já clicou para o checkout. Sempre cai em 20% OFF (cupom DESCONTO20OFF; era R$ 30 até 07/10).
+   Nunca aparece para quem já clicou para o checkout. Sempre cai em 15% OFF (cupom DESCONTOWDF desde 26/11; antes DESCONTO20OFF de 20%, e R$ 30 até 07/10).
    O relógio de 5 min é só urgência (pedido do dono): o cupom continua indo no link depois dele.
    RASTREIO: o botão é um a[data-checkout] comum, então o track.js faz tudo igual aos outros CTAs.
    O cupom entra no link DEPOIS (listener em bolha), sem tocar no código da visita. */
 const WDF = window.WDF, core = WDF.core, OFFER = WDF.offer, w = window, d = document;
 
-const CODE = 'DESCONTO20OFF', PRIZE = '20% OFF', CLOCK_MS = 5 * 60 * 1000;
+const CODE = 'DESCONTOWDF', PRIZE = '15% OFF', CLOCK_MS = 5 * 60 * 1000;
 const KEY = 'upw_roleta_v1';
 const SLICES = ['10% OFF', '✕', '15% OFF', '✕', 'BÔNUS SECRETO', '✕', '20% OFF', '✕'];
 const WIN = SLICES.indexOf(PRIZE);

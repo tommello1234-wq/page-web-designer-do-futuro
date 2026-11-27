@@ -4,6 +4,8 @@
      node v2/build.mjs                    full: /index-v2.html + v2/dist/wdf.<hash>.css|js + manifest (só F0 e I0 rodam)
      node v2/build.mjs --section <nome>   preview isolado: v2/preview/<nome>.html|-nojs.html|.css|.js (pacotes de seção)
      node v2/build.mjs --selftest         autoteste do extrator do copy-lock (não escreve nada)
+     node v2/build.mjs --intl en|es       versão internacional (27/11/2026): /<idioma>/index.html + /<idioma>/dist/; arquivos de v2/intl/<idioma>/
+                                          substituem os de v2/src/ quando existem; sem rastreio do Brasil, roleta, relógio, copy-lock e offer-lock
    Opções: --no-minify · --no-lock (rascunho: pula copy/offer-lock; nunca na entrega) · --indexable (remove o noindex) */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -157,14 +159,23 @@ function rewriteHTML(s) {
 const rewriteCSS = (s) => s.replace(/url\(\s*(["']?)(?:\.\/)?((?:ASSETS|v2)\/)/gi, 'url($1/$2');
 
 /* ============================================================ montagem ============================================================ */
+/* --intl <idioma>: um arquivo em v2/intl/<idioma>/<caminho> substitui v2/src/<caminho> (27/11/2026) */
+const INTL = opt('intl');
+const IDIR = INTL ? path.join(V2, 'intl', INTL) : null;
+const ICFG = INTL && exists(path.join(IDIR, 'config.json')) ? JSON.parse(read(path.join(IDIR, 'config.json'))) : {};
+const srcPath = (p) => { if (IDIR) { const o = path.join(IDIR, p); if (exists(o)) return o; } return path.join(SRC, p); };
 const order = JSON.parse(read(path.join(SRC, 'order.json')));
+if (INTL) {
+  const drop = (list, cut) => list.filter((x) => !(cut || []).includes(x));
+  order.css = drop(order.css, ICFG.dropCss); order.jsCore = drop(order.jsCore, ICFG.dropJs);
+}
 const ALL_SECTIONS = [...order.main, ...order.afterMain];
-const secFiles = (name) => { const dir = path.join(SRC, 'sections', name); return { dir, html: path.join(dir, name + '.html'), css: path.join(dir, name + '.css'), js: path.join(dir, name + '.js') }; };
+const secFiles = (name) => { const dir = path.join(SRC, 'sections', name); const sp = (ext) => srcPath(path.join('sections', name, name + ext)); return { dir, html: sp('.html'), css: sp('.css'), js: sp('.js') }; };
 const wrapJs = (label, code) => `/* == ${label} == */\n;(function(){'use strict';\n${code}\n})();\n`;
 const wrapCss = (label, code) => `/* == ${label} == */\n${code}\n`;
 function partial(p, what) {
   if (!p) return '';
-  const f = path.join(SRC, p);
+  const f = srcPath(p);
   if (!exists(f)) { warn(`[build] ${what}: ${p} ausente (pulado)`); return ''; }
   return read(f);
 }
@@ -176,11 +187,11 @@ function sectionParts(name) {
   if (exists(f.js)) out.js = read(f.js); else if (out.html != null) warn(`[build] seção ${name}: ${name}.js ausente (pulado)`);
   return out;
 }
-function coreCss() { return order.css.map((p) => { const f = path.join(SRC, p); if (!exists(f)) { warn(`[build] css ${p} ausente`); return ''; } return wrapCss(p.replace(/^\.\.\//, 'v2/'), rewriteCSS(read(f))); }).join(''); }
-function coreJs(list) { return list.map((p) => { const f = path.join(SRC, p); if (!exists(f)) { warn(`[build] js ${p} ausente`); return ''; } return wrapJs(p, read(f)); }).join(''); }
+function coreCss() { return order.css.map((p) => { const f = srcPath(p); if (!exists(f)) { warn(`[build] css ${p} ausente`); return ''; } return wrapCss(p.replace(/^\.\.\//, 'v2/'), rewriteCSS(read(f))); }).join(''); }
+function coreJs(list) { return list.map((p) => { const f = srcPath(p); if (!exists(f)) { warn(`[build] js ${p} ausente`); return ''; } return wrapJs(p, read(f)); }).join(''); }
 
 function headFor(kind, cssHref, jsHref) {
-  let h = read(path.join(SRC, order.head));
+  let h = read(srcPath(order.head));
   const vendors = order.vendor.map((v) => `<script defer src="/${v.replace(/^\//, '')}"></script>`).join('\n');
   h = h.replace('<!-- @@CSS -->', `<link rel="stylesheet" href="${cssHref}">`)
     .replace('<!-- @@SCRIPTS -->', `${vendors}\n<script defer src="${jsHref}"></script>`);
@@ -368,7 +379,7 @@ function report(title) {
 }
 
 function buildFull() {
-  const lock = has('no-lock') ? null : loadCopyLock();
+  const lock = has('no-lock') || INTL ? null : loadCopyLock();
   const parts = ALL_SECTIONS.map(sectionParts);
   const present = parts.filter((p) => p.html != null);
   const coreTop = partial(order.coreTop, 'coreTop'), chromeTop = partial(order.chromeTop, 'chromeTop'), chromeBottom = partial(order.chromeBottom, 'chromeBottom');
@@ -387,14 +398,15 @@ function buildFull() {
   const mainSecs = present.filter((p) => order.main.includes(p.name)).map((p) => rewriteHTML(p.html).trim()).join('\n');
   const after = present.filter((p) => order.afterMain.includes(p.name)).map((p) => rewriteHTML(p.html).trim()).join('\n');
   // CSS embutido no <head> (24 KB gzip): elimina o único pedido que bloqueia a renderização (Lighthouse: render-blocking)
-  const html = headFor('full', `/v2/dist/${cssName}`, `/v2/dist/${jsName}`).replace(`<link rel="stylesheet" href="/v2/dist/${cssName}">`, () => `<style>${css}</style>`)
+  const DISTURL = INTL ? `/${INTL}/dist/` : '/v2/dist/';
+  const html = headFor('full', `${DISTURL}${cssName}`, `${DISTURL}${jsName}`).replace(`<link rel="stylesheet" href="${DISTURL}${cssName}">`, () => `<style>${css}</style>`)
     + rewriteHTML(coreTop) + rewriteHTML(chromeTop)
     + `<main id="main">\n${mainSecs}\n</main>\n` + (after ? after + '\n' : '')
-    + rewriteHTML(chromeBottom) + read(path.join(SRC, order.tail));
+    + rewriteHTML(chromeBottom) + read(srcPath(order.tail));
 
   // verificações
   const tree = parseHTML(html);
-  checkTracking(html);
+  if (!INTL) checkTracking(html);
   checkIds(tree, 'index-v2.html');
   present.forEach((p) => checkSectionRoot(p.name, p.html));
   ALL_SECTIONS.filter((n) => !present.some((p) => p.name === n)).forEach((n) => warn(`[ids] #${SECTION_IDS[n]} ausente (seção ${n} não montada)`));
@@ -405,7 +417,7 @@ function buildFull() {
     checkCopy(tree, lock.global || [], 'global (nav/CTA)', stub);
     present.forEach((p) => checkCopy(parseHTML(p.html), (lock.sections || {})[p.name] || [], p.name, false));
     checkOffer(html, tree, 'full', present.some((p) => p.name === 'oferta'));
-  } else warn('[build] --no-lock: copy-lock e offer-lock PULADOS (rascunho; nunca na entrega)');
+  } else if (!INTL) warn('[build] --no-lock: copy-lock e offer-lock PULADOS (rascunho; nunca na entrega)');
 
   // orçamentos
   const sz = { html: Buffer.byteLength(html), css: Buffer.byteLength(css), js: Buffer.byteLength(js), cssGz: gz(css), jsGz: gz(js) };
@@ -414,13 +426,13 @@ function buildFull() {
   if (sz.jsGz > BUDGET.jsGz[1]) warn(`[orçamento] JS gzip ${kb(sz.jsGz)} > limite ${kb(BUDGET.jsGz[1])}`); else if (sz.jsGz > BUDGET.jsGz[0]) warn(`[orçamento] JS gzip ${kb(sz.jsGz)} > alvo`);
 
   if (errors.length) return report('full (nada escrito)');
-  const dist = path.join(V2, 'dist');
+  const dist = INTL ? path.join(ROOT, INTL, 'dist') : path.join(V2, 'dist');
   fs.mkdirSync(dist, { recursive: true });
   for (const f of fs.readdirSync(dist)) if (/^wdf\.[0-9a-f]{10}\.(css|js)$/.test(f) && f !== cssName && f !== jsName) fs.unlinkSync(path.join(dist, f));
   fs.writeFileSync(path.join(dist, cssName), css);
   fs.writeFileSync(path.join(dist, jsName), js);
   fs.writeFileSync(path.join(dist, 'manifest.json'), JSON.stringify({ version: order.version, css: cssName, js: jsName, gzip: { css: sz.cssGz, js: sz.jsGz }, sections: present.map((p) => p.name), minified: mc.min && mj.min, builtAt: new Date().toISOString() }, null, 2) + '\n');
-  fs.writeFileSync(path.join(ROOT, 'index-v2.html'), html);
+  fs.writeFileSync(INTL ? path.join(ROOT, INTL, 'index.html') : path.join(ROOT, 'index-v2.html'), html);
   console.log(`[build] full · ${present.length}/${ALL_SECTIONS.length} seções montadas${present.length ? ' (' + present.map((p) => p.name).join(', ') + ')' : ''}`);
   console.log(`[build] index-v2.html ${kb(sz.html)} · ${cssName} ${kb(sz.css)} (gzip ${kb(sz.cssGz)}) · ${jsName} ${kb(sz.js)} (gzip ${kb(sz.jsGz)})${mc.min && mj.min ? '' : ' · sem minificação'}`);
   return report('full');

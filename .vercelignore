@@ -19,6 +19,7 @@ v2/preview/
 
 # Fonte e ferramentas da v2 (só o build em v2/dist vai pro ar)
 v2/src/
+v2/intl/
 v2/tools/
 v2/build.mjs
 

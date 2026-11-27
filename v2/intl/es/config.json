@@ -1,0 +1,17 @@
+{
+  "lang": "es",
+  "dropCss": [
+    "core/roleta.css"
+  ],
+  "dropJs": [
+    "core/guarda.js",
+    "core/track.js",
+    "core/promo.js",
+    "core/roleta.js",
+    "core/funil.js"
+  ],
+  "checkoutUrl": "https://pay.hotmart.com/R108605886E",
+  "pixel": "1158438137073176",
+  "price": 27,
+  "currencySymbol": "US$ "
+}

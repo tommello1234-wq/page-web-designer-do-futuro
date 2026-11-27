@@ -1,0 +1,23 @@
+  <!-- RASTREIO intl/es (27/11/2026): só o Pixel próprio deste idioma (PageView e clique para o checkout). Nenhum outro rastreio. -->
+  <script>
+    (function () {
+      var PIXEL = '1158438137073176';
+      if (!/^\d+$/.test(PIXEL)) return;   // Pixel ainda não definido: não carrega nada
+      function load() {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+          t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', PIXEL);
+        fbq('track', 'PageView');
+      }
+      if (window.requestIdleCallback) requestIdleCallback(load); else setTimeout(load, 3000);
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest && e.target.closest('a[data-checkout]');
+        if (a && window.fbq) fbq('trackCustom', 'CliqueCheckout', { value: 27, currency: 'USD' });
+      }, true);
+    })();
+  </script>
+</body>
+</html>

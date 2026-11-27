@@ -66,3 +66,8 @@ ads-media/
 !black-alunos/
 !black-alunos/assets/
 !black-alunos/assets/*.mp4
+
+# Black reaberta (/black-combo, 27/11/2026): vídeos das dobras dos treinamentos vão ao ar.
+!black-combo/
+!black-combo/assets/
+!black-combo/assets/*.mp4

@@ -107,6 +107,25 @@ function forward(search) {
 WDF.offer = OFFER;
 WDF.fmt = fmt;
 core.forward = forward;
+
+/* intl (27/11/2026, pedido do dono via Tráfego): no clique para o checkout da Hotmart, leva a origem do anúncio.
+   Repassa utm_*, fbclid, src e sck da URL (forward) e, se não vierem, monta src = utm_content (o criativo) e
+   sck = utm_campaign + "__" + utm_term (lote e conjunto), que a Hotmart devolve no webhook (purchase.origin).
+   Sem UTM na URL, o link fica como está. Não toca no Pixel. */
+function hotmartUrl(href) {
+  let u, q;
+  try { u = new URL(forward(window.location.search)); q = new URLSearchParams(window.location.search); } catch (e) { return href; }
+  const corta = (s) => String(s).slice(0, 200);
+  if (!u.searchParams.get('src') && q.get('utm_content')) u.searchParams.set('src', corta(q.get('utm_content')));
+  if (!u.searchParams.get('sck') && q.get('utm_campaign')) u.searchParams.set('sck', corta(q.get('utm_campaign') + (q.get('utm_term') ? '__' + q.get('utm_term') : '')));
+  return u.searchParams.toString() ? u.toString() : href;
+}
+d.addEventListener('click', (e) => {
+  const a = e.target && e.target.closest && e.target.closest('a[data-checkout]');
+  if (!a || !/(^|\.)hotmart\.com$/.test((() => { try { return new URL(a.href).hostname; } catch (_) { return ''; } })())) return;
+  a.href = hotmartUrl(a.href);
+}, true);
+core.hotmartUrl = hotmartUrl;
 core.offerText = offerText;
 core.offerSum = sum;
 

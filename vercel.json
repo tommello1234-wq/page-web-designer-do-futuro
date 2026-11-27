@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/black-combo",
+      "destination": "/black-combo/",
+      "permanent": false
+    },
+    {
       "source": "/dds",
       "destination": "/dds/",
       "permanent": false

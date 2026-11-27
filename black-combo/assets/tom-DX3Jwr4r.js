@@ -1,0 +1,1 @@
+import{c as e,d as t}from"./motion-CHd4cXfx.js";function n(n){if(e)return;let r=n.querySelector(`.tom__foto img`);t.from(r,{clipPath:`inset(100% 0 0 0)`,duration:1.4,ease:`expo.out`,scrollTrigger:{trigger:r,start:`top 80%`}}),t.fromTo(r,{yPercent:6},{yPercent:-6,ease:`none`,scrollTrigger:{trigger:n,start:`top bottom`,end:`bottom top`,scrub:!0}})}export{n as default};

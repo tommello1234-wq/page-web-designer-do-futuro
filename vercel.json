@@ -1,13 +1,33 @@
 {
   "redirects": [
     {
-      "source": "/es",
-      "destination": "/es/",
+      "source": "/wdf-en",
+      "destination": "/wdf-en/",
       "permanent": false
     },
     {
       "source": "/en",
-      "destination": "/en/",
+      "destination": "/wdf-en/",
+      "permanent": false
+    },
+    {
+      "source": "/en/",
+      "destination": "/wdf-en/",
+      "permanent": false
+    },
+    {
+      "source": "/wdf-es",
+      "destination": "/wdf-es/",
+      "permanent": false
+    },
+    {
+      "source": "/es",
+      "destination": "/wdf-es/",
+      "permanent": false
+    },
+    {
+      "source": "/es/",
+      "destination": "/wdf-es/",
       "permanent": false
     },
     {

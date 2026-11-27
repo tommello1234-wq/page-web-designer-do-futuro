@@ -4,7 +4,7 @@
      node v2/build.mjs                    full: /index-v2.html + v2/dist/wdf.<hash>.css|js + manifest (só F0 e I0 rodam)
      node v2/build.mjs --section <nome>   preview isolado: v2/preview/<nome>.html|-nojs.html|.css|.js (pacotes de seção)
      node v2/build.mjs --selftest         autoteste do extrator do copy-lock (não escreve nada)
-     node v2/build.mjs --intl en|es       versão internacional (27/11/2026): /<idioma>/index.html + /<idioma>/dist/; arquivos de v2/intl/<idioma>/
+     node v2/build.mjs --intl en|es       versão internacional (27/11/2026): /<slug>/index.html + /<slug>/dist/ (slug em config.json, ex.: wdf-en); arquivos de v2/intl/<idioma>/
                                           substituem os de v2/src/ quando existem; sem rastreio do Brasil, roleta, relógio, copy-lock e offer-lock
    Opções: --no-minify · --no-lock (rascunho: pula copy/offer-lock; nunca na entrega) · --indexable (remove o noindex) */
 import fs from 'node:fs';
@@ -163,6 +163,7 @@ const rewriteCSS = (s) => s.replace(/url\(\s*(["']?)(?:\.\/)?((?:ASSETS|v2)\/)/g
 const INTL = opt('intl');
 const IDIR = INTL ? path.join(V2, 'intl', INTL) : null;
 const ICFG = INTL && exists(path.join(IDIR, 'config.json')) ? JSON.parse(read(path.join(IDIR, 'config.json'))) : {};
+const ISLUG = INTL ? (ICFG.slug || INTL) : null;   // pasta e endereço da versão (ex.: wdf-en)
 const srcPath = (p) => { if (IDIR) { const o = path.join(IDIR, p); if (exists(o)) return o; } return path.join(SRC, p); };
 const order = JSON.parse(read(path.join(SRC, 'order.json')));
 if (INTL) {
@@ -398,7 +399,7 @@ function buildFull() {
   const mainSecs = present.filter((p) => order.main.includes(p.name)).map((p) => rewriteHTML(p.html).trim()).join('\n');
   const after = present.filter((p) => order.afterMain.includes(p.name)).map((p) => rewriteHTML(p.html).trim()).join('\n');
   // CSS embutido no <head> (24 KB gzip): elimina o único pedido que bloqueia a renderização (Lighthouse: render-blocking)
-  const DISTURL = INTL ? `/${INTL}/dist/` : '/v2/dist/';
+  const DISTURL = INTL ? `/${ISLUG}/dist/` : '/v2/dist/';
   const html = headFor('full', `${DISTURL}${cssName}`, `${DISTURL}${jsName}`).replace(`<link rel="stylesheet" href="${DISTURL}${cssName}">`, () => `<style>${css}</style>`)
     + rewriteHTML(coreTop) + rewriteHTML(chromeTop)
     + `<main id="main">\n${mainSecs}\n</main>\n` + (after ? after + '\n' : '')
@@ -426,13 +427,13 @@ function buildFull() {
   if (sz.jsGz > BUDGET.jsGz[1]) warn(`[orçamento] JS gzip ${kb(sz.jsGz)} > limite ${kb(BUDGET.jsGz[1])}`); else if (sz.jsGz > BUDGET.jsGz[0]) warn(`[orçamento] JS gzip ${kb(sz.jsGz)} > alvo`);
 
   if (errors.length) return report('full (nada escrito)');
-  const dist = INTL ? path.join(ROOT, INTL, 'dist') : path.join(V2, 'dist');
+  const dist = INTL ? path.join(ROOT, ISLUG, 'dist') : path.join(V2, 'dist');
   fs.mkdirSync(dist, { recursive: true });
   for (const f of fs.readdirSync(dist)) if (/^wdf\.[0-9a-f]{10}\.(css|js)$/.test(f) && f !== cssName && f !== jsName) fs.unlinkSync(path.join(dist, f));
   fs.writeFileSync(path.join(dist, cssName), css);
   fs.writeFileSync(path.join(dist, jsName), js);
   fs.writeFileSync(path.join(dist, 'manifest.json'), JSON.stringify({ version: order.version, css: cssName, js: jsName, gzip: { css: sz.cssGz, js: sz.jsGz }, sections: present.map((p) => p.name), minified: mc.min && mj.min, builtAt: new Date().toISOString() }, null, 2) + '\n');
-  fs.writeFileSync(INTL ? path.join(ROOT, INTL, 'index.html') : path.join(ROOT, 'index-v2.html'), html);
+  fs.writeFileSync(INTL ? path.join(ROOT, ISLUG, 'index.html') : path.join(ROOT, 'index-v2.html'), html);
   console.log(`[build] full · ${present.length}/${ALL_SECTIONS.length} seções montadas${present.length ? ' (' + present.map((p) => p.name).join(', ') + ')' : ''}`);
   console.log(`[build] index-v2.html ${kb(sz.html)} · ${cssName} ${kb(sz.css)} (gzip ${kb(sz.cssGz)}) · ${jsName} ${kb(sz.js)} (gzip ${kb(sz.jsGz)})${mc.min && mj.min ? '' : ' · sem minificação'}`);
   return report('full');

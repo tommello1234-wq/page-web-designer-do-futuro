@@ -1,4 +1,5 @@
 {
+  "slug": "wdf-es",
   "lang": "es",
   "dropCss": [
     "core/roleta.css"

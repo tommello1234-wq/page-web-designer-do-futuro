@@ -1,6 +1,31 @@
 {
   "redirects": [
     {
+      "source": "/dds",
+      "destination": "/dds/",
+      "permanent": false
+    },
+    {
+      "source": "/DDS",
+      "destination": "/dds/",
+      "permanent": false
+    },
+    {
+      "source": "/DDS/",
+      "destination": "/dds/",
+      "permanent": false
+    },
+    {
+      "source": "/sistemas",
+      "destination": "/dds/",
+      "permanent": false
+    },
+    {
+      "source": "/sistemas/",
+      "destination": "/dds/",
+      "permanent": false
+    },
+    {
       "source": "/wdf-en",
       "destination": "/wdf-en/",
       "permanent": false

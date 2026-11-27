@@ -1,0 +1,2110 @@
+<!doctype html>
+<!--
+  Desenvolvimento de Sistemas com IA · página de vendas (versão 3 "Aura") · Upward Academy
+  © 2026 Upward Academy. Todos os direitos reservados (código, layout, textos e animações).
+  Cada dobra mora em src/partials/<id>.html + src/styles/sections/<id>.css + src/js/sections/<id>.js. Ver DESIGN.md.
+-->
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Desenvolvimento de Sistemas com IA · Curso com Tom Melo | Upward Academy</title>
+    <meta
+      name="description"
+      content="Construa qualquer sistema com inteligência artificial: front-end, back-end, pagamento e automação, sem precisar saber programar. Com Claude Code, Supabase, Vercel e Lovable. Com Tom Melo. 7 dias de garantia."
+    />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="https://lp.upwardacademy.com.br/dds/" />
+    <meta name="theme-color" content="#07060d" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="author" content="Upward Academy" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lp.upwardacademy.com.br/dds/" />
+    <meta property="og:site_name" content="Upward Academy" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Desenvolvimento de Sistemas com IA · com Tom Melo" />
+    <meta property="og:description" content="Front-end, back-end, pagamento e automação: você diz o que quer, a IA escreve o código e você coloca no ar." />
+    <link rel="icon" href="/dds/assets/case-upward-DZdji3lB.svg" type="image/svg+xml" />
+    <style>html{background:#07060d}html.js:not(.estilos-ok) body{visibility:hidden}html.js:not(.estilos-ok) *,html.js:not(.estilos-ok) :before,html.js:not(.estilos-ok) :after{transition:none!important}</style>
+    <script>
+      (function () {
+        var h = document.documentElement;
+        h.classList.add('js');
+        h.classList.add('estilos-ok');
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          h.classList.add('js-motion');
+          setTimeout(function () {
+            if (!window.__movimentoOk) h.classList.remove('js-motion');
+          }, 8000);
+        }
+      })();
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://lp.upwardacademy.com.br/dds/#curso",
+  "name": "Desenvolvimento de Sistemas com IA",
+  "description": "Construa sistemas completos com inteligência artificial: front-end, back-end, pagamento e automação, com Claude Code, Supabase, Vercel e Lovable.",
+  "url": "https://lp.upwardacademy.com.br/dds/",
+  "inLanguage": "pt-BR",
+  "provider": { "@type": "EducationalOrganization", "name": "Upward Academy", "url": "https://upwardacademy.com.br/" },
+  "instructor": { "@type": "Person", "name": "Tom Melo" },
+  "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "online" }
+}
+    </script>
+    <script type="module" crossorigin src="/dds/assets/index-BCqZL-gS.js"></script>
+    <link rel="modulepreload" crossorigin href="/dds/assets/motion-DTtLhP7r.js">
+    <link rel="stylesheet" crossorigin href="/dds/assets/index-CYFbIVAz.css">
+  </head>
+  <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <!-- NAV · barra flutuante de vidro (pronta; ver DESIGN.md) -->
+<header class="nav" id="nav">
+  <div class="nav__barra">
+    <a class="nav__marca" href="#abertura" aria-label="Upward Academy, voltar ao topo">
+      <img src="/dds/assets/upward-logo-DHPXwi1Z.svg" alt="" width="122" height="26" />
+    </a>
+    <nav class="nav__links" aria-label="Seções da página">
+      <a href="#como">Como funciona</a>
+      <a href="#curso">O curso</a>
+      <a href="#skills">Skills</a>
+      <a href="#oferta">Preço</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn--claro nav__cta" href="#oferta">
+      <span class="btn__rotulo">Quero construir</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+    </a>
+  </div>
+</header>
+
+    <main id="conteudo">
+      <!-- abertura · o topo (ver DESIGN.md, seção 3). Fundo vivo em WebGL (abertura.js) com reserva em CSS. -->
+<section class="abertura" id="abertura" aria-labelledby="abertura-titulo">
+  <div class="abertura__fundo" aria-hidden="true">
+    <div class="abertura__reserva"></div>
+    <canvas class="abertura__gl"></canvas>
+    <div class="abertura__grade"></div>
+  </div>
+
+  <div class="container abertura__conteudo">
+    <a class="selo abertura__selo" href="#instrutor">
+      <span class="selo__tag">Novo</span>
+      <img class="abertura__avatar" src="/dds/assets/construir-tom-avatar-C1YVumho.webp" alt="" width="192" height="192" />
+      <span>Treinamento com Tom Melo</span>
+      <svg class="abertura__selo-seta" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" /></svg>
+    </a>
+
+    <h1 id="abertura-titulo" class="titulo titulo--hero abertura__titulo" data-split="palavras" data-split-delay="0.08">
+      Construa qualquer sistema <em>com&nbsp;IA.</em>
+    </h1>
+
+    <p class="abertura__sub">
+      Front-end, back-end, pagamento e automação, para vender a clientes ou usar no seu negócio. Você diz o que quer, a&nbsp;IA escreve o código. Sem precisar saber programar.
+    </p>
+
+    <div class="abertura__acoes">
+      <a class="btn btn--primario btn--grande abertura__cta" href="#oferta" data-magnetico="0.12">
+        <span class="btn__rotulo">Quero construir meu sistema</span>
+        <span class="btn__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+      </a>
+      <a class="btn btn--secundario btn--grande abertura__ver" href="#portfolio"><span class="btn__rotulo">Ver o que dá para criar</span></a>
+    </div>
+
+    <ul class="garantias abertura__garantias" aria-label="Garantias">
+      <li><span data-oferta="garantia">7 dias de garantia</span></li>
+      <li>Acesso imediato</li>
+      <li><span data-oferta="acesso">1 ano de acesso</span></li>
+    </ul>
+  </div>
+
+  <div class="abertura__palco">
+    <div class="abertura__cena">
+      <figure class="abertura__moldura">
+        <span class="abertura__varredura" aria-hidden="true"></span>
+        <div class="janela abertura__janela">
+          <div class="janela__barra">
+            <i></i><i></i><i></i>
+            <span class="janela__url">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" /><path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7" /></svg>
+              seusistema.com.br/projetos
+            </span>
+          </div>
+          <img
+            src="/dds/assets/painel-projetos-1600-DeKjQsqS.webp"
+            srcset="/dds/assets/painel-projetos-900-BP7SxPuI.webp 900w, /dds/assets/painel-projetos-1600-DeKjQsqS.webp 1600w"
+            sizes="(min-width: 1200px) 1120px, (min-width: 768px) 94vw, 540px"
+            width="1600"
+            height="1004"
+            alt="Painel de gestão de projetos de exemplo, feito com a skill SaaS Premium UI: horas de IA no mês, etapas do projeto e projetos recentes."
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+      </figure>
+    </div>
+
+    <div class="abertura__cartoes" aria-hidden="true">
+      <div class="abertura__cartao abertura__cartao--banco">
+        <div class="abertura__vidro">
+          <span class="abertura__icone">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.8" rx="7" ry="2.6" /><path d="M5 5.8v12.4c0 1.45 3.13 2.6 7 2.6s7-1.15 7-2.6V5.8" /><path d="M5 12c0 1.45 3.13 2.6 7 2.6s7-1.15 7-2.6" /></svg>
+          </span>
+          <span class="abertura__txt"><b>Banco conectado</b><small>Supabase · dados protegidos</small></span>
+          <span class="abertura__check"><svg viewBox="0 0 24 24"><path d="m6.5 12.5 3.6 3.5 7.4-8" /></svg></span>
+        </div>
+      </div>
+      <div class="abertura__cartao abertura__cartao--checkout">
+        <div class="abertura__vidro">
+          <span class="abertura__icone">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.6" /><path d="M3 10h18M7 14.6h3.5" /></svg>
+          </span>
+          <span class="abertura__txt"><b>Checkout ativo</b><small>Pix e cartão</small></span>
+          <span class="abertura__chave"><i></i></span>
+        </div>
+      </div>
+      <div class="abertura__cartao abertura__cartao--ar">
+        <div class="abertura__vidro">
+          <span class="abertura__icone abertura__icone--vivo"><span class="ponto-vivo"></span></span>
+          <span class="abertura__txt"><b>Sistema no ar</b><small>seusistema.com.br</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- ferramentas · faixa fina logo depois do topo: o título e as ferramentas do curso (marquee lento, só texto).
+     Os 4 domínios ficam na dobra deles (03). Toque na faixa pausa/continua o movimento. -->
+<section class="ferramentas" id="ferramentas" aria-labelledby="ferramentas-titulo">
+  <div class="container ferramentas__grade">
+    <div class="ferramentas__cabeca" data-reveal>
+      <h2 id="ferramentas-titulo" class="ferramentas__titulo">As ferramentas <em>que você vai dominar</em></h2>
+    </div>
+
+    <div class="ferramentas__faixa" data-reveal data-reveal-delay=".1">
+      <div class="ferramentas__rolo">
+        <ul class="ferramentas__trilho" aria-label="Ferramentas do curso">
+          <li class="ferramentas__item"><span class="ferramentas__nome">Claude Code</span><span class="ferramentas__papel">escreve o código</span></li>
+          <li class="ferramentas__item"><span class="ferramentas__nome">Supabase</span><span class="ferramentas__papel">banco de dados e login</span></li>
+          <li class="ferramentas__item"><span class="ferramentas__nome">Vercel</span><span class="ferramentas__papel">coloca no ar</span></li>
+          <li class="ferramentas__item"><span class="ferramentas__nome">Lovable</span><span class="ferramentas__papel">telas com IA</span></li>
+        </ul>
+        <ul class="ferramentas__trilho" aria-hidden="true">
+          <li class="ferramentas__item"><span class="ferramentas__nome">Claude Code</span><span class="ferramentas__papel">escreve o código</span></li>
+          <li class="ferramentas__item"><span class="ferramentas__nome">Supabase</span><span class="ferramentas__papel">banco de dados e login</span></li>
+          <li class="ferramentas__item"><span class="ferramentas__nome">Vercel</span><span class="ferramentas__papel">coloca no ar</span></li>
+          <li class="ferramentas__item"><span class="ferramentas__nome">Lovable</span><span class="ferramentas__papel">telas com IA</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- oportunidade (01) · por que aprender a construir sistemas: uma página × um sistema, nas palavras (e nos preços) do Tom -->
+<section class="secao oportunidade" id="oportunidade" aria-labelledby="oportunidade-titulo">
+  <div class="oportunidade__atmosfera" aria-hidden="true">
+    <span class="luz" style="--x: 70%; --y: 64%; --tam: 1150px; --forca: 0.2"></span>
+  </div>
+
+  <div class="container">
+    <header class="cabeca">
+      <p class="rotulo">Por que sistemas</p>
+      <h2 id="oportunidade-titulo" class="titulo" data-split="palavras">Página mostra. <em>Sistema trabalha.</em></h2>
+      <div class="cabeca__texto" data-reveal>
+        <p class="texto texto--lead">
+          Uma página apresenta o negócio. Um sistema faz o negócio rodar: cadastra clientes, guarda os dados, recebe
+          pagamentos e dispara automações todos os dias. É um projeto maior, e o preço acompanha.
+        </p>
+      </div>
+    </header>
+
+    <div class="oportunidade__cartoes">
+      <!-- uma página -->
+      <article class="cartao spot oportunidade__cartao oportunidade__cartao--pagina" data-reveal>
+        <div class="oportunidade__topo">
+          <h3 class="oportunidade__tipo">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="2.75" width="12" height="14.5" rx="2.25" /><path d="M7 6.75h6M7 9.5h6M7 12.25h3.5" /></svg>
+            Uma página
+          </h3>
+        </div>
+        <p class="oportunidade__valor">
+          <span class="sr-only">De 3 a 5 mil reais.</span>
+          <span class="oportunidade__numero" aria-hidden="true"><span class="oportunidade__moeda">R$</span><span data-contar="3" data-duracao="1.4">3</span><span class="oportunidade__traco">–</span><span data-contar="5" data-duracao="1.7">5</span><span class="oportunidade__mil">mil</span></span>
+        </p>
+        <p class="oportunidade__fonte">o que o Tom cobra por uma página</p>
+        <p class="oportunidade__desc">Apresenta o negócio e leva o visitante ao contato ou à compra.</p>
+        <div class="oportunidade__pagina" aria-hidden="true">
+          <div class="oportunidade__pg-barra"><i></i><i></i><i></i></div>
+          <div class="oportunidade__pg-corpo">
+            <div class="oportunidade__pg-nav"><b></b><span></span><span></span><span></span><em></em></div>
+            <span class="oportunidade__pg-linha oportunidade__pg-linha--1"></span>
+            <span class="oportunidade__pg-linha oportunidade__pg-linha--2"></span>
+            <span class="oportunidade__pg-linha oportunidade__pg-linha--3"></span>
+            <span class="oportunidade__pg-botao"></span>
+            <span class="oportunidade__pg-imagem"></span>
+            <span class="oportunidade__pg-blocos"><i></i><i></i><i></i></span>
+          </div>
+        </div>
+      </article>
+
+      <span class="oportunidade__seta" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><path d="M4 10h11.5M11 5.5l4.5 4.5-4.5 4.5" /></svg>
+      </span>
+
+      <!-- um sistema -->
+      <article class="cartao cartao--brilho cartao--acento spot oportunidade__cartao oportunidade__cartao--sistema" data-reveal data-reveal-delay=".12">
+        <div class="oportunidade__topo">
+          <h3 class="oportunidade__tipo">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.75" y="3.25" width="14.5" height="13.5" rx="2.25" /><path d="M7.25 3.25v13.5M7.25 7.75h10M11.5 11.25h3.25M11.5 13.75h3.25" /></svg>
+            Um sistema
+          </h3>
+        </div>
+        <p class="oportunidade__valor">
+          <span class="sr-only">De 15 a 30 mil reais.</span>
+          <span class="oportunidade__numero" aria-hidden="true"><span class="oportunidade__moeda">R$</span><span data-contar="15" data-duracao="1.8">15</span><span class="oportunidade__traco">–</span><span data-contar="30" data-duracao="2.2">30</span><span class="oportunidade__mil">mil</span></span>
+        </p>
+        <p class="oportunidade__fonte">o que o Tom cobra por um sistema</p>
+        <p class="oportunidade__desc">Login, banco de dados, pagamento e automação. O cliente usa todo dia para tocar o negócio. <strong>É o que você aprende a construir aqui.</strong></p>
+        <div class="oportunidade__feed" aria-hidden="true">
+          <div class="oportunidade__feed-topo">
+            <span><i class="ponto-vivo ponto-vivo--acento"></i>No sistema do cliente</span>
+            <span class="oportunidade__feed-exemplo"><span class="oportunidade__feed-dados">dados de </span>exemplo</span>
+          </div>
+          <ul class="oportunidade__eventos">
+            <li class="oportunidade__evento">
+              <span class="oportunidade__ev-icone"><svg viewBox="0 0 16 16"><path d="M9 1.75 3.25 9h4.5L7 14.25 12.75 7h-4.5L9 1.75Z" /></svg></span>
+              <span class="oportunidade__ev-texto"><b>Acesso liberado</b><span>E-mail de boas-vindas enviado</span></span>
+              <span class="oportunidade__ev-tag">automação</span>
+            </li>
+            <li class="oportunidade__evento">
+              <span class="oportunidade__ev-icone"><svg viewBox="0 0 16 16"><path d="m3.5 8.25 3 3 6-6.5" /></svg></span>
+              <span class="oportunidade__ev-texto"><b>Pagamento aprovado</b><span>Pix · plano anual</span></span>
+              <span class="oportunidade__ev-tag">pix</span>
+            </li>
+            <li class="oportunidade__evento">
+              <span class="oportunidade__ev-icone"><svg viewBox="0 0 16 16"><circle cx="8" cy="5.5" r="2.75" /><path d="M2.75 14c.6-2.6 2.75-4 5.25-4s4.65 1.4 5.25 4" /></svg></span>
+              <span class="oportunidade__ev-texto"><b>Novo cadastro</b><span>Conta criada pelo site</span></span>
+              <span class="oportunidade__ev-tag">site</span>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <figure class="oportunidade__fala" data-reveal>
+      <blockquote class="oportunidade__citacao">
+        <p>“Uma página eu cobro de R$&nbsp;3 a 5&nbsp;mil; <span>um sistema, de R$&nbsp;15 a 30&nbsp;mil.”</span></p>
+      </blockquote>
+      <figcaption class="oportunidade__legenda">
+        <span class="oportunidade__autor">
+          <img src="/dds/assets/construir-tom-avatar-C1YVumho.webp" alt="" width="192" height="192" loading="lazy" decoding="async" />
+          <span class="oportunidade__autor-texto"><b>Tom Melo</b><span>Instrutor do curso. Há mais de 6 anos cria páginas, vídeos e sistemas para clientes reais.</span></span>
+        </span>
+        <span class="oportunidade__nota">É o que o Tom cobra dos clientes dele, não uma promessa de ganho.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+      <!-- como (02) · como funciona: você conduz, a IA constrói.
+     Computador: narrativa presa na rolagem (o passo ativo à esquerda, a janela que muda à direita).
+     Celular (e movimento reduzido): os 4 passos empilhados, cada um com a sua tela. -->
+<section class="secao como" id="como" aria-labelledby="como-titulo">
+  <div class="como__atmosfera" aria-hidden="true">
+    <span class="luz" style="--x: 78%; --y: 58%; --tam: 1000px; --forca: 0.16"></span>
+  </div>
+
+  <div class="container">
+    <header class="cabeca">
+      <p class="rotulo">Como funciona</p>
+      <h2 id="como-titulo" class="titulo" data-split="palavras">Você conduz. <em>A IA constrói.</em></h2>
+      <div class="cabeca__texto" data-reveal>
+        <p class="texto texto--lead">
+          Você não precisa saber programar. Precisa saber conduzir a IA: dizer o que quer, revisar o que ela fez e pedir
+          os ajustes. O código, ela escreve.
+        </p>
+      </div>
+    </header>
+  </div>
+
+  <div class="como__palco">
+    <div class="como__fundo" aria-hidden="true"></div>
+    <div class="container como__grade">
+      <!-- a moldura que fica parada no computador (as telas dos passos trocam dentro dela) -->
+      <div class="como__moldura" aria-hidden="true">
+        <div class="como__moldura-col">
+          <div class="janela como__janela">
+            <div class="janela__barra">
+              <i></i><i></i><i></i>
+              <span class="janela__url como__url">
+                <span class="como__url-item is-ativo"><svg viewBox="0 0 12 12"><path d="m2 3.5 2.5 2.5L2 8.5M6 9h4" /></svg>Claude Code · propostas</span>
+                <span class="como__url-item"><svg viewBox="0 0 12 12"><path d="m2 3.5 2.5 2.5L2 8.5M6 9h4" /></svg>Claude Code · propostas</span>
+                <span class="como__url-item"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" /><path d="M1.75 6h8.5M6 1.75c1.4 1.3 1.9 2.7 1.9 4.25S7.4 8.95 6 10.25C4.6 8.95 4.1 7.55 4.1 6S4.6 3.05 6 1.75" /></svg>localhost:3000/propostas</span>
+                <span class="como__url-item"><svg viewBox="0 0 12 12"><rect x="2.5" y="5.25" width="7" height="5" rx="1.25" /><path d="M4 5.25V4a2 2 0 0 1 4 0v1.25" /></svg>propostas.seudominio.com.br<i class="ponto-vivo"></i></span>
+              </span>
+            </div>
+            <div class="como__vazio"></div>
+          </div>
+          <p class="como__nota">
+            Na tela, cada passo leva segundos. Na vida real, são horas de trabalho conduzido por você, sem precisar saber programar.
+          </p>
+        </div>
+      </div>
+
+      <ol class="como__passos">
+        <!-- 01 · você descreve -->
+        <li class="como__passo is-ativo" data-passo="0">
+          <div class="como__info">
+            <span class="numero-fantasma como__fantasma" aria-hidden="true">01</span>
+            <p class="como__num"><span>01</span></p>
+            <h3 class="titulo titulo--medio como__titulo">Você <em>descreve.</em></h3>
+            <p class="texto como__texto">
+              Você explica em português o que o sistema precisa fazer, para quem e como deve parecer. Sem comando decorado,
+              sem linguagem de programação.
+            </p>
+            <p class="como__curso"><span>No curso:</span> a skill Kickoff de Projeto e a aula “Criando o escopo do projeto”.</p>
+          </div>
+          <div class="janela como__tela" aria-hidden="true">
+            <div class="janela__barra">
+              <i></i><i></i><i></i>
+              <span class="janela__url"><svg viewBox="0 0 12 12"><path d="m2 3.5 2.5 2.5L2 8.5M6 9h4" /></svg>Claude Code · propostas</span>
+            </div>
+            <div class="como__ecra como__ecra--prompt">
+              <div class="como__chat">
+                <p class="como__ola">O que vamos <em>construir</em> hoje?</p>
+                <div class="como__caixa">
+                  <p class="como__digitado"><span class="como__letras">Quero um sistema de propostas para a minha agência: cliente, valor e status de cada proposta. No topo, o total em negociação. Visual escuro, com cara de produto caro.</span><i class="como__cursor"></i></p>
+                  <div class="como__caixa-pe">
+                    <span class="como__mais"><svg viewBox="0 0 16 16"><path d="M8 3.5v9M3.5 8h9" /></svg></span>
+                    <span class="como__anexo"><svg viewBox="0 0 16 16"><path d="M4.5 1.75h4.75l3 3v9.5H4.5z" /><path d="M9.25 1.75v3h3" /></svg>escopo.md</span>
+                    <span class="como__enviar">Enviar<svg viewBox="0 0 16 16"><path d="M12.25 3.5v5.25H4M6.75 6 4 8.75l2.75 2.75" /></svg></span>
+                  </div>
+                </div>
+                <p class="como__ideias"><span>Área de membros</span><span>CRM</span><span>Checkout com Pix</span></p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 02 · a IA constrói -->
+        <li class="como__passo" data-passo="1">
+          <div class="como__info">
+            <span class="numero-fantasma como__fantasma" aria-hidden="true">02</span>
+            <p class="como__num"><span>02</span></p>
+            <h3 class="titulo titulo--medio como__titulo">A IA <em>constrói.</em></h3>
+            <p class="texto como__texto">
+              A IA transforma o pedido em telas, banco de dados e regras. Ela escreve o código; você acompanha cada etapa e
+              decide o próximo passo.
+            </p>
+            <p class="como__curso"><span>No curso:</span> Claude Code e Supabase, do MVP às novas funcionalidades.</p>
+          </div>
+          <div class="janela como__tela" aria-hidden="true">
+            <div class="janela__barra">
+              <i></i><i></i><i></i>
+              <span class="janela__url"><svg viewBox="0 0 12 12"><path d="m2 3.5 2.5 2.5L2 8.5M6 9h4" /></svg>Claude Code · propostas</span>
+            </div>
+            <div class="como__ecra como__ecra--codigo">
+              <div class="como__ide">
+                <div class="como__arvore">
+                  <p class="como__arvore-raiz">propostas</p>
+                  <p class="como__pasta">app/propostas</p>
+                  <p class="como__arq is-ativo">page.tsx</p>
+                  <p class="como__pasta">components</p>
+                  <p class="como__arq">Resumo.tsx</p>
+                  <p class="como__arq">ListaDePropostas.tsx</p>
+                  <p class="como__pasta">supabase</p>
+                  <p class="como__arq">propostas.sql</p>
+                </div>
+                <div class="como__editor">
+                  <p class="como__aba"><span>page.tsx</span></p>
+                  <div class="como__codigo">
+                    <span class="como__ln"><i>1</i><b class="k">export default async function</b> <b class="f">Propostas</b>() {</span>
+                    <span class="como__ln"><i>2</i>  <b class="k">const</b> { data: propostas } = <b class="k">await</b> supabase</span>
+                    <span class="como__ln"><i>3</i>    .<b class="f">from</b>(<b class="s">'propostas'</b>)</span>
+                    <span class="como__ln"><i>4</i>    .<b class="f">select</b>(<b class="s">'cliente, valor, status'</b>)</span>
+                    <span class="como__ln"><i>5</i>    .<b class="f">order</b>(<b class="s">'criada_em'</b>, { ascending: <b class="k">false</b> })</span>
+                    <span class="como__ln"><i>6</i> </span>
+                    <span class="como__ln"><i>7</i>  <b class="k">return</b> (</span>
+                    <span class="como__ln"><i>8</i>    &lt;<b class="f">Painel</b> <b class="a">titulo</b>=<b class="s">"Propostas"</b>&gt;</span>
+                    <span class="como__ln"><i>9</i>      &lt;<b class="f">Resumo</b> <b class="a">propostas</b>={propostas} /&gt;</span>
+                    <span class="como__ln"><i>10</i>      &lt;<b class="f">ListaDePropostas</b> <b class="a">itens</b>={propostas} /&gt;</span>
+                    <span class="como__ln"><i>11</i>    &lt;/<b class="f">Painel</b>&gt;</span>
+                    <span class="como__ln"><i>12</i>  )</span>
+                    <span class="como__ln"><i>13</i>}</span>
+                  </div>
+                  <div class="como__log">
+                    <p><svg viewBox="0 0 16 16"><path d="m3.5 8.25 3 3 6-6.5" /></svg>Criei a tabela <b>propostas</b> no Supabase.</p>
+                    <p><svg viewBox="0 0 16 16"><path d="m3.5 8.25 3 3 6-6.5" /></svg>Montei a tela: o total em negociação no topo e a lista abaixo.</p>
+                  </div>
+                </div>
+              </div>
+              <p class="como__status">
+                <span class="como__status-faz"><i class="como__giro"></i>Escrevendo <b>page.tsx</b></span>
+                <span class="como__status-ok"><svg viewBox="0 0 16 16"><path d="m3.5 8.25 3 3 6-6.5" /></svg>Pronto para você revisar</span>
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <!-- 03 · você revisa e ajusta -->
+        <li class="como__passo" data-passo="2">
+          <div class="como__info">
+            <span class="numero-fantasma como__fantasma" aria-hidden="true">03</span>
+            <p class="como__num"><span>03</span></p>
+            <h3 class="titulo titulo--medio como__titulo">Você revisa <em>e ajusta.</em></h3>
+            <p class="texto como__texto">
+              Você abre o sistema, testa como o cliente vai usar e pede os ajustes com palavras simples. É aqui que entra o
+              seu olhar.
+            </p>
+            <p class="como__curso"><span>No curso:</span> a aula “Experiência do usuário” e a skill SaaS Premium UI.</p>
+          </div>
+          <div class="janela como__tela" aria-hidden="true">
+            <div class="janela__barra">
+              <i></i><i></i><i></i>
+              <span class="janela__url"><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" /><path d="M1.75 6h8.5M6 1.75c1.4 1.3 1.9 2.7 1.9 4.25S7.4 8.95 6 10.25C4.6 8.95 4.1 7.55 4.1 6S4.6 3.05 6 1.75" /></svg>localhost:3000/propostas</span>
+            </div>
+            <div class="como__ecra como__ecra--revisa">
+              <img
+                class="como__painel"
+                src="/dds/assets/painel-propostas-violeta-1600-CMOKQlb-.webp"
+                srcset="/dds/assets/painel-propostas-violeta-900-BZsCuPS4.webp 900w, /dds/assets/painel-propostas-violeta-1600-CMOKQlb-.webp 1600w"
+                sizes="(min-width: 1024px) 660px, 92vw"
+                width="1600"
+                height="1128"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="como__marca como__marca--filtros"></span>
+              <span class="como__marca como__marca--linha"></span>
+              <div class="como__pedido">
+                <p class="como__pedido-quem"><span>VC</span>Você pediu</p>
+                <p class="como__pedido-texto">Coloca filtros por cliente e status e destaca a proposta em negociação.</p>
+                <p class="como__pedido-ok"><svg viewBox="0 0 16 16"><path d="m3.5 8.25 3 3 6-6.5" /></svg>Ajuste feito</p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- 04 · coloca no ar -->
+        <li class="como__passo" data-passo="3">
+          <div class="como__info">
+            <span class="numero-fantasma como__fantasma" aria-hidden="true">04</span>
+            <p class="como__num"><span>04</span></p>
+            <h3 class="titulo titulo--medio como__titulo">Coloca <em>no ar.</em></h3>
+            <p class="texto como__texto">
+              Com domínio próprio, e-mails e pagamento configurados, o sistema vai para o ar pronto para o cliente usar.
+            </p>
+            <p class="como__curso"><span>No curso:</span> a Vercel e as aulas de domínio, e-mails e pagamento.</p>
+          </div>
+          <div class="janela como__tela" aria-hidden="true">
+            <div class="janela__barra">
+              <i></i><i></i><i></i>
+              <span class="janela__url"><svg viewBox="0 0 12 12"><rect x="2.5" y="5.25" width="7" height="5" rx="1.25" /><path d="M4 5.25V4a2 2 0 0 1 4 0v1.25" /></svg>propostas.seudominio.com.br<i class="ponto-vivo"></i></span>
+            </div>
+            <div class="como__ecra como__ecra--no-ar">
+              <img
+                class="como__painel"
+                src="/dds/assets/painel-propostas-violeta-1600-CMOKQlb-.webp"
+                srcset="/dds/assets/painel-propostas-violeta-900-BZsCuPS4.webp 900w, /dds/assets/painel-propostas-violeta-1600-CMOKQlb-.webp 1600w"
+                sizes="(min-width: 1024px) 660px, 92vw"
+                width="1600"
+                height="1128"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="como__deploy">
+                <p class="como__deploy-topo"><span><i class="ponto-vivo"></i>No ar</span><span class="como__deploy-amb">Produção</span></p>
+                <p class="como__deploy-url">propostas.seudominio.com.br</p>
+                <ul class="como__deploy-checks">
+                  <li><svg viewBox="0 0 16 16"><path d="m3.5 8.25 3 3 6-6.5" /></svg>Build concluído</li>
+                  <li><svg viewBox="0 0 16 16"><path d="m3.5 8.25 3 3 6-6.5" /></svg>Domínio conectado</li>
+                  <li><svg viewBox="0 0 16 16"><path d="m3.5 8.25 3 3 6-6.5" /></svg>HTTPS ativo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <!-- índice e progresso (só no computador, com a narrativa presa) -->
+      <div class="como__indice">
+        <div class="como__indice-lista" role="group" aria-label="Passos">
+          <button class="como__indice-item is-ativo" type="button" data-ir="0" aria-label="Passo 1: você descreve" aria-current="step">
+            <span class="como__indice-rot"><b>01</b>Descreve</span><span class="como__indice-barra"><i></i></span>
+          </button>
+          <button class="como__indice-item" type="button" data-ir="1" aria-label="Passo 2: a IA constrói">
+            <span class="como__indice-rot"><b>02</b>Constrói</span><span class="como__indice-barra"><i></i></span>
+          </button>
+          <button class="como__indice-item" type="button" data-ir="2" aria-label="Passo 3: você revisa e ajusta">
+            <span class="como__indice-rot"><b>03</b>Revisa</span><span class="como__indice-barra"><i></i></span>
+          </button>
+          <button class="como__indice-item" type="button" data-ir="3" aria-label="Passo 4: coloca no ar">
+            <span class="como__indice-rot"><b>04</b>No ar</span><span class="como__indice-barra"><i></i></span>
+          </button>
+        </div>
+      </div>
+
+      <p class="como__nota como__nota--lista">
+        Na tela, cada passo leva segundos. Na vida real, são horas de trabalho conduzido por você, sem precisar saber programar.
+      </p>
+    </div>
+  </div>
+
+  <!-- chamada depois da narrativa (fora do pin): o próximo botão não fica a 10 telas do topo -->
+  <div class="container como__pe" data-reveal>
+    <a class="btn btn--primario btn--grande" href="#oferta" data-magnetico>
+      <span class="btn__rotulo">Quero construir meu sistema</span>
+      <span class="btn__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+    </a>
+    <ul class="garantias" aria-label="Garantias">
+      <li><span data-oferta="garantia">7 dias de garantia</span></li>
+      <li>Acesso imediato</li>
+      <li><span data-oferta="acesso">1 ano de acesso</span></li>
+    </ul>
+  </div>
+</section>
+
+      <!-- =============================================================================
+     03 · dominios · "Um sistema, quatro partes" (versão 3 "Aura")
+     Bento com 4 cartões de tamanhos diferentes, cada um com uma interface viva feita em HTML/CSS:
+       Front-end  · recorte de um painel real (skill SaaS Premium UI) com o cursor selecionando componentes
+       Back-end   · tabela "alunos" com RLS ligado; um cadastro novo entra a cada venda
+       Pagamento  · checkout com Pix (QR ilustrativo, não é código válido) que passa a "aprovado"
+       Automação  · 3 nós com cabo e pulso de luz: pagamento aprovado → libera o acesso → envia o e-mail
+     Pagamento, automação e banco andam juntos (a venda aprovada dispara o fluxo e cria a linha).
+     Tudo é exemplo (empresa, e-mails e valores fictícios). src/js/sections/dominios.js anima só
+     quando a dobra está na tela; sem JS ou com movimento reduzido fica tudo parado no estado final.
+     ============================================================================= -->
+<section class="secao dominios" id="dominios" aria-labelledby="dominios-titulo">
+  <div class="luz dominios__luz" aria-hidden="true"></div>
+  <div class="container">
+    <header class="cabeca dominios__cabeca">
+      <p class="rotulo" data-reveal>Os 4 domínios</p>
+      <h2 id="dominios-titulo" class="titulo" data-split="palavras">Um sistema, <em>quatro partes.</em></h2>
+      <div class="cabeca__texto" data-reveal data-reveal-delay=".15">
+        <p class="texto">
+          Front-end, back-end, pagamento e automação: é disso que todo sistema é feito, de um CRM a uma área de membros.
+          No curso você constrói as quatro partes. Você conduz, <strong>a IA escreve o código.</strong>
+        </p>
+      </div>
+    </header>
+
+    <div class="dominios__bento" data-reveal data-reveal-grupo>
+      <!-- 01 · Front-end ------------------------------------------------------------ -->
+      <article class="cartao cartao--brilho spot dominios__cartao dominios__cartao--front">
+        <div class="dominios__ui dominios__front">
+          <div class="janela dominios__painel">
+            <div class="janela__barra" aria-hidden="true">
+              <i></i><i></i><i></i>
+              <span class="janela__url">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>
+                app/painel
+              </span>
+            </div>
+            <div class="dominios__tela">
+              <img
+                class="dominios__tela-img"
+                src="/dds/assets/painel-postai-violeta-900-DrDyAfIq.webp"
+                srcset="/dds/assets/painel-postai-violeta-900-DrDyAfIq.webp 900w, /dds/assets/painel-postai-violeta-1600-wAANqtKN.webp 1600w"
+                sizes="(min-width: 1024px) 880px, (min-width: 700px) 100vw, 540px"
+                width="1600"
+                height="1000"
+                alt="Painel de um SaaS de posts com IA, feito com a skill SaaS Premium UI: menu, gerador de posts e próximos agendamentos"
+                loading="lazy"
+                decoding="async"
+              />
+              <!-- componentes que o cursor seleciona (posição em % da tela) -->
+              <span class="dominios__selecao dominios__selecao--lado" style="--x: 18.8%; --y: 8.6%; --w: 21%; --h: 6.8%; --r: 8px" aria-hidden="true"><b>Título da página</b></span>
+              <span class="dominios__selecao dominios__selecao--abaixo" style="--x: 0.6%; --y: 17.6%; --w: 15.8%; --h: 21.6%" aria-hidden="true"><b>Menu</b></span>
+              <span class="dominios__selecao" style="--x: 20.3%; --y: 27%; --w: 43.4%; --h: 7.6%" aria-hidden="true"><b>Gerador com IA</b></span>
+              <span class="dominios__cursor" aria-hidden="true">
+                <i></i>
+                <svg viewBox="0 0 20 22"><path d="M2.2 1.6 17.4 12.1l-6.9 1.2-3.6 6.9z" /></svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="dominios__texto">
+          <div class="dominios__texto-a">
+            <h3 class="dominios__nome">Front-end</h3>
+            <p class="dominios__desc">A tela que o cliente vê e usa todo dia: painéis, formulários e áreas internas com cara de produto caro.</p>
+          </div>
+          <p class="dominios__curso"><span>Módulo 2</span><span>Skill SaaS Premium UI</span></p>
+        </div>
+      </article>
+
+      <!-- 02 · Back-end ------------------------------------------------------------- -->
+      <article class="cartao spot dominios__cartao dominios__cartao--back">
+        <div
+          class="dominios__ui dominios__banco"
+          role="img"
+          aria-label="Exemplo de tabela de alunos no banco de dados, com a segurança por linha (RLS) ligada e um cadastro novo entrando a cada venda."
+        >
+          <div class="dominios__tabela">
+            <div class="dominios__tabela-topo">
+              <span class="dominios__tabela-nome">
+                <svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5" /><path d="M3.5 9.5h17M9.5 9.5v10" /></svg>
+                alunos
+              </span>
+              <span class="dominios__rls">
+                <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>
+                RLS ativo
+              </span>
+            </div>
+            <div class="dominios__cols"><span>aluno</span><span>plano</span><span>acesso</span></div>
+            <div class="dominios__vao">
+              <ul class="dominios__linhas">
+                <li class="dominios__linha"><span>eli•••@email.com</span><span>Anual</span><span class="dominios__acesso">liberado</span></li>
+                <li class="dominios__linha"><span>bru•••@email.com</span><span>Mensal</span><span class="dominios__acesso">liberado</span></li>
+                <li class="dominios__linha"><span>ana•••@email.com</span><span>Anual</span><span class="dominios__acesso">liberado</span></li>
+                <li class="dominios__linha"><span>car•••@email.com</span><span>Anual</span><span class="dominios__acesso">liberado</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="dominios__texto">
+          <div class="dominios__texto-a">
+            <h3 class="dominios__nome">Back-end</h3>
+            <p class="dominios__desc">Login, banco de dados e regras de acesso no Supabase: cada pessoa só vê o que é dela.</p>
+          </div>
+          <p class="dominios__curso"><span>Módulos 2 e 4</span><span>Skill Blindar Sistema</span></p>
+        </div>
+      </article>
+
+      <!-- 03 · Pagamento ------------------------------------------------------------ -->
+      <article class="cartao spot dominios__cartao dominios__cartao--pag">
+        <div
+          class="dominios__ui dominios__pix"
+          role="img"
+          aria-label="Exemplo de checkout com Pix: o QR code, o código copia e cola e o pagamento aprovado."
+        >
+          <div class="dominios__checkout">
+            <div class="dominios__loja">
+              <span class="dominios__avatar">F</span>
+              <span class="dominios__loja-nome"><b>Curso de Fotografia</b><small>Acesso anual</small></span>
+              <span class="dominios__valor">R$&nbsp;197,00</span>
+            </div>
+            <div class="dominios__abas"><span class="is-ativa">Pix</span><span>Cartão</span></div>
+            <div class="dominios__qr-area">
+              <div class="dominios__qr">
+                <svg viewBox="-1.5 -1.5 28 28" aria-hidden="true">
+                  <path
+                    class="dominios__qr-mod"
+                    d="M9 0h1v1h-1zM11 0h1v1h-1zM14 0h2v1h-2zM8 1h1v1h-1zM10 1h1v1h-1zM12 1h2v1h-2zM15 1h2v1h-2zM10 2h1v1h-1zM12 2h3v1h-3zM16 2h1v1h-1zM8 3h1v1h-1zM10 3h1v1h-1zM12 3h3v1h-3zM8 4h1v1h-1zM10 4h1v1h-1zM13 4h2v1h-2zM8 5h2v1h-2zM11 5h1v1h-1zM13 5h3v1h-3zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h2v1h-2zM15 6h2v1h-2zM11 7h1v1h-1zM13 7h1v1h-1zM2 8h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM11 8h2v1h-2zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h3v1h-3zM0 9h2v1h-2zM3 9h1v1h-1zM6 9h1v1h-1zM8 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM14 9h1v1h-1zM18 9h1v1h-1zM21 9h4v1h-4zM0 10h1v1h-1zM2 10h2v1h-2zM6 10h1v1h-1zM8 10h1v1h-1zM10 10h1v1h-1zM12 10h5v1h-5zM18 10h1v1h-1zM20 10h2v1h-2zM24 10h1v1h-1zM0 11h4v1h-4zM6 11h2v1h-2zM10 11h1v1h-1zM12 11h1v1h-1zM14 11h1v1h-1zM16 11h3v1h-3zM23 11h1v1h-1zM3 12h1v1h-1zM6 12h3v1h-3zM10 12h1v1h-1zM12 12h1v1h-1zM15 12h1v1h-1zM19 12h1v1h-1zM21 12h2v1h-2zM6 13h2v1h-2zM10 13h5v1h-5zM16 13h3v1h-3zM20 13h2v1h-2zM24 13h1v1h-1zM0 14h1v1h-1zM4 14h2v1h-2zM7 14h1v1h-1zM10 14h2v1h-2zM13 14h2v1h-2zM18 14h1v1h-1zM20 14h1v1h-1zM23 14h1v1h-1zM0 15h3v1h-3zM6 15h7v1h-7zM15 15h3v1h-3zM19 15h1v1h-1zM21 15h3v1h-3zM0 16h4v1h-4zM7 16h6v1h-6zM15 16h1v1h-1zM22 16h2v1h-2zM10 17h1v1h-1zM13 17h1v1h-1zM15 17h1v1h-1zM22 17h1v1h-1zM8 18h2v1h-2zM11 18h2v1h-2zM15 18h1v1h-1zM23 18h1v1h-1zM8 19h1v1h-1zM12 19h1v1h-1zM21 19h1v1h-1zM23 19h1v1h-1zM8 20h1v1h-1zM12 20h1v1h-1zM14 20h2v1h-2zM21 20h1v1h-1zM23 20h2v1h-2zM8 21h2v1h-2zM13 21h1v1h-1zM16 21h1v1h-1zM18 21h1v1h-1zM20 21h1v1h-1zM23 21h1v1h-1zM10 22h1v1h-1zM14 22h3v1h-3zM18 22h1v1h-1zM21 22h1v1h-1zM24 22h1v1h-1zM8 23h2v1h-2zM11 23h1v1h-1zM13 23h1v1h-1zM18 23h2v1h-2zM24 23h1v1h-1zM8 24h1v1h-1zM11 24h3v1h-3zM15 24h10v1h-10z"
+                  />
+                  <path
+                    class="dominios__qr-marc"
+                    fill-rule="evenodd"
+                    d="M0 0h7v7h-7zM1 1v5h5v-5zM2 2h3v3h-3zM18 0h7v7h-7zM19 1v5h5v-5zM20 2h3v3h-3zM0 18h7v7h-7zM1 19v5h5v-5zM2 20h3v3h-3zM16 16h5v5h-5zM17 17v3h3v-3zM18 18h1v1h-1z"
+                  />
+                </svg>
+                <i class="dominios__scan" aria-hidden="true"></i>
+              </div>
+              <div class="dominios__qr-info">
+                <small>Pix copia e cola</small>
+                <span class="dominios__codigo">00020101021226…</span>
+                <span class="dominios__copiar">
+                  <svg viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2" /><path d="M15.5 8.5V6.5a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2" /></svg>
+                  Copiar
+                </span>
+              </div>
+            </div>
+            <div class="dominios__status">
+              <span class="dominios__status-espera"><i class="dominios__giro"></i>Aguardando pagamento</span>
+              <span class="dominios__status-ok">
+                <i class="dominios__ok"><svg viewBox="0 0 24 24"><path d="m6.5 12.5 3.6 3.6 7.4-8.2" /></svg></i>
+                Pagamento aprovado
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="dominios__texto">
+          <div class="dominios__texto-a">
+            <h3 class="dominios__nome">Pagamento</h3>
+            <p class="dominios__desc">Pix e cartão no seu próprio checkout, ou ligado ao gateway que você já usa.</p>
+          </div>
+          <p class="dominios__curso"><span>Módulo 3</span><span>Skills Checkout Asaas e Gateway de Pagamento</span></p>
+        </div>
+      </article>
+
+      <!-- 04 · Automação ------------------------------------------------------------ -->
+      <article class="cartao spot dominios__cartao dominios__cartao--auto">
+        <div
+          class="dominios__ui dominios__fluxo"
+          role="img"
+          aria-label="Exemplo de automação em três passos ligados: pagamento aprovado, libera o acesso na área de membros e envia o e-mail de boas-vindas."
+        >
+          <div class="dominios__nos">
+            <div class="dominios__no">
+              <span class="dominios__no-ico">
+                <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12.5" rx="2.5" /><path d="M3 10.5h18M7 15h3.5" /></svg>
+              </span>
+              <span class="dominios__no-txt"><b>Pagamento aprovado</b><small>Pix · R$ 197,00</small></span>
+              <span class="dominios__no-ok"><svg viewBox="0 0 24 24"><path d="m6.5 12.5 3.6 3.6 7.4-8.2" /></svg></span>
+            </div>
+            <span class="dominios__cabo"><i class="dominios__pulso"></i></span>
+            <div class="dominios__no">
+              <span class="dominios__no-ico">
+                <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9.5" rx="2" /><path d="M8 11V8a4 4 0 0 1 7.6-1.8" /></svg>
+              </span>
+              <span class="dominios__no-txt"><b>Libera o acesso</b><small>Área de membros</small></span>
+              <span class="dominios__no-ok"><svg viewBox="0 0 24 24"><path d="m6.5 12.5 3.6 3.6 7.4-8.2" /></svg></span>
+            </div>
+            <span class="dominios__cabo"><i class="dominios__pulso"></i></span>
+            <div class="dominios__no">
+              <span class="dominios__no-ico">
+                <svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" /><path d="m4.5 7.5 7.5 5.6 7.5-5.6" /></svg>
+              </span>
+              <span class="dominios__no-txt"><b>Envia o e-mail</b><small>Boas-vindas</small></span>
+              <span class="dominios__no-ok"><svg viewBox="0 0 24 24"><path d="m6.5 12.5 3.6 3.6 7.4-8.2" /></svg></span>
+            </div>
+          </div>
+        </div>
+        <div class="dominios__texto">
+          <div class="dominios__texto-a">
+            <h3 class="dominios__nome">Automação</h3>
+            <p class="dominios__desc">O sistema trabalha sozinho: a venda aprovada libera o acesso e manda o e-mail; o reembolso corta o acesso.</p>
+          </div>
+          <p class="dominios__curso"><span>Módulos 3 e 4</span><span>Skill Gateway de Pagamento</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+      <!-- =============================================================================
+     04 · portfolio · "Isso não é site. É sistema." (versão 3 "Aura")
+     Duas faixas de telas REAIS (feitas com a skill SaaS Premium UI e nas aulas) em molduras de
+     navegador, mais 2 molduras tracejadas "o seu sistema aqui" (placeholder honesto: não há
+     projetos de alunos ainda). Com movimento, src/js/sections/portfolio.js liga .is-rolagem e as
+     faixas deslizam devagar com a rolagem, em sentidos opostos (sem prender a dobra).
+     Sem JS ou com movimento reduzido: cada faixa vira um carrossel nativo (arrastar para o lado).
+     Empresas, nomes e números das telas são fictícios (dados de exemplo). Cada tela aparece uma vez na página;
+     as que eram claras ou tinham lima/verde estão em cópias recoloridas (…-violeta, …-escuro), no violeta da página.
+     Cada item tem --ar (largura ÷ altura da imagem): a moldura já nasce do tamanho certo.
+     ============================================================================= -->
+<section class="secao portfolio" id="portfolio" aria-labelledby="portfolio-titulo">
+  <div class="luz portfolio__luz" aria-hidden="true"></div>
+  <div class="container">
+    <header class="cabeca cabeca--centro portfolio__cabeca">
+      <h2 id="portfolio-titulo" class="titulo" data-split="palavras">Isso não é site.<br /><em>É sistema.</em></h2>
+      <div class="cabeca__texto" data-reveal data-reveal-delay=".15">
+        <p class="texto">
+          Sistemas de verdade, com login, banco de dados e pagamento. As telas abaixo foram feitas com IA, nas aulas do curso e com
+          a skill <strong>SaaS Premium UI</strong>.
+        </p>
+      </div>
+    </header>
+  </div>
+
+  <div class="portfolio__palco" data-reveal>
+    <!-- faixa A (com a rolagem, anda para a esquerda) -->
+    <ul class="portfolio__trilho portfolio__trilho--a" aria-label="Telas de sistemas, parte 1">
+      <li class="portfolio__item" style="--ar: 1.6">
+        <figure class="portfolio__fig">
+          <div class="janela portfolio__janela">
+            <div class="janela__barra" aria-hidden="true">
+              <i></i><i></i><i></i><span class="janela__url">app/financeiro</span>
+            </div>
+            <img
+              src="/dds/assets/painel-financeiro-escuro-900-DV-EsKsC.webp"
+              srcset="/dds/assets/painel-financeiro-escuro-900-DV-EsKsC.webp 900w, /dds/assets/painel-financeiro-escuro-1600-B-0JSIu-.webp 1600w"
+              sizes="(min-width: 1024px) 480px, (min-width: 700px) 384px, 285px"
+              width="1600"
+              height="1000"
+              alt="Painel financeiro de uma agência: receita do mês, despesas, saldo em caixa, fluxo de caixa e projeção"
+              loading="lazy"
+              decoding="async"
+              draggable="false"
+            />
+          </div>
+          <figcaption class="portfolio__legenda"><strong>Financeiro de agência</strong></figcaption>
+        </figure>
+      </li>
+      <li class="portfolio__item" style="--ar: 1.5534">
+        <figure class="portfolio__fig">
+          <div class="janela portfolio__janela">
+            <div class="janela__barra" aria-hidden="true">
+              <i></i><i></i><i></i><span class="janela__url">app/aulas</span>
+            </div>
+            <img
+              src="/dds/assets/galeria-membros-violeta-640-BqEHS-Ub.webp"
+              srcset="/dds/assets/galeria-membros-violeta-640-BqEHS-Ub.webp 640w, /dds/assets/galeria-membros-violeta-960-uTW2v7ap.webp 960w"
+              sizes="(min-width: 1024px) 466px, (min-width: 700px) 373px, 277px"
+              width="960"
+              height="618"
+              alt="Área de membros: aula para continuar de onde parou, progresso do aluno e as formações em fileiras"
+              loading="lazy"
+              decoding="async"
+              draggable="false"
+            />
+          </div>
+          <figcaption class="portfolio__legenda"><strong>Área de membros</strong><span>Módulo 4</span></figcaption>
+        </figure>
+      </li>
+      <li class="portfolio__item portfolio__item--vazio" style="--ar: 1.46">
+        <figure class="portfolio__fig">
+          <div class="janela portfolio__janela portfolio__janela--vazia">
+            <div class="janela__barra" aria-hidden="true">
+              <i></i><i></i><i></i><span class="janela__url">app/seu-sistema</span>
+            </div>
+            <div class="portfolio__vazio">
+              <div class="portfolio__esqueleto" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <p class="portfolio__vazio-txt"><span class="portfolio__mais" aria-hidden="true"></span><em>O seu sistema aqui.</em></p>
+            </div>
+          </div>
+          <figcaption class="portfolio__legenda"><strong>Para o seu negócio</strong></figcaption>
+        </figure>
+      </li>
+      <li class="portfolio__item" style="--ar: 1.6">
+        <figure class="portfolio__fig">
+          <div class="janela portfolio__janela">
+            <div class="janela__barra" aria-hidden="true">
+              <i></i><i></i><i></i><span class="janela__url">app/crm/lead</span>
+            </div>
+            <img
+              src="/dds/assets/painel-crm-lead-900-VIwtDRSt.webp"
+              srcset="/dds/assets/painel-crm-lead-900-VIwtDRSt.webp 900w, /dds/assets/painel-crm-lead-1600-D9pb0yEB.webp 1600w"
+              sizes="(min-width: 1024px) 480px, (min-width: 700px) 384px, 285px"
+              width="1600"
+              height="1000"
+              alt="Ficha de um lead no CRM: etapas do funil, valor estimado, contato principal e histórico de atividades"
+              loading="lazy"
+              decoding="async"
+              draggable="false"
+            />
+          </div>
+          <figcaption class="portfolio__legenda"><strong>CRM · ficha do lead</strong></figcaption>
+        </figure>
+      </li>
+    </ul>
+
+    <!-- faixa B (com a rolagem, anda para a direita) -->
+    <ul class="portfolio__trilho portfolio__trilho--b" aria-label="Telas de sistemas, parte 2">
+      <li class="portfolio__item" style="--ar: 1.6">
+        <figure class="portfolio__fig">
+          <div class="janela portfolio__janela">
+            <div class="janela__barra" aria-hidden="true">
+              <i></i><i></i><i></i><span class="janela__url">app/guias</span>
+            </div>
+            <img
+              src="/dds/assets/galeria-guia-640-cnkcXttm.webp"
+              srcset="/dds/assets/galeria-guia-640-cnkcXttm.webp 640w, /dds/assets/galeria-guia-960-BNiwviWT.webp 960w"
+              sizes="(min-width: 1024px) 480px, (min-width: 700px) 384px, 285px"
+              width="960"
+              height="600"
+              alt="Litoral+, guia de viagem com assinatura: busca por cidade e data, guias de Guarujá e Ubatuba e fotos das praias"
+              loading="lazy"
+              decoding="async"
+              draggable="false"
+            />
+          </div>
+          <figcaption class="portfolio__legenda"><strong>Guia com assinatura</strong><span>Módulo 2</span></figcaption>
+        </figure>
+      </li>
+      <li class="portfolio__item" style="--ar: 1.4184">
+        <figure class="portfolio__fig">
+          <div class="janela portfolio__janela">
+            <div class="janela__barra" aria-hidden="true">
+              <i></i><i></i><i></i><span class="janela__url">app/vendas</span>
+            </div>
+            <img
+              src="/dds/assets/painel-vendas-violeta-900-CLZLPjQx.webp"
+              srcset="/dds/assets/painel-vendas-violeta-900-CLZLPjQx.webp 900w, /dds/assets/painel-vendas-violeta-1600-HUgC5jet.webp 1600w"
+              sizes="(min-width: 1024px) 426px, (min-width: 700px) 340px, 252px"
+              width="1600"
+              height="1128"
+              alt="Painel de vendas: meta do mês, vendas por semana, receita do ano e as últimas vendas"
+              loading="lazy"
+              decoding="async"
+              draggable="false"
+            />
+          </div>
+          <figcaption class="portfolio__legenda"><strong>Painel de vendas</strong></figcaption>
+        </figure>
+      </li>
+      <li class="portfolio__item" style="--ar: 1.6">
+        <figure class="portfolio__fig">
+          <div class="janela portfolio__janela">
+            <div class="janela__barra" aria-hidden="true">
+              <i></i><i></i><i></i><span class="janela__url">app/crm/leads</span>
+            </div>
+            <img
+              src="/dds/assets/painel-crm-lista-escuro-900-BrGzvL8k.webp"
+              srcset="/dds/assets/painel-crm-lista-escuro-900-BrGzvL8k.webp 900w, /dds/assets/painel-crm-lista-escuro-1600-Q1jdKzWH.webp 1600w"
+              sizes="(min-width: 1024px) 480px, (min-width: 700px) 384px, 285px"
+              width="1600"
+              height="1000"
+              alt="Lista de leads de um CRM: empresa, status, valor estimado, responsável e última interação"
+              loading="lazy"
+              decoding="async"
+              draggable="false"
+            />
+          </div>
+          <figcaption class="portfolio__legenda"><strong>CRM · lista de leads</strong></figcaption>
+        </figure>
+      </li>
+      <li class="portfolio__item portfolio__item--vazio" style="--ar: 1.46">
+        <figure class="portfolio__fig">
+          <div class="janela portfolio__janela portfolio__janela--vazia">
+            <div class="janela__barra" aria-hidden="true">
+              <i></i><i></i><i></i><span class="janela__url">app/seu-cliente</span>
+            </div>
+            <div class="portfolio__vazio">
+              <div class="portfolio__esqueleto" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <p class="portfolio__vazio-txt"><span class="portfolio__mais" aria-hidden="true"></span><em>O seu sistema aqui.</em></p>
+            </div>
+          </div>
+          <figcaption class="portfolio__legenda"><strong>Para um cliente</strong></figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container portfolio__pe" data-reveal>
+    <a class="btn btn--primario" href="#oferta" data-magnetico>
+      <span class="btn__rotulo">Quero construir o meu</span>
+      <span class="btn__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+    </a>
+    <p class="portfolio__nota">Empresas, nomes e números nas telas são de exemplo.</p>
+  </div>
+</section>
+
+      <!-- =====================================================================================
+     curso · 05 · "O que tem dentro" (ver DESIGN.md, seção 3)
+     As 6 capas reais num palco: chão de luz, luz violeta embaixo da capa ativa e leve
+     inclinação 3D (data-tilt). Passar o mouse, tocar ou focar uma capa mostra as aulas
+     daquele módulo no painel logo abaixo (padrão de abas: setas, Home e End).
+     No celular as capas viram um carrossel com encaixe; a capa do centro é a ativa.
+     Sem JS: todos os painéis aparecem um embaixo do outro.
+     Aulas = BRIEF (área de membros em 18/11). "Em breve" marcado com honestidade.
+     ===================================================================================== -->
+<section class="secao curso" id="curso" aria-labelledby="curso-titulo">
+  <div class="curso__atmosfera" aria-hidden="true">
+    <div class="luz curso__luz"></div>
+  </div>
+
+  <div class="container">
+    <header class="cabeca curso__cabeca">
+      <p class="rotulo">O curso</p>
+      <h2 id="curso-titulo" class="titulo" data-split="palavras">O que tem dentro, <em>capa por capa.</em></h2>
+      <div class="cabeca__texto">
+        <p class="texto" data-reveal>
+          São 18 aulas no ar, em 4 módulos: você constrói o primeiro sistema, configura domínio, e-mail e pagamento e monta
+          uma área de membros. Escolha uma capa para ver as aulas.
+        </p>
+        <dl class="curso__numeros" data-reveal data-reveal-grupo>
+          <div class="curso__numero">
+            <dt>Módulos<br />no ar</dt>
+            <dd data-contar="4">4</dd>
+          </div>
+          <div class="curso__numero">
+            <dt>Aulas<br />no ar</dt>
+            <dd data-contar="18">18</dd>
+          </div>
+          <div class="curso__numero">
+            <dt>Módulos<br />em breve</dt>
+            <dd>+2</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+  </div>
+
+  <!-- ---------------------------------------------------------------- o palco das capas -->
+  <div class="curso__palco">
+    <div class="curso__fila" role="tablist" aria-label="Módulos do curso" data-reveal data-reveal-grupo>
+      <button class="curso__capa is-ativa" type="button" role="tab" id="curso-aba-1" aria-selected="true" aria-controls="curso-painel-1" style="--i: 0">
+        <span class="curso__piso" aria-hidden="true"><i></i></span>
+        <span class="curso__capa-corpo">
+          <span class="curso__capa-tilt" data-tilt="7">
+            <img src="/dds/assets/capa-01-vibe-coding-360-DQyAA-fn.webp" srcset="/dds/assets/capa-01-vibe-coding-360-DQyAA-fn.webp 360w, /dds/assets/capa-01-vibe-coding-540-DWS6mtkh.webp 540w" sizes="(min-width: 1024px) 230px, min(64vw, 290px)" width="540" height="860" alt="" loading="lazy" decoding="async" />
+            <span class="curso__capa-veu"></span>
+            <span class="curso__capa-brilho"></span>
+          </span>
+        </span>
+        <span class="sr-only">Módulo 1: Você não será mais o mesmo (Vibe Coding)</span>
+      </button>
+
+      <button class="curso__capa" type="button" role="tab" id="curso-aba-2" aria-selected="false" aria-controls="curso-painel-2" tabindex="-1" style="--i: 1">
+        <span class="curso__piso" aria-hidden="true"><i></i></span>
+        <span class="curso__capa-corpo">
+          <span class="curso__capa-tilt" data-tilt="7">
+            <img src="/dds/assets/capa-02-primeiro-sistema-360-NO5CINic.webp" srcset="/dds/assets/capa-02-primeiro-sistema-360-NO5CINic.webp 360w, /dds/assets/capa-02-primeiro-sistema-540-C0TW-B3S.webp 540w" sizes="(min-width: 1024px) 230px, min(64vw, 290px)" width="540" height="860" alt="" loading="lazy" decoding="async" />
+            <span class="curso__capa-veu"></span>
+            <span class="curso__capa-brilho"></span>
+          </span>
+        </span>
+        <span class="sr-only">Módulo 2: Criando seu primeiro sistema</span>
+      </button>
+
+      <button class="curso__capa" type="button" role="tab" id="curso-aba-3" aria-selected="false" aria-controls="curso-painel-3" tabindex="-1" style="--i: 2">
+        <span class="curso__piso" aria-hidden="true"><i></i></span>
+        <span class="curso__capa-corpo">
+          <span class="curso__capa-tilt" data-tilt="7">
+            <img src="/dds/assets/capa-03-configuracoes-360-BhfH48io.webp" srcset="/dds/assets/capa-03-configuracoes-360-BhfH48io.webp 360w, /dds/assets/capa-03-configuracoes-540-CoECQRbK.webp 540w" sizes="(min-width: 1024px) 230px, min(64vw, 290px)" width="540" height="860" alt="" loading="lazy" decoding="async" />
+            <span class="curso__capa-veu"></span>
+            <span class="curso__capa-brilho"></span>
+          </span>
+        </span>
+        <span class="sr-only">Módulo 3: Configurações internas</span>
+      </button>
+
+      <button class="curso__capa" type="button" role="tab" id="curso-aba-4" aria-selected="false" aria-controls="curso-painel-4" tabindex="-1" style="--i: 3">
+        <span class="curso__piso" aria-hidden="true"><i></i></span>
+        <span class="curso__capa-corpo">
+          <span class="curso__capa-tilt" data-tilt="7">
+            <img src="/dds/assets/capa-04-area-de-membros-360-0yttWmZ4.webp" srcset="/dds/assets/capa-04-area-de-membros-360-0yttWmZ4.webp 360w, /dds/assets/capa-04-area-de-membros-540-CeC5cKiu.webp 540w" sizes="(min-width: 1024px) 230px, min(64vw, 290px)" width="540" height="860" alt="" loading="lazy" decoding="async" />
+            <span class="curso__capa-veu"></span>
+            <span class="curso__capa-brilho"></span>
+          </span>
+        </span>
+        <span class="sr-only">Módulo 4: Criando uma área de membros</span>
+      </button>
+
+      <button class="curso__capa curso__capa--breve" type="button" role="tab" id="curso-aba-5" aria-selected="false" aria-controls="curso-painel-5" tabindex="-1" style="--i: 4">
+        <span class="curso__piso" aria-hidden="true"><i></i></span>
+        <span class="curso__capa-corpo">
+          <span class="curso__capa-tilt" data-tilt="7">
+            <img src="/dds/assets/capa-05-saas-360-Cq_ZAPzH.webp" srcset="/dds/assets/capa-05-saas-360-Cq_ZAPzH.webp 360w, /dds/assets/capa-05-saas-540-BbfKTyS-.webp 540w" sizes="(min-width: 1024px) 230px, min(64vw, 290px)" width="540" height="860" alt="" loading="lazy" decoding="async" />
+            <span class="curso__capa-veu"></span>
+            <span class="curso__capa-brilho"></span>
+          </span>
+        </span>
+        <span class="sr-only">Módulo 5: Modelo de negócio com SaaS (em breve)</span>
+      </button>
+
+      <button class="curso__capa curso__capa--breve" type="button" role="tab" id="curso-aba-6" aria-selected="false" aria-controls="curso-painel-6" tabindex="-1" style="--i: 5">
+        <span class="curso__piso" aria-hidden="true"><i></i></span>
+        <span class="curso__capa-corpo">
+          <span class="curso__capa-tilt" data-tilt="7">
+            <img src="/dds/assets/capa-06-crm-360-BE2ZjLQj.webp" srcset="/dds/assets/capa-06-crm-360-BE2ZjLQj.webp 360w, /dds/assets/capa-06-crm-540-BkBibY7V.webp 540w" sizes="(min-width: 1024px) 230px, min(64vw, 290px)" width="540" height="860" alt="" loading="lazy" decoding="async" />
+            <span class="curso__capa-veu"></span>
+            <span class="curso__capa-brilho"></span>
+          </span>
+        </span>
+        <span class="sr-only">Módulo 6: Construindo um CRM (em breve)</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- ---------------------------------------------------------------- as aulas do módulo escolhido -->
+    <div class="curso__paineis" data-reveal>
+      <div class="curso__painel is-ativo" role="tabpanel" id="curso-painel-1" aria-labelledby="curso-aba-1" tabindex="0">
+        <div class="curso__painel-cabeca">
+          <p class="curso__painel-n"><span>Módulo 01 <i>/ 06</i></span><span class="curso__status"><i class="ponto-vivo"></i>No ar</span></p>
+          <h3 class="titulo titulo--medio curso__painel-titulo">Você não será <em>mais o mesmo.</em></h3>
+          <div class="curso__painel-pe">
+            <div class="curso__progresso" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></div>
+            <p class="curso__painel-resumo">Vibe Coding · 4 aulas no ar</p>
+          </div>
+        </div>
+        <ol class="curso__aulas">
+          <li class="curso__aula"><span class="curso__aula-n">01</span><span class="curso__aula-nome">Você não será mais o mesmo depois desse treinamento</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">02</span><span class="curso__aula-nome">As ferramentas que você precisa</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">03</span><span class="curso__aula-nome">As possibilidades</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">04</span><span class="curso__aula-nome">Configurações iniciais</span></li>
+        </ol>
+      </div>
+
+      <div class="curso__painel" role="tabpanel" id="curso-painel-2" aria-labelledby="curso-aba-2" tabindex="0">
+        <div class="curso__painel-cabeca">
+          <p class="curso__painel-n"><span>Módulo 02 <i>/ 06</i></span><span class="curso__status"><i class="ponto-vivo"></i>No ar</span></p>
+          <h3 class="titulo titulo--medio curso__painel-titulo">Criando seu <em>primeiro sistema.</em></h3>
+          <div class="curso__painel-pe">
+            <div class="curso__progresso" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></div>
+            <p class="curso__painel-resumo">5 aulas no ar · 1 em breve</p>
+          </div>
+        </div>
+        <ol class="curso__aulas">
+          <li class="curso__aula"><span class="curso__aula-n">01</span><span class="curso__aula-nome">Entendendo o projeto e criando a ID visual</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">02</span><span class="curso__aula-nome">Criando o escopo do projeto</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">03</span><span class="curso__aula-nome">Criando o MVP</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">04</span><span class="curso__aula-nome">Adicionando novas funcionalidades</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">05</span><span class="curso__aula-nome">Experiência do usuário</span></li>
+          <li class="curso__aula curso__aula--breve"><span class="curso__aula-n">06</span><span class="curso__aula-nome">Fazendo os últimos ajustes</span><span class="curso__breve">Em breve</span></li>
+        </ol>
+      </div>
+
+      <div class="curso__painel" role="tabpanel" id="curso-painel-3" aria-labelledby="curso-aba-3" tabindex="0">
+        <div class="curso__painel-cabeca">
+          <p class="curso__painel-n"><span>Módulo 03 <i>/ 06</i></span><span class="curso__status"><i class="ponto-vivo"></i>No ar</span></p>
+          <h3 class="titulo titulo--medio curso__painel-titulo">Configurações <em>internas.</em></h3>
+          <div class="curso__painel-pe">
+            <div class="curso__progresso" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i><i></i><i></i></div>
+            <p class="curso__painel-resumo">3 aulas no ar · 3 em breve</p>
+          </div>
+        </div>
+        <ol class="curso__aulas">
+          <li class="curso__aula"><span class="curso__aula-n">01</span><span class="curso__aula-nome">Configurando o domínio</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">02</span><span class="curso__aula-nome">Configurando envio de e-mails</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">03</span><span class="curso__aula-nome">Sistema de pagamento</span></li>
+          <li class="curso__aula curso__aula--breve"><span class="curso__aula-n">04</span><span class="curso__aula-nome">Botão “Logar com Google”</span><span class="curso__breve">Em breve</span></li>
+          <li class="curso__aula curso__aula--breve"><span class="curso__aula-n">05</span><span class="curso__aula-nome">Como deixar o sistema seguro</span><span class="curso__breve">Em breve</span></li>
+          <li class="curso__aula curso__aula--breve"><span class="curso__aula-n">06</span><span class="curso__aula-nome">Sistema de acordo com a LGPD</span><span class="curso__breve">Em breve</span></li>
+        </ol>
+      </div>
+
+      <div class="curso__painel" role="tabpanel" id="curso-painel-4" aria-labelledby="curso-aba-4" tabindex="0">
+        <div class="curso__painel-cabeca">
+          <p class="curso__painel-n"><span>Módulo 04 <i>/ 06</i></span><span class="curso__status"><i class="ponto-vivo"></i>No ar</span></p>
+          <h3 class="titulo titulo--medio curso__painel-titulo">Criando uma <em>área de membros.</em></h3>
+          <div class="curso__painel-pe">
+            <div class="curso__progresso" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></div>
+            <p class="curso__painel-resumo">6 aulas no ar</p>
+          </div>
+        </div>
+        <ol class="curso__aulas">
+          <li class="curso__aula"><span class="curso__aula-n">01</span><span class="curso__aula-nome">Vamos criar uma área de membros</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">02</span><span class="curso__aula-nome">Todas as etapas</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">03</span><span class="curso__aula-nome">Criando o MVP</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">04</span><span class="curso__aula-nome">Configurando pagamento e liberação das aulas</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">05</span><span class="curso__aula-nome">Melhorando a estrutura</span></li>
+          <li class="curso__aula"><span class="curso__aula-n">06</span><span class="curso__aula-nome">Finalizando o visual</span></li>
+        </ol>
+      </div>
+
+      <div class="curso__painel curso__painel--breve" role="tabpanel" id="curso-painel-5" aria-labelledby="curso-aba-5" tabindex="0">
+        <div class="curso__painel-cabeca">
+          <p class="curso__painel-n"><span>Módulo 05 <i>/ 06</i></span><span class="curso__status curso__status--breve">Em breve</span></p>
+          <h3 class="titulo titulo--medio curso__painel-titulo">Modelo de negócio <em>com SaaS.</em></h3>
+        </div>
+        <div class="curso__vazio">
+          <ol class="curso__esqueleto" aria-hidden="true"><li></li><li></li><li></li><li></li></ol>
+          <p class="curso__vazio-txt">As aulas deste módulo ainda não estão no ar.</p>
+        </div>
+      </div>
+
+      <div class="curso__painel curso__painel--breve" role="tabpanel" id="curso-painel-6" aria-labelledby="curso-aba-6" tabindex="0">
+        <div class="curso__painel-cabeca">
+          <p class="curso__painel-n"><span>Módulo 06 <i>/ 06</i></span><span class="curso__status curso__status--breve">Em breve</span></p>
+          <h3 class="titulo titulo--medio curso__painel-titulo">Construindo <em>um CRM.</em></h3>
+        </div>
+        <div class="curso__vazio">
+          <ol class="curso__esqueleto" aria-hidden="true"><li></li><li></li><li></li><li></li></ol>
+          <p class="curso__vazio-txt">As aulas deste módulo ainda não estão no ar.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------- o bônus -->
+    <article class="curso__bonus cartao cartao--acento cartao--brilho spot" aria-labelledby="curso-bonus-titulo" data-reveal>
+      <div class="curso__bonus-texto">
+        <p class="curso__bonus-selo"><span class="chip chip--acento">Bônus</span></p>
+        <h3 id="curso-bonus-titulo" class="titulo titulo--medio curso__bonus-titulo">Reuniões reais <em>com cliente.</em></h3>
+        <p class="texto curso__bonus-desc">
+          Duas gravações de reuniões de verdade. Você vê como o Tom conduz um projeto, da primeira conversa ao alinhamento.
+        </p>
+        <ul class="curso__gravacoes">
+          <li class="curso__gravacao">
+            <span class="curso__play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5.5 3.8v8.4L12 8z" /></svg></span>
+            <span class="curso__gravacao-nome">Reunião inicial com cliente</span>
+            <span class="curso__gravacao-n" aria-hidden="true">01</span>
+          </li>
+          <li class="curso__gravacao">
+            <span class="curso__play" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M5.5 3.8v8.4L12 8z" /></svg></span>
+            <span class="curso__gravacao-nome">Reunião com cliente</span>
+            <span class="curso__gravacao-n" aria-hidden="true">02</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ilustração: a chamada gravada (decorativa; o conteúdo está no texto ao lado) -->
+      <div class="curso__chamada janela" aria-hidden="true">
+        <div class="janela__barra">
+          <i></i><i></i><i></i>
+          <span class="janela__url">
+            <svg viewBox="0 0 12 12"><rect x="2.5" y="5.5" width="7" height="5" rx="1.2" /><path d="M4.2 5.5V4a1.8 1.8 0 0 1 3.6 0v1.5" /></svg>
+            reunião com cliente
+          </span>
+        </div>
+        <div class="curso__chamada-tela">
+          <div class="curso__bloco curso__bloco--tom">
+            <img src="/dds/assets/tom-480-CT9vMbFn.webp" srcset="/dds/assets/tom-480-CT9vMbFn.webp 480w, /dds/assets/tom-760-l3nNgnj6.webp 760w" sizes="(min-width: 1024px) 300px, 44vw" width="480" height="602" alt="" loading="lazy" decoding="async" />
+            <span class="curso__etiqueta"><i class="curso__fala"><b></b><b></b><b></b></i>Tom Melo</span>
+          </div>
+          <div class="curso__bloco curso__bloco--cliente">
+            <span class="curso__avatar"><svg viewBox="0 0 48 48"><circle cx="24" cy="18" r="8" /><path d="M9 41c1.8-8 8-12.5 15-12.5S37.2 33 39 41" /></svg></span>
+            <span class="curso__etiqueta">Cliente</span>
+          </div>
+        </div>
+        <div class="curso__controles">
+          <span class="curso__ctrl"><svg viewBox="0 0 20 20"><rect x="7.5" y="3" width="5" height="9" rx="2.5" /><path d="M5 9.5a5 5 0 0 0 10 0M10 14.5V17" /></svg></span>
+          <span class="curso__ctrl"><svg viewBox="0 0 20 20"><rect x="3" y="6" width="10" height="8" rx="2" /><path d="m13 9 4-2.2v6.4L13 11" /></svg></span>
+          <span class="curso__ctrl"><svg viewBox="0 0 20 20"><rect x="3" y="4" width="14" height="10" rx="2" /><path d="M10 11.5V7m-2 2 2-2 2 2M7 17h6" /></svg></span>
+          <span class="curso__rec"><i class="ponto-vivo ponto-vivo--acento"></i>Gravação</span>
+        </div>
+      </div>
+    </article>
+
+    <div class="curso__cta" data-reveal>
+      <a class="btn btn--primario btn--grande" href="#oferta" data-magnetico>
+        <span class="btn__rotulo">Quero construir meu sistema</span>
+        <span class="btn__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+      </a>
+      <ul class="garantias" aria-label="Garantias">
+        <li><span data-oferta="garantia">7 dias de garantia</span></li>
+        <li>Acesso imediato</li>
+        <li><span data-oferta="acesso">1 ano de acesso</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+      <!-- =====================================================================================
+     skills · 06 · "7 skills instaladas no seu Claude" (ver DESIGN.md, seção 3)
+     Uma IDE: à esquerda a pasta ~/.claude/skills com as 7 skills (as abas, padrão
+     WAI-ARIA: setas, Home, End); à direita o SKILL.md da escolhida (a descrição entra
+     digitando) e o terminal com um pedido real e o que ela entrega (bloco de saída).
+     Troca sozinha, devagar, enquanto está na tela; para no clique, no mouse em cima,
+     no foco e no botão "Pausar". Movimento reduzido: sem troca automática e sem digitação.
+     Sem JS: os 7 painéis aparecem um embaixo do outro.
+     Textos: BRIEF (seção 1) + COMO-USAR.md / SKILL.md de cada skill (../Skills/).
+     ===================================================================================== -->
+<section class="secao skills" id="skills" aria-labelledby="skills-titulo">
+  <div class="skills__atmosfera" aria-hidden="true">
+    <div class="grade-fundo skills__grade"></div>
+    <div class="luz skills__luz"></div>
+  </div>
+
+  <div class="container">
+    <header class="cabeca skills__cabeca">
+      <p class="rotulo">As skills</p>
+      <h2 id="skills-titulo" class="titulo" data-split="palavras">7 skills instaladas <em>no seu Claude.</em></h2>
+      <div class="cabeca__texto">
+        <p class="texto" data-reveal>
+          Skill é um pacote de instruções que o Claude segue sozinho. Você instala uma vez e, quando pede algo daquela área,
+          ele já faz do jeito certo: escopo, telas, pagamento, segurança, LGPD e gamificação.
+        </p>
+      </div>
+    </header>
+
+    <div class="skills__palco" data-reveal>
+      <div class="skills__ide janela spot">
+        <div class="janela__barra skills__barra">
+          <i></i><i></i><i></i>
+          <span class="janela__url">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1.2" /><path d="M4.2 5.5V4a1.8 1.8 0 0 1 3.6 0v1.5" /></svg>
+            claude code · ~/.claude/skills
+          </span>
+        </div>
+
+        <div class="skills__corpo">
+          <!-- ------------------------------------------------ explorador (as abas) -->
+          <div class="skills__lateral">
+            <p class="skills__secao-nome" aria-hidden="true">Explorador</p>
+            <p class="skills__raiz" aria-hidden="true">
+              <svg viewBox="0 0 16 16"><path d="M4 6l4 4 4-4" /></svg>
+              .claude/skills
+              <span class="skills__conta">7</span>
+            </p>
+            <div class="skills__arvore" role="tablist" aria-label="As 7 skills" aria-orientation="vertical">
+              <button class="skills__aba is-ativa" type="button" role="tab" id="skills-aba-1" aria-selected="true" aria-controls="skills-painel-1">
+                <svg class="skills__pasta-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 4.25c0-.55.45-1 1-1h3.1l1.4 1.5h6c.55 0 1 .45 1 1v6.5c0 .55-.45 1-1 1H2.75c-.55 0-1-.45-1-1z" /></svg>
+                <span class="skills__aba-nome" aria-hidden="true">kickoff-de-projeto</span>
+                <span class="sr-only">Kickoff de Projeto</span>
+                <span class="skills__aba-prog" aria-hidden="true"></span>
+              </button>
+              <button class="skills__aba" type="button" role="tab" id="skills-aba-2" aria-selected="false" aria-controls="skills-painel-2" tabindex="-1">
+                <svg class="skills__pasta-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 4.25c0-.55.45-1 1-1h3.1l1.4 1.5h6c.55 0 1 .45 1 1v6.5c0 .55-.45 1-1 1H2.75c-.55 0-1-.45-1-1z" /></svg>
+                <span class="skills__aba-nome" aria-hidden="true">saas-premium-ui</span>
+                <span class="sr-only">SaaS Premium UI</span>
+                <span class="skills__aba-prog" aria-hidden="true"></span>
+              </button>
+              <button class="skills__aba" type="button" role="tab" id="skills-aba-3" aria-selected="false" aria-controls="skills-painel-3" tabindex="-1">
+                <svg class="skills__pasta-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 4.25c0-.55.45-1 1-1h3.1l1.4 1.5h6c.55 0 1 .45 1 1v6.5c0 .55-.45 1-1 1H2.75c-.55 0-1-.45-1-1z" /></svg>
+                <span class="skills__aba-nome" aria-hidden="true">conectar-gateway-pagamento</span>
+                <span class="sr-only">Gateway de Pagamento</span>
+                <span class="skills__aba-prog" aria-hidden="true"></span>
+              </button>
+              <button class="skills__aba" type="button" role="tab" id="skills-aba-4" aria-selected="false" aria-controls="skills-painel-4" tabindex="-1">
+                <svg class="skills__pasta-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 4.25c0-.55.45-1 1-1h3.1l1.4 1.5h6c.55 0 1 .45 1 1v6.5c0 .55-.45 1-1 1H2.75c-.55 0-1-.45-1-1z" /></svg>
+                <span class="skills__aba-nome" aria-hidden="true">checkout-asaas</span>
+                <span class="sr-only">Checkout Asaas</span>
+                <span class="skills__aba-prog" aria-hidden="true"></span>
+              </button>
+              <button class="skills__aba" type="button" role="tab" id="skills-aba-5" aria-selected="false" aria-controls="skills-painel-5" tabindex="-1">
+                <svg class="skills__pasta-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 4.25c0-.55.45-1 1-1h3.1l1.4 1.5h6c.55 0 1 .45 1 1v6.5c0 .55-.45 1-1 1H2.75c-.55 0-1-.45-1-1z" /></svg>
+                <span class="skills__aba-nome" aria-hidden="true">blindar-sistema</span>
+                <span class="sr-only">Blindar Sistema</span>
+                <span class="skills__aba-prog" aria-hidden="true"></span>
+              </button>
+              <button class="skills__aba" type="button" role="tab" id="skills-aba-6" aria-selected="false" aria-controls="skills-painel-6" tabindex="-1">
+                <svg class="skills__pasta-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 4.25c0-.55.45-1 1-1h3.1l1.4 1.5h6c.55 0 1 .45 1 1v6.5c0 .55-.45 1-1 1H2.75c-.55 0-1-.45-1-1z" /></svg>
+                <span class="skills__aba-nome" aria-hidden="true">lgpd-para-sistemas</span>
+                <span class="sr-only">LGPD para Sistemas</span>
+                <span class="skills__aba-prog" aria-hidden="true"></span>
+              </button>
+              <button class="skills__aba" type="button" role="tab" id="skills-aba-7" aria-selected="false" aria-controls="skills-painel-7" tabindex="-1">
+                <svg class="skills__pasta-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 4.25c0-.55.45-1 1-1h3.1l1.4 1.5h6c.55 0 1 .45 1 1v6.5c0 .55-.45 1-1 1H2.75c-.55 0-1-.45-1-1z" /></svg>
+                <span class="skills__aba-nome" aria-hidden="true">gamificacao-area-de-membros</span>
+                <span class="sr-only">Gamificação</span>
+                <span class="skills__aba-prog" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <!-- o que tem na pasta da skill escolhida (contagem real das pastas em ../Skills) -->
+            <div class="skills__arquivos" aria-hidden="true">
+              <p class="skills__secao-nome">Nesta pasta</p>
+              <ul class="skills__lista is-ativa"><li class="is-md">SKILL.md</li><li>references/<i>5</i></li></ul>
+              <ul class="skills__lista"><li class="is-md">SKILL.md</li><li>references/<i>12</i></li><li>assets/<i>3</i></li><li>scripts/<i>1</i></li></ul>
+              <ul class="skills__lista"><li class="is-md">SKILL.md</li></ul>
+              <ul class="skills__lista"><li class="is-md">SKILL.md</li><li>references/<i>5</i></li><li>assets/<i>11</i></li></ul>
+              <ul class="skills__lista"><li class="is-md">SKILL.md</li><li>references/<i>10</i></li><li>assets/<i>8</i></li><li>scripts/<i>2</i></li></ul>
+              <ul class="skills__lista"><li class="is-md">SKILL.md</li><li>references/<i>10</i></li><li>modelos/<i>8</i></li><li>scripts/<i>1</i></li></ul>
+              <ul class="skills__lista"><li class="is-md">SKILL.md</li><li>references/<i>6</i></li><li>assets/<i>20</i></li><li>scripts/<i>1</i></li></ul>
+            </div>
+          </div>
+
+          <!-- ------------------------------------------------ editor + terminal (os painéis) -->
+          <div class="skills__editor">
+            <div class="skills__guias" aria-hidden="true">
+              <span class="skills__guia is-on">
+                <svg viewBox="0 0 16 16"><path d="M4 2.5h5.5L12.5 5.5v8H4z" /><path d="M9.5 2.5v3h3" /></svg>
+                SKILL.md
+              </span>
+              <span class="skills__guia">COMO-USAR.md</span>
+            </div>
+
+            <div class="skills__paineis">
+              <!-- 01 · Kickoff de Projeto -->
+              <div class="skills__painel is-ativo" role="tabpanel" id="skills-painel-1" aria-labelledby="skills-aba-1" tabindex="0">
+                <p class="skills__migalha" aria-hidden="true">skills <i>›</i> kickoff-de-projeto <i>›</i> <b>SKILL.md</b></p>
+                <div class="skills__doc">
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <p class="skills__l" aria-hidden="true"><span class="skills__k">name:</span> kickoff-de-projeto</p>
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <h3 class="skills__l skills__nome"><span class="skills__cerq" aria-hidden="true">#</span>Kickoff de Projeto</h3>
+                  <p class="skills__l skills__desc"><span class="skills__desc-txt">Você explica a ideia falando solto. O Claude lê o material da pasta, pesquisa o mercado e monta o escopo completo, com cada tela.</span></p>
+                </div>
+                <div class="skills__terminal">
+                  <p class="skills__term-topo" aria-hidden="true"><span class="skills__term-aba">Terminal</span><span>claude · ~/patinha</span></p>
+                  <p class="skills__pedido"><span class="skills__prompt" aria-hidden="true">›</span><span><span class="sr-only">Exemplo de pedido: </span>Vamos criar a Patinha, um app para o tutor agendar banho e tosa no pet shop do bairro. Pesquisa o que já existe parecido e monta o escopo com cada tela.</span></p>
+                  <p class="skills__usa" aria-hidden="true">Skill(<b>kickoff-de-projeto</b>)</p>
+                  <ul class="skills__saida" aria-label="O que ela entrega">
+                    <li class="is-arquivo">escopo/produto.md</li>
+                    <li class="is-arquivo">escopo/benchmark.md</li>
+                    <li class="is-arquivo">escopo/telas.md</li>
+                    <li class="is-arquivo">escopo/fluxos.md</li>
+                    <li class="is-arquivo">escopo/roadmap.md</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 02 · SaaS Premium UI -->
+              <div class="skills__painel" role="tabpanel" id="skills-painel-2" aria-labelledby="skills-aba-2" tabindex="0">
+                <p class="skills__migalha" aria-hidden="true">skills <i>›</i> saas-premium-ui <i>›</i> <b>SKILL.md</b></p>
+                <div class="skills__doc">
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <p class="skills__l" aria-hidden="true"><span class="skills__k">name:</span> saas-premium-ui</p>
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <h3 class="skills__l skills__nome"><span class="skills__cerq" aria-hidden="true">#</span>SaaS Premium UI</h3>
+                  <p class="skills__l skills__desc"><span class="skills__desc-txt">Painéis e telas com cara de produto caro, sem cara de template. Os painéis que aparecem nesta página foram feitos com ela.</span></p>
+                </div>
+                <div class="skills__terminal">
+                  <p class="skills__term-topo" aria-hidden="true"><span class="skills__term-aba">Terminal</span><span>claude · ~/meu-sistema</span></p>
+                  <p class="skills__pedido"><span class="skills__prompt" aria-hidden="true">›</span><span><span class="sr-only">Exemplo de pedido: </span>Cria o painel de vendas com cara de produto caro. Me mostra as direções visuais antes de construir.</span></p>
+                  <p class="skills__usa" aria-hidden="true">Skill(<b>saas-premium-ui</b>)</p>
+                  <ul class="skills__saida" aria-label="O que ela entrega">
+                    <li>2 a 3 direções visuais em protótipo</li>
+                    <li>fontes, cores e componentes da escolhida</li>
+                    <li>telas conferidas em 375 e 1280 px</li>
+                    <li>navegação e celular pensados junto</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 03 · Gateway de Pagamento -->
+              <div class="skills__painel" role="tabpanel" id="skills-painel-3" aria-labelledby="skills-aba-3" tabindex="0">
+                <p class="skills__migalha" aria-hidden="true">skills <i>›</i> conectar-gateway-pagamento <i>›</i> <b>SKILL.md</b></p>
+                <div class="skills__doc">
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <p class="skills__l" aria-hidden="true"><span class="skills__k">name:</span> conectar-gateway-pagamento</p>
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <h3 class="skills__l skills__nome"><span class="skills__cerq" aria-hidden="true">#</span>Gateway de Pagamento</h3>
+                  <p class="skills__l skills__desc"><span class="skills__desc-txt">Liga Hotmart, Kiwify, Eduzz, Stripe, Mercado Pago, Asaas e outros. Venda aprovada libera o acesso; reembolso e chargeback cortam sozinhos.</span></p>
+                </div>
+                <div class="skills__terminal">
+                  <p class="skills__term-topo" aria-hidden="true"><span class="skills__term-aba">Terminal</span><span>claude · ~/area-de-membros</span></p>
+                  <p class="skills__pedido"><span class="skills__prompt" aria-hidden="true">›</span><span><span class="sr-only">Exemplo de pedido: </span>Meu gateway é a Kiwify. Conecta ele na minha área de membros para liberar o acesso automático depois da compra.</span></p>
+                  <p class="skills__usa" aria-hidden="true">Skill(<b>conectar-gateway-pagamento</b>)</p>
+                  <ul class="skills__saida" aria-label="O que ela entrega">
+                    <li>documentação oficial do gateway lida</li>
+                    <li>venda aprovada libera o acesso</li>
+                    <li>reembolso e chargeback cortam o acesso</li>
+                    <li>aviso repetido não libera duas vezes</li>
+                    <li>passo a passo do painel do gateway</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 04 · Checkout Asaas -->
+              <div class="skills__painel" role="tabpanel" id="skills-painel-4" aria-labelledby="skills-aba-4" tabindex="0">
+                <p class="skills__migalha" aria-hidden="true">skills <i>›</i> checkout-asaas <i>›</i> <b>SKILL.md</b></p>
+                <div class="skills__doc">
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <p class="skills__l" aria-hidden="true"><span class="skills__k">name:</span> checkout-asaas</p>
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <h3 class="skills__l skills__nome"><span class="skills__cerq" aria-hidden="true">#</span>Checkout Asaas</h3>
+                  <p class="skills__l skills__desc"><span class="skills__desc-txt">O seu próprio checkout com Pix e cartão, dentro do sistema. A pessoa paga sem sair do site e o acesso é liberado sozinho.</span></p>
+                </div>
+                <div class="skills__terminal">
+                  <p class="skills__term-topo" aria-hidden="true"><span class="skills__term-aba">Terminal</span><span>claude · ~/meu-curso</span></p>
+                  <p class="skills__pedido"><span class="skills__prompt" aria-hidden="true">›</span><span><span class="sr-only">Exemplo de pedido: </span>Quero vender o meu curso dentro do sistema, com Pix e cartão parcelado pelo Asaas, sem a pessoa sair do site.</span></p>
+                  <p class="skills__usa" aria-hidden="true">Skill(<b>checkout-asaas</b>)</p>
+                  <ul class="skills__saida" aria-label="O que ela entrega">
+                    <li>checkout com Pix e cartão parcelado</li>
+                    <li>webhook com fila no Supabase</li>
+                    <li>acesso liberado quando o pagamento cai</li>
+                    <li>e-mail de compra aprovada</li>
+                    <li>reembolso pelo admin</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 05 · Blindar Sistema -->
+              <div class="skills__painel" role="tabpanel" id="skills-painel-5" aria-labelledby="skills-aba-5" tabindex="0">
+                <p class="skills__migalha" aria-hidden="true">skills <i>›</i> blindar-sistema <i>›</i> <b>SKILL.md</b></p>
+                <div class="skills__doc">
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <p class="skills__l" aria-hidden="true"><span class="skills__k">name:</span> blindar-sistema</p>
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <h3 class="skills__l skills__nome"><span class="skills__cerq" aria-hidden="true">#</span>Blindar Sistema</h3>
+                  <p class="skills__l skills__desc"><span class="skills__desc-txt">A auditoria de segurança de um especialista, montada a partir de mais de 20 problemas reais corrigidos num SaaS em produção.</span></p>
+                </div>
+                <div class="skills__terminal">
+                  <p class="skills__term-topo" aria-hidden="true"><span class="skills__term-aba">Terminal</span><span>claude · ~/meu-sistema</span></p>
+                  <p class="skills__pedido"><span class="skills__prompt" aria-hidden="true">›</span><span><span class="sr-only">Exemplo de pedido: </span>Quero blindar o meu sistema antes de lançar. Faz a auditoria de segurança completa, me explica cada problema de um jeito simples e corrige.</span></p>
+                  <p class="skills__usa" aria-hidden="true">Skill(<b>blindar-sistema</b>)</p>
+                  <ul class="skills__saida" aria-label="O que ela entrega">
+                    <li>chaves secretas fora do código</li>
+                    <li>tabelas protegidas por usuário</li>
+                    <li>pagamento liberado só com webhook assinado</li>
+                    <li class="is-arquivo">SEGURANCA.md em português simples</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 06 · LGPD para Sistemas -->
+              <div class="skills__painel" role="tabpanel" id="skills-painel-6" aria-labelledby="skills-aba-6" tabindex="0">
+                <p class="skills__migalha" aria-hidden="true">skills <i>›</i> lgpd-para-sistemas <i>›</i> <b>SKILL.md</b></p>
+                <div class="skills__doc">
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <p class="skills__l" aria-hidden="true"><span class="skills__k">name:</span> lgpd-para-sistemas</p>
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <h3 class="skills__l skills__nome"><span class="skills__cerq" aria-hidden="true">#</span>LGPD para Sistemas</h3>
+                  <p class="skills__l skills__desc"><span class="skills__desc-txt">Os 5 documentos da LGPD feitos com base no que o seu sistema faz, mais “baixar meus dados” e “excluir minha conta”.</span></p>
+                </div>
+                <div class="skills__terminal">
+                  <p class="skills__term-topo" aria-hidden="true"><span class="skills__term-aba">Terminal</span><span>claude · ~/meu-sistema</span></p>
+                  <p class="skills__pedido"><span class="skills__prompt" aria-hidden="true">›</span><span><span class="sr-only">Exemplo de pedido: </span>Quero deixar o meu sistema em dia com a LGPD. Faz a auditoria completa, corrige o que der e gera a política de privacidade e os termos.</span></p>
+                  <p class="skills__usa" aria-hidden="true">Skill(<b>lgpd-para-sistemas</b>)</p>
+                  <ul class="skills__saida" aria-label="O que ela entrega">
+                    <li class="is-arquivo">docs/lgpd/politica-de-privacidade.md</li>
+                    <li class="is-arquivo">docs/lgpd/termos-de-uso.md</li>
+                    <li class="is-arquivo">docs/lgpd/politica-de-cookies.md</li>
+                    <li class="is-arquivo">docs/lgpd/registro-das-operacoes.md</li>
+                    <li class="is-arquivo">docs/lgpd/plano-de-incidentes.md</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 07 · Gamificação -->
+              <div class="skills__painel" role="tabpanel" id="skills-painel-7" aria-labelledby="skills-aba-7" tabindex="0">
+                <p class="skills__migalha" aria-hidden="true">skills <i>›</i> gamificacao-area-de-membros <i>›</i> <b>SKILL.md</b></p>
+                <div class="skills__doc">
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <p class="skills__l" aria-hidden="true"><span class="skills__k">name:</span> gamificacao-area-de-membros</p>
+                  <p class="skills__l skills__l--meta" aria-hidden="true">---</p>
+                  <h3 class="skills__l skills__nome"><span class="skills__cerq" aria-hidden="true">#</span>Gamificação</h3>
+                  <p class="skills__l skills__desc"><span class="skills__desc-txt">Transforma a sua área de membros num jogo: XP, níveis, conquistas, comemorações, títulos e emblemas.</span></p>
+                </div>
+                <div class="skills__terminal">
+                  <p class="skills__term-topo" aria-hidden="true"><span class="skills__term-aba">Terminal</span><span>claude · ~/area-de-membros</span></p>
+                  <p class="skills__pedido"><span class="skills__prompt" aria-hidden="true">›</span><span><span class="sr-only">Exemplo de pedido: </span>Quero gamificar a minha área de membros: XP, níveis, conquistas e títulos com emblemas, tipo Duolingo. Faz tudo e me mostra antes de publicar.</span></p>
+                  <p class="skills__usa" aria-hidden="true">Skill(<b>gamificacao-area-de-membros</b>)</p>
+                  <ul class="skills__saida" aria-label="O que ela entrega">
+                    <li>XP por minuto assistido e por aula concluída</li>
+                    <li>níveis, conquistas e ritmo da semana</li>
+                    <li>comemorações em tela cheia</li>
+                    <li>títulos com emblemas</li>
+                    <li>trava contra marcar aula sem assistir</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills__status">
+          <span class="skills__status-item"><i class="ponto-vivo ponto-vivo--acento" aria-hidden="true"></i>7 skills instaladas</span>
+          <span class="skills__status-item skills__so-pc" aria-hidden="true">Claude Code · claude.ai</span>
+          <button class="skills__pausa" type="button" hidden>
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path class="skills__pausa-ii" d="M4 2.5v7M8 2.5v7" /><path class="skills__pausa-play" d="M3.6 2.2 9.8 6l-6.2 3.8z" /></svg>
+            <span class="skills__pausa-txt">Pausar troca</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- =============================================================================
+     07 / QUEM ENSINA (instrutor)
+     À esquerda, o Tom numa "capa" da mesma família das capas dos módulos: luz violeta
+     de recorte atrás dele, feixe de cima, anéis finos, grão e o rodapé das capas
+     (@TOMMELLO.EDIT · DESENVOLVIMENTO DE SISTEMAS). Inclina com o cursor (data-tilt).
+     À direita, o nome no sistema de títulos, a bio curta e os 4 sistemas que ele
+     construiu com IA, cada um com o ponto "no ar".
+     Sem JS ou com movimento reduzido: tudo visível e parado.
+     ============================================================================= -->
+<section class="secao instrutor" id="instrutor" aria-labelledby="instrutor-titulo">
+  <span class="instrutor__luz" aria-hidden="true"></span>
+
+  <div class="container instrutor__grade">
+    <header class="instrutor__cabeca">
+      <h2 class="titulo instrutor__nome" id="instrutor-titulo" data-split="palavras">Tom <em>Melo.</em></h2>
+    </header>
+
+    <figure class="instrutor__retrato" data-tilt="3">
+      <div class="instrutor__capa">
+        <span class="instrutor__feixe" aria-hidden="true"></span>
+        <span class="instrutor__halo" aria-hidden="true"></span>
+        <span class="instrutor__aneis" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img
+          class="instrutor__foto"
+          src="/dds/assets/tom-760-l3nNgnj6.webp"
+          srcset="/dds/assets/tom-480-CT9vMbFn.webp 480w, /dds/assets/tom-760-l3nNgnj6.webp 760w, /dds/assets/tom-1100-CUhDHyPZ.webp 1100w"
+          sizes="(min-width: 960px) 560px, 100vw"
+          width="760"
+          height="954"
+          loading="lazy"
+          decoding="async"
+          alt="Tom Melo, o instrutor do curso, de óculos, jaqueta preta e camiseta da Upward."
+        />
+        <span class="instrutor__chao" aria-hidden="true"></span>
+        <span class="instrutor__grao" aria-hidden="true"></span>
+
+        <span class="instrutor__topo" aria-hidden="true">
+          <img src="/dds/assets/upward-logo-DHPXwi1Z.svg" alt="" width="84" height="18" loading="lazy" />
+        </span>
+        <span class="instrutor__barras" aria-hidden="true"></span>
+        <span class="instrutor__vertical" aria-hidden="true">© by tommello.edit</span>
+
+        <figcaption class="instrutor__legenda">
+          <span>@tommello.edit</span>
+          <span class="instrutor__legenda-curso">
+            Desenvolvimento de <b>Sistemas</b>
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4.5 3H9v4.5" /></svg>
+          </span>
+        </figcaption>
+        <span class="instrutor__faixa" aria-hidden="true">
+          <svg viewBox="0 0 12 8"><path d="m2 2 4 4 4-4" /></svg>
+        </span>
+        <span class="instrutor__reflexo" aria-hidden="true"></span>
+        <span class="instrutor__varredura" aria-hidden="true"></span>
+      </div>
+    </figure>
+
+    <div class="instrutor__corpo">
+      <p class="texto texto--lead instrutor__bio" data-reveal>
+        Há mais de 6 anos o Tom cria páginas, vídeos e sistemas para clientes reais. Hoje ele constrói com IA os
+        sistemas do próprio negócio, e é esse caminho que ele ensina aqui: <strong>do escopo ao sistema no ar.</strong>
+      </p>
+
+      <!-- Cases (texto e números do dono, 18/11/2026): área de membros, Gravyx e KS Ótica, cada um com a logo.
+           Checkout e rastreio de vendas ficam numa linha menor embaixo. -->
+      <div class="instrutor__sistemas">
+        <p class="instrutor__sistemas-cab">Cases construídos com IA</p>
+        <ul class="instrutor__cases">
+          <li class="instrutor__case">
+            <span class="instrutor__logo" aria-hidden="true">
+              <img src="/dds/assets/case-upward-DZdji3lB.svg" alt="" width="30" height="30" loading="lazy" />
+            </span>
+            <span class="instrutor__case-txt">
+              <strong>Área de membros da Upward <i class="ponto-vivo" aria-hidden="true"></i><span class="sr-only">(no ar)</span></strong>
+              <span>A plataforma de cursos da Upward, onde ficam as aulas deste treinamento.</span>
+            </span>
+            <span class="instrutor__metrica"><b>+2.000</b><small>alunos ativos</small></span>
+          </li>
+          <li class="instrutor__case">
+            <span class="instrutor__logo" aria-hidden="true">
+              <img src="/dds/assets/case-gravyx-ZM-GyN8x.svg" alt="" width="32" height="28" loading="lazy" />
+            </span>
+            <span class="instrutor__case-txt">
+              <strong>Gravyx <i class="ponto-vivo" aria-hidden="true"></i><span class="sr-only">(no ar)</span></strong>
+              <span>SaaS de inteligência artificial, com assinantes ativos.</span>
+            </span>
+            <span class="instrutor__metrica"><b>+30</b><small>modelos de IA</small></span>
+          </li>
+          <li class="instrutor__case">
+            <span class="instrutor__logo" aria-hidden="true">
+              <img src="/dds/assets/case-ksotica-CFuPvvdf.svg" alt="" width="30" height="29" loading="lazy" />
+            </span>
+            <span class="instrutor__case-txt">
+              <strong>KS Ótica <i class="ponto-vivo" aria-hidden="true"></i><span class="sr-only">(no ar)</span></strong>
+              <span>Sistema completo de gestão de uma rede de óticas.</span>
+            </span>
+            <span class="instrutor__metrica"><b>6</b><small>lojas na rede</small></span>
+          </li>
+        </ul>
+        <p class="instrutor__tambem">
+          <span class="instrutor__tambem-rot">Também no ar</span>
+          <span class="chip"><i class="ponto-vivo" aria-hidden="true"></i>Checkout da Upward</span>
+          <span class="chip"><i class="ponto-vivo" aria-hidden="true"></i>Rastreio de vendas</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- =============================================================================
+     08 / PARA QUEM É (paraquem)
+     Cabeçalho em 2 colunas (título; texto e botão para a oferta). Embaixo, dois
+     arquivos abertos num editor, lado a lado e com pesos diferentes:
+       requisitos.md      → "É para você se…", aceso, caixas violeta que se marcam
+                            uma a uma (a barra de status conta 0/4 → 4/4);
+       fora-do-escopo.md  → "Não é para você se…", recuado e apagado, com traço e
+                            texto tachado de leve.
+     Sem JS ou com movimento reduzido: tudo marcado e visível.
+     ============================================================================= -->
+<section class="secao paraquem" id="paraquem" aria-labelledby="paraquem-titulo">
+  <span class="paraquem__luz" aria-hidden="true"></span>
+
+  <div class="container">
+    <header class="cabeca paraquem__cabeca">
+      <p class="rotulo">Para quem é</p>
+      <h2 class="titulo" id="paraquem-titulo" data-split="palavras">Feito para quem <em>quer construir.</em></h2>
+      <div class="cabeca__texto">
+        <p class="texto" data-reveal>
+          Você não precisa saber programar: o código, a IA escreve. O que você aprende é a conduzir, dizendo o que
+          quer, revisando e ajustando até o sistema ficar pronto.
+        </p>
+        <a class="btn btn--primario" href="#oferta" data-magnetico="0.2" data-reveal data-reveal-delay="0.1">
+          <span class="btn__rotulo">Quero construir meu sistema</span>
+          <span class="btn__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+        </a>
+      </div>
+    </header>
+
+    <div class="paraquem__mesa">
+      <!-- requisitos.md: é para você (com a luz no chão) -->
+      <div class="paraquem__palco">
+        <span class="paraquem__chao" aria-hidden="true"></span>
+        <article class="janela spot paraquem__arquivo paraquem__arquivo--sim" aria-labelledby="paraquem-sim">
+          <div class="janela__barra paraquem__barra" aria-hidden="true">
+            <i></i><i></i><i></i>
+            <span class="paraquem__aba">
+              <svg class="paraquem__md" viewBox="0 0 22 14"><rect x=".75" y=".75" width="20.5" height="12.5" rx="2.5" /><path d="M4 10V4l2.5 3L9 4v6M15 4v6M12.5 7.6 15 10l2.5-2.4" /></svg>
+              requisitos.md
+            </span>
+            <span class="paraquem__caminho">~/meu-sistema</span>
+          </div>
+
+          <div class="paraquem__doc">
+            <h3 class="paraquem__h" id="paraquem-sim">
+              <span class="paraquem__ln" aria-hidden="true">1</span>
+              <span class="paraquem__h-txt"><span class="paraquem__hash" aria-hidden="true">##</span> É para você se…</span>
+            </h3>
+            <ul class="paraquem__lista">
+              <li class="paraquem__item">
+                <span class="paraquem__ln" aria-hidden="true">2</span>
+                <span class="paraquem__caixa" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.6 8.4 6.6 11.3 12.5 4.7" /></svg></span>
+                <p>já faz páginas ou presta serviço digital e quer <strong>cobrar por sistemas</strong>, não só por páginas;</p>
+              </li>
+              <li class="paraquem__item">
+                <span class="paraquem__ln" aria-hidden="true">3</span>
+                <span class="paraquem__caixa" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.6 8.4 6.6 11.3 12.5 4.7" /></svg></span>
+                <p>tem a ideia de um sistema e quer <strong>tirar do papel</strong> sem depender de programador;</p>
+              </li>
+              <li class="paraquem__item">
+                <span class="paraquem__ln" aria-hidden="true">4</span>
+                <span class="paraquem__caixa" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.6 8.4 6.6 11.3 12.5 4.7" /></svg></span>
+                <p>quer construir <strong>o seu próprio SaaS</strong>, uma área de membros, um CRM ou as ferramentas do seu negócio;</p>
+              </li>
+              <li class="paraquem__item">
+                <span class="paraquem__ln" aria-hidden="true">5</span>
+                <span class="paraquem__caixa" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.6 8.4 6.6 11.3 12.5 4.7" /></svg></span>
+                <p>quer dominar as quatro partes de um sistema: <strong>front-end, back-end, pagamento e automação</strong>.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="paraquem__status" aria-hidden="true">
+            <span class="paraquem__pips"><i></i><i></i><i></i><i></i></span>
+            <span class="paraquem__conta-txt"><b class="paraquem__conta">4</b>/4 marcados</span>
+            <span class="paraquem__status-dir">Markdown</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- fora-do-escopo.md: não é para você -->
+      <article class="janela paraquem__arquivo paraquem__arquivo--nao" aria-labelledby="paraquem-nao">
+        <div class="janela__barra paraquem__barra" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <span class="paraquem__aba">
+            <svg class="paraquem__md" viewBox="0 0 22 14"><rect x=".75" y=".75" width="20.5" height="12.5" rx="2.5" /><path d="M4 10V4l2.5 3L9 4v6M15 4v6M12.5 7.6 15 10l2.5-2.4" /></svg>
+            fora-do-escopo.md
+          </span>
+        </div>
+
+        <div class="paraquem__doc">
+          <h3 class="paraquem__h" id="paraquem-nao">
+            <span class="paraquem__ln" aria-hidden="true">1</span>
+            <span class="paraquem__h-txt"><span class="paraquem__hash" aria-hidden="true">##</span> Não é para você se…</span>
+          </h3>
+          <ul class="paraquem__lista">
+            <li class="paraquem__item">
+              <span class="paraquem__ln" aria-hidden="true">2</span>
+              <span class="paraquem__traco" aria-hidden="true"></span>
+              <p>quer dinheiro rápido sem construir nada;</p>
+            </li>
+            <li class="paraquem__item">
+              <span class="paraquem__ln" aria-hidden="true">3</span>
+              <span class="paraquem__traco" aria-hidden="true"></span>
+              <p>espera que a IA faça tudo sozinha, em segundos, sem você revisar;</p>
+            </li>
+            <li class="paraquem__item">
+              <span class="paraquem__ln" aria-hidden="true">4</span>
+              <span class="paraquem__traco" aria-hidden="true"></span>
+              <p>quer aprender programação tradicional, linha por linha.</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+      <!-- ================= OFERTA · 09 =================
+     O ponto mais iluminado da página: um feixe de luz desce do título e acende o cartão de preço.
+     Cartão em duas colunas (o que entra × preço); no celular o preço vem primeiro.
+     Só o botão do cartão tem data-checkout (o main.js põe o href do config.js: a oferta de R$ 697).
+     Valores em data-oferta="vezes|parcela|avista" (config.js). O cartão fica em .oferta__janela; o funil mede
+     o bloco do preço (.oferta__preco ≥ 50% na tela, a mesma régua do WDF). -->
+<section class="secao oferta" id="oferta" aria-labelledby="oferta-titulo">
+  <div class="oferta__fundo" aria-hidden="true">
+    <div class="grade-fundo oferta__grade"></div>
+    <span class="luz oferta__luz"></span>
+  </div>
+
+  <div class="container">
+    <header class="cabeca cabeca--centro oferta__cabeca">
+      <p class="rotulo">Oferta</p>
+      <h2 id="oferta-titulo" class="titulo oferta__titulo" data-split="palavras">Seu primeiro sistema <em>começa aqui.</em></h2>
+    </header>
+
+    <div class="oferta__feixe" aria-hidden="true">
+      <span class="oferta__feixe-linha"></span>
+      <span class="oferta__feixe-no"></span>
+    </div>
+
+    <div class="oferta__janela">
+      <article class="oferta__cartao spot" aria-labelledby="oferta-nome" data-reveal>
+        <span class="oferta__borda" aria-hidden="true"></span>
+        <span class="oferta__brilho" aria-hidden="true"></span>
+
+        <div class="oferta__conteudo">
+          <div class="oferta__produto">
+            <p class="oferta__nome" id="oferta-nome">Desenvolvimento de Sistemas com IA</p>
+            <p class="oferta__autor">Treinamento com Tom Melo · Upward Academy</p>
+          </div>
+
+          <ul class="oferta__itens">
+            <li class="oferta__item">
+              <span class="oferta__check" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="m5.8 10.3 2.7 2.7 5.7-5.9" /></svg></span>
+              <div class="oferta__item-corpo">
+                <p class="oferta__item-titulo">4 módulos e 18 aulas no ar</p>
+                <p class="oferta__item-texto">Do primeiro sistema à área de membros com pagamento. SaaS e CRM entram no seu acesso quando forem lançados.</p>
+                <ul class="oferta__capas" aria-hidden="true">
+                  <li><img src="/dds/assets/capa-01-vibe-coding-360-DQyAA-fn.webp" alt="" width="360" height="573" loading="lazy" decoding="async" /></li>
+                  <li><img src="/dds/assets/capa-02-primeiro-sistema-360-NO5CINic.webp" alt="" width="360" height="573" loading="lazy" decoding="async" /></li>
+                  <li><img src="/dds/assets/capa-03-configuracoes-360-BhfH48io.webp" alt="" width="360" height="573" loading="lazy" decoding="async" /></li>
+                  <li><img src="/dds/assets/capa-04-area-de-membros-360-0yttWmZ4.webp" alt="" width="360" height="573" loading="lazy" decoding="async" /></li>
+                  <li class="oferta__capa-breve"><img src="/dds/assets/capa-05-saas-360-Cq_ZAPzH.webp" alt="" width="360" height="573" loading="lazy" decoding="async" /></li>
+                  <li class="oferta__capa-breve"><img src="/dds/assets/capa-06-crm-360-BE2ZjLQj.webp" alt="" width="360" height="573" loading="lazy" decoding="async" /></li>
+                </ul>
+              </div>
+            </li>
+            <li class="oferta__item">
+              <span class="oferta__check" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="m5.8 10.3 2.7 2.7 5.7-5.9" /></svg></span>
+              <div class="oferta__item-corpo">
+                <p class="oferta__item-titulo">As 7 skills para o Claude</p>
+                <p class="oferta__item-texto">Escopo, interface, pagamento, checkout, segurança, LGPD e gamificação.</p>
+              </div>
+            </li>
+            <li class="oferta__item">
+              <span class="oferta__check" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="m5.8 10.3 2.7 2.7 5.7-5.9" /></svg></span>
+              <div class="oferta__item-corpo">
+                <p class="oferta__item-titulo">Bônus: reuniões reais com cliente</p>
+                <p class="oferta__item-texto">Como o Tom conduz um projeto, da primeira conversa ao alinhamento.</p>
+              </div>
+            </li>
+            <li class="oferta__item">
+              <span class="oferta__check" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="m5.8 10.3 2.7 2.7 5.7-5.9" /></svg></span>
+              <div class="oferta__item-corpo">
+                <p class="oferta__item-titulo">1 ano de acesso, liberado na hora</p>
+                <p class="oferta__item-texto">Na área de membros da Upward, assim que o pagamento é confirmado.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="oferta__preco">
+          <span class="oferta__divisor" aria-hidden="true"></span>
+          <span class="oferta__selo"><span class="ponto-vivo ponto-vivo--acento" aria-hidden="true"></span>Acesso imediato</span>
+
+          <p class="oferta__valor">
+            <span class="oferta__vezes" data-oferta="vezes">12x de</span>
+            <span class="oferta__parcela" data-oferta="parcela">R$ 73,06</span>
+          </p>
+          <p class="oferta__avista" data-oferta="avista">ou R$ 697 à vista</p>
+          <p class="oferta__pagamento">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" /><path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7" /></svg>
+            Pix ou cartão · pagamento seguro
+          </p>
+
+          <a class="btn btn--primario btn--grande oferta__botao" href="#oferta" data-checkout="oferta">
+            <span class="btn__rotulo">Quero começar agora</span>
+            <span class="btn__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+          </a>
+
+          <p class="oferta__garantia">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 19 6v5.4c0 4.3-2.9 7.9-7 9.4-4.1-1.5-7-5.1-7-9.4V6l7-2.8Z" /><path d="m9 12.1 2.1 2.1 4-4.2" /></svg>
+            <span><strong>7 dias de garantia.</strong> Se não for para você, devolvemos 100%.</span>
+          </p>
+
+          <div class="oferta__ancora">
+            <p class="oferta__ancora-rotulo">Para comparar</p>
+            <p class="oferta__ancora-valor">R$ 15–30 mil</p>
+            <p class="oferta__ancora-texto">é o que o Tom cobra de um cliente por um sistema sob medida.<span class="oferta__ancora-extra"> Aqui você aprende a construir os seus.</span></p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+      <!-- ================= GARANTIA · 10 =================
+     Selo circular: o texto "7 DIAS · 100% DE VOLTA ·" gira devagar em volta (SVG textPath),
+     7 arcos (um por dia) acendem um a um e o "7" fica no centro, num disco de vidro.
+     A rolagem dá um giro a mais no selo; no computador ele inclina com o cursor.
+     Movimento reduzido: tudo aceso e parado. -->
+<section class="secao garantia" id="garantia" aria-labelledby="garantia-titulo">
+  <div class="garantia__fundo" aria-hidden="true">
+    <span class="luz garantia__luz"></span>
+  </div>
+
+  <div class="container garantia__grade">
+    <div class="garantia__palco">
+      <div class="garantia__aneis" aria-hidden="true"><i></i><i></i><i></i></div>
+
+      <div class="garantia__selo" role="img" aria-label="Selo: 7 dias de garantia, 100% do valor de volta" data-tilt="6">
+        <div class="garantia__giro">
+          <svg class="garantia__camada garantia__texto-anel" viewBox="0 0 440 440" aria-hidden="true">
+            <defs>
+              <path id="garantia-circulo" d="M220 220m-190 0a190 190 0 1 1 380 0a190 190 0 1 1-380 0" />
+            </defs>
+            <circle class="garantia__aro" cx="220" cy="220" r="214" />
+            <text class="garantia__letras">
+              <textPath href="#garantia-circulo" textLength="1190" lengthAdjust="spacing">7 DIAS <tspan class="garantia__ponto">·</tspan> 100% DE VOLTA <tspan class="garantia__ponto">·</tspan> 7 DIAS <tspan class="garantia__ponto">·</tspan> 100% DE VOLTA <tspan class="garantia__ponto">·</tspan> 7 DIAS <tspan class="garantia__ponto">·</tspan> 100% DE VOLTA <tspan class="garantia__ponto">·</tspan></textPath>
+            </text>
+          </svg>
+        </div>
+
+        <svg class="garantia__camada garantia__mostrador" viewBox="0 0 440 440" aria-hidden="true">
+          <circle class="garantia__aro-interno" cx="220" cy="220" r="170" />
+          <path class="garantia__marcas" d="M233.6 64.59L234.12 58.62M247.09 66.37L248.13 60.46M260.38 69.32L261.93 63.52M273.36 73.41L275.41 67.77M285.93 78.62L288.46 73.18M298 84.9L301 79.7M309.48 92.21L312.92 87.3M320.27 100.5L324.13 95.9M339.5 119.73L344.1 115.87M347.79 130.52L352.7 127.08M355.1 142L360.3 139M361.38 154.07L366.82 151.54M366.59 166.64L372.23 164.59M370.68 179.62L376.48 178.07M373.63 192.91L379.54 191.87M375.41 206.4L381.38 205.88M375.41 233.6L381.38 234.12M373.63 247.09L379.54 248.13M370.68 260.38L376.48 261.93M366.59 273.36L372.23 275.41M361.38 285.93L366.82 288.46M355.1 298L360.3 301M347.79 309.48L352.7 312.92M339.5 320.27L344.1 324.13M320.27 339.5L324.13 344.1M309.48 347.79L312.92 352.7M298 355.1L301 360.3M285.93 361.38L288.46 366.82M273.36 366.59L275.41 372.23M260.38 370.68L261.93 376.48M247.09 373.63L248.13 379.54M233.6 375.41L234.12 381.38M206.4 375.41L205.88 381.38M192.91 373.63L191.87 379.54M179.62 370.68L178.07 376.48M166.64 366.59L164.59 372.23M154.07 361.38L151.54 366.82M142 355.1L139 360.3M130.52 347.79L127.08 352.7M119.73 339.5L115.87 344.1M100.5 320.27L95.9 324.13M92.21 309.48L87.3 312.92M84.9 298L79.7 301M78.62 285.93L73.18 288.46M73.41 273.36L67.77 275.41M69.32 260.38L63.52 261.93M66.37 247.09L60.46 248.13M64.59 233.6L58.62 234.12M64.59 206.4L58.62 205.88M66.37 192.91L60.46 191.87M69.32 179.62L63.52 178.07M73.41 166.64L67.77 164.59M78.62 154.07L73.18 151.54M84.9 142L79.7 139M92.21 130.52L87.3 127.08M100.5 119.73L95.9 115.87M119.73 100.5L115.87 95.9M130.52 92.21L127.08 87.3M142 84.9L139 79.7M154.07 78.62L151.54 73.18M166.64 73.41L164.59 67.77M179.62 69.32L178.07 63.52M192.91 66.37L191.87 60.46M206.4 64.59L205.88 58.62" />
+          <path class="garantia__marcas garantia__marcas--maiores" d="M220 70L220 58M326.07 113.93L334.55 105.45M370 220L382 220M326.07 326.07L334.55 334.55M220 370L220 382M113.93 326.07L105.45 334.55M70 220L58 220M113.93 113.93L105.45 105.45" />
+          <g class="garantia__trilhos">
+            <path d="M227.22 82.19A138 138 0 0 1 323.24 128.43" />
+            <path d="M332.25 139.72A138 138 0 0 1 355.96 243.62" />
+            <path d="M352.75 257.71A138 138 0 0 1 286.3 341.03" />
+            <path d="M273.29 347.3A138 138 0 0 1 166.71 347.3" />
+            <path d="M153.7 341.03A138 138 0 0 1 87.25 257.71" />
+            <path d="M84.04 243.62A138 138 0 0 1 107.75 139.72" />
+            <path d="M116.76 128.43A138 138 0 0 1 212.78 82.19" />
+          </g>
+          <g class="garantia__dias">
+            <g class="garantia__dia"><path class="garantia__dia-halo" d="M227.22 82.19A138 138 0 0 1 323.24 128.43" /><path class="garantia__dia-nucleo" d="M227.22 82.19A138 138 0 0 1 323.24 128.43" /></g>
+            <g class="garantia__dia"><path class="garantia__dia-halo" d="M332.25 139.72A138 138 0 0 1 355.96 243.62" /><path class="garantia__dia-nucleo" d="M332.25 139.72A138 138 0 0 1 355.96 243.62" /></g>
+            <g class="garantia__dia"><path class="garantia__dia-halo" d="M352.75 257.71A138 138 0 0 1 286.3 341.03" /><path class="garantia__dia-nucleo" d="M352.75 257.71A138 138 0 0 1 286.3 341.03" /></g>
+            <g class="garantia__dia"><path class="garantia__dia-halo" d="M273.29 347.3A138 138 0 0 1 166.71 347.3" /><path class="garantia__dia-nucleo" d="M273.29 347.3A138 138 0 0 1 166.71 347.3" /></g>
+            <g class="garantia__dia"><path class="garantia__dia-halo" d="M153.7 341.03A138 138 0 0 1 87.25 257.71" /><path class="garantia__dia-nucleo" d="M153.7 341.03A138 138 0 0 1 87.25 257.71" /></g>
+            <g class="garantia__dia"><path class="garantia__dia-halo" d="M84.04 243.62A138 138 0 0 1 107.75 139.72" /><path class="garantia__dia-nucleo" d="M84.04 243.62A138 138 0 0 1 107.75 139.72" /></g>
+            <g class="garantia__dia"><path class="garantia__dia-halo" d="M116.76 128.43A138 138 0 0 1 212.78 82.19" /><path class="garantia__dia-nucleo" d="M116.76 128.43A138 138 0 0 1 212.78 82.19" /></g>
+          </g>
+        </svg>
+
+        <div class="garantia__camada garantia__disco" aria-hidden="true">
+          <span class="garantia__sete">7</span>
+          <span class="garantia__legenda">dias de garantia</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="garantia__texto">
+      <h2 id="garantia-titulo" class="titulo" data-split="palavras">7 dias para <em>ter certeza.</em></h2>
+      <p class="texto texto--lead" data-reveal>Entre, assista às aulas, instale as skills. Se achar que não é para você, é só pedir o reembolso dentro dos 7 dias: você recebe <strong>100% do valor de volta</strong>.</p>
+      <div class="garantia__acoes" data-reveal data-reveal-delay="0.1">
+        <a class="btn btn--secundario garantia__botao" href="#oferta">
+          <span class="btn__rotulo">Começar com garantia</span>
+          <svg class="garantia__seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- ================= DÚVIDAS · 11 =================
+     Acordeão fino com <details>/<summary> (acessível sem JS). No computador, 2 colunas:
+     o título fica preso à esquerda enquanto as perguntas passam; o contato vem embaixo delas. O duvidas.js anima a resposta
+     (opacidade e deslize) e fecha a anterior ao abrir outra. -->
+<section class="secao duvidas" id="duvidas" aria-labelledby="duvidas-titulo">
+  <div class="container duvidas__grade">
+    <header class="duvidas__cabeca">
+      <h2 id="duvidas-titulo" class="titulo" data-split="palavras">Antes de <em>você entrar.</em></h2>
+      <p class="texto">Respostas diretas sobre as ferramentas, o acesso, o que já está no ar e a garantia.</p>
+    </header>
+
+    <div class="duvidas__lista" data-reveal>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>Preciso saber programar?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>Não. Você aprende a conduzir a IA: dizer o que quer, revisar o resultado e pedir os ajustes. O código, quem escreve é a IA.</p>
+        </div>
+      </details>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>Quais ferramentas vou usar?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>Claude Code, Supabase, Vercel e Lovable. O primeiro módulo apresenta cada uma e faz as configurações iniciais com você, do zero.</p>
+        </div>
+      </details>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>Tem custo com as ferramentas?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>Algumas têm plano gratuito para começar; a IA tem plano pago. No módulo 1, o Tom mostra o que assinar e quando.</p>
+        </div>
+      </details>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>Por quanto tempo tenho acesso?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>1 ano, com as aulas novas que entrarem nesse período. Dá para assistir no seu ritmo e voltar às aulas sempre que precisar.</p>
+        </div>
+      </details>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>O curso já está completo?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>Hoje são 4 módulos e 18 aulas no ar, do primeiro sistema à área de membros com pagamento. Os módulos “Modelo de negócio com SaaS” e “Construindo um CRM” e algumas aulas dos módulos 2 e 3 estão marcados como “em breve”: eles entram no seu acesso assim que forem lançados, dentro do seu ano.</p>
+        </div>
+      </details>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>Como funciona a garantia?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>Você tem 7 dias para testar. Se achar que não é para você, peça o reembolso dentro desse prazo e receba 100% do valor de volta.</p>
+        </div>
+      </details>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>O que são as skills?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>São 7 skills que você instala no Claude. Cada uma faz uma parte do trabalho como um especialista faria: o escopo do projeto, telas com cara de produto caro, a ligação com o pagamento, o seu próprio checkout, a auditoria de segurança, os documentos da LGPD e a gamificação da área de membros.</p>
+        </div>
+      </details>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>Serve para vender sistemas para clientes?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>Sim, é o que o Tom faz: há mais de 6 anos ele cria páginas, vídeos e sistemas para clientes reais. No bônus você assiste a reuniões reais dele com cliente, da primeira conversa ao alinhamento. O curso não promete faturamento: ensina a construir e mostra como um projeto é conduzido.</p>
+        </div>
+      </details>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>Serve para quem não tem cliente ainda?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>Sim. Você pode criar o seu próprio sistema primeiro, para o seu negócio ou para vender por assinatura.</p>
+        </div>
+      </details>
+      <details class="duvidas__item">
+        <summary class="duvidas__pergunta"><span class="duvidas__linha"><span>Como recebo o acesso?</span><span class="duvidas__icone" aria-hidden="true"></span></span></summary>
+        <div class="duvidas__resposta">
+          <p>Na hora. Assim que o pagamento é confirmado, o acesso é liberado na área de membros da Upward.</p>
+        </div>
+      </details>
+    </div>
+
+    <aside class="duvidas__contato cartao spot" aria-label="Contato" data-reveal>
+      <p class="duvidas__contato-titulo">Ainda com dúvida?</p>
+      <p class="duvidas__contato-texto">Fale com o Tom no WhatsApp.</p>
+      <a class="duvidas__contato-link" href="https://api.whatsapp.com/send?phone=5588992349401&amp;text=Ol%C3%A1%2C%20gostaria%20de%20tirar%20d%C3%BAvidas%20sobre%20o%20curso%20Desenvolvimento%20de%20Sistemas%20com%20IA" target="_blank" rel="noopener">
+        <span>Tirar dúvidas no WhatsApp</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+        <span class="sr-only">(abre em nova aba)</span>
+      </a>
+    </aside>
+  </div>
+</section>
+
+      <!-- ================= FINAL · 12 =================
+     Chamada final: título grande centralizado (o da copy aprovada), o preço numa linha, um botão
+     (→ #oferta, sem data-checkout) e a linha de garantias. A luz violeta vem de baixo: um horizonte (arco aceso) que sobe com
+     a rolagem e um brilho que respira devagar. Movimento reduzido: tudo parado. -->
+<section class="secao final" id="final" aria-labelledby="final-titulo">
+  <div class="final__fundo" aria-hidden="true">
+    <div class="grade-fundo final__grade"></div>
+    <div class="final__ceu"></div>
+    <div class="final__horizonte"><span class="final__planeta"></span></div>
+  </div>
+
+  <div class="container final__conteudo">
+    <h2 id="final-titulo" class="titulo titulo--hero final__titulo" data-split="palavras">O próximo cliente não vai pedir <em>só um site.</em></h2>
+    <p class="texto texto--lead final__texto" data-reveal>
+      O curso, as 7 skills e as reuniões reais com cliente por <span class="final__preco"><span data-oferta="vezes">12x de</span>&nbsp;<span data-oferta="parcela">R$ 73,06</span></span> <span data-oferta="avista">ou R$ 697 à vista</span>.
+    </p>
+    <div class="final__acao" data-reveal data-reveal-delay="0.08">
+      <a class="btn btn--primario btn--grande final__botao" href="#oferta" data-magnetico="0.22">
+        <span class="btn__rotulo">Quero construir meu sistema</span>
+        <span class="btn__seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+      </a>
+    </div>
+    <ul class="garantias final__garantias" aria-label="Garantias" data-reveal data-reveal-delay="0.16">
+      <li><span data-oferta="garantia">7 dias de garantia</span></li>
+      <li>Acesso imediato</li>
+      <li><span data-oferta="acesso">1 ano de acesso</span></li>
+    </ul>
+  </div>
+</section>
+
+    </main>
+    <!-- RODAPÉ · discreto (sem palavra gigante da marca): logo, links legais e de suporte, o aviso de
+     responsabilidade e a identificação da empresa (como no rodapé do WDF). -->
+<footer class="rodape" id="rodape">
+  <div class="container">
+    <div class="rodape__topo">
+      <a class="rodape__marca" href="#abertura" aria-label="Upward Academy, voltar ao topo">
+        <img src="/dds/assets/upward-logo-DHPXwi1Z.svg" alt="" width="112" height="24" loading="lazy" decoding="async" />
+      </a>
+      <nav class="rodape__links" aria-label="Rodapé">
+        <a href="https://app.upwardacademy.com.br/termos" target="_blank" rel="noopener">Termos de uso</a>
+        <a href="https://app.upwardacademy.com.br/privacidade" target="_blank" rel="noopener">Política de privacidade</a>
+        <a href="https://api.whatsapp.com/send?phone=5588992349401&amp;text=Ol%C3%A1%2C%20preciso%20de%20suporte%20com%20o%20curso%20Desenvolvimento%20de%20Sistemas%20com%20IA" target="_blank" rel="noopener">Suporte</a>
+      </nav>
+      <a class="rodape__subir" href="#abertura">
+        <span>Voltar ao topo</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+      </a>
+    </div>
+    <p class="rodape__aviso">
+      Aviso de responsabilidade: o curso não promete ganho. Os valores citados na página são o que o Tom cobra dos clientes
+      dele. Diferentes pessoas obtêm diferentes resultados, que dependem da dedicação e da prática de cada uma.
+    </p>
+    <div class="rodape__base">
+      <p class="rodape__curso">Desenvolvimento de Sistemas com IA <span>· com Tom Melo</span></p>
+      <p class="rodape__direitos">© 2026 Upward Academy. Todos os direitos reservados.<span>Upward Creative Academy Ltda · CNPJ 41.911.178/0001-71 · Av. Monsenhor Melo, 569, Mucambo/CE</span></p>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

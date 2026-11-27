@@ -1,0 +1,1 @@
+import{d as e,l as t}from"./motion-DTtLhP7r.js";function n(n){if(t)return;let r=n.querySelector(`.final__horizonte`),i=n.querySelector(`.final__ceu`);if(!r)return;let a=e.timeline({scrollTrigger:{trigger:n,start:`top bottom`,end:`bottom bottom`,scrub:.9}});a.fromTo(r,{y:200},{y:0,ease:`none`},0),i&&a.fromTo(i,{autoAlpha:.25},{autoAlpha:1,ease:`none`},0)}export{n as default};

@@ -1,4 +1,4 @@
-  <!-- RASTREIO intl/es (27/11/2026): só o Pixel próprio deste idioma (PageView e clique para o checkout). Nenhum outro rastreio. -->
+  <!-- RASTREIO intl/es (27/11/2026): só o Pixel próprio deste idioma (PageView; no clique para o checkout, InitiateCheckout + CliqueCheckout). Nenhum outro rastreio. -->
   <script>
     (function () {
       var PIXEL = '1158438137073176';
@@ -13,9 +13,15 @@
         fbq('track', 'PageView');
       }
       if (window.requestIdleCallback) requestIdleCallback(load); else setTimeout(load, 3000);
+      // 28/11/2026: o InitiateCheckout sai daqui, no clique para a Hotmart (como no checkout do Asaas, onde a nossa página
+      // manda o IC). Aqui o Pixel já tem o clique do anúncio; a cópia que a Hotmart manda ao abrir o checkout chega sem ele
+      // no 1º acesso e não aparecia no gerenciador. A compra continua vindo da Hotmart. Conta 1x por página.
+      var icEnviado = false;
       document.addEventListener('click', function (e) {
         var a = e.target && e.target.closest && e.target.closest('a[data-checkout]');
-        if (a && window.fbq) fbq('trackCustom', 'CliqueCheckout', { value: 27, currency: 'USD' });
+        if (!a || !window.fbq) return;
+        if (!icEnviado) { icEnviado = true; fbq('track', 'InitiateCheckout', { value: 27, currency: 'USD' }); }
+        fbq('trackCustom', 'CliqueCheckout', { value: 27, currency: 'USD' });
       }, true);
     })();
   </script>
